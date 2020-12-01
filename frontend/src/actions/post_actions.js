@@ -23,12 +23,11 @@ export const clearPostErrors = () => ({
 
 export const createPost = post => dispatch => {
     try {
-      const signedUrl = videoUpload(post.url);
-      const postData = {
-        title: post.title,
-        url: signedUrl
-      }
-      return APIUtil.createPost(postData).then(
+      const signedUrl = videoUpload(post.file);
+      post.url = signedUrl;
+
+      debugger
+      return APIUtil.createPost(post).then(
           post => dispatch(receivePost(post)),
           err => receiveErrors(err.response.data)
         )
