@@ -6,9 +6,30 @@ const passport = require("passport");
 const validatePostInput = require("../../validations/posts");
 const Post = require("../../models/Post");
 
-router.get("/tests", (req, res) => {
-    res.json({msg: "This is posts route"})
+router.get("/", (req, res) => {
+    Post
+    .find()
+    .sort({date: -1})
+    .then( post => res.json(post))
+    .catch(err => res.status(400).json(err));
 })
+
+router.get("/user/:user_id", (req, res) => {
+    Post
+    .find({ user: req.params.user_id })
+    .then(posts => res.json(posts))
+    .catch(err => res.status(400).json(err))
+})
+
+router.get("/user/:id", (req, res) => {
+    Post
+    .findById(req.params.id)
+    .then(post => res.json(post))
+    .catch(err => res.status(400).json(err))
+})
+
+
+
 
 router.post("/",
 passport.authenticate("jwt", { session: false }),
@@ -28,5 +49,7 @@ passport.authenticate("jwt", { session: false }),
 
     newPost.save().then(post => res.json(post));
 })
+
+
 
 module.exports = router;
