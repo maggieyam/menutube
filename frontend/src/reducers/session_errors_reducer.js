@@ -1,6 +1,5 @@
 import { RECEIVE_SESSION_ERRORS,
-         CLEAR_SESSION_ERRORS,
-         RECEIVE_USER_LOGIN } from '../actions/session_actions';
+         CLEAR_SESSION_ERRORS} from '../actions/session_actions';
 
 // Displaying errors works well as key-value pairs
 export default (state = {}, action) => {
@@ -9,8 +8,6 @@ export default (state = {}, action) => {
     case RECEIVE_SESSION_ERRORS:
       return action.errors;
     case CLEAR_SESSION_ERRORS:
-      return {};
-    case RECEIVE_USER_LOGIN:
       return {};
     default:
       return state;

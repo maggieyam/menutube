@@ -1,4 +1,5 @@
-import { RECEIVE_USER_LOGOUT } from '../actions/session_actions';
+import { RECEIVE_USER_LOGOUT,
+         RECEIVE_CURRENT_USER  } from '../actions/session_actions';
 
 const defaultState = { 
   isAuthenticated: false,
@@ -13,6 +14,11 @@ export default (state = defaultState, action) => {
         isAuthenticated: false,
         userInfo: null
       }
+    case RECEIVE_CURRENT_USER:
+        return {
+          isAuthenticated: !!action.currentUser,
+          userInfo: action.currentUser
+        }
     default:
       return state;
   }
