@@ -11,6 +11,7 @@ class SignupForm extends React.Component {
       password: "",
       password2: ""
     }
+    this.errrors = this.errors.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -18,6 +19,13 @@ class SignupForm extends React.Component {
     return e => {
       this.setState({[field]: e.currentTarget.value})
     }
+  }
+
+  errors(field){
+    if (this.props.errors[field]) {
+      return <p className="session-error">{this.props.error[field]}</p>
+    }
+    return 
   }
 
   handleSubmit(){
@@ -36,6 +44,7 @@ class SignupForm extends React.Component {
               value={this.state.username}
               onChange={this.changeField("username")}
           />
+          {this.errors("username")}
 
           <label htmlFor="signup-email">Email</label>
           <input 
@@ -44,7 +53,8 @@ class SignupForm extends React.Component {
               value={this.state.email}
               onChange={this.changeField("email")}
           />
-          
+          {this.errors("email")}
+
           <label htmlFor="signup-password">Password</label>
           <input 
               type="password" 
@@ -52,6 +62,7 @@ class SignupForm extends React.Component {
               value={this.state.password}
               onChange={this.changeField("password")}
           />
+          {this.errors("password")}
 
           <label htmlFor="signup-password2">Confirm Password</label>
           <input 
@@ -60,6 +71,7 @@ class SignupForm extends React.Component {
               value={this.state.password2}
               onChange={this.changeField("password2")}
           />
+          {this.errors("password2")}
 
           <input type="submit" value="Sign Up"/>
         </form>
