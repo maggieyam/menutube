@@ -25,8 +25,9 @@ export const uploadVideo = fileName => {
       throw err;
     }
     delete params["Body"];
-    return s3.getSignedUrl('getObject', params);
+    console.log(s3.getSignedUrl('getObject', params));
     
   });
 };
+
 

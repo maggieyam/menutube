@@ -1,5 +1,6 @@
 import * as APIUtil from './post_actions';
 import { receivePostErrors } from "./session_actions";
+import { videoUpload } from "./"
 
 export const RECEIVE_POST = 'RECEIVE_POST';
 export const RECEIVE_POST_ERRORS = 'RECEIVE_POST_ERRORS';
@@ -20,11 +21,21 @@ export const clearPostErrors = () => ({
 })
 
 
-export const createPost = post => dispatch => (
- 
-    APIUtil.createPost(post).then(
-      post => dispatch(receivePost(post)),
-      err => receiveErrors(err.response.data)
-    )
-)
+export const createPost = post => dispatch => {
+    try {
+      const signedUrl = videoUpload(post.url);
+      const postData = {
+        title: post.title,
+        url: signedUrl
+      }
+      return APIUtil.createPost(postData).then(
+          post => dispatch(receivePost(post)),
+          err => receiveErrors(err.response.data)
+        )
+      
+    }
+    catch(err) {
+      console.log(err)
+    }
+}
 
