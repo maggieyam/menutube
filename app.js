@@ -2,11 +2,19 @@ const mongoose = require ('mongoose');
 const express = require ('express');
 const app = express ();
 const db = require ('./config/keys').mongoURI;
+const path = require('path');
 const User = require ('./model/User');
 const bcrypt = require ('bcryptjs');
 const bodyParser = require ('body-parser');
 const users = require ('./routes/api/users');
 const passport = require ('passport');
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static('frontend/build'));
+  app.get('/', (req, res) => {
+    res.sendFile(path.resolve(__dirname, 'frontend', 'build', 'index.html'));
+  })
+}
 
 mongoose
   .connect (db, {useNewUrlParser: true, useUnifiedTopology: true})
