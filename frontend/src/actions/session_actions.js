@@ -9,13 +9,13 @@ export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const CLEAR_SESSION_ERRORS = 'CLEAR_SESSION_ERRORS';
 
 
-export const receiveErrors = errors => ({
+export const receiveSessionErrors = errors => ({
   type: RECEIVE_SESSION_ERRORS,
   errors
 })
 
 // to clear errors if user leaves the session form
-export const clearErrors = () => ({
+export const clearSessionErrors = () => ({
   type: CLEAR_SESSION_ERRORS
 })
 
@@ -37,10 +37,10 @@ export const loginUser = user => dispatch => (
     const decoded = jwt_decode(token);
     dispatch(receiveCurrentUser(decoded));
     dispatch(closeModal());
-    dispatch(clearErrors());
+    dispatch(clearSessionErrors());
   })
   .catch(err => {
-    dispatch(receiveErrors(err.response.data));
+    dispatch(receiveSessionErrors(err.response.data));
   })
 )
 
@@ -48,7 +48,7 @@ export const signupUser = user => dispatch => (
   APIUtil.signup(user).then(() => {
     dispatch(loginUser(user))
   }, err => {
-    dispatch(receiveErrors(err.response.data))
+    dispatch(receiveSessionErrors(err.response.data))
   }
   )
 );
