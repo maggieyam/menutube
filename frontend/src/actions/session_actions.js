@@ -1,4 +1,6 @@
 import * as APIUtil from '../util/session_api_util';
+// on a successful login close the modal form
+import { closeModal } from '../actions/modal_actions';
 
 export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
 export const RECEIVE_USER_LOGOUT = 'RECEIVE_USER_LOGOUT';
@@ -33,6 +35,7 @@ export const loginUser = user => dispatch => (
     APIUtil.setAuthToken(token);
     const decoded = jwt_decode(token);
     dispatch(receiveCurrentUser(decoded));
+    dispatch(closeModal());
     dispatch(clearErrors());
   })
   .catch(err => {
