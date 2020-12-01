@@ -29,9 +29,7 @@ router.get("/user/:id", (req, res) => {
 })
 
 
-
-
-router.post("/",
+router.post("/create",
 passport.authenticate("jwt", { session: false }),
 (req, res) => {
     const { isValid, errors } = validatePostInput(req.body);
@@ -40,7 +38,6 @@ passport.authenticate("jwt", { session: false }),
         return res.status(400).json(errors);
     }
 
-    // not sure
     const newPost = new Post({
         user: req.user.id,
         title: req.body.title,
@@ -49,6 +46,21 @@ passport.authenticate("jwt", { session: false }),
 
     newPost.save().then(post => res.json(post));
 })
+
+
+// router.patch("/update/:post_id", 
+// passport.authenticate("jwt"), {session: false}),
+// (req, res) => {
+//     if(!isValid) {
+//         return res.status(400).json(errors);
+//     }
+
+//     const post = Post
+//                 .findById(req.params.find)
+//                 .then(post => res.json(post))
+//                 .catch(err => res.status(400).json(err))
+// }
+
 
 
 

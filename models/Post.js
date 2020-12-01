@@ -1,4 +1,6 @@
 const mongoose = require('mongoose');
+const User = require('./User')
+
 const Schema = mongoose.Schema;
 
 const PostSchema = new Schema({
@@ -18,7 +20,10 @@ const PostSchema = new Schema({
         type: Date,
         default: Date.now  
     }
+
 });
+
+// PostSchema.belongsTo('User');
 
 const Post = mongoose.model('post', PostSchema);
 
