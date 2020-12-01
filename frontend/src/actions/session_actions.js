@@ -1,4 +1,5 @@
 import * as APIUtil from '../util/session_api_util';
+import jwt_decode from 'jwt-decode';
 // on a successful login close the modal form
 import { closeModal } from '../actions/modal_actions';
 
@@ -44,7 +45,7 @@ export const loginUser = user => dispatch => (
 )
 
 export const signupUser = user => dispatch => (
-  API.signup(user).then(() => {
+  APIUtil.signup(user).then(() => {
     dispatch(loginUser(user))
   }, err => {
     dispatch(receiveErrors(err.response.data))
