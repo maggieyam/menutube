@@ -1,9 +1,13 @@
-const mongoose = require('mongoose');
+const mongoose = require ('mongoose');
+const express = require ('express');
+const app = express ();
+const db = require ('./config/keys').mongoURI;
 const path = require('path');
-
-const express = require("express");
-const app = express();
-const db = require('./config/keys').mongoURI;
+const User = require ('./model/User');
+const bcrypt = require ('bcryptjs');
+const bodyParser = require ('body-parser');
+const users = require ('./routes/api/users');
+const passport = require ('passport');
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build'));
@@ -13,19 +17,18 @@ if (process.env.NODE_ENV === 'production') {
 }
 
 mongoose
-  .connect(db, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log("Connected to MongoDB successfully"))
-  .catch(err => console.log(err));
+  .connect (db, {useNewUrlParser: true, useUnifiedTopology: true})
+  .then (() => console.log ('Connected to MongoDB successfully'))
+  .catch (err => console.log (err));
 
-app.get("/", (req, res) => res.send("Hello World"));
+app.use (bodyParser.urlencoded ({extended: false}));
+app.use (bodyParser.json ());
+
+app.use ('/api/users', users);
+
+app.use (passport.initialize ());
+require ('./config/passport') (passport);
 
 const port = process.env.PORT || 5000;
 
-app.listen(port, () => console.log(`Server is running on port ${port}`));
-
-const users = require("./routes/api/users");
-app.use("/api/users", users);
-
-const bodyParser = require('body-parser');
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.listen (port, () => console.log (`Server is running on port ${port}`));
