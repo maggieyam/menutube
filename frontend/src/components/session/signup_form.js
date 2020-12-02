@@ -11,7 +11,7 @@ class SignupForm extends React.Component {
       password: "",
       password2: ""
     }
-    this.errrors = this.errors.bind(this);
+    this.errors = this.errors.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
@@ -23,7 +23,7 @@ class SignupForm extends React.Component {
 
   errors(field){
     if (this.props.errors[field]) {
-      return <p className="session-error">{this.props.error[field]}</p>
+      return <p className="session-error">{this.props.errors[field]}</p>
     }
     return 
   }
