@@ -1,3 +1,4 @@
+const { hash } = require('bcryptjs');
 const mongoose = require('mongoose');
 const Post = require('./Post')
 
@@ -8,11 +9,21 @@ const TagSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'posts',
     },
-    title: {
-        type: String,
-        required: true,
+
+    dietary:{
+        type: Map,
+        of: Number
     },
 
+    nutrition: {
+        type: Map,
+        of: Number
+    },
+    
+    ingredients: {
+        type: Map,
+        of: String      
+    }
 });
 
 // PostSchema.belongsTo('User');
