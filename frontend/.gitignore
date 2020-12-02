@@ -5,8 +5,8 @@
 /node_modules
 /.pnp
 .pnp.js
-/config/aws_dev.js
-/config/aws_prod.js
+/src/config/aws_dev.js
+/src/config/aws_prod.js
 
 # testing
 /coverage
