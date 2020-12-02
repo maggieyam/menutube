@@ -31,6 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   ReactDOM.render(<Root store={store} />, root);
 
+  // START TESTING
   window.store = store;
   window.dispatch = store.dispatch;
   window.openModal = openModal;
@@ -39,5 +40,6 @@ document.addEventListener("DOMContentLoaded", () => {
   window.fetchPosts = fetchPosts;
   window.fetchUserPosts = fetchUserPosts;
   window.logout = logout;
+  // END TESTING
 })
 
