@@ -65,12 +65,12 @@ class CreatePostForm extends React.Component {
         type="text" 
         value={this.state.title}
         onChange={this.changeTitle}/>  
-        {this.props.errors("title")}
+        {this.errors("title")}
 
         <input 
         type="file" 
         ref={this.fileLoader}/>
-        {this.props.errors("")} 
+        {this.errors("")} 
 
 
         <input type="submit" value="Submit Video" />

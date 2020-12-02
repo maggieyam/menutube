@@ -13,8 +13,8 @@ const Protected = ({component: Component, loggedIn, ...rest}) => (
   />
 );
 
-const mStP = state => {
-  state.session.isAuthenticated
-}
+const mStP = state => ({
+  loggedIn: state.session.isAuthenticated
+})
 
 export const ProtectedRoute = withRouter(connect(mStP)(Protected));
