@@ -6,8 +6,7 @@ import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 import { openModal, closeModal } from './actions/modal_actions';
-import { fetchPost, fetchPosts, createPost } from './actions/post_actions';
-import { fetchUserPosts } from './util/post_api_util';
+import { fetchPost, fetchUserPosts, fetchPosts, createPost } from './actions/post_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;

@@ -31,7 +31,7 @@ class CreatePostForm extends React.Component {
 
   errors(field){
     if (this.props.errors[field]) {
-      return <p className="session-error">{this.props.error[field]}</p>
+      return <p className="session-error">{this.props.errors[field]}</p>
     }
     return 
   }
