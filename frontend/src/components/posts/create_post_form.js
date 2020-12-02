@@ -18,6 +18,7 @@ class CreatePostForm extends React.Component {
     super(props);
     this.state = { title: "" }
     this.changeTitle = this.changeTitle.bind(this);
+    this.errors = this.errors.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.fileLoader = React.createRef();
   }
@@ -28,16 +29,27 @@ class CreatePostForm extends React.Component {
     this.setState({title: e.currentTarget.value});
   }
 
+  errors(field){
+    if (this.props.errors[field]) {
+      return <p className="session-error">{this.props.error[field]}</p>
+    }
+    return 
+  }
+
   handleSubmit(e){
     e.preventDefault();
+
     const video = this.fileLoader.current.files[0]
+
     uploadFile(video, config).then(
       data => {
+
         const post = {
           title: this.state.title,
           url: data.location
         }
         this.createPost(post);
+
       }
     ).catch(err => console.log(err))
   }
@@ -46,15 +58,20 @@ class CreatePostForm extends React.Component {
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-       <input 
+      
+      <label htmlFor="post-title">Enter a title:</label>
+       <input
+        id="post-title" 
         type="text" 
         value={this.state.title}
         onChange={this.changeTitle}/>  
-
+        {this.props.errors("title")}
 
         <input 
         type="file" 
-        ref={this.fileLoader}/>  
+        ref={this.fileLoader}/>
+        {this.props.errors("")} 
+
 
         <input type="submit" value="Submit Video" />
       </form>    
