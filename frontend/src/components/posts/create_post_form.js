@@ -48,7 +48,7 @@ class CreatePostForm extends React.Component {
           title: this.state.title,
           url: data.location
         }
-        this.createPost(post);
+        this.props.createPost(post);
 
       }
     ).catch(err => console.log(err))

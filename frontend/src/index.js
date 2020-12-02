@@ -6,7 +6,8 @@ import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 import { openModal, closeModal } from './actions/modal_actions';
-import { fetchPosts, fetchPost, createPost } from './actions/post_actions';
+import { fetchPost, fetchPosts, createPost } from './actions/post_actions';
+import { fetchUserPosts } from './util/post_api_util';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -36,7 +37,8 @@ document.addEventListener("DOMContentLoaded", () => {
   window.openModal = openModal;
   window.closeModal = closeModal;
   window.createPost = createPost;
-  window.fetchPost = fetchPost;
   window.fetchPosts = fetchPosts;
+  window.fetchUserPosts = fetchUserPosts;
+  window.logout = logout;
 })
 

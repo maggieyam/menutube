@@ -1,5 +1,4 @@
-if (process.env.NODE_ENV === 'production') {
-  module.exports = require('./keys_prod');
-} else {
-  module.exports = require('./keys_dev');
+module.exports = {
+  mongoURI: 'mongodb+srv://lavafish:M3GyJD8AsIZR9lAq@cluster0.2k6b5.mongodb.net/menutube?retryWrites=true&w=majority',
+  secretOrKey: "secret"       //Make sure this is your own unique string
 }

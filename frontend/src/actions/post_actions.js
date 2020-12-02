@@ -1,4 +1,4 @@
-import * as APIUtil from './post_actions';
+import * as APIUtil from '../util/post_api_util';
 
 export const RECEIVE_POST = 'RECEIVE_POST';
 export const RECEIVE_POSTS = 'RECEIVE_POSTS';
@@ -37,7 +37,7 @@ export const fetchPosts = () => dispatch => {
   return APIUtil.fetchPosts().then(
     posts => dispatch(receivePosts(posts))
   )
- }
+  }
 
 export const fetchPost = postId => dispatch => (
   APIUtil.fetchPost(postId).then(
