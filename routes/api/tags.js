@@ -1,6 +1,6 @@
 const express = require("express");
 const Post = require("../../models/Post");
-const Tag = require("../../models/Tags");
+const Tag = require("../../models/Tag");
 const router = express.Router();
 
 router.get('/test', (req, res) => 
@@ -16,8 +16,9 @@ router.get("/post/:post_id", (req, res) => {
 
 
 router.post("/create", (req, res) => {
+   
     const newTag = new Tag({
-        post: req.post.id,
+        post: req.params.id,
         dietary: req.body.dietary,
         nutrition: req.body.nutrition,
         ingredients: req.body.ingredients

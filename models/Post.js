@@ -19,12 +19,13 @@ const PostSchema = new Schema({
     date: {
         type: Date,
         default: Date.now  
-    }
+    },
+    
 
 });
 
 // PostSchema.belongsTo('User');
 
-const Post = mongoose.model('post', PostSchema);
+const Post = mongoose.model('Post', PostSchema);
 
 module.exports = Post;
