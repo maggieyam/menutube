@@ -5,11 +5,16 @@ export const createPost = postData => {
 }
 
 export const fetchPost = postId => {
-  return axios.post(`/api/posts/${postId}`);
+  return axios.get(`/api/posts/${postId}`);
 }
 
 export const fetchPosts = () => {
-  return axios.post('/api/posts');
+  return axios.get('/api/posts/');
+}
+
+export const fetchUserPosts = userId => {
+  debugger
+  return axios.get(`api/posts/user/${userId}`);
 }
 
 

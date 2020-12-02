@@ -6,7 +6,7 @@ import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 import { openModal, closeModal } from './actions/modal_actions';
-import { fetchPosts, fetchPost, createPost } from './actions/post_actions';
+import { fetchPost, fetchUserPosts, fetchPosts, createPost } from './actions/post_actions';
 
 document.addEventListener("DOMContentLoaded", () => {
   let store;
@@ -31,12 +31,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   ReactDOM.render(<Root store={store} />, root);
 
+  // START TESTING
   window.store = store;
   window.dispatch = store.dispatch;
   window.openModal = openModal;
   window.closeModal = closeModal;
   window.createPost = createPost;
-  window.fetchPost = fetchPost;
   window.fetchPosts = fetchPosts;
+  window.fetchUserPosts = fetchUserPosts;
+  window.logout = logout;
+  // END TESTING
 })
 

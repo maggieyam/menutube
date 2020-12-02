@@ -1,4 +1,4 @@
-import * as APIUtil from './post_actions';
+import * as APIUtil from '../util/post_api_util';
 
 export const RECEIVE_POST = 'RECEIVE_POST';
 export const RECEIVE_POSTS = 'RECEIVE_POSTS';
@@ -28,20 +28,28 @@ export const clearPostErrors = () => ({
 
 export const createPost = post => dispatch => (
     APIUtil.createPost(post).then(
-        post => dispatch(receivePost(post)),
-        err => receivePostErrors(err.response.data)
-      )
+      post => dispatch(receivePost(post)),
+      err => {
+        debugger
+        dispatch(receivePostErrors(err.response.data))}
+    )
 )
 
 export const fetchPosts = () => dispatch => {
   return APIUtil.fetchPosts().then(
-    posts => dispatch(receivePosts(posts))
+    posts => dispatch(receivePosts(posts.data))
   )
- }
+  }
+
+export const fetchUserPosts = userId => dispatch => {
+  return APIUtil.fetchUserPosts(userId).then(
+    posts => dispatch(receivePosts(posts.data))
+  )
+}
 
 export const fetchPost = postId => dispatch => (
   APIUtil.fetchPost(postId).then(
-    post => dispatch(receivePost(post))
+    post => dispatch(receivePost(post.data))
   )
 )
     
