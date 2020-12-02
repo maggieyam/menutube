@@ -21,7 +21,7 @@ router.get("/user/:user_id", (req, res) => {
     .catch(err => res.status(400).json(err))
 })
 
-router.get("/user/:id", (req, res) => {
+router.get("/:id", (req, res) => {
     Post
     .findById(req.params.id)
     .then(post => res.json(post))
