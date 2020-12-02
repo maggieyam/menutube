@@ -15,8 +15,6 @@ const TagSchema = new Schema({
 
 });
 
-// PostSchema.belongsTo('User');
-
 const Tag = mongoose.model('tag', TagSchema);
 
 module.exports = Tag;
