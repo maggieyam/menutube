@@ -1,4 +1,6 @@
 import React from 'react';
+import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import Loader from 'react-loader-spinner';
 import { uploadFile } from 'react-s3';
 const awsDev = require('../../config/aws_dev');
 // import awsProd from '../../config/aws_dev';
@@ -20,6 +22,7 @@ class CreatePostForm extends React.Component {
     this.changeTitle = this.changeTitle.bind(this);
     this.errors = this.errors.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.loaderSpinner = this.loaderSpinner.bind(this);
     this.fileLoader = React.createRef();
   }
 
@@ -40,6 +43,7 @@ class CreatePostForm extends React.Component {
     e.preventDefault();
 
     const video = this.fileLoader.current.files[0]
+    this.props.loadingOn();
 
     uploadFile(video, config).then(
       data => {
@@ -49,17 +53,28 @@ class CreatePostForm extends React.Component {
           url: data.location
         }
         this.props.createPost(post);
-        
       }
 
-    ).catch(err => console.log(err))
+    ).catch(err => {
+      this.props.loadingOff()
+      console.log(err)
+    })
+  }
+
+  loaderSpinner(){
+    if (this.props.loading){
+      return (
+        <Loader type="Grid" color="#00BFFF" height={80} width={80} />          
+      )
+    }
+    return
   }
 
 
   render() {
     return (
       <form onSubmit={this.handleSubmit}>
-      
+        {this.loaderSpinner()}
       <label htmlFor="post-title">Enter a title:</label>
        <input
         id="post-title" 
