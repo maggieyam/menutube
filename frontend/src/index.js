@@ -1,17 +1,42 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import Root from './components/root';
+import configureStore from './store/store';
+import jwt_decode from 'jwt-decode';
+import { setAuthToken } from './util/session_api_util';
+import { logout } from './actions/session_actions';
+import { openModal, closeModal } from './actions/modal_actions';
+import { fetchPosts, fetchPost, createPost } from './actions/post_actions';
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+document.addEventListener("DOMContentLoaded", () => {
+  let store;
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+  if (localStorage.jwtToken) {
+    setAuthToken(localStorage.jwtToken);
+    const userInfo = jwt_decode(localStorage.jwtToken);
+    const preloadedState = { session: { isAuthenticated: true, userInfo}};
+    store = configureStore(preloadedState);
+    const now = Date.now() / 1000;
+
+    if (userInfo.exp < now) {
+      store.dispatch(logout());
+      // should we immediately redirect to log in?
+    }
+
+  } else {
+    store = configureStore({});
+  }
+
+  const root = document.getElementById('root');
+
+  ReactDOM.render(<Root store={store} />, root);
+
+  window.store = store;
+  window.dispatch = store.dispatch;
+  window.openModal = openModal;
+  window.closeModal = closeModal;
+  window.createPost = createPost;
+  window.fetchPost = fetchPost;
+  window.fetchPosts = fetchPosts;
+})
+
