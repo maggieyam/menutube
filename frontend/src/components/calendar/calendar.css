@@ -1,0 +1,15 @@
+div.slot {
+  border: 1px solid black;
+  height: 60px;
+}
+
+ul.calendar{
+  width: 20%;
+}
+
+div.slot > p {
+  display: inline;
+}
+
+
+
