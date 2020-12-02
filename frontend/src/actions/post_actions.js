@@ -27,9 +27,21 @@ export const clearPostErrors = () => ({
 
 
 export const createPost = post => dispatch => (
-      APIUtil.createPost(post).then(
-          post => dispatch(receivePost(post)),
-          err => receivePostErrors(err.response.data)
-        )
+    APIUtil.createPost(post).then(
+        post => dispatch(receivePost(post)),
+        err => receivePostErrors(err.response.data)
+      )
+)
+
+export const fetchPosts = () => dispatch => (
+  APIUtil.fetchPosts().then(
+    posts => dispatch(receivePosts(posts))
+  )
+)
+
+export const fetchPost = postId => dispatch => (
+  APIUtil.fetchPost(postId).then(
+    post => dispatch(receivePost(post))
+  )
 )
     
