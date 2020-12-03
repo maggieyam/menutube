@@ -1,9 +1,11 @@
 import React from 'react';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
+import 'semantic-ui-css/semantic.min.css'
 import Loader from 'react-loader-spinner';
 import { uploadFile } from 'react-s3';
+import { Dropdown } from 'semantic-ui-react';
 const awsDev = require('../../config/aws_dev');
-// import awsProd from '../../config/aws_dev';
+// import awsProd from '../../config/aws_dev'cp;
 
 
 const config = {
@@ -12,6 +14,25 @@ const config = {
   accessKeyId: awsDev.ID,
   secretAccessKey: awsDev.SECRET
 }
+
+    const options =  [{ key: 'angular', text: 'Angular', value: 'angular' },
+  { key: 'css', text: 'CSS', value: 'css' },
+  { key: 'design', text: 'Graphic Design', value: 'design' },
+  { key: 'ember', text: 'Ember', value: 'ember' },
+  { key: 'html', text: 'HTML', value: 'html' },
+  { key: 'ia', text: 'Information Architecture', value: 'ia' },
+  { key: 'javascript', text: 'Javascript', value: 'javascript' },
+  { key: 'mech', text: 'Mechanical Engineering', value: 'mech' },
+  { key: 'meteor', text: 'Meteor', value: 'meteor' },
+  { key: 'node', text: 'NodeJS', value: 'node' },
+  { key: 'plumbing', text: 'Plumbing', value: 'plumbing' },
+  { key: 'python', text: 'Python', value: 'python' },
+  { key: 'rails', text: 'Rails', value: 'rails' },
+  { key: 'react', text: 'React', value: 'react' },
+  { key: 'repair', text: 'Kitchen Repair', value: 'repair' },
+  { key: 'ruby', text: 'Ruby', value: 'ruby' },
+  { key: 'ui', text: 'UI Design', value: 'ui' },
+  { key: 'ux', text: 'User Experience', value: 'ux' }];
 
 
 class CreatePostForm extends React.Component {
@@ -24,6 +45,11 @@ class CreatePostForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.loaderSpinner = this.loaderSpinner.bind(this);
     this.fileLoader = React.createRef();
+    this.handleChange = this.handleChange.bind(this);
+  }
+
+  componentDidMount(){
+    this.props.fetchTags();  
   }
 
   
@@ -39,6 +65,10 @@ class CreatePostForm extends React.Component {
     return 
   }
 
+  handleChange(e, data){
+    this.setState({tags: data.value })
+  }
+
   handleSubmit(e){
     e.preventDefault();
 
@@ -52,7 +82,7 @@ class CreatePostForm extends React.Component {
           title: this.state.title,
           url: data.location
         }
-        this.props.createPost(post);
+        this.props.createPost(post).then(this.props.loadingOff())
       }
 
     ).catch(err => {
@@ -72,6 +102,7 @@ class CreatePostForm extends React.Component {
 
 
   render() {
+    debugger
     return (
       <form onSubmit={this.handleSubmit}>
         {this.loaderSpinner()}
@@ -88,6 +119,16 @@ class CreatePostForm extends React.Component {
         ref={this.fileLoader}/>
         {this.errors("")} 
 
+
+        <Dropdown 
+          placeholder='Select'
+          fluid
+          multiple
+          search
+          selection
+          options= {options}
+          onChange={this.handleChange}
+        />
 
         <input type="submit" value="Submit Video" />
       </form>    
