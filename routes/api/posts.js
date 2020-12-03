@@ -112,7 +112,7 @@ passport.authenticate("jwt", { session: false }),
 
 router.delete('/delete', (req, res) => {
     Post
-    .deleteMany(res.body)
+    .deleteMany(res.query)
     .then(posts => res.json(posts))
     .catch(err => res.status(400).json(err))
 
