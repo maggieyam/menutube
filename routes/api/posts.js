@@ -24,7 +24,7 @@ router.get("/", (req, res) => {
             users.forEach( user => {
                 userResponse[user._id] = user;
             });
-            res.json({posts: postResponse, user: userResponse}); 
+            res.json({posts: postResponse, users: userResponse}); 
         })
     })     
     .catch(err => res.status(400).json(err));
