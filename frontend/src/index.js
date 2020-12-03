@@ -6,7 +6,7 @@ import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 import { openModal, closeModal } from './actions/modal_actions';
-import { fetchPosts, deletePosts } from './actions/post_actions';
+import { fetchPosts } from './actions/post_actions';
 import { fetchTags } from './actions/tag_actions';
 
 
@@ -41,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
   window.fetchTags = fetchTags;
   window.fetchPosts = fetchPosts;
   window.logout = logout;
-  window.deletePosts = deletePosts;
   // END TESTING
 })
 
