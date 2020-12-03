@@ -3,7 +3,7 @@ import "./profile.css";
 class Profile extends React.Component {
   render() {
     return (
-      <div className='profile-container'>
+      <div className="profile-container">
         <div>
           <div>
             <img
@@ -18,6 +18,8 @@ class Profile extends React.Component {
               <h6>40 Posts</h6>
             </div>
             <div className="user-post-container">
+              {" "}
+              {/** This will contain videos for Users need route */}
               <img
                 className="item"
                 src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8cGl6emF8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"

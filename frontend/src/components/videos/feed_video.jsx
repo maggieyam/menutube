@@ -55,16 +55,15 @@ export default class VideoPlayer extends React.Component {
 
   render() {
     const overlay = this.state.playing ? (
-      null
-      // <div className="playing-overlay">
-      //   <button
-      //     className="save-btn"
-      //     // onClick={this.state.saved ? this.unsaveVid : this.saveVid}
-      //   >
-      //     save{/* {this.state.saved ? "u" : "s"} */}
-      //   </button>
-      // </div>
-    ) : (
+      <div className="playing-overlay">
+        <button
+          className="save-btn"
+          // onClick={this.state.saved ? this.unsaveVid : this.saveVid}
+        >
+          save{/* {this.state.saved ? "u" : "s"} */}
+        </button>
+      </div>
+      ) : (
       <div className="paused-overlay">
         <p>{this.props.title}</p>
         <p>{this.props.user}</p>
@@ -78,6 +77,8 @@ export default class VideoPlayer extends React.Component {
         onMouseLeave={this.pauseVid}
       >
         {overlay}
+        {/* <video className="react-player">
+        </video> */}
         <ReactPlayer
           className="react-player"
           ref={this.vidRef}
