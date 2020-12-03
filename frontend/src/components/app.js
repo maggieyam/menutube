@@ -16,7 +16,7 @@ export default () => (
   <>
     <ModalContainer />
     <NavBarContainer />
-    {/* <Cal /> */}
+    <Cal />
    
     <Route path="/posts/saved" component={SavedContainer}/>
     <Switch>

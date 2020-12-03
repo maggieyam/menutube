@@ -18,21 +18,23 @@ div.slot > button {
   z-index:20;
 }
 
-video {
-  height: 150px;
-  width: 150px;
-  object-fit: cover;
-  border: 1px solid black;
-  display: inline;
-}
-
 ul.calendar {
-  width: 800px;
+  width: 500px;
 }
 
 li {
   display: flex;
-  width: 100%;
+  width: 500px;
+  justify-content: space-between;
+
+}
+
+.dayname{
+  width: 100px;
+}
+
+div.slots{
+  display: flex;
 }
 
 .ui.overlay.left.visible.sidebar {
@@ -43,3 +45,23 @@ li {
 .ui.segment.pushable {
   height: 900px;
 }
+
+.ui.grid{
+  margin-top: 0;
+}
+
+.ui.segment{
+  width: 600px;
+  border: none;
+  box-shadow: none;
+}
+
+.ui.one.column.grid{
+  position: fixed;
+}
+
+.calendar-wrapper {
+  background: #ebebeb;
+  padding: 20px 0;
+}
+

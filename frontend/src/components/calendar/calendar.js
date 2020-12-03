@@ -5,10 +5,12 @@ import "./calendar.css";
 const day = (dayName) => {
   return (
     <li key={dayName}>
-      <h3>{dayName}</h3>
-      <Slot className={`${dayName}-1`} />
-      <Slot className={`${dayName}-2`} />
-      <Slot className={`${dayName}-3`} />
+      <h3 className="dayname">{dayName}</h3>
+      <div className="slots">
+        <Slot className={`${dayName}-1`} />
+        <Slot className={`${dayName}-2`} />
+        <Slot className={`${dayName}-3`} />
+      </div>
     </li>
   );
 };
@@ -21,7 +23,7 @@ export default () => {
           "Sunday",
           "Monday",
           "Tuesday",
-          "Wedndesday",
+          "Wednesday",
           "Thursday",
           "Friday",
           "Saturday",
