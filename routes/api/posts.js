@@ -1,10 +1,10 @@
 const express = require("express");
-
 const router = express.Router();
 const passport = require("passport");
 
 const validatePostInput = require("../../validations/posts");
 const Post = require("../../models/Post");
+const Tag = require("../../models/Tag");
 
 router.get("/", (req, res) => {
     Post
@@ -19,6 +19,13 @@ router.get("/user/:user_id", (req, res) => {
     .find({ user: req.params.user_id })
     .then(posts => res.json(posts))
     .catch(err => res.status(400).json(err))
+})
+
+router.get("/tag/:tag_id", (req, res) => {
+    Post
+    .find({ tag: req.params.tag_id })
+    .then(posts => res.json(posts))
+    .catch(err => res.status.length(400).json(err))
 })
 
 router.get("/:id", (req, res) => {
@@ -38,8 +45,13 @@ passport.authenticate("jwt", { session: false }),
         return res.status(400).json(errors);
     }
 
+
+    debugger
     const newPost = new Post({
         user: req.user.id,
+        nutrition: req.body.nutrition,
+        ingridients: req.body.ingridients,
+        dietaries: req.body.dietaries,
         title: req.body.title,
         url: req.body.url
     })

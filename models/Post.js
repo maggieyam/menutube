@@ -1,13 +1,24 @@
 const mongoose = require('mongoose');
-const User = require('./User')
-
 const Schema = mongoose.Schema;
 
 const PostSchema = new Schema({
+
     user: {
         type: Schema.Types.ObjectId,
-        ref: 'users',
+        ref: 'User',
     },
+    nutrition: [{
+        type: Schema.Types.ObjectId,
+        ref: 'nutrition',
+    }],
+    ingridients: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Ingridients',
+    }],
+    dietaries: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Dietary',
+    }],
     title: {
         type: String,
         required: true,
