@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
 import postsReducer from './posts_reducer';
 import tagsReducer from './tags_reducer';
-// import usersReducer from './users_reducer';
+import usersReducer from './users_reducer';
 
 export default combineReducers({
   posts: postsReducer,
-  tags: tagsReducer
+  tags: tagsReducer,
+  users: usersReducer
 })

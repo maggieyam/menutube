@@ -1,13 +1,11 @@
-// import { RECEIVE_USER } from 'user_actions';
-// // import { RECEIVE_USERS } from 'user_actions';
+import { RECEIVE_POSTS } from '../actions/post_actions';
 
-// export default (state = {}, actions) => {
-//   switch (action.type) {
-//     case RECEIVE_USER:
-//       return state
-//     case RECEIVE_USERS:
-//       return {}
-//     default:
-//       return state;
-//   }
-// }
+export default (state = {}, action ) => {
+  Object.freeze(state);
+    switch(action.type) {
+      case RECEIVE_POSTS:
+        return action.posts.users;
+      default :
+        return state;
+    }
+ }
