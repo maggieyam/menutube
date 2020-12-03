@@ -4,10 +4,15 @@ export const RECEIVE_POST = 'RECEIVE_POST';
 export const RECEIVE_POSTS = 'RECEIVE_POSTS';
 export const RECEIVE_POST_ERRORS = 'RECEIVE_POST_ERRORS';
 export const CLEAR_POST_ERRORS = 'CLEAR_POST_ERRORS';
-
+export const RECEIVE_NEW_POST = 'RECEIVE_NEW_POST';
 
 export const receivePost = post => ({
   type: RECEIVE_POST,
+  post
+})
+
+export const receiveNewPost = post => ({
+  type: RECEIVE_NEW_POST,
   post
 })
 
@@ -28,7 +33,7 @@ export const clearPostErrors = () => ({
 
 export const createPost = post => dispatch => (
     APIUtil.createPost(post).then(
-      post => dispatch(receivePost(post)),
+      post => dispatch(receiveNewPost(post)),
       err => dispatch(receivePostErrors(err.response.data))
     )
 )
