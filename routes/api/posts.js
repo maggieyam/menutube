@@ -74,13 +74,7 @@ passport.authenticate("jwt", { session: false }),
     .then((post) => res.json(post)).catch((err) => res.status(400).json(err));
 })
 
-router.delete('/delete', (res, req) => {
-    Post
-    .deleteMany(res.body)
-    .then(posts => res.json(posts))
-    .catch(err => res.status(400).json(err))
 
-})
 
 // router.patch("/update/:post_id", 
 // passport.authenticate("jwt"), {session: false}),

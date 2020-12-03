@@ -16,7 +16,3 @@ export const fetchUserPosts = userId => {
   return axios.get(`api/posts/user/${userId}`);
 }
 
-export const deletePosts = filter => {
-  return axios.delete('/api/posts/delete', filter)
-}
-
