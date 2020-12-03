@@ -15,10 +15,6 @@ const config = {
   secretAccessKey: awsDev.SECRET
 }
 
-
-
-
-
 class CreatePostForm extends React.Component {
 
   constructor(props) {
@@ -29,12 +25,11 @@ class CreatePostForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.loaderSpinner = this.loaderSpinner.bind(this);
     this.fileLoader = React.createRef();
-    this.handleBoolean = this.handleBoolean.bind(this);
-    this.handleNumbers = this.handleNumbers.bind(this)
+    this.handleTag = this.handleTag.bind(this);
   }
 
   componentDidMount(){
-    this.props.fetchTags();  
+    this.props.fetchTags()
   }
 
   
@@ -50,16 +45,13 @@ class CreatePostForm extends React.Component {
     return 
   }
 
-  handleBoolean(e, data){
+  handleTag(e, data){
     const bools = {};
-    data.value.map(diet => bools[diet] = true);
-    this.setState({tags: data.value })
+    data.value.map(category => bools[category] = true);
+    this.setState({[data.placeholder.toLowerCase()]: bools })
   }
 
-  handleNumbers(){
-    
-  }
-
+  
   handleSubmit(e){
     e.preventDefault();
 
@@ -71,7 +63,10 @@ class CreatePostForm extends React.Component {
 
         const post = {
           title: this.state.title,
-          url: data.location
+          url: data.location,
+          nutrition: this.state.nutrition,
+          diet: this.state.diet,
+          ingredients: this.state.ingredients
         }
         this.props.createPost(post).then(this.props.loadingOff())
       }
@@ -91,9 +86,19 @@ class CreatePostForm extends React.Component {
     return
   }
 
+  optionify(category) {
+    const options = Object.keys(category).map(tag => {
+      return {key: tag, text: tag[0].toUpperCase() + tag.slice(1), value: tag}
+    })
+    options.pop();
+    return options
+  }
+
 
   render() {
-    debugger
+
+    if (!this.props.diet) return null;
+
     return (
       <form onSubmit={this.handleSubmit}>
         {this.loaderSpinner()}
@@ -117,8 +122,8 @@ class CreatePostForm extends React.Component {
           multiple
           search
           selection
-          options= {options}
-          onChange={this.handleBoolean}
+          options={this.optionify(this.props.diet)}
+          onChange={this.handleTag}
         />
 
         <Dropdown 
@@ -127,20 +132,19 @@ class CreatePostForm extends React.Component {
           multiple
           search
           selection
-          options= {options}
-          onChange={this.handleNumbers}
+          options={this.optionify(this.props.nutrition)}
+          onChange={this.handleTag}
         />
 
-
-      <Dropdown 
-          placeholder='Key Ingredients'
+        <Dropdown 
+          placeholder='Ingredients'
           fluid
           multiple
           search
           selection
-          options= {options}
-          onChange={this.handleNumbers}
-        />
+          options={this.optionify(this.props.ingredients)}
+          onChange={this.handleTag}
+        /> 
 
         <input type="submit" value="Submit Video" />
       </form>    

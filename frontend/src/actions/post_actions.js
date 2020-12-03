@@ -51,3 +51,8 @@ export const fetchPost = postId => dispatch => (
   )
 )
     
+export const deletePosts = filter => dispatch => {
+  return APIUtil.deletePosts(filter).then(
+    console.log("Success")
+  )
+}

@@ -8,7 +8,9 @@ const mStP = state => ({
   currentUser: state.session.userInfo,
   errors: state.errors.post,
   loading: state.ui.loading,
-  tags: state.entities.tags
+  diet: state.entities.tags[0],
+  ingredients: state.entities.tags[1],
+  nutrition: state.entities.tags[2],
 })
 
 const mDtP = dispatch => ({
