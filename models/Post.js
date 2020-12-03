@@ -1,12 +1,23 @@
 const mongoose = require('mongoose');
-const User = require('./User')
-
 const Schema = mongoose.Schema;
 
 const PostSchema = new Schema({
+
     user: {
         type: Schema.Types.ObjectId,
-        ref: 'users',
+        ref: 'User',
+    },
+    nutrition: {
+        type: Schema.Types.Mixed,
+        ref: 'nutrition',
+    },
+    ingredients: {
+        type: Schema.Types.Mixed,
+        ref: 'Ingridients',
+    },
+    diet: {
+        type: Schema.Types.Mixed,
+        ref: 'Diet',
     },
     title: {
         type: String,
@@ -19,10 +30,11 @@ const PostSchema = new Schema({
     date: {
         type: Date,
         default: Date.now  
-    }
+    },
+    
 
 });
 
-const Post = mongoose.model('post', PostSchema);
+const Post = mongoose.model('Post', PostSchema);
 
 module.exports = Post;
