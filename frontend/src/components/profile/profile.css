@@ -1,0 +1,28 @@
+.profile-test-img {
+  width: "160px";
+  height: "160px";
+  border-radius: "80px";
+  border-bottom: "1px solid grey";
+}
+
+.users-save {
+  display: "flex";
+  justify-content: "space-between";
+  width: "100%";
+}
+
+.user-post-container {
+  display: "flex";
+  flex-wrap: "wrap";
+  justify-content: "space-around";
+}
+
+.profile-container {
+  max-width: "550px";
+  margin: "0px";
+}
+
+.item {
+  width: 30%;
+  margin: 10px;
+}
