@@ -1,6 +1,7 @@
 import { connect } from 'react-redux';
 import { createPost } from '../../actions/post_actions';
 import {loadingOn, loadingOff} from '../../actions/loading_actions';
+import { fetchTags } from '../../actions/tag_actions';
 import CreatePostForm from './create_post_form';
 
 const mStP = state => ({

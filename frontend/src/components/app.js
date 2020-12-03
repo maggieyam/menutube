@@ -6,14 +6,15 @@ import CreatePostFormContainer from '../components/posts/create_post_form_contai
 import NavBarContainer from '../components/navbar/navbar_container';
 import Calendar from '../components/calendar/calendar';
 import DraggableVideo from './calendar/draggablevideo';
+import Cal from './calendar/test_calendar';
 
 export default () => (
   // The Calendar and Draggable components are for testing
   <>
     <ModalContainer />
     <NavBarContainer />
-    {/* <Calendar />
-    <DraggableVideo id={"video-1"}/> */}
+    <Cal />
+    <DraggableVideo id={"video-1"}/>
 
     <Switch>
       <ProtectedRoute exact path="/new_post" component={CreatePostFormContainer}/>

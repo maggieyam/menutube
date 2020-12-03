@@ -19,7 +19,9 @@ class Slot extends React.Component {
     const video = document.getElementById(videoId).cloneNode(true);
     video.id = video.id+"a";
     video.draggable = false;
+    
     e.target.appendChild(video);
+
     this.setState({video: true})
   }
 

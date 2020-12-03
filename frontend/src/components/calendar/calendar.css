@@ -2,28 +2,46 @@
 
 div.slot {
   border: 1px solid black;
-  height: 60px;
+  height: 150px;
+  width: 100%;
+  position: relative;
+}
+
+div.slot:drop {
+  border-width: 5px;
 }
 
 div.slot > button {
   position: absolute;
+  top: 0;
+  left: 0;
 }
 
 video {
-  height: 100px; 
-  width: 100px;
+  height: 100%; 
+  width: 100%;
   object-fit: cover;
   border: 1px solid black;
+  display: inline;
 }
 
 
 ul.calendar{
-  width: 20%;
+  width: 800px;
 }
 
-div.slot > p {
-  display: inline;
+li {
+  display: flex;
+  width: 100%;
 }
 
+.ui.overlay.left.visible.sidebar{
+  width: 900px;
+  height: 900px;
+}
+
+.ui.segment.pushable{
+  height: 900px;
+}
 
 
