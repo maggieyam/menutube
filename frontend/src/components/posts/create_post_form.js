@@ -15,24 +15,8 @@ const config = {
   secretAccessKey: awsDev.SECRET
 }
 
-    const options =  [{ key: 'angular', text: 'Angular', value: 'angular' },
-  { key: 'css', text: 'CSS', value: 'css' },
-  { key: 'design', text: 'Graphic Design', value: 'design' },
-  { key: 'ember', text: 'Ember', value: 'ember' },
-  { key: 'html', text: 'HTML', value: 'html' },
-  { key: 'ia', text: 'Information Architecture', value: 'ia' },
-  { key: 'javascript', text: 'Javascript', value: 'javascript' },
-  { key: 'mech', text: 'Mechanical Engineering', value: 'mech' },
-  { key: 'meteor', text: 'Meteor', value: 'meteor' },
-  { key: 'node', text: 'NodeJS', value: 'node' },
-  { key: 'plumbing', text: 'Plumbing', value: 'plumbing' },
-  { key: 'python', text: 'Python', value: 'python' },
-  { key: 'rails', text: 'Rails', value: 'rails' },
-  { key: 'react', text: 'React', value: 'react' },
-  { key: 'repair', text: 'Kitchen Repair', value: 'repair' },
-  { key: 'ruby', text: 'Ruby', value: 'ruby' },
-  { key: 'ui', text: 'UI Design', value: 'ui' },
-  { key: 'ux', text: 'User Experience', value: 'ux' }];
+
+
 
 
 class CreatePostForm extends React.Component {
@@ -45,7 +29,8 @@ class CreatePostForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.loaderSpinner = this.loaderSpinner.bind(this);
     this.fileLoader = React.createRef();
-    this.handleChange = this.handleChange.bind(this);
+    this.handleBoolean = this.handleBoolean.bind(this);
+    this.handleNumbers = this.handleNumbers.bind(this)
   }
 
   componentDidMount(){
@@ -65,8 +50,14 @@ class CreatePostForm extends React.Component {
     return 
   }
 
-  handleChange(e, data){
+  handleBoolean(e, data){
+    const bools = {};
+    data.value.map(diet => bools[diet] = true);
     this.setState({tags: data.value })
+  }
+
+  handleNumbers(){
+    
   }
 
   handleSubmit(e){
@@ -121,13 +112,34 @@ class CreatePostForm extends React.Component {
 
 
         <Dropdown 
-          placeholder='Select'
+          placeholder='Diet'
           fluid
           multiple
           search
           selection
           options= {options}
-          onChange={this.handleChange}
+          onChange={this.handleBoolean}
+        />
+
+        <Dropdown 
+          placeholder='Nutrition'
+          fluid
+          multiple
+          search
+          selection
+          options= {options}
+          onChange={this.handleNumbers}
+        />
+
+
+      <Dropdown 
+          placeholder='Key Ingredients'
+          fluid
+          multiple
+          search
+          selection
+          options= {options}
+          onChange={this.handleNumbers}
         />
 
         <input type="submit" value="Submit Video" />
