@@ -25,6 +25,14 @@ router.get("/user/:user_id", (req, res) => {
     .catch(err => res.status(400).json(err))
 })
 
+// routes for search
+// router.get("/search/:id/", (req, res) => {
+//     Post
+//     .find({ user: req.params.user_id })
+//     .then(posts => res.json(posts))
+//     .catch(err => res.status(400).json(err))
+// })
+
 // routes for one post
 router.get("/:id", (req, res) => {
     Post
@@ -32,6 +40,7 @@ router.get("/:id", (req, res) => {
     .then(post => res.json(post))
     .catch(err => res.status(400).json(err))
 })
+
 
 
 router.post("/create",
