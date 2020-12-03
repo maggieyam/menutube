@@ -41,7 +41,6 @@ document.addEventListener("DOMContentLoaded", () => {
   window.fetchTags = fetchTags;
   window.fetchPosts = fetchPosts;
   window.logout = logout;
-  // window.deletePosts = deletePosts;
   // END TESTING
 })
 

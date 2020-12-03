@@ -28,15 +28,17 @@ class SignupForm extends React.Component {
     return 
   }
 
-  handleSubmit(){
+  handleSubmit(e){
+    e.preventDefault();
     this.props.signupUser(this.state);
   }
 
   render() {
     return (
       <div className="signup-wrapper">
-        <form onSubmit={this.handleSubmit}>
-
+        <form id="signup-form" onSubmit={this.handleSubmit}>
+        <h2>Sign Up for MenuTube</h2>
+        <div className="username">
           <label htmlFor="signup-username">Username</label>
           <input 
               type="text" 
@@ -45,33 +47,40 @@ class SignupForm extends React.Component {
               onChange={this.changeField("username")}
           />
           {this.errors("username")}
+        </div>
 
-          <label htmlFor="signup-email">Email</label>
-          <input 
-              type="text" 
-              id="signup-email"
-              value={this.state.email}
-              onChange={this.changeField("email")}
-          />
-          {this.errors("email")}
+         <div className="email">
+            <label htmlFor="signup-email">Email</label>
+            <input 
+                type="text" 
+                id="signup-email"
+                value={this.state.email}
+                onChange={this.changeField("email")}
+            />
+            {this.errors("email")}
+          </div>
 
-          <label htmlFor="signup-password">Password</label>
-          <input 
-              type="password" 
-              id="signup-password"
-              value={this.state.password}
-              onChange={this.changeField("password")}
-          />
-          {this.errors("password")}
+           <div className="password">
+            <label htmlFor="signup-password">Password</label>
+            <input 
+                type="password" 
+                id="signup-password"
+                value={this.state.password}
+                onChange={this.changeField("password")}
+            />
+            {this.errors("password")}
+          </div>
 
-          <label htmlFor="signup-password2">Confirm Password</label>
-          <input 
-              type="password" 
-              id="signup-password2"
-              value={this.state.password2}
-              onChange={this.changeField("password2")}
-          />
-          {this.errors("password2")}
+           <div className="password2">
+            <label htmlFor="signup-password2">Confirm Password</label>
+            <input 
+                type="password" 
+                id="signup-password2"
+                value={this.state.password2}
+                onChange={this.changeField("password2")}
+            />
+            {this.errors("password2")}
+          </div>
 
           <input type="submit" value="Sign Up"/>
         </form>

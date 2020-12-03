@@ -13,11 +13,12 @@ const SidebarExampleSidebar = () => {
   return (
     <Grid columns={1}>
       <Grid.Column>
-        <Checkbox
+        {/* <Checkbox
           checked={visible}
           label={{ children: <code>visible</code> }}
           onChange={(e, data) => setVisible(data.checked)}
-        />
+        /> */}
+        <button onClick={setVisible}>Open</button>
       </Grid.Column>
 
       <Grid.Column>
@@ -26,7 +27,6 @@ const SidebarExampleSidebar = () => {
             animation={'overlay'}
             icon={'labeled'}
             inverted={'true'}
-            onHide={() => setVisible(false)}
             vertical={'true'}
             visible={visible}
            
