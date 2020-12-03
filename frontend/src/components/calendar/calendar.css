@@ -1,0 +1,29 @@
+/*CSS for testing purposes*/
+
+div.slot {
+  border: 1px solid black;
+  height: 60px;
+}
+
+div.slot > button {
+  position: absolute;
+}
+
+video {
+  height: 100px; 
+  width: 100px;
+  object-fit: cover;
+  border: 1px solid black;
+}
+
+
+ul.calendar{
+  width: 20%;
+}
+
+div.slot > p {
+  display: inline;
+}
+
+
+
