@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { fetchPosts } from "../../actions/post_actions";
 import PostIndexItem from "./post_index_item";
+import "./post_index_page.css";
 
 const PostIndex = () => {
   const dispatch = useDispatch();
