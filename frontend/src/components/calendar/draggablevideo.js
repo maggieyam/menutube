@@ -8,7 +8,6 @@ class DraggableVideo extends React.Component {
     const video = e.target;
     
     e.dataTransfer.setData('videoId', video.id)
-    debugger
   }
 
   dragOver(e){

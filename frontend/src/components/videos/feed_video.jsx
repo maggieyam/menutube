@@ -5,7 +5,6 @@ import { withRouter } from "react-router-dom";
 class VideoPlayer extends React.Component {
   constructor(props) {
     super(props);
-    // debugger;
     this.state = {
       playing: false,
       muted: true,

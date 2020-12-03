@@ -10,8 +10,7 @@ class SavedIndex extends React.Component {
 
   render(){
 
-    if (Object.keys(this.props.posts).length === 0) return null;
-    debugger
+    if (this.props.posts.length === 0) return null;
 
     return (
       <div className="saved-posts-wrapper">
