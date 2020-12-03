@@ -17,5 +17,4 @@ router.get("/", (req, res) => {
 
     Promise.all([diet, ingredients, nutrition]).then(tags => res.json(tags) )
 })
-
 module.exports = router;

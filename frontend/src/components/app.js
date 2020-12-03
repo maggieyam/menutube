@@ -13,8 +13,8 @@ export default () => (
   <>
     <ModalContainer />
     <NavBarContainer />
-    <Cal />
-    <DraggableVideo id={"video-1"}/>
+    {/* <Cal />
+    <DraggableVideo id={"video-1"}/> */}
 
     <Switch>
       <ProtectedRoute exact path="/new_post" component={CreatePostFormContainer}/>

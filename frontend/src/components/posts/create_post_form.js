@@ -15,26 +15,6 @@ const config = {
   secretAccessKey: awsDev.SECRET
 }
 
-    const options =  [{ key: 'angular', text: 'Angular', value: 'angular' },
-  { key: 'css', text: 'CSS', value: 'css' },
-  { key: 'design', text: 'Graphic Design', value: 'design' },
-  { key: 'ember', text: 'Ember', value: 'ember' },
-  { key: 'html', text: 'HTML', value: 'html' },
-  { key: 'ia', text: 'Information Architecture', value: 'ia' },
-  { key: 'javascript', text: 'Javascript', value: 'javascript' },
-  { key: 'mech', text: 'Mechanical Engineering', value: 'mech' },
-  { key: 'meteor', text: 'Meteor', value: 'meteor' },
-  { key: 'node', text: 'NodeJS', value: 'node' },
-  { key: 'plumbing', text: 'Plumbing', value: 'plumbing' },
-  { key: 'python', text: 'Python', value: 'python' },
-  { key: 'rails', text: 'Rails', value: 'rails' },
-  { key: 'react', text: 'React', value: 'react' },
-  { key: 'repair', text: 'Kitchen Repair', value: 'repair' },
-  { key: 'ruby', text: 'Ruby', value: 'ruby' },
-  { key: 'ui', text: 'UI Design', value: 'ui' },
-  { key: 'ux', text: 'User Experience', value: 'ux' }];
-
-
 class CreatePostForm extends React.Component {
 
   constructor(props) {
@@ -45,11 +25,11 @@ class CreatePostForm extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
     this.loaderSpinner = this.loaderSpinner.bind(this);
     this.fileLoader = React.createRef();
-    this.handleChange = this.handleChange.bind(this);
+    this.handleTag = this.handleTag.bind(this);
   }
 
   componentDidMount(){
-    this.props.fetchTags();  
+    this.props.fetchTags()
   }
 
   
@@ -65,10 +45,13 @@ class CreatePostForm extends React.Component {
     return 
   }
 
-  handleChange(e, data){
-    this.setState({tags: data.value })
+  handleTag(e, data){
+    const bools = {};
+    data.value.map(category => bools[category] = true);
+    this.setState({[data.placeholder.toLowerCase()]: bools })
   }
 
+  
   handleSubmit(e){
     e.preventDefault();
 
@@ -80,7 +63,10 @@ class CreatePostForm extends React.Component {
 
         const post = {
           title: this.state.title,
-          url: data.location
+          url: data.location,
+          nutrition: this.state.nutrition,
+          diet: this.state.diet,
+          ingredients: this.state.ingredients
         }
         this.props.createPost(post).then(this.props.loadingOff())
       }
@@ -100,9 +86,19 @@ class CreatePostForm extends React.Component {
     return
   }
 
+  optionify(category) {
+    const options = Object.keys(category).map(tag => {
+      return {key: tag, text: tag[0].toUpperCase() + tag.slice(1), value: tag}
+    })
+    options.pop();
+    return options
+  }
+
 
   render() {
-    debugger
+
+    if (!this.props.diet) return null;
+
     return (
       <form onSubmit={this.handleSubmit}>
         {this.loaderSpinner()}
@@ -121,14 +117,34 @@ class CreatePostForm extends React.Component {
 
 
         <Dropdown 
-          placeholder='Select'
+          placeholder='Diet'
           fluid
           multiple
           search
           selection
-          options= {options}
-          onChange={this.handleChange}
+          options={this.optionify(this.props.diet)}
+          onChange={this.handleTag}
         />
+
+        <Dropdown 
+          placeholder='Nutrition'
+          fluid
+          multiple
+          search
+          selection
+          options={this.optionify(this.props.nutrition)}
+          onChange={this.handleTag}
+        />
+
+        <Dropdown 
+          placeholder='Ingredients'
+          fluid
+          multiple
+          search
+          selection
+          options={this.optionify(this.props.ingredients)}
+          onChange={this.handleTag}
+        /> 
 
         <input type="submit" value="Submit Video" />
       </form>    
