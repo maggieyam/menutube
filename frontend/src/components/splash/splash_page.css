@@ -1,0 +1,17 @@
+.splash-gifs {
+  width: 400px;
+  height: 300px;
+  margin: 1%;
+  justify-content: center;
+}
+
+.gif-container {
+  background-color: lightblue;
+  align-content: center;
+  border-top: 1px solid slategrey;
+  display: flex;
+  justify-content: center;
+  padding: 200px;
+  box-shadow: black;
+}
+
