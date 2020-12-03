@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const DietarySchema = new Schema({
+const DietSchema = new Schema({
     vegetarian: {
         type: Boolean,
         default: false,
@@ -24,5 +24,5 @@ const DietarySchema = new Schema({
     }
 })
 
-const Dietary = mongoose.model('Dietary', DietarySchema);
-module.exports = Dietary;
+const Diet = mongoose.model('Diet', DietSchema);
+module.exports = Diet;

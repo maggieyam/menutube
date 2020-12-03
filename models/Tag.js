@@ -12,7 +12,7 @@ const TagSchema = new Schema({
     }],
     dietaries: [{
         type: Schema.Types.String,
-        ref: 'Dietary',
+        ref: 'Diet',
     }],
 });
 

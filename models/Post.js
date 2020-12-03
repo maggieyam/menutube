@@ -7,18 +7,18 @@ const PostSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User',
     },
-    nutrition: [{
-        type: Schema.Types.ObjectId,
+    nutrition: {
+        type: Schema.Types.Mixed,
         ref: 'nutrition',
-    }],
-    ingridients: [{
-        type: Schema.Types.ObjectId,
+    },
+    ingredients: {
+        type: Schema.Types.Mixed,
         ref: 'Ingridients',
-    }],
-    dietaries: [{
-        type: Schema.Types.ObjectId,
-        ref: 'Dietary',
-    }],
+    },
+    diet: {
+        type: Schema.Types.Mixed,
+        ref: 'Diet',
+    },
     title: {
         type: String,
         required: true,

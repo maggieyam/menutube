@@ -4,8 +4,11 @@ const passport = require("passport");
 
 const validatePostInput = require("../../validations/posts");
 const Post = require("../../models/Post");
-const Tag = require("../../models/Tag");
+const Nutrition = require("../../models/Nutrition");
+const Diet = require("../../models/Diet");
+const Ingredient = require("../../models/Ingredient");
 
+// order all posts in reverse order
 router.get("/", (req, res) => {
     Post
     .find()
@@ -14,6 +17,7 @@ router.get("/", (req, res) => {
     .catch(err => res.status(400).json(err));
 })
 
+// route for all posts under current user
 router.get("/user/:user_id", (req, res) => {
     Post
     .find({ user: req.params.user_id })
@@ -21,13 +25,7 @@ router.get("/user/:user_id", (req, res) => {
     .catch(err => res.status(400).json(err))
 })
 
-router.get("/tag/:tag_id", (req, res) => {
-    Post
-    .find({ tag: req.params.tag_id })
-    .then(posts => res.json(posts))
-    .catch(err => res.status.length(400).json(err))
-})
-
+// routes for one post
 router.get("/:id", (req, res) => {
     Post
     .findById(req.params.id)
@@ -45,18 +43,40 @@ passport.authenticate("jwt", { session: false }),
         return res.status(400).json(errors);
     }
 
+    // create new tags => {nutrition, diet, ingredients}
+    let nutrition = new Nutrition({});
+    let diet = new Diet({});
+    let ingredients = new Ingredient({});
+    nutrition.save();
+    diet.save();
+    ingredients.save();
 
-    debugger
+    // update tags
+    const update = (tag, obj) => {
+        return tag.map(item => {
+            let key = Object.keys(item)[0];
+            let value = Object.values(item)[0];
+            obj[key] = value;
+        })
+    }
+
+    if (req.body.nutrition) update(req.body.nutrition, nutrition);
+    if (req.body.diet) update(req.body.diet, diet);
+    if (req.body.ingredients) update(req.body.ingredients, ingredients); 
+    
+    // create a new post with tags
     const newPost = new Post({
         user: req.user.id,
-        nutrition: req.body.nutrition,
-        ingridients: req.body.ingridients,
-        dietaries: req.body.dietaries,
         title: req.body.title,
-        url: req.body.url
+        url: req.body.url,
+        nutrition: nutrition,
+        ingredients: ingredients,
+        diet: diet,
     })
 
-    newPost.save().then(post => res.json(post));
+    newPost
+    .save()
+    .then((post) => res.json(post)).catch((err) => res.status(400).json(err));
 })
 
 
