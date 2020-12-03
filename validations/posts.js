@@ -10,7 +10,6 @@ module.exports = function validatePostInput(data) {
         errors.title = 'Title must be between 3 to 40 chars'
     }
     
-  
 return {
         errors,
         isValid: Object.keys(errors).length === 0,
