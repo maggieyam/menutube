@@ -4,9 +4,7 @@ import 'semantic-ui-css/semantic.min.css'
 import Loader from 'react-loader-spinner';
 import { uploadFile } from 'react-s3';
 import { Dropdown } from 'semantic-ui-react';
-const awsDev = require('../../config/aws_dev');
-// import awsProd from '../../config/aws_dev'cp;
-
+const awsDev = require('../../config/aws');
 
 const config = {
   bucketName: awsDev.BUCKET_NAME,
