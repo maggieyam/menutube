@@ -18,15 +18,14 @@ div.slot > button {
 }
 
 video {
-  height: 150px; 
+  height: 150px;
   width: 150px;
   object-fit: cover;
   border: 1px solid black;
   display: inline;
 }
 
-
-ul.calendar{
+ul.calendar {
   width: 800px;
 }
 
@@ -35,13 +34,11 @@ li {
   width: 100%;
 }
 
-.ui.overlay.left.visible.sidebar{
+.ui.overlay.left.visible.sidebar {
   width: 900px;
   height: 900px;
 }
 
-.ui.segment.pushable{
+.ui.segment.pushable {
   height: 900px;
 }
-
-

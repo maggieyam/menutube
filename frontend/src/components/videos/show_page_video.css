@@ -1,0 +1,20 @@
+.show-video-container {
+  height: 750px;
+  width: 1000px;
+  background: transparent;
+  margin: 1%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.video-info {
+  display: flex;
+  flex-direction: row;
+}

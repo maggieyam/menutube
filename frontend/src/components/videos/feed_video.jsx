@@ -1,11 +1,11 @@
 import React from "react";
 import ReactPlayer from "react-player/file";
 import "./feed_video.css";
-
-export default class VideoPlayer extends React.Component {
+import { withRouter } from "react-router-dom";
+class VideoPlayer extends React.Component {
   constructor(props) {
     super(props);
-
+    // debugger;
     this.state = {
       playing: false,
       muted: true,
@@ -18,6 +18,7 @@ export default class VideoPlayer extends React.Component {
     this.saveVid = this.saveVid.bind(this);
     this.playVid = this.playVid.bind(this);
     this.pauseVid = this.pauseVid.bind(this);
+    this.goToShowPage = this.goToShowPage.bind(this);
   }
 
   // formatSeconds(secs) {
@@ -49,6 +50,11 @@ export default class VideoPlayer extends React.Component {
     });
   }
 
+  goToShowPage(e) {
+    e.preventDefault();
+    this.props.history.push(`/show/${this.props._id}`);
+  }
+
   saveVid() {}
 
   unsaveVid() {}
@@ -62,8 +68,11 @@ export default class VideoPlayer extends React.Component {
         >
           save{/* {this.state.saved ? "u" : "s"} */}
         </button>
+        <button className="save-btn" onClick={this.goToShowPage}>
+          show
+        </button>
       </div>
-      ) : (
+    ) : (
       <div className="paused-overlay">
         <p>{this.props.title}</p>
         <p>{this.props.user}</p>
@@ -77,14 +86,12 @@ export default class VideoPlayer extends React.Component {
         onMouseLeave={this.pauseVid}
       >
         {overlay}
-        {/* <video className="react-player">
-        </video> */}
         <ReactPlayer
           className="react-player"
           ref={this.vidRef}
           url={this.props.url}
           playing={this.state.playing}
-          muted
+          muted={this.state.muted}
           height={"inherit"}
           width={"inherit"}
           config={{
@@ -100,3 +107,5 @@ export default class VideoPlayer extends React.Component {
     );
   }
 }
+
+export default withRouter(VideoPlayer);
