@@ -44,27 +44,13 @@ passport.authenticate("jwt", { session: false }),
     }
 
     // create new tags => {nutrition, diet, ingredients}
-    let nutrition = new Nutrition({});
-    let diet = new Diet({});
-    let ingredients = new Ingredient({});
+    let nutrition = new Nutrition(req.body.nutrition) || new Nutrition({});
+    let diet = new Diet(req.body.diet) || new Diet({});
+    let ingredients = new Ingredient(req.body.ingredients) || new Ingredient({});
     nutrition.save();
     diet.save();
     ingredients.save();
 
-    // update tags
-    const update = (tag, obj) => {
-        return tag.map(item => {
-            let key = Object.keys(item)[0];
-            let value = Object.values(item)[0];
-            obj[key] = value;
-        })
-    }
-
-    if (req.body.nutrition) update(req.body.nutrition, nutrition);
-    if (req.body.diet) update(req.body.diet, diet);
-    if (req.body.ingredients) update(req.body.ingredients, ingredients); 
-    
-    // create a new post with tags
     const newPost = new Post({
         user: req.user.id,
         title: req.body.title,
