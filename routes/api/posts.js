@@ -44,9 +44,9 @@ passport.authenticate("jwt", { session: false }),
     }
 
     // create new tags => {nutrition, diet, ingredients}
-    let nutrition = new Nutrition(req.body.nutrition) || new Nutrition({});
-    let diet = new Diet(req.body.diet) || new Diet({});
-    let ingredients = new Ingredient(req.body.ingredients) || new Ingredient({});
+    let nutrition = new Nutrition(req.body.nutrition) || {};
+    let diet = new Diet(req.body.diet) || {};
+    let ingredients = new Ingredient(req.body.ingredients) || {};
     nutrition.save();
     diet.save();
     ingredients.save();
