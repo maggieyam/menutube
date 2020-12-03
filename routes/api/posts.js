@@ -10,7 +10,6 @@ const Ingredient = require("../../models/Ingredient");
 const User = require("../../models/User");
 
 router.get("/", (req, res) => {
-    debugger;
     Post
     .find()
     .sort({date: -1})
@@ -112,7 +111,6 @@ passport.authenticate("jwt", { session: false }),
 })
 
 router.delete('/delete', (req, res) => {
-    // const posts = Post.find(res.body);
     Post
     .deleteMany(res.body)
     .then(posts => res.json(posts))
