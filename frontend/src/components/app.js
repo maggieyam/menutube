@@ -15,8 +15,8 @@ export default () => (
   <>
     <ModalContainer />
     <NavBarContainer />
-    <Cal />
-    <DraggableVideo id={"video-1"} />
+    {/* <Cal />
+    <DraggableVideo id={"video-1"}/> */}
     <Switch>
       <ProtectedRoute exact path="/show/:id" component={PostShowContainer} />
       <ProtectedRoute exact path="/feed" component={PostIndexPage} />

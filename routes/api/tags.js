@@ -10,12 +10,11 @@ const router = express.Router();
 //     res.json({msg: 'This is the tags route'}));
 
 
-router.get("/", () => {
-    const dietaries = Diet.find();
-    const ingredients = Ingredient.find();
-    const nutrition = Nutrition.find();
+router.get("/", (req, res) => {
+    const diet = new Diet({});
+    const ingredients = new Ingredient({});
+    const nutrition = new Nutrition({});
 
-    Promise.all([dietaries, ingredients, nutrition])
+    Promise.all([diet, ingredients, nutrition]).then(tags => res.json(tags) )
 })
-
 module.exports = router;
