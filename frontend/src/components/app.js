@@ -8,7 +8,7 @@ import Calendar from '../components/calendar/calendar';
 import DraggableVideo from './calendar/draggablevideo';
 
 export default () => (
-  // Insert front end routes below
+  // The Calendar and Draggable components are for testing
   <>
     <ModalContainer />
     <NavBarContainer />

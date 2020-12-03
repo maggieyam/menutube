@@ -13,6 +13,8 @@ class Slot extends React.Component {
   
   addVideo(e){
     e.preventDefault();
+    if (this.state.video) return;
+
     const videoId = e.dataTransfer.getData('videoId');
     const video = document.getElementById(videoId).cloneNode(true);
     video.id = video.id+"a";

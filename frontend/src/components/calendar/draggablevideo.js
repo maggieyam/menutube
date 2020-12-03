@@ -17,7 +17,7 @@ class DraggableVideo extends React.Component {
   render(){
     return (
       <div id={this.props.id} draggable={true} onDragStart={this.dragStart} onDragOver={this.dragOver}>
-          <p>This will be a video player</p>
+        <video src="https://menu-tube-dev.s3.amazonaws.com/clock.mov"></video>
       </div>
       
     )
