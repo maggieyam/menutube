@@ -5,7 +5,7 @@ export default (state = {}, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_POST:
-      return {...state, [action.post.data._id]: action.post.data}
+      return {...state, [action.post._id]: action.post}
     case RECEIVE_POSTS:
       return action.posts;
     default:

@@ -1,0 +1,53 @@
+.post-container {
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%,-50%);
+  height: 100%;
+  width: 1000px;
+}
+
+.video-header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 30px;
+}
+
+.show-video-container {
+  height: 750px;
+  width: 1000px;
+  background: transparent;
+  margin: 1%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.video-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.timestamps-section {
+  width: 40%;
+  border: solid black 1px;
+}
+
+.timestamps-section p {
+  text-align: center;
+}
+
+.tags-section {
+  width: 40%;
+  border: solid black 1px;
+}
+
+.tags-section p {
+  text-align: center;
+}
+
+.tag-button {
+  border: none;
+}
