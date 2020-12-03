@@ -48,6 +48,10 @@ class CreatePostForm extends React.Component {
     this.handleChange = this.handleChange.bind(this);
   }
 
+  componentDidMount(){
+    this.props.fetchTags();  
+  }
+
   
   changeTitle(e){
     e.preventDefault();
