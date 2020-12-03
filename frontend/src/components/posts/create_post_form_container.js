@@ -12,6 +12,7 @@ const mStP = state => ({
 const mDtP = dispatch => ({
   createPost: post => dispatch(createPost(post)),
   loadingOn: () => dispatch(loadingOn()),
+  loadingOff: () => dispatch(loadingOff())
 })
 
 export default connect(mStP, mDtP)(CreatePostForm);
