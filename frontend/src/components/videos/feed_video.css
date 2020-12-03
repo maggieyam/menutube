@@ -1,0 +1,55 @@
+.playing-overlay {
+  height: 300px;
+  width: 400px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  position: absolute;
+  top: 0;
+  z-index: 10;
+  background-color: transparent;
+}
+
+.save-btn {
+  height: 20px;
+  width: 20px;
+}
+
+.paused-overlay {
+  height: 300px;
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  top: 0px;
+  /*
+  text-align: center;
+  top: 0;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  */
+}
+
+.video-container {
+  height: 300px;
+  width: 400px;
+  background: transparent;
+  padding: none;
+}
+
+.react-player {
+  height: 300px;
+  width: 400px;
+  /* position: absolute; */
+  /* top: 0; */
+  /* z-index: 20; */
+}
+
+
+
+div {
+  margin: 0;
+  padding: 0;
+}
