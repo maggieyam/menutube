@@ -1,17 +1,24 @@
 .splash-gifs {
-  width: 400px;
-  height: 300px;
-  margin: 1%;
+  width: 450px;
+  height: 230px;
+  margin: 0;
   justify-content: center;
+  border-radius: 15px;
 }
 
 .gif-container {
-  background-color: lightblue;
+  /* background-color: lightblue; */
   align-content: center;
-  border-top: 1px solid slategrey;
   display: flex;
-  justify-content: center;
-  padding: 200px;
+  margin-right: 20%;
+  /* justify-content: space-evenly; */
   box-shadow: black;
+  color: #167e6c;
 }
 
+.middle-text  >h1 {
+    font-size: 100px;
+    opacity: .8;
+    display: flex;
+    justify-content: center;
+}

@@ -4,3 +4,13 @@
   padding: 1%;
   /* background-image: url(''); */
 }
+ 
+.left {
+    display:flex;
+    
+}
+
+.nav-right {
+    display:flex;
+    justify-content: flex-end;
+}
