@@ -5,7 +5,11 @@ import "./splash_page.css";
 import { withRouter } from "react-router-dom";
 import dessert from "../../images/cooking.gif";
 import dinner from "../../images/cooking2.gif";
-import NavBar from "../navbar/navbar_container";
+import { Navbar, Nav } from "react-bootstrap";
+import { connect } from "react-redux";
+import { openModal } from "../../actions/modal_actions";
+import { logout } from "../../actions/session_actions";
+import SplashPage from "./splash_page";
 
 const url = (name, wrap = false) =>
   `${
@@ -13,24 +17,29 @@ const url = (name, wrap = false) =>
   }https://awv3node-homepage.surge.sh/build/assets/${name}.svg${
     wrap ? ")" : ""
   }`;
-const Pink = ({ children }) => (
-  <span style={{ color: "#FF6AC1" }}>{children}</span>
-);
-const Yellow = ({ children }) => (
-  <span style={{ color: "#EFF59B" }}>{children}</span>
-);
-const Lightblue = ({ children }) => (
-  <span style={{ color: "#9AEDFE" }}>{children}</span>
-);
-const Green = ({ children }) => (
-  <span style={{ color: "#57EE89" }}>{children}</span>
-);
-const Blue = ({ children }) => (
-  <span style={{ color: "#57C7FF" }}>{children}</span>
-);
-const Gray = ({ children }) => (
-  <span style={{ color: "#909090" }}>{children}</span>
-);
+// const Pink = ({ children }) => (
+//   <span style={{ color: "#FF6AC1" }}>{children}</span>
+// );
+// const Yellow = ({ children }) => (
+//   <span style={{ color: "#EFF59B" }}>{children}</span>
+// );
+// const Lightblue = ({ children }) => (
+//   <span style={{ color: "#9AEDFE" }}>{children}</span>
+// );
+// const Green = ({ children }) => (
+//   <span style={{ color: "#57EE89" }}>{children}</span>
+// );
+// const Blue = ({ children }) => (
+//   <span style={{ color: "#57C7FF" }}>{children}</span>
+// );
+// const Gray = ({ children }) => (
+//   <span style={{ color: "#909090" }}>{children}</span>
+// );
+
+const mDtP = (dispatch) => ({
+  logout: () => dispatch(logout()),
+  openModal: (modalType) => dispatch(openModal(modalType)),
+});
 
 class ScrollPage extends React.Component {
   render() {
@@ -244,6 +253,15 @@ class ScrollPage extends React.Component {
           }}
           onClick={() => this.parallax.scrollTo(0)}
         >
+          <h1 className="signup-now">
+            <button
+              onClick={() => this.props.openModal("signup")}
+              className="signup-btn"
+              id="signup"
+            >
+              Sign Up Now
+            </button>
+          </h1>
           {/* <img src={url("clients-main")} style={{ width: "40%" }} /> */}
         </ParallaxLayer>
       </Parallax>
@@ -253,4 +271,4 @@ class ScrollPage extends React.Component {
 
 ReactDOM.render(<ScrollPage />, document.getElementById("root"));
 
-export default withRouter(ScrollPage);
+export default connect(null, mDtP)(ScrollPage);
