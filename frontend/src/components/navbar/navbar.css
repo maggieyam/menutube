@@ -71,3 +71,8 @@
   text-transform: capitalize;
   color: #7508f2;
 }
+
+.add-post{
+  color: purple;
+  margin-left: 25px;
+}
