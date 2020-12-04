@@ -20,10 +20,14 @@
 
 .session-error {
   color: red;
-  font-size: 12px;
+  font-size: 14px;
   position: absolute;
-  top: 40px;
-  
+  width: 300px;
+  top: 80px;
+  left: 10px;
+  font-weight: 900;
+  font-family: Arial, Helvetica, sans-serif;
+  color: orange;
 }
 
 .username, .password, .password2, .email{
@@ -31,6 +35,11 @@
   display: flex;
   flex-direction: column;
   width: 250px;
+  color: #efefef;
+  font-size: 24px;
+  font-family: 'Nerko One', cursive;
+  letter-spacing: 3px;
+  
 }
 
 .login-wrapper {
@@ -48,9 +57,52 @@
   height: 100%;
 }
 
-.signup-wrapper {
+.signup-wrapper, .login-wrapper {
   background: white;
   height: 500px;
   width: 500px;
+  background-image: linear-gradient(to bottom right,rgb(156, 156, 226),rgb(107, 107, 198),rgb(67, 57, 207), rgb(177, 146, 218),rgb(214, 21, 214), violet); 
+
 }
 
+#signup-email, #signup-username,
+#signup-password, #signup-password2,
+#login-username, #login-password {
+  height: 40px;
+  border-radius: 12px;
+  border: 2px solid ivory;
+  color: rgb(28, 138, 201);
+  font-family:  'Nerko One', cursive;
+}
+
+label{
+  margin: 8px;
+}
+
+#signup-email:focus, #signup-username:focus, 
+#login-username:focus, #login-password:focus,
+#signup-password:focus,#signup-password2:focus {
+  outline: none;
+  box-shadow: 0 0 4pt 4pt #c2f038;
+}
+
+.session-btn {
+  width: 250px;
+  height: 40px;
+  border-radius: 34px;
+  border: 0px;
+  margin:25px;
+  font-family: 'Nerko One', cursive;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 3px;
+  color: rgb(102, 27, 223);
+  background-image: linear-gradient(to bottom right, yellow, red);
+}
+.menutube {
+  font-family: 'Nerko One', cursive;
+  font-weight: 700;
+  font-size: 42px;
+  letter-spacing: 3px;
+  color: rgb(6, 180, 243);
+}
