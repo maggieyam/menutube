@@ -45,6 +45,8 @@
   max-height: 25%;
   max-width: 25%;
   margin-left: 20%;
+  opacity: 8%;
+  border-radius: 25px;
 }
 
 /* .signup-now {
