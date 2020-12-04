@@ -38,13 +38,10 @@ class NavBar extends React.Component {
 
     return (
       <nav className="navbar">
-<<<<<<< HEAD
         <h1>MenuTube</h1>
-=======
         <div className="nav-left">
           <h1 id="brand">MenuTube</h1>
         </div>
->>>>>>> main
 
         {currentUser.isAuthenticated ? this.loggedIn() : this.loggedOut()}
       </nav>
