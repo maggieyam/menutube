@@ -13,8 +13,6 @@ export const fetchPosts = () => {
 }
 
 export const fetchUserPosts = userId => {
-  debugger
   return axios.get(`api/posts/user/${userId}`);
 }
-
 
