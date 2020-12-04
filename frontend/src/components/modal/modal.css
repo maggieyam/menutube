@@ -13,10 +13,8 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid black;
-  box-shadow: 1px 3px 12px 7px rgba(190,190,190,0.3);
+  box-shadow: 1px 3px 12px 7px rgba(190, 190, 190, 0.3);
 }
-
 
 .session-error {
   color: red;
@@ -30,16 +28,18 @@
   color: orange;
 }
 
-.username, .password, .password2, .email{
+.username,
+.password,
+.password2,
+.email {
   position: relative;
   display: flex;
   flex-direction: column;
   width: 250px;
   color: #efefef;
   font-size: 24px;
-  font-family: 'Nerko One', cursive;
+  font-family: "Nerko One", cursive;
   letter-spacing: 3px;
-  
 }
 
 .login-wrapper {
@@ -48,9 +48,8 @@
   width: 500px;
 }
 
-
-
-#login-form, #signup-form {
+#login-form,
+#signup-form {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -59,35 +58,51 @@
   height: 100%;
 }
 
-.signup-wrapper, .login-wrapper {
+.signup-wrapper,
+.login-wrapper {
   background: white;
   height: 500px;
   width: 500px;
-  background-image: linear-gradient(to bottom right,rgb(156, 156, 226),rgb(107, 107, 198),rgb(67, 57, 207), rgb(177, 146, 218),rgb(214, 21, 214), violet); 
+  border-radius: 16px;
+  background-image: linear-gradient(
+    to bottom right,
+    rgb(156, 156, 226),
+    rgb(107, 107, 198),
+    rgb(67, 57, 207),
+    rgb(177, 146, 218),
+    rgb(214, 21, 214),
+    violet
+  );
 }
 
 .signup-wrapper {
   height: 700px;
 }
 
-#signup-email, #signup-username,
-#signup-password, #signup-password2,
-#login-username, #login-password {
+#signup-email,
+#signup-username,
+#signup-password,
+#signup-password2,
+#login-username,
+#login-password {
   height: 40px;
 
   border-radius: 12px;
   border: 2px solid ivory;
   color: rgb(28, 138, 201);
-  font-family:  'Nerko One', cursive;
+  font-family: "Nerko One", cursive;
 }
 
-label{
+label {
   margin: 8px;
 }
 
-#signup-email:focus, #signup-username:focus, 
-#login-username:focus, #login-password:focus,
-#signup-password:focus,#signup-password2:focus {
+#signup-email:focus,
+#signup-username:focus,
+#login-username:focus,
+#login-password:focus,
+#signup-password:focus,
+#signup-password2:focus {
   outline: none;
   box-shadow: 0 0 4pt 4pt #c2f038;
 }
@@ -97,8 +112,8 @@ label{
   height: 40px;
   border-radius: 34px;
   border: 0px;
-  margin:25px;
-  font-family: 'Nerko One', cursive;
+  margin: 25px;
+  font-family: "Nerko One", cursive;
   font-weight: 700;
   font-size: 24px;
   letter-spacing: 3px;
@@ -110,9 +125,8 @@ label{
   outline: none;
 }
 
-
 .menutube {
-  font-family: 'Nerko One', cursive;
+  font-family: "Nerko One", cursive;
   font-weight: 700;
   font-size: 42px;
   letter-spacing: 3px;
