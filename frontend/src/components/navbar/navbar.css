@@ -1,6 +1,5 @@
 .navbar {
   width: 100%;
-<<<<<<< HEAD
   /* background-color: rgb(51, 128, 70); */
   /* padding: 1%; */
   /* background-image: url(''); */
@@ -14,7 +13,6 @@
   display: flex;
   justify-content: flex-end;
 }
-=======
   display: flex;
   justify-content: space-between;
   padding: 1%;
@@ -63,4 +61,3 @@
   align-items: center;
   justify-content: center;
 }
->>>>>>> main
