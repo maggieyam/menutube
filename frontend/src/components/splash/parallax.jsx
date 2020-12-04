@@ -1,8 +1,5 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import gif1 from "../../images/FoodVid_1.gif";
-import gif2 from "../../images/FoodVid_2.gif";
-import gif3 from "../../images/FoodVid_3.gif";
 import { Parallax, ParallaxLayer } from "react-spring/renderprops-addons";
 import "./splash_page.css";
 import { withRouter } from "react-router-dom";
@@ -71,17 +68,17 @@ class ScrollPage extends React.Component {
           <div className="gif-container">
             <img
               className="splash-gifs"
-              src={gif1}
+              src="https://bnb-seeds.s3.us-east-1.amazonaws.com/FoodVid_1.gif"
               style={{ width: "17%", marginLeft: "20%" }}
             />
             <img
               className="splash-gifs"
-              src={gif2}
+              src="https://bnb-seeds.s3.us-east-1.amazonaws.com/FoodVid_2.gif"
               style={{ width: "17%", marginLeft: "20%" }}
             />
             <img
               className="splash-gifs"
-              src={gif3}
+              src="https://bnb-seeds.s3.us-east-1.amazonaws.com/FoodVid_3.gif"
               style={{ width: "17%", marginLeft: "20%" }}
             />
           </div>
@@ -218,7 +215,10 @@ class ScrollPage extends React.Component {
           }}
         >
           <img src={dessert} style={{ width: "20%" }} />
-          <h1 className="splash-welcome" style={{fontSize:"25px"}}> Welcome to MenuTube</h1>
+          <h1 className="splash-welcome" style={{ fontSize: "25px" }}>
+            {" "}
+            Welcome to MenuTube
+          </h1>
         </ParallaxLayer>
 
         <ParallaxLayer
