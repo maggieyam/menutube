@@ -17,11 +17,7 @@ const SplashPage = () => {
   //   set({ opacity: toggle ? 1 : 0 });
   //   // Stop animation
   //   stop();
-  return (
-    <div className="splash-page">
-      <ScrollPage />
-    </div>
-  );
+  return <ScrollPage />;
 };
 
 export default SplashPage;

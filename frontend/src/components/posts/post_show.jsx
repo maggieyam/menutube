@@ -43,7 +43,7 @@ class PostShow extends Component {
     const tags = ["sugar", "spice", "everything_nice"];
     const timestampList = timestamps.map((ts, idx) => (
       <li key={idx}>
-        <div>
+        <div className="timestamps">
           <button onClick={() => this.jumpToTime(ts)}>
             {this.formatSeconds(ts)}
           </button>

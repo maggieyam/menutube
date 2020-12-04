@@ -15,6 +15,7 @@ class NavBar extends React.Component {
     return (
       <div className="nav-right">
         <Link to="/" className="nav-username">Hello, {currentUser.userInfo.username}!</Link>
+        <Link className="add-post" to="/new_post"><i className="fas fa-plus-circle fa-2x"></i></Link>
         <button onClick={() => logout()} className="navbar-btn" id="logout">Log Out</button>
       </div>
     );
@@ -39,7 +40,7 @@ class NavBar extends React.Component {
     return (
       <nav className="navbar">
         <div className="nav-left">
-          <h1 id="brand">MenuTube</h1>
+          <Link to="/feed"><h1 id="brand">MenuTube</h1></Link>
         </div>
 
         {currentUser.isAuthenticated ? this.loggedIn() : this.loggedOut()}
