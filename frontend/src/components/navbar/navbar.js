@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import fridge from "../../images/fridge.jpg";
 import "./navbar.css";
 
 class NavBar extends React.Component {
@@ -40,8 +39,6 @@ class NavBar extends React.Component {
     return (
       <nav className="navbar">
         <h1>MenuTube</h1>
-
-        <img src={fridge}></img>
 
         {currentUser.isAuthenticated ? this.loggedIn() : this.loggedOut()}
       </nav>

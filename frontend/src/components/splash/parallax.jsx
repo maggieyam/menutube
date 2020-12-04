@@ -9,6 +9,7 @@ import { withRouter } from "react-router-dom";
 import dessert from "../../images/cooking.gif";
 import dinner from "../../images/cooking2.gif";
 import NavBar from "../navbar/navbar_container";
+
 const url = (name, wrap = false) =>
   `${
     wrap ? "url(" : ""
@@ -62,7 +63,7 @@ class ScrollPage extends React.Component {
         <ParallaxLayer
           offset={1.3}
           speed={-0.3}
-          style={{ pointerEvents: "none" }}
+          style={{ pointerEvents: "none", zIndex: "2" }}
         >
           <div className="middle-text">
             <h1>Post Videos</h1>
@@ -128,7 +129,9 @@ class ScrollPage extends React.Component {
           >
             Learn Recipes
           </h1>
-
+          <div className="text-box">
+            <h2> Ingredients</h2>
+          </div>
           <h1
             style={{
               display: "block",
@@ -146,15 +149,20 @@ class ScrollPage extends React.Component {
           ></img>
         </ParallaxLayer>
 
-        <ParallaxLayer offset={1.6} speed={-0.1} style={{ opacity: 0.4 }}>
+        <ParallaxLayer offset={1.6} speed={-0.1} style={{ opacity: 0.3 }}>
           {/* <img
             src={url("cloud")}
             style={{ display: "block", width: "20%", marginLeft: "60%" }}
           /> */}
+          <h3>Save videos</h3>
           <img
             className="bg-gif"
             src="https://i.pinimg.com/originals/ef/69/cd/ef69cd230963b34100b23f7fdf5c47eb.gif"
-            style={{ display: "block", width: "25%", marginLeft: "30%" }}
+            style={{
+              display: "block",
+              width: "15%",
+              marginLeft: "40%",
+            }}
           />
           {/* <img
             src={url("cloud")}
@@ -163,14 +171,16 @@ class ScrollPage extends React.Component {
         </ParallaxLayer>
 
         <ParallaxLayer offset={2.6} speed={0.4} style={{ opacity: 0.6 }}>
-          {/* <img
-            src={url("cloud")}
-            style={{ display: "block", width: "20%", marginLeft: "5%" }}
-          /> */}
-          <img
-            src="https://i.pinimg.com/originals/64/8a/7c/648a7ce812bb33c5c01c6766e4c308a6.gif"
-            style={{ display: "block", width: "15%", marginLeft: "75%" }}
-          />
+          <div>
+            {/* <img
+              src="https://i.pinimg.com/originals/d5/64/4d/d5644d150faa5d8b5793b80cd741bf4f.gif"
+              style={{ display: "block", width: "20%", marginLeft: "5%" }}
+            /> */}
+            <img
+              src="https://i.pinimg.com/originals/64/8a/7c/648a7ce812bb33c5c01c6766e4c308a6.gif"
+              style={{ display: "block", width: "15%", marginLeft: "75%" }}
+            />
+          </div>
         </ParallaxLayer>
 
         <ParallaxLayer

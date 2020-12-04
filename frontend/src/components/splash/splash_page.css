@@ -16,9 +16,18 @@
   color: #167e6c;
 }
 
-.middle-text  >h1 {
-    font-size: 100px;
-    opacity: .8;
-    display: flex;
-    justify-content: center;
+.middle-text > h1 {
+  font-size: 100px;
+  opacity: 0.8;
+  display: flex;
+  justify-content: center;
+}
+
+.bg-gif {
+  border-radius: 15px;
+}
+
+.text-box {
+    display:flex;
+    align-items: flex-end;
 }
