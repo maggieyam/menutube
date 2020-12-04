@@ -87,6 +87,16 @@ div.ui.one.column.grid > div:first-child{
   text-align: right;
   margin-left: 75%;
   width: 400px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+div.ui.checkbox {
+  position: absolute;
+  right: 150px;
+  top: 100px;
+  
 }
 
 div.slot > figure:first-child{
