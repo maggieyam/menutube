@@ -4,9 +4,5 @@ import DraggableVideo from '../calendar/draggablevideo';
 
 
 export default ({post}) => {
-  return <DraggableVideo 
-            id={post._id}
-            key={post._id}
-            contents={<FeedVideo {...post} />}
-          />;
+  return <FeedVideo {...post} />;
 }

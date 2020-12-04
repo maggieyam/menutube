@@ -1,8 +1,11 @@
 .navbar {
   width: 100%;
+  display: flex;
+  justify-content: space-between;
   /* background-color: rgb(51, 128, 70); */
   /* padding: 1%; */
   /* background-image: url(''); */
+  background-image: linear-gradient(to left, rgb(242, 242, 43),rgb(244, 72, 72),rgba(199, 3, 248, 0.5));
 }
 
 .left {
@@ -11,9 +14,9 @@
 
 .nav-right {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 1%;
-  background-image: linear-gradient(to left, rgb(242, 242, 43),rgb(244, 72, 72),rgba(199, 3, 248, 0.5));
+  align-items: center;
 }
 
 #brand{

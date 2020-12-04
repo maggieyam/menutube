@@ -2,6 +2,7 @@ import React from "react";
 import ReactPlayer from "react-player/file";
 import "./feed_video.css";
 import { withRouter, Link } from "react-router-dom";
+import DraggableVideo from "../calendar/draggablevideo";
 class VideoPlayer extends React.Component {
   constructor(props) {
     super(props);
@@ -68,6 +69,9 @@ class VideoPlayer extends React.Component {
 
     return (
       <div className="vedio-border">
+      <div className="dragvideo-wrapper">
+        <DraggableVideo id={this.props._id} 
+        contents={
         <div
           className="video-container"
           onMouseEnter={this.playVid}
@@ -93,6 +97,8 @@ class VideoPlayer extends React.Component {
           }}
           />
           
+        </div>
+        }/>
         </div>
         
         <div id="labels">

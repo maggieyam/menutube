@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import { ProtectedRoute } from "../util/route_util";
+import { ProtectedRoute, AuthRoute } from "../util/route_util";
 import ModalContainer from "../components/modal/modal_container";
 import CreatePostFormContainer from "../components/posts/create_post_form_container";
 import NavBarContainer from "../components/navbar/navbar_container";
@@ -20,7 +20,7 @@ export default () => (
     <CalendarSideBar />
     <Route path="/posts/saved" component={SavedContainer} />
     <Switch>
-      <Route exact path="/" component={SplashPage} />
+      <AuthRoute exact path="/" component={SplashPage} />
       <ProtectedRoute exact path="/show/:id" component={PostShowContainer} />
       <ProtectedRoute exact path="/feed" component={PostIndexPage} />
       <ProtectedRoute
