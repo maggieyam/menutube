@@ -1,7 +1,7 @@
 import React, { Component } from "react";
-import { withRouter } from 'react-router-dom'; 
+import { withRouter } from "react-router-dom";
 import ReactPlayer from "react-player/file";
-import './post_show.css';
+import "./post_show.css";
 
 class PostShow extends Component {
   constructor(props) {
@@ -40,7 +40,7 @@ class PostShow extends Component {
     if (!post) return null;
 
     const timestamps = [1, 3, 10];
-    const tags = ["sugar", "spice", "everything_nice"];
+    const tags = ["sugar 16g", "protein 20g", "vegetarian", "broccoli", "Tofu"];
     const timestampList = timestamps.map((ts, idx) => (
       <li key={idx}>
         <div className="timestamps">
@@ -53,10 +53,7 @@ class PostShow extends Component {
     ));
     const tagsList = tags.map((tag, idx) => (
       <li key={idx}>
-        <button
-          className="tag-button"
-          onClick={() => this.goToSearchTag(tag)}
-        >
+        <button className="tag-button" onClick={() => this.goToSearchTag(tag)}>
           {`#${tag}`}
         </button>
       </li>
@@ -92,9 +89,7 @@ class PostShow extends Component {
           </div>
           <div className="tags-section">
             <p>Tags</p>
-            <ul className="tags-list">
-              {tagsList}
-            </ul>
+            <ul className="tags-list">{tagsList}</ul>
           </div>
         </div>
       </div>
