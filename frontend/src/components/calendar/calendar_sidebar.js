@@ -10,7 +10,6 @@ import Calendar from './calendar';
 const CalendarSideBar = () => {
   const [visible, setVisible] = React.useState(false)
 
-  debugger
   return (
     <Grid columns={1}>
       <Grid.Column>

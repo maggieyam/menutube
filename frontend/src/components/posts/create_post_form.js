@@ -39,7 +39,7 @@ class CreatePostForm extends React.Component {
 
   errors(field){
     if (this.props.errors[field]) {
-      return <p className="session-error">{this.props.errors[field]}</p>
+      return <p className="posting-error">{this.props.errors[field]}</p>
     }
     return 
   }
@@ -67,7 +67,11 @@ class CreatePostForm extends React.Component {
           diet: this.state.diet,
           ingredients: this.state.ingredients
         }
-        this.props.createPost(post).then(this.props.loadingOff())
+        this.props.createPost(post).then(() => {
+           this.props.loadingOff();
+           this.props.clearPostErrors();
+           this.props.history.push('')
+        })
       }
 
     ).catch(err => {
@@ -79,7 +83,7 @@ class CreatePostForm extends React.Component {
   loaderSpinner(){
     if (this.props.loading){
       return (
-        <Loader type="Grid" color="#53a312" height={100} width={100} />          
+        <Loader type="Grid" color="#ffff66" height={100} width={100} />          
       )
     }
     return
@@ -101,7 +105,7 @@ class CreatePostForm extends React.Component {
       <form id="post-form" onSubmit={this.handleSubmit}>
         {this.loaderSpinner()}
 
-      <div>
+      <div className="title-input-div">
       <label htmlFor="post-title">Enter a title:</label>
        <input
         id="post-title" 
@@ -111,12 +115,13 @@ class CreatePostForm extends React.Component {
         {this.errors("title")}
       </div>
 
-      <div>
-        <input 
-        type="file" 
-        ref={this.fileLoader}
-        accept="video/*"/>
-        {this.errors("")} 
+      <div className="vid-input-div">
+          <input 
+          id="video-input"
+          type="file" 
+          ref={this.fileLoader}
+          accept="video/*"/>
+          
        </div>
 
         <label> Diet/Restrictions: 
@@ -154,7 +159,7 @@ class CreatePostForm extends React.Component {
           onChange={this.handleTag}
         /> 
         </label>
-        <input type="submit" value="Submit Video" />
+        <input id="submit-post" type="submit" value="Submit Post" />
       </form>    
     )
   }

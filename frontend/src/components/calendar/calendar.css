@@ -46,11 +46,12 @@ div.slots{
 
 .ui.segment.pushable {
   height: 1200px;
-  width: 850px;
+  width: 800px;
   border: none;
   position: absolute;
   right: 0;
   z-index: 30;
+  background: transparent;
 }
 
 .ui.grid{
@@ -98,7 +99,5 @@ figure {
   height: 450px;
   padding: 0;
 }
-
-
 
 
