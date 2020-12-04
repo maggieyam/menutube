@@ -205,9 +205,11 @@ class ScrollPage extends React.Component {
         <ParallaxLayer
           offset={2}
           speed={-0.3}
+          className='layer3'
           style={{
             backgroundSize: "80%",
             backgroundPosition: "center",
+            // backgroundImage: url("clients", true),
             // backgroundImage: url("clients", true),
           }}
         />
@@ -253,7 +255,7 @@ class ScrollPage extends React.Component {
           }}
           onClick={() => this.parallax.scrollTo(0)}
         >
-          <h1 className="signup-now">
+          <div className="signup-now">
             <button
               onClick={() => this.props.openModal("signup")}
               className="signup-btn"
@@ -261,7 +263,7 @@ class ScrollPage extends React.Component {
             >
               Sign Up Now
             </button>
-          </h1>
+          </div>
           {/* <img src={url("clients-main")} style={{ width: "40%" }} /> */}
         </ParallaxLayer>
       </Parallax>

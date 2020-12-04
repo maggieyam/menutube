@@ -11,7 +11,7 @@
   cursor: pointer;
   font-size: 45px;
   border: none;
-  
+
 }
 
 .gif-container {
@@ -39,3 +39,16 @@
     display:flex;
     align-items: flex-end;
 }
+.layer3  {
+  background-image: url("https://i.pinimg.com/originals/1b/f1/fc/1bf1fcfeb909e3cf9cc0a465ccf7f3d4.gif");
+  margin-top:10%;
+  max-height: 25%;
+  max-width: 25%;
+  margin-left: 20%;
+  opacity: 8%;
+  border-radius: 25px;
+}
+
+/* .signup-now {
+  background-image: url("https://i.pinimg.com/originals/f2/24/7d/f2247d92cf1ae92d7612647ba8d98dbd.gif");
+} */
