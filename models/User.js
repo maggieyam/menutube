@@ -18,6 +18,10 @@ const UserSchema = new Schema ({
     type: Date,
     default: Date.now,
   },
+  saved: [{
+    type: Schema.Types.ObjectId,
+  }]
+  
 });
 
 module.exports = User = mongoose.model ('User', UserSchema);
