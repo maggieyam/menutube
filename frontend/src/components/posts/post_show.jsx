@@ -32,7 +32,7 @@ class PostShow extends Component {
   }
 
   goToSearchTag(tag) {
-    this.props.history.push(`/search/${tag}`);
+    // this.props.history.push(`/search/${tag}`);
   }
 
   render() {
