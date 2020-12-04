@@ -83,7 +83,7 @@ class CreatePostForm extends React.Component {
   loaderSpinner(){
     if (this.props.loading){
       return (
-        <Loader type="Grid" color="#ffff66" height={100} width={100} />          
+        <Loader type="Grid" color="#ee82ee" height={100} width={100} />          
       )
     }
     return
