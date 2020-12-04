@@ -1,16 +1,50 @@
 .navbar {
   width: 100%;
-  /* background-color: rgb(51, 128, 70); */
+  display: flex;
+  justify-content: space-between;
   padding: 1%;
-  /* background-image: url(''); */
-}
- 
-.left {
-    display:flex;
-    
+  background-image: linear-gradient(to left, rgb(242, 242, 43),rgb(244, 72, 72),rgba(199, 3, 248, 0.5));
 }
 
-.nav-right {
-    display:flex;
-    justify-content: flex-end;
+#brand{
+    padding-left: 25px;
+    padding-right: 25px;
+    font-weight: 800;
+    font-size: 48px;
+    color: rgb(206, 4, 247);
+    letter-spacing: 3px;
+    font-family: 'Nerko One', cursive;;
+  }
+
+.navbar-btn {
+  width: 150px;
+  height: 40px;
+  border-radius: 34px;
+  border: 0px;
+  margin:25px;
+  color: #ffffff;
+  font-family: 'Nerko One', cursive;
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: 3px;
+}
+
+.navbar-btn:focus {
+  outline: none;
+}
+
+#signup {
+  
+  background-image: linear-gradient(to right, rgb(177, 146, 218), violet); 
+}
+
+#login {
+  background-image: linear-gradient(to left, rgb(177, 146, 218), violet); 
+}
+
+.nav-left{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
