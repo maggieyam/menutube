@@ -5,7 +5,7 @@ import { withRouter, Link } from "react-router-dom";
 class VideoPlayer extends React.Component {
   constructor(props) {
     super(props);
-    // ;
+    
     this.state = {
       playing: false,
       muted: true,

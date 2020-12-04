@@ -1,4 +1,5 @@
 import React from 'react';
+import './login_form.css';
 
 
 class LoginForm extends React.Component {
@@ -18,6 +19,13 @@ class LoginForm extends React.Component {
     }
   }
 
+   errors(field){
+    if (this.props.errors[field]) {
+      return <p className="session-error">{this.props.errors[field]}</p>
+    }
+    return 
+  }
+
   handleSubmit(e){
     e.preventDefault();
     this.props.loginUser(this.state);
@@ -26,23 +34,29 @@ class LoginForm extends React.Component {
   render() {
     return (
       <div className="login-wrapper">
-        <form onSubmit={this.handleSubmit}>
+        <form id="login-form" onSubmit={this.handleSubmit}>
+          <h2>Login</h2>
+          <div className="username">
+            <label htmlFor="login-username">Username</label>
+            <input 
+                type="text" 
+                id="login-username"
+                value={this.state.username}
+                onChange={this.changeField("username")}
+            />
+            {this.errors("username")}
+          </div>
 
-          <label htmlFor="login-username">Username</label>
-          <input 
-              type="text" 
-              id="login-username"
-              value={this.state.username}
-              onChange={this.changeField("username")}
-          />
-
-          <label htmlFor="login-password">Password</label>
-          <input 
-              type="password" 
-              id="login-password"
-              value={this.state.password}
-              onChange={this.changeField("password")}
-          />
+          <div className="password">
+            <label htmlFor="login-password">Password</label>
+            <input 
+                type="password" 
+                id="login-password"
+                value={this.state.password}
+                onChange={this.changeField("password")}
+            />
+            {this.errors("password")}
+          </div>
           
           <input type="submit" value="Log In"/>
         </form>
