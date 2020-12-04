@@ -1,6 +1,6 @@
 .splash-gifs {
   width: 450px;
-  height: 230px;
+  height: 220px;
   margin: 0;
   justify-content: center;
   border-radius: 15px;
@@ -16,9 +16,18 @@
   color: #167e6c;
 }
 
-.middle-text  >h1 {
-    font-size: 100px;
-    opacity: .8;
-    display: flex;
-    justify-content: center;
+.middle-text > h1 {
+  font-size: 100px;
+  opacity: 0.7;
+  display: flex;
+  justify-content: center;
+}
+
+.bg-gif {
+  border-radius: 15px;
+}
+
+.text-box {
+    display:flex;
+    align-items: flex-end;
 }

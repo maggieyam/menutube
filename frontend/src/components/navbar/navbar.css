@@ -1,5 +1,18 @@
 .navbar {
   width: 100%;
+  /* background-color: rgb(51, 128, 70); */
+  /* padding: 1%; */
+  /* background-image: url(''); */
+}
+
+.left {
+  display: flex;
+}
+
+.nav-right {
+  display: flex;
+  justify-content: flex-end;
+}
   display: flex;
   justify-content: space-between;
   padding: 1%;
