@@ -1,4 +1,4 @@
-#post-form{
+.post-form{
   height: 600px;
   width: 900px;
   border-radius: 15px;
@@ -31,7 +31,7 @@ div.ui.multiple.search.dropdown {
 }
 
 
-#post-form label {
+.post-form label {
   color: white;
   font-size: 18px;
 }

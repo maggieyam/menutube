@@ -70,7 +70,7 @@ class CreatePostForm extends React.Component {
         this.props.createPost(post).then(() => {
            this.props.loadingOff();
            this.props.clearPostErrors();
-           this.props.history.push('')
+           this.props.history.push('/feed')
         })
       }
 
@@ -102,7 +102,7 @@ class CreatePostForm extends React.Component {
 
     if (!this.props.diet) return null;
     return (
-      <form id="post-form" onSubmit={this.handleSubmit}>
+      <form className="post-form" onSubmit={this.handleSubmit}>
         {this.loaderSpinner()}
 
       <div className="title-input-div">
