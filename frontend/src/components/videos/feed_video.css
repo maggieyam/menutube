@@ -1,9 +1,24 @@
 .video-container {
-  height: 300px;
-  width: 500px;
+  height: 450px;
+  width: 600px;
   background: transparent;
   margin: 1%;
   position: relative;
+}
+
+.vedio-border{
+  height: 600px;
+  width: 100vw;
+  /* background-color: rgb(245, 245, 135); */
+  background-image: linear-gradient(to left, rgb(242, 242, 43),rgb(244, 72, 72),rgba(199, 3, 248, 0.5));
+  margin: 25px;
+  margin-left: 0px;
+  padding-left:0px;
+
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
 }
 
 .playing-overlay {
@@ -16,17 +31,38 @@
   top: 0;
   z-index: 10;
   background-color: transparent;
+  outline:none;
+  border: 10px solid #fff;
+  border-radius: 16px;
+  
 }
 
 .playing-overlay:hover {
   transform: scale(1);
   opacity: 1;
+  
+}
+.save-btn {
+    background-color: rgb(125, 19, 223);
+    width: 200px;
+    height: 10px;
+    padding: 20px;
+    margin: 35px;
+    border: none;
+    font-size: 28px;
+    font-weight: 400;
+    color: #fff;
+    font-family: 'Nerko One', cursive;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    letter-spacing: 3px;
+}
+.save-btn:focus{
+  outline: none;
 }
 
-.save-btn {
-  height: 20px;
-  width: 20px;
-}
 
 .paused-overlay {
   height: inherit;
@@ -41,12 +77,16 @@
   font-size: 50px;
   z-index: 10;
   text-align: center;
+  border: 10px solid #fff;
+  border-radius: 16px;
+
 }
 
 .react-player {
   height: inherit;
   width: inherit;
   position: absolute;
+  
   /* top: 0; */
   /* z-index: 20; */
 }
@@ -55,3 +95,28 @@ div {
   margin: 0;
   padding: 0;
 }
+
+#labels {
+  width: 300px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  margin-right: 35px;
+  /* background-image: linear-gradient(rgba(243, 165, 165, 0),rgb(96, 65, 236), rgba(236, 27, 97, 0) ); */
+}
+
+#title {
+  display: flex;
+  flex-direction: column;  
+  width: 300px;
+  height: 100px;
+  font-size: 48px;
+  font-family: 'Nerko One', cursive;
+  font-weight: 900;
+  color :#fff;
+  letter-spacing: 3px;
+}
+
