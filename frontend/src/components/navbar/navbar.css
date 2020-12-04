@@ -11,8 +11,6 @@
 
 .nav-right {
   display: flex;
-  justify-content: flex-end;
-  display: flex;
   justify-content: space-between;
   padding: 1%;
   background-image: linear-gradient(to left, rgb(242, 242, 43),rgb(244, 72, 72),rgba(199, 3, 248, 0.5));
