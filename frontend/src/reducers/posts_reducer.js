@@ -3,7 +3,6 @@ import { RECEIVE_POST,
          RECEIVE_NEW_POST } from '../actions/post_actions';
 
 export default (state = {}, action) => {
-  
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_NEW_POST:

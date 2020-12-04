@@ -1,14 +1,12 @@
 /*CSS for testing purposes*/
 
 div.slot {
-  border: 1px solid black;
+  border: 3px solid black;
   height: 150px;
   width: 150px;
+  margin-right: 20px;
   position: relative;
-}
-
-div.slot:drop {
-  border-width: 5px;
+  overflow: hidden;
 }
 
 div.slot > button {
@@ -22,28 +20,38 @@ ul.calendar {
   width: 500px;
 }
 
-li {
+ul.calendar > li {
   display: flex;
-  width: 500px;
+  width: 650px;
   justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
 
 }
 
 .dayname{
   width: 100px;
+  font-size: 30px;
+  padding-left: 30px;
 }
 
 div.slots{
   display: flex;
 }
 
-.ui.overlay.left.visible.sidebar {
-  width: 900px;
-  height: 900px;
+.ui.overlay.right.visible.sidebar {
+  width: 750px;
+  height: 1000px;
 }
 
 .ui.segment.pushable {
-  height: 900px;
+  height: 1200px;
+  width: 800px;
+  border: none;
+  position: absolute;
+  right: 0;
+  z-index: 30;
+  background: transparent;
 }
 
 .ui.grid{
@@ -51,17 +59,45 @@ div.slots{
 }
 
 .ui.segment{
-  width: 600px;
-  border: none;
+  width:100%;
   box-shadow: none;
 }
 
-.ui.one.column.grid{
-  position: fixed;
-}
-
 .calendar-wrapper {
-  background: #ebebeb;
+  position: relative;
+  width: 700px;
   padding: 20px 0;
 }
+
+.calendar-wrapper:after{
+  content: "";
+  background: url('./fridge.jpg');
+  background-size: cover;
+  background-position: -20em;
+  opacity: 0.3;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+div.ui.one.column.grid > div:first-child{
+  text-align: right;
+  margin-left: 75%;
+  width: 400px;
+}
+
+div.slot > figure:first-child{
+  object-fit: cover;
+  object-position: center;
+}
+
+figure {
+  width: 600px;
+  height: 450px;
+  padding: 0;
+}
+
 

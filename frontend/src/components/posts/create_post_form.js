@@ -1,6 +1,7 @@
 import React from 'react';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import 'semantic-ui-css/semantic.min.css'
+import './create_post_form.css'
 import Loader from 'react-loader-spinner';
 import { uploadFile } from 'react-s3';
 import { Dropdown } from 'semantic-ui-react';
@@ -38,7 +39,7 @@ class CreatePostForm extends React.Component {
 
   errors(field){
     if (this.props.errors[field]) {
-      return <p className="session-error">{this.props.errors[field]}</p>
+      return <p className="posting-error">{this.props.errors[field]}</p>
     }
     return 
   }
@@ -66,7 +67,11 @@ class CreatePostForm extends React.Component {
           diet: this.state.diet,
           ingredients: this.state.ingredients
         }
-        this.props.createPost(post).then(this.props.loadingOff())
+        this.props.createPost(post).then(() => {
+           this.props.loadingOff();
+           this.props.clearPostErrors();
+           this.props.history.push('/feed')
+        })
       }
 
     ).catch(err => {
@@ -78,7 +83,7 @@ class CreatePostForm extends React.Component {
   loaderSpinner(){
     if (this.props.loading){
       return (
-        <Loader type="Grid" color="#00BFFF" height={80} width={80} />          
+        <Loader type="Grid" color="#ee82ee" height={100} width={100} />          
       )
     }
     return
@@ -96,10 +101,11 @@ class CreatePostForm extends React.Component {
   render() {
 
     if (!this.props.diet) return null;
-
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="post-form" onSubmit={this.handleSubmit}>
         {this.loaderSpinner()}
+
+      <div className="title-input-div">
       <label htmlFor="post-title">Enter a title:</label>
        <input
         id="post-title" 
@@ -107,23 +113,30 @@ class CreatePostForm extends React.Component {
         value={this.state.title}
         onChange={this.changeTitle}/>  
         {this.errors("title")}
+      </div>
 
-        <input 
-        type="file" 
-        ref={this.fileLoader}/>
-        {this.errors("")} 
+      <div className="vid-input-div">
+          <input 
+          id="video-input"
+          type="file" 
+          ref={this.fileLoader}
+          accept="video/*"/>
+          
+       </div>
 
+        <label> Diet/Restrictions: 
+          <Dropdown 
+            placeholder='Diet'
+            fluid
+            multiple
+            search
+            selection
+            options={this.optionify(this.props.diet)}
+            onChange={this.handleTag}
+          />
+        </label>
 
-        <Dropdown 
-          placeholder='Diet'
-          fluid
-          multiple
-          search
-          selection
-          options={this.optionify(this.props.diet)}
-          onChange={this.handleTag}
-        />
-
+         <label> Nutrition: 
         <Dropdown 
           placeholder='Nutrition'
           fluid
@@ -133,7 +146,9 @@ class CreatePostForm extends React.Component {
           options={this.optionify(this.props.nutrition)}
           onChange={this.handleTag}
         />
+        </label>
 
+        <label>Ingredients:
         <Dropdown 
           placeholder='Ingredients'
           fluid
@@ -143,8 +158,8 @@ class CreatePostForm extends React.Component {
           options={this.optionify(this.props.ingredients)}
           onChange={this.handleTag}
         /> 
-
-        <input type="submit" value="Submit Video" />
+        </label>
+        <input id="submit-post" type="submit" value="Submit Post" />
       </form>    
     )
   }

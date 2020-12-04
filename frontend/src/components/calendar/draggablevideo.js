@@ -16,9 +16,9 @@ class DraggableVideo extends React.Component {
 
   render(){
     return (
-      <div id={this.props.id} draggable={true} onDragStart={this.dragStart} onDragOver={this.dragOver}>
+      <figure id={this.props.id} draggable={true} onDragStart={this.dragStart} onDragOver={this.dragOver}>
         {this.props.contents}
-      </div>
+      </figure>
       
     )
   }
