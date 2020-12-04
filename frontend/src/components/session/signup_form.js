@@ -37,7 +37,7 @@ class SignupForm extends React.Component {
     return (
       <div className="signup-wrapper">
         <form id="signup-form" onSubmit={this.handleSubmit}>
-        <h2>Sign Up for MenuTube</h2>
+        <h2 className="menutube">MenuTube</h2>
         <div className="username">
           <label htmlFor="signup-username">Username</label>
           <input 
@@ -82,7 +82,7 @@ class SignupForm extends React.Component {
             {this.errors("password2")}
           </div>
 
-          <input type="submit" value="Sign Up"/>
+          <input type="submit" value="Sign Up" className="session-btn" />
         </form>
 
       </div>

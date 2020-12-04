@@ -33,10 +33,11 @@
   outline: none;
 }
 
-#signup {
+#signup, #logout {
   
   background-image: linear-gradient(to right, rgb(177, 146, 218), violet); 
 }
+
 
 #login {
   background-image: linear-gradient(to left, rgb(177, 146, 218), violet); 
@@ -48,3 +49,13 @@
   align-items: center;
   justify-content: center;
 }
+
+.nav-username  {
+  font-family: 'Nerko One', cursive;
+  font-weight: 700;
+  font-size: 42px;
+  letter-spacing: 3px;
+  text-transform: capitalize;
+  color: #7508f2;
+}
+
