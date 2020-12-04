@@ -3,8 +3,10 @@
   top: 50%;
   right: 50%;
   transform: translate(50%,-50%);
-  height: 100%;
   width: 1000px;
+  padding: 50px;
+  background-image: linear-gradient(
+    rgb(240, 128, 146), rgb(178, 252, 118));
 }
 
 .video-header {
@@ -12,13 +14,13 @@
   flex-direction: row;
   justify-content: space-between;
   font-size: 30px;
+  color: white;
+  background-image: linear-gradient(to right,
+   rgb(187, 99, 245), rgb(178, 252, 118), rgb(131, 105, 247));
 }
 
 .show-video-container {
-  height: 750px;
-  width: 1000px;
   background: transparent;
-  margin: 1%;
   position: relative;
   display: flex;
   flex-direction: column;
@@ -31,8 +33,9 @@
 }
 
 .timestamps-section {
-  width: 40%;
-  border: solid black 1px;
+  width: 50%;
+  border: solid white 1px;
+  border-right: none;
 }
 
 .timestamps-section p {
@@ -40,14 +43,29 @@
 }
 
 .tags-section {
-  width: 40%;
-  border: solid black 1px;
+  width: 50%;
+  border: solid white 1px;
 }
 
 .tags-section p {
   text-align: center;
 }
 
+.tags-list {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  
+}
+
+.tags-list li {
+  padding: none;
+  display: inline-block;
+  word-break: break-all;
+  max-width: 20%;
+}
+
 .tag-button {
   border: none;
+  margin: 5px;
 }
