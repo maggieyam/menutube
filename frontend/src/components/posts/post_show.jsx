@@ -40,7 +40,7 @@ class PostShow extends Component {
     if (!post) return null;
 
     const timestamps = [1, 3, 10];
-    const tags = ["sugar 16g", "protein 20g", "vegetarian", "broccoli", "Tofu"];
+    const tags = ["sugar 16g", "protein 20g", "vegetarian", "broccoli 1/2 lb.", "tofu 1 block"];
     const timestampList = timestamps.map((ts, idx) => (
       <li key={idx}>
         <div className="timestamps">
