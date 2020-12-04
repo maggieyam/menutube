@@ -24,11 +24,11 @@ class NavBar extends React.Component {
     const { openModal } = this.props;
 
     return (
-      <div className="nav-left">
-        <div className="nav-right">
-          <button onClick={() => openModal("signup")}>Sign Up</button>
-          <button onClick={() => openModal("login")}>Log In</button>
-        </div>
+      <div className="nav-right">
+        {/* <img src={blueButton} onClick={() => openModal("signup") } id="btn-blue" />Sign Up */}
+
+        <button onClick={() => openModal("signup") } className="navbar-btn" id="signup">Sign Up</button>
+        <button onClick={() => openModal("login")} className="navbar-btn" id="login">Log In</button>
       </div>
     );
   }
@@ -38,7 +38,13 @@ class NavBar extends React.Component {
 
     return (
       <nav className="navbar">
+<<<<<<< HEAD
         <h1>MenuTube</h1>
+=======
+        <div className="nav-left">
+          <h1 id="brand">MenuTube</h1>
+        </div>
+>>>>>>> main
 
         {currentUser.isAuthenticated ? this.loggedIn() : this.loggedOut()}
       </nav>

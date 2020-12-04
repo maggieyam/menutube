@@ -5,10 +5,12 @@ import "./calendar.css";
 const day = (dayName) => {
   return (
     <li key={dayName}>
-      <h3>{dayName}</h3>
-      <Slot className={`${dayName}-1`} />
-      <Slot className={`${dayName}-2`} />
-      <Slot className={`${dayName}-3`} />
+      <h3 className="dayname">{dayName}</h3>
+      <div className="slots">
+        <Slot className={`${dayName}-1`} />
+        <Slot className={`${dayName}-2`} />
+        <Slot className={`${dayName}-3`} />
+      </div>
     </li>
   );
 };
@@ -18,13 +20,13 @@ export default () => {
     <div className="calendar-wrapper">
       <ul className="calendar">
         {[
-          "Sunday",
-          "Monday",
-          "Tuesday",
-          "Wedndesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
+          "Sun",
+          "Mon",
+          "Tues",
+          "Wed",
+          "Thurs",
+          "Fri",
+          "Sat",
         ].map((dayName) => {
           return day(dayName);
         })}

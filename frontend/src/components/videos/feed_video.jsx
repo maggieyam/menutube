@@ -1,11 +1,11 @@
 import React from "react";
 import ReactPlayer from "react-player/file";
 import "./feed_video.css";
-import { withRouter } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 class VideoPlayer extends React.Component {
   constructor(props) {
     super(props);
-    // debugger;
+    
     this.state = {
       playing: false,
       muted: true,
@@ -18,8 +18,8 @@ class VideoPlayer extends React.Component {
     this.saveVid = this.saveVid.bind(this);
     this.playVid = this.playVid.bind(this);
     this.pauseVid = this.pauseVid.bind(this);
-    this.goToShowPage = this.goToShowPage.bind(this);
   }
+
 
   // formatSeconds(secs) {
   //   let remainingSecs = secs % 60;
@@ -50,42 +50,31 @@ class VideoPlayer extends React.Component {
     });
   }
 
-  goToShowPage(e) {
-    e.preventDefault();
-    this.props.history.push(`/show/${this.props._id}`);
-  }
-
   saveVid() {}
 
   unsaveVid() {}
 
   render() {
     const overlay = this.state.playing ? (
-      <div className="playing-overlay">
-        <button
-          className="save-btn"
-          // onClick={this.state.saved ? this.unsaveVid : this.saveVid}
-        >
-          save{/* {this.state.saved ? "u" : "s"} */}
-        </button>
-        <button className="save-btn" onClick={this.goToShowPage}>
-          show
-        </button>
-      </div>
+      // <div className="playing-container">
+        <div className="playing-overlay">
+          
+        </div>
+      // </div>
     ) : (
-      <div className="paused-overlay">
-        <p>{this.props.title}</p>
-        <p>{this.props.user}</p>
+      <div className="paused-overlay">     
       </div>
     );
 
     return (
-      <div
-        className="video-container"
-        onMouseEnter={this.playVid}
-        onMouseLeave={this.pauseVid}
-      >
+      <div className="vedio-border">
+        <div
+          className="video-container"
+          onMouseEnter={this.playVid}
+          onMouseLeave={this.pauseVid}
+        >
         {overlay}
+        
         <ReactPlayer
           className="react-player"
           ref={this.vidRef}
@@ -102,7 +91,23 @@ class VideoPlayer extends React.Component {
               },
             },
           }}
-        />
+          />
+          
+        </div>
+        
+        <div id="labels">
+          
+          <Link to={`/show/${this.props._id}`}>
+            <h1 id="title">{this.props.title}</h1>
+          </Link>
+          <button
+            className="save-btn"
+            // onClick={this.state.saved ? this.unsaveVid : this.saveVid}
+          >
+            save{/* {this.state.saved ? "u" : "s"} */}
+          </button>
+          {/* <p id="username">{this.props.user.username}</p> */}
+        </div>
       </div>
     );
   }
