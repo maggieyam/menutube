@@ -15,7 +15,7 @@ class SavedIndex extends React.Component {
     return (
       <div className="saved-posts-wrapper">
         <ul className="saved-posts">
-          {this.props.posts.map(post => {
+          {this.props.posts.slice(0,1).map(post => {
             return <SavedIndexItem post={post} />
           })}
         </ul>
