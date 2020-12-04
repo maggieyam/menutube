@@ -1,6 +1,6 @@
 .post-container {
   position: absolute;
-  top: 50%;
+  top: 70%;
   right: 50%;
   transform: translate(50%,-50%);
   width: 1000px;
@@ -62,10 +62,21 @@
   padding: none;
   display: inline-block;
   word-break: break-all;
-  max-width: 20%;
+  max-width: 40%;
 }
 
 .tag-button {
   border: none;
   margin: 5px;
+}
+
+.timestamps{
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.timestamps > button {
+  margin-right: 15px;
 }
