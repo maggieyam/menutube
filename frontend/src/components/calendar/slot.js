@@ -19,8 +19,8 @@ class Slot extends React.Component {
     const video = document.getElementById(videoId).cloneNode(true);
     video.id = video.id+"a";
     video.draggable = false;
-    video.style.height = "100%";
-    video.style.width = "100%";
+    video.style.height = "150px";
+    video.style.width = "150px";
     
     e.target.appendChild(video);
 
