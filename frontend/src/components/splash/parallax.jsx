@@ -261,8 +261,9 @@ class ScrollPage extends React.Component {
           >
             <button
               onClick={() => this.props.openModal("signup")}
-              className="signup-btn"
-              id='splash-signup'
+              className="session-btn splash-session-btn"
+              id='signup'
+              
             >
               Sign Up Now
             </button>

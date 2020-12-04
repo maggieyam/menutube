@@ -58,3 +58,9 @@
   background-color: rgb(177, 146, 218);
   opacity: 40%;
 }
+
+.splash-session-btn {
+  height:85px;
+  font-size: 40px;
+  width:400px;
+}
