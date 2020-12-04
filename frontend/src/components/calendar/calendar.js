@@ -20,13 +20,13 @@ export default () => {
     <div className="calendar-wrapper">
       <ul className="calendar">
         {[
-          "Sunday",
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday",
+          "Sun",
+          "Mon",
+          "Tues",
+          "Wed",
+          "Thurs",
+          "Fri",
+          "Sat",
         ].map((dayName) => {
           return day(dayName);
         })}

@@ -1,6 +1,7 @@
 import React from 'react';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import 'semantic-ui-css/semantic.min.css'
+import './create_post_form.css'
 import Loader from 'react-loader-spinner';
 import { uploadFile } from 'react-s3';
 import { Dropdown } from 'semantic-ui-react';
@@ -78,7 +79,7 @@ class CreatePostForm extends React.Component {
   loaderSpinner(){
     if (this.props.loading){
       return (
-        <Loader type="Grid" color="#00BFFF" height={80} width={80} />          
+        <Loader type="Grid" color="#53a312" height={100} width={100} />          
       )
     }
     return
@@ -96,10 +97,12 @@ class CreatePostForm extends React.Component {
   render() {
 
     if (!this.props.diet) return null;
-
+    debugger
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form id="post-form" onSubmit={this.handleSubmit}>
         {this.loaderSpinner()}
+
+      <div>
       <label htmlFor="post-title">Enter a title:</label>
        <input
         id="post-title" 
@@ -107,23 +110,29 @@ class CreatePostForm extends React.Component {
         value={this.state.title}
         onChange={this.changeTitle}/>  
         {this.errors("title")}
+      </div>
 
+      <div>
         <input 
         type="file" 
-        ref={this.fileLoader}/>
+        ref={this.fileLoader}
+        accept="video/*"/>
         {this.errors("")} 
+       </div>
+        
+        <label> Diet/Restrictions: 
+          <Dropdown 
+            placeholder='Diet'
+            fluid
+            multiple
+            search
+            selection
+            options={this.optionify(this.props.diet)}
+            onChange={this.handleTag}
+          />
+        </label>
 
-
-        <Dropdown 
-          placeholder='Diet'
-          fluid
-          multiple
-          search
-          selection
-          options={this.optionify(this.props.diet)}
-          onChange={this.handleTag}
-        />
-
+         <label> Nutrition: 
         <Dropdown 
           placeholder='Nutrition'
           fluid
@@ -133,7 +142,9 @@ class CreatePostForm extends React.Component {
           options={this.optionify(this.props.nutrition)}
           onChange={this.handleTag}
         />
+        </label>
 
+        <label>Ingredients:
         <Dropdown 
           placeholder='Ingredients'
           fluid
@@ -143,7 +154,7 @@ class CreatePostForm extends React.Component {
           options={this.optionify(this.props.ingredients)}
           onChange={this.handleTag}
         /> 
-
+        </label>
         <input type="submit" value="Submit Video" />
       </form>    
     )

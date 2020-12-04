@@ -7,18 +7,18 @@ import {
 } from 'semantic-ui-react';
 import Calendar from './calendar';
 
-const SidebarExampleSidebar = () => {
+const CalendarSideBar = () => {
   const [visible, setVisible] = React.useState(false)
 
+  debugger
   return (
     <Grid columns={1}>
       <Grid.Column>
-        {/* <Checkbox
+        <Checkbox
           checked={visible}
-          label={{ children: <code>visible</code> }}
+          label={{ children: <code>Calendar</code> }}
           onChange={(e, data) => setVisible(data.checked)}
-        /> */}
-        <button onClick={setVisible}>Open</button>
+        />
       </Grid.Column>
 
       <Grid.Column>
@@ -26,9 +26,9 @@ const SidebarExampleSidebar = () => {
           <Sidebar
             animation={'overlay'}
             icon={'labeled'}
-            inverted={'true'}
-            vertical={'true'}
+            vertical='true'
             visible={visible}
+            direction='right'
            
           >
             <Calendar />
@@ -41,4 +41,4 @@ const SidebarExampleSidebar = () => {
   )
 }
 
-export default SidebarExampleSidebar
+export default CalendarSideBar;
