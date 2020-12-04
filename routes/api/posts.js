@@ -53,6 +53,7 @@ router.get("/search/nutrition", (req, res) => {
     })
     .catch(err => res.status(400).json(err))
 })
+
 // routes for search
 router.get("/search/ingredient", (req, res) => { 
     Ingredient
@@ -75,7 +76,6 @@ router.get("/save/:id/", (req, res) => {
     user.save()
     .then(user=> res.json(user))
     .catch(err => res.status(400).json(err))
-
 })
 
 // routes for 
