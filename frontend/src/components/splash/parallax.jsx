@@ -205,7 +205,7 @@ class ScrollPage extends React.Component {
         <ParallaxLayer
           offset={2}
           speed={-0.3}
-          className='layer3'
+          className="layer3"
           style={{
             backgroundSize: "80%",
             backgroundPosition: "center",
@@ -255,11 +255,14 @@ class ScrollPage extends React.Component {
           }}
           onClick={() => this.parallax.scrollTo(0)}
         >
-          <div className="signup-now">
+          <div
+            className="signup-now"
+            style={{ backgroundColor: "transparent" }}
+          >
             <button
               onClick={() => this.props.openModal("signup")}
               className="signup-btn"
-              id="signup"
+              id='splash-signup'
             >
               Sign Up Now
             </button>
