@@ -14,8 +14,8 @@ class NavBar extends React.Component {
     // TO FIX... link will route to show page
     return (
       <div className="nav-right">
-        <Link to="/">{currentUser.userInfo.username}</Link>
-        <button onClick={() => logout()}>Log Out</button>
+        <Link to="/" className="nav-username">Hello, {currentUser.userInfo.username}!</Link>
+        <button onClick={() => logout()} className="navbar-btn" id="logout">Log Out</button>
       </div>
     );
   }

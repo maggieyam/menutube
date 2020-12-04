@@ -21,7 +21,6 @@ const UserSchema = new Schema ({
   saved: [{
     type: Schema.Types.ObjectId,
   }]
-  
 });
 
 module.exports = User = mongoose.model ('User', UserSchema);
