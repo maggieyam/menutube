@@ -1,0 +1,63 @@
+.post-form{
+  height: 600px;
+  width: 900px;
+  border-radius: 15px;
+  margin-top: 60px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 50px 0;
+  margin-left: 10%;
+  background-image: url('./form_background.jpg');
+  padding-left: 320px;
+}
+
+div > svg {
+  position: absolute;
+  top: 50%;
+  left: 33%;
+  transform: translate(-50%, -50%);
+  z-index: 50;
+}
+
+div.ui.multiple.search.dropdown {
+  width: 500px;
+  border-radius: 15px;
+}
+
+.title-input-div{
+  position: relative;
+}
+
+
+.post-form label {
+  color: white;
+  font-size: 18px;
+}
+
+input[type="file"] {
+   background-image: linear-gradient(to right, rgb(177, 146, 218), #ee82ee);
+   padding: 10px 15px;
+}
+
+#post-title {
+  width: 500px;
+  height: 40px;
+  border-radius: 15px;
+  display: block;
+}
+
+#submit-post{
+  border-radius: 15px;
+  outline: none;
+  padding: 10px 15px;
+  background-image: linear-gradient(to right, rgb(177, 146, 218), violet)
+}
+
+.posting-error{
+  position: absolute;
+  top: -35px;
+  color: red;
+
+}

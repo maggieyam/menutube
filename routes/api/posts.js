@@ -69,10 +69,13 @@ router.get("/search/diet", (req, res) => {
     .catch(err => res.status(400).json(err))
 })
 
-// // routes for saved
+// routes for saved
 router.get("/save/:id/", (req, res) => { 
     const user = User.find({ _id: req.params.user_id });
     user.saved.push(req.params.id);
+    user.save()
+    .then(user=> res.json(user))
+    .catch(err => res.status(400).json(err))
 })
 
 // routes for 
