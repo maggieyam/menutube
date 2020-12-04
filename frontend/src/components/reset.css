@@ -126,3 +126,7 @@ table {
 input {
   -webkit-appearance: none;
 }
+
+button:hover, input[type="submit"]{
+  cursor: pointer;
+}

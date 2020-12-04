@@ -22,9 +22,9 @@
   color: red;
   font-size: 14px;
   position: absolute;
-  width: 300px;
-  top: 80px;
-  left: 10px;
+  width: 450px;
+  top: 70px;
+  left: -10px;
   font-weight: 900;
   font-family: Arial, Helvetica, sans-serif;
   color: orange;
@@ -48,6 +48,8 @@
   width: 500px;
 }
 
+
+
 #login-form, #signup-form {
   display: flex;
   flex-direction: column;
@@ -62,13 +64,17 @@
   height: 500px;
   width: 500px;
   background-image: linear-gradient(to bottom right,rgb(156, 156, 226),rgb(107, 107, 198),rgb(67, 57, 207), rgb(177, 146, 218),rgb(214, 21, 214), violet); 
+}
 
+.signup-wrapper {
+  height: 700px;
 }
 
 #signup-email, #signup-username,
 #signup-password, #signup-password2,
 #login-username, #login-password {
   height: 40px;
+
   border-radius: 12px;
   border: 2px solid ivory;
   color: rgb(28, 138, 201);
@@ -99,6 +105,12 @@ label{
   color: rgb(102, 27, 223);
   background-image: linear-gradient(to bottom right, yellow, red);
 }
+
+.session-btn:focus {
+  outline: none;
+}
+
+
 .menutube {
   font-family: 'Nerko One', cursive;
   font-weight: 700;
