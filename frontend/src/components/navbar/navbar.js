@@ -1,47 +1,50 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React from "react";
+import { Link } from "react-router-dom";
+import "./navbar.css";
 
 class NavBar extends React.Component {
-
-  constructor(props){
+  constructor(props) {
     super(props);
-    this.loggedIn = this.loggedIn.bind(this)
-    this.loggedOut = this.loggedOut.bind(this)
+    this.loggedIn = this.loggedIn.bind(this);
+    this.loggedOut = this.loggedOut.bind(this);
   }
 
-   loggedIn() {
+  loggedIn() {
     const { logout, currentUser } = this.props;
     // TO FIX... link will route to show page
     return (
       <div className="nav-right">
-      <Link to="/">{currentUser.userInfo.username}</Link>
-      <button onClick={() => logout()}>Log Out</button>
+        <Link to="/">{currentUser.userInfo.username}</Link>
+        <button onClick={() => logout()}>Log Out</button>
       </div>
-    )
+    );
   }
-  
+
   loggedOut() {
     const { openModal } = this.props;
-    
+
     return (
       <div className="nav-right">
-        <button onClick={() => openModal("signup")}>Sign Up</button>
-        <button onClick={() => openModal("login")}>Log In</button>
+        {/* <img src={blueButton} onClick={() => openModal("signup") } id="btn-blue" />Sign Up */}
+
+        <button onClick={() => openModal("signup") } className="navbar-btn" id="signup">Sign Up</button>
+        <button onClick={() => openModal("login")} className="navbar-btn" id="login">Log In</button>
       </div>
-    )
+    );
   }
 
-
-  render(){
-
+  render() {
     const { currentUser } = this.props;
-    
+
     return (
       <nav className="navbar">
-        <h1>MenuTube</h1>
+        <div className="nav-left">
+          <h1 id="brand">MenuTube</h1>
+        </div>
+
         {currentUser.isAuthenticated ? this.loggedIn() : this.loggedOut()}
       </nav>
-    )
+    );
   }
 }
 

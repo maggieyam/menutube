@@ -1,5 +1,5 @@
 import React from "react";
-import { Switch, Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import { ProtectedRoute } from "../util/route_util";
 import ModalContainer from "../components/modal/modal_container";
 import CreatePostFormContainer from "../components/posts/create_post_form_container";
@@ -8,6 +8,7 @@ import DraggableVideo from "./calendar/draggablevideo";
 import CalendarSideBar from "./calendar/calendar_sidebar";
 import PostIndexPage from "./posts/post_index_page";
 import PostShowContainer from "./posts/post_show_container";
+import SplashPage from "./splash/splash_page";
 import SavedContainer from './saved/saved_container';
 import './reset.css';
 
@@ -17,9 +18,9 @@ export default () => (
     <ModalContainer />
     <NavBarContainer />
     <CalendarSideBar />
-   
     <Route path="/posts/saved" component={SavedContainer}/>
     <Switch>
+      <Route exact path="/" component={SplashPage} />
       <ProtectedRoute exact path="/show/:id" component={PostShowContainer} />
       <ProtectedRoute exact path="/feed" component={PostIndexPage} />
       <ProtectedRoute
