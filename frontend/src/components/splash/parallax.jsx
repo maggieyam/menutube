@@ -1,14 +1,12 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import gif1 from "../../images/FoodVid_1.gif";
-import gif2 from "../../images/FoodVid_2.gif";
-import gif3 from "../../images/FoodVid_3.gif";
 import { Parallax, ParallaxLayer } from "react-spring/renderprops-addons";
 import "./splash_page.css";
 import { withRouter } from "react-router-dom";
 import dessert from "../../images/cooking.gif";
 import dinner from "../../images/cooking2.gif";
 import NavBar from "../navbar/navbar_container";
+
 const url = (name, wrap = false) =>
   `${
     wrap ? "url(" : ""
@@ -62,7 +60,7 @@ class ScrollPage extends React.Component {
         <ParallaxLayer
           offset={1.3}
           speed={-0.3}
-          style={{ pointerEvents: "none" }}
+          style={{ pointerEvents: "none", zIndex: "2" }}
         >
           <div className="middle-text">
             <h1>Post Videos</h1>
@@ -70,17 +68,17 @@ class ScrollPage extends React.Component {
           <div className="gif-container">
             <img
               className="splash-gifs"
-              src={gif1}
+              src="https://bnb-seeds.s3.us-east-1.amazonaws.com/FoodVid_1.gif"
               style={{ width: "17%", marginLeft: "20%" }}
             />
             <img
               className="splash-gifs"
-              src={gif2}
+              src="https://bnb-seeds.s3.us-east-1.amazonaws.com/FoodVid_2.gif"
               style={{ width: "17%", marginLeft: "20%" }}
             />
             <img
               className="splash-gifs"
-              src={gif3}
+              src="https://bnb-seeds.s3.us-east-1.amazonaws.com/FoodVid_3.gif"
               style={{ width: "17%", marginLeft: "20%" }}
             />
           </div>
@@ -128,7 +126,9 @@ class ScrollPage extends React.Component {
           >
             Learn Recipes
           </h1>
-
+          <div className="text-box">
+            <h2> Ingredients</h2>
+          </div>
           <h1
             style={{
               display: "block",
@@ -146,15 +146,20 @@ class ScrollPage extends React.Component {
           ></img>
         </ParallaxLayer>
 
-        <ParallaxLayer offset={1.6} speed={-0.1} style={{ opacity: 0.4 }}>
+        <ParallaxLayer offset={1.6} speed={-0.1} style={{ opacity: 0.3 }}>
           {/* <img
             src={url("cloud")}
             style={{ display: "block", width: "20%", marginLeft: "60%" }}
           /> */}
+          <h3>Save videos</h3>
           <img
             className="bg-gif"
             src="https://i.pinimg.com/originals/ef/69/cd/ef69cd230963b34100b23f7fdf5c47eb.gif"
-            style={{ display: "block", width: "25%", marginLeft: "30%" }}
+            style={{
+              display: "block",
+              width: "15%",
+              marginLeft: "40%",
+            }}
           />
           {/* <img
             src={url("cloud")}
@@ -163,14 +168,16 @@ class ScrollPage extends React.Component {
         </ParallaxLayer>
 
         <ParallaxLayer offset={2.6} speed={0.4} style={{ opacity: 0.6 }}>
-          {/* <img
-            src={url("cloud")}
-            style={{ display: "block", width: "20%", marginLeft: "5%" }}
-          /> */}
-          <img
-            src="https://i.pinimg.com/originals/64/8a/7c/648a7ce812bb33c5c01c6766e4c308a6.gif"
-            style={{ display: "block", width: "15%", marginLeft: "75%" }}
-          />
+          <div>
+            {/* <img
+              src="https://i.pinimg.com/originals/d5/64/4d/d5644d150faa5d8b5793b80cd741bf4f.gif"
+              style={{ display: "block", width: "20%", marginLeft: "5%" }}
+            /> */}
+            <img
+              src="https://i.pinimg.com/originals/64/8a/7c/648a7ce812bb33c5c01c6766e4c308a6.gif"
+              style={{ display: "block", width: "15%", marginLeft: "75%" }}
+            />
+          </div>
         </ParallaxLayer>
 
         <ParallaxLayer
@@ -208,7 +215,10 @@ class ScrollPage extends React.Component {
           }}
         >
           <img src={dessert} style={{ width: "20%" }} />
-          <h1> Welcome to MenuTube</h1>
+          <h1 className="splash-welcome" style={{ fontSize: "25px" }}>
+            {" "}
+            Welcome to MenuTube
+          </h1>
         </ParallaxLayer>
 
         <ParallaxLayer

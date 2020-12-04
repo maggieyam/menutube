@@ -35,7 +35,7 @@ class LoginForm extends React.Component {
     return (
       <div className="login-wrapper">
         <form id="login-form" onSubmit={this.handleSubmit}>
-          <h2>Login</h2>
+          <h2 className="menutube" >Menutube</h2>
           <div className="username">
             <label htmlFor="login-username">Username</label>
             <input 
@@ -55,10 +55,10 @@ class LoginForm extends React.Component {
                 value={this.state.password}
                 onChange={this.changeField("password")}
             />
-            {this.errors("password")}
+            <p>{this.errors("password")}</p>
           </div>
           
-          <input type="submit" value="Log In"/>
+          <input type="submit" value="Log In" className="session-btn"/>
         </form>
 
       </div>
