@@ -218,7 +218,7 @@ class ScrollPage extends React.Component {
           }}
         >
           <img src={dessert} style={{ width: "20%" }} />
-          <h1> Welcome to MenuTube</h1>
+          <h1 className="splash-welcome" style={{fontSize:"25px"}}> Welcome to MenuTube</h1>
         </ParallaxLayer>
 
         <ParallaxLayer
