@@ -32,6 +32,7 @@ ul.calendar > li {
 .dayname{
   width: 100px;
   font-size: 30px;
+  padding-left: 30px;
 }
 
 div.slots{
@@ -44,8 +45,8 @@ div.slots{
 }
 
 .ui.segment.pushable {
-  height: 1250px;
-  width: 750px;
+  height: 1200px;
+  width: 850px;
   border: none;
   position: absolute;
   right: 0;

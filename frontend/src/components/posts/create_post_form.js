@@ -97,7 +97,6 @@ class CreatePostForm extends React.Component {
   render() {
 
     if (!this.props.diet) return null;
-    debugger
     return (
       <form id="post-form" onSubmit={this.handleSubmit}>
         {this.loaderSpinner()}
@@ -119,7 +118,7 @@ class CreatePostForm extends React.Component {
         accept="video/*"/>
         {this.errors("")} 
        </div>
-        
+
         <label> Diet/Restrictions: 
           <Dropdown 
             placeholder='Diet'
