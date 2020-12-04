@@ -1,5 +1,5 @@
 module.exports = {
   BUCKET_NAME: 'menu-tube-dev',
-  ID: 'AKIAXCYZYHEIVF6AMWNL',
-  SECRET: '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'
+  ID: 'AKIAXCYZYHEISEXUGOFW',
+  SECRET: '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'
 }
