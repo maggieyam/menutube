@@ -2,3 +2,4 @@
 /frontend/src/config/aws_hide.js
 /node_modules
 /frontend/node_modules
+/frontend/.eslintcache
