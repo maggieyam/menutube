@@ -5,13 +5,13 @@ import './create_post_form.css'
 import Loader from 'react-loader-spinner';
 import { uploadFile } from 'react-s3';
 import { Dropdown } from 'semantic-ui-react';
-const awsDev = require('../../config/aws');
+const aws = require('../../config/aws');
 
 const config = {
-  bucketName: awsDev.BUCKET_NAME,
+  bucketName: aws.BUCKET_NAME,
   region: 'us-east-1',
-  accessKeyId: awsDev.ID,
-  secretAccessKey: awsDev.SECRET
+  accessKeyId: aws.ID,
+  secretAccessKey: aws.SECRET,
 }
 
 class CreatePostForm extends React.Component {
@@ -56,7 +56,6 @@ class CreatePostForm extends React.Component {
 
     const video = this.fileLoader.current.files[0]
     this.props.loadingOn();
-
     uploadFile(video, config).then(
       data => {
 
