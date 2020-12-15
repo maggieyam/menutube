@@ -45,11 +45,11 @@ export const fetchPosts = () => dispatch => {
   )
 }
 
-export const fetchSavedPosts = userId => dispatch => {
-  return APIUtil.fetchSavedPosts(userId).then(
-    posts => dispatch(receivePosts(posts.data))
-  )
-}
+// export const fetchSavedPosts = userId => dispatch => {
+//   return APIUtil.fetchSavedPosts(userId).then(
+//     posts => dispatch(receivePosts(posts.data))
+//   )
+// }
 
 export const fetchUserPosts = userId => dispatch => {
   return APIUtil.fetchUserPosts(userId).then(

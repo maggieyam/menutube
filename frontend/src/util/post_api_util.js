@@ -12,9 +12,9 @@ export const fetchPosts = () => {
   return axios.get('/api/posts/');
 }
 
-export const fetchSavedPosts = userId => {
-  return axios.get(`/api/posts/saved/${userId}`);
-}
+// export const fetchSavedPosts = userId => {
+//   return axios.get(`/api/posts/saved/${userId}`);
+// }
 
 export const fetchUserPosts = userId => {
   return axios.get(`api/posts/user/${userId}`);

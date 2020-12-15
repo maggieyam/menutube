@@ -131,14 +131,14 @@ router.delete('/delete', (req, res) => {
 
 })
 
-router.get('/saved/:user_id', (req, res) => {
-    User.findById(req.params.user_id).then(
-        user => {
-        Post.find({_id: {$in: user.saved }})
-            .then(posts => res.json(posts))
-        })
-        .catch(err => res.status(400).json(err))
-})
+// router.get('/saved/:user_id', (req, res) => {
+//     User.findById(req.params.user_id).then(
+//         user => {
+//         Post.find({_id: {$in: user.saved }})
+//             .then(posts => res.json(posts))
+//         })
+//         .catch(err => res.status(400).json(err))
+// })
 
 
 

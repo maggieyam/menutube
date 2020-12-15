@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { fetchSavedPosts } from '../../util/post_api_util';
+
 import SavedIndex from './saved_index';
 
 const mStP = state => {
@@ -13,11 +13,11 @@ const mStP = state => {
   }
 }
 
-const mDtP = dispatch => ({
-  fetchSavedPosts: userId => dispatch(fetchSavedPosts(userId))
-})
+// const mDtP = dispatch => ({
+//   fetchSavedPosts: userId => dispatch(fetchSavedPosts(userId))
+// })
 
-export default connect(mStP, mDtP)(SavedIndex);
+export default connect(mStP)(SavedIndex);
 
 
 

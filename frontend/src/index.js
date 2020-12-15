@@ -6,7 +6,7 @@ import jwt_decode from 'jwt-decode';
 import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 import { openModal, closeModal } from './actions/modal_actions';
-import { fetchPost, fetchSavedPosts } from './actions/post_actions';
+import { fetchPost } from './actions/post_actions';
 import { fetchTags } from './actions/tag_actions';
 import { savePost } from './util/post_api_util';
 import axios from 'axios';
@@ -17,7 +17,6 @@ document.addEventListener("DOMContentLoaded", () => {
   if (localStorage.jwtToken) {
     setAuthToken(localStorage.jwtToken);
     const userInfo = jwt_decode(localStorage.jwtToken);
-    debugger
     const preloadedState = { session: { isAuthenticated: true, userInfo}};
     store = configureStore(preloadedState);
     const now = Date.now() / 1000;
@@ -45,7 +44,7 @@ document.addEventListener("DOMContentLoaded", () => {
   window.logout = logout;
   window.savePost = savePost;
   window.axios = axios;
-  window.fetchSavedPosts = fetchSavedPosts;
+
   // END TESTING
 })
 

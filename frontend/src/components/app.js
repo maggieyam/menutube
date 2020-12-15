@@ -18,7 +18,7 @@ export default () => (
     <ModalContainer />
     <NavBarContainer />
     <CalendarSideBar />
-    <Route path="/posts/saved" component={SavedContainer} />
+    {/* <Route path="/posts/saved" component={SavedContainer} /> */}
     <Switch>
       <AuthRoute exact path="/" component={SplashPage} />
       <ProtectedRoute exact path="/show/:id" component={PostShowContainer} />
