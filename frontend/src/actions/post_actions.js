@@ -60,7 +60,7 @@ export const fetchPost = postId => dispatch => (
 
 export const savePost = (postId, body) => dispatch => {
   return APIUtil.savePost(postId, body).then(
-    user => {dispatch(receiveUser(user))s}
+    user => {dispatch(receiveUser(user))}
   )
 }
     
