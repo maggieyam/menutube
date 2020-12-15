@@ -73,21 +73,21 @@ class ScrollPage extends React.Component {
             <h1>Post Videos</h1>
           </div>
           <div className="gif-container">
-            {/* <img
+            <img
               className="splash-gifs"
               src="https://bnb-seeds.s3.us-east-1.amazonaws.com/FoodVid_1.gif"
               style={{ width: "17%", marginLeft: "20%" }}
-            /> */}
-            {/* <img
+            />
+            <img
               className="splash-gifs"
               src="https://bnb-seeds.s3.us-east-1.amazonaws.com/FoodVid_2.gif"
               style={{ width: "17%", marginLeft: "20%" }}
-            /> */}
-            {/* <img
+            />
+            <img
               className="splash-gifs"
               src="https://bnb-seeds.s3.us-east-1.amazonaws.com/FoodVid_3.gif"
               style={{ width: "17%", marginLeft: "20%" }}
-            /> */}
+            />
           </div>
         </ParallaxLayer>
 
