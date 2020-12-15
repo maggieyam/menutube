@@ -72,7 +72,6 @@ router.get("/search/diet", (req, res) => {
 
 // routes for saved
 router.post("/save/:id/", (req, res) => {
-    console.log(req.user.id) 
     User.findById(req.body.userId)
     .then(user => {
         if (!user.saved.includes(req.params.id)){
