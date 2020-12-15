@@ -2,14 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Parallax, ParallaxLayer } from "react-spring/renderprops-addons";
 import "./splash_page.css";
-import { withRouter } from "react-router-dom";
 import dessert from "../../images/cooking.gif";
 import dinner from "../../images/cooking2.gif";
-import { Navbar, Nav } from "react-bootstrap";
 import { connect } from "react-redux";
 import { openModal } from "../../actions/modal_actions";
 import { logout } from "../../actions/session_actions";
-import SplashPage from "./splash_page";
+
 
 const url = (name, wrap = false) =>
   `${
@@ -75,21 +73,21 @@ class ScrollPage extends React.Component {
             <h1>Post Videos</h1>
           </div>
           <div className="gif-container">
-            <img
+            {/* <img
               className="splash-gifs"
               src="https://bnb-seeds.s3.us-east-1.amazonaws.com/FoodVid_1.gif"
               style={{ width: "17%", marginLeft: "20%" }}
-            />
-            <img
+            /> */}
+            {/* <img
               className="splash-gifs"
               src="https://bnb-seeds.s3.us-east-1.amazonaws.com/FoodVid_2.gif"
               style={{ width: "17%", marginLeft: "20%" }}
-            />
-            <img
+            /> */}
+            {/* <img
               className="splash-gifs"
               src="https://bnb-seeds.s3.us-east-1.amazonaws.com/FoodVid_3.gif"
               style={{ width: "17%", marginLeft: "20%" }}
-            />
+            /> */}
           </div>
         </ParallaxLayer>
 
