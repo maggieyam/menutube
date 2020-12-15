@@ -1,12 +1,12 @@
 import React from 'react';
-import SignupFormContainer from '../../components/session/signup_form_container';
-import LoginFormContainer from '../../components/session/login_form_container';
+import SignupForm from '../../components/session/signup_form';
+import LoginForm from '../../components/session/login_form';
 import './modal.css';
 
 class Modal extends React.Component {
 
   renderedComponent(modalType){
-    return modalType === "signup" ? <SignupFormContainer /> : <LoginFormContainer />
+    return modalType === "signup" ? <SignupForm /> : <LoginForm />
   }
 
   render() {
