@@ -59,8 +59,6 @@ class VideoPlayer extends React.Component {
    this.props.savePost(this.props._id, body)
   }
 
-  unsaveVid() {}
-
   render() {
     const overlay = this.state.playing ? (
       // <div className="playing-container">
