@@ -3,3 +3,7 @@
   flex-direction: column;
   align-items: center;
 }
+
+.posts-content {
+  margin-top: 150px;
+}
