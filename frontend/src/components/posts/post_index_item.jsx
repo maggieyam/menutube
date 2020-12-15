@@ -7,7 +7,7 @@ const PostIndexItem = ({ post }) => {
   // const handleClick = () => history.push(`/`)
   // const { title, user, url } = post;
   // return <FeedVideo title={title} url={url} user={user} />;
-  return <FeedVideo {...post} />;
+  return <FeedVideo key={post._id} {...post} />;
 };
 
 export default PostIndexItem;
