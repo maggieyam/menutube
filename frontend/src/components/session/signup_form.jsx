@@ -89,7 +89,7 @@ const SignupForm = () => {
             Already have an account?
             <div className="footer-btn">
               <div
-                className="session-button"
+                className="other-btn"
                 onClick={() => dispatch(openModal("login"))}
               >
                 Log in

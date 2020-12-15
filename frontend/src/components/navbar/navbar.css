@@ -83,3 +83,10 @@
   color: purple;
   margin-left: 25px;
 }
+
+.other-btn {
+  cursor: pointer;
+  background-image: linear-gradient(to bottom right, yellow, red);
+  border-radius: 50px;
+  text-align: center;
+}

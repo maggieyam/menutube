@@ -66,7 +66,7 @@ const LoginForm = () => {
           <span className="footer-login">
             Don't have an account?
             <div className="footer-btn">
-              <div onClick={() => dispatch(openModal("signup"))}>Sign up</div>
+              <div className='other-btn' onClick={() => dispatch(openModal("signup"))}>Sign up</div>
             </div>
           </span>
         </div>
