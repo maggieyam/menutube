@@ -1,13 +1,20 @@
 import { connect } from 'react-redux';
-import {fetchPosts} from '../../actions/post_actions';
+import { fetchSavedPosts } from '../../util/post_api_util';
 import SavedIndex from './saved_index';
 
-const mStP = state => ({
-  posts: Object.values(state.entities.posts)
-})
+const mStP = state => {
+  let userId = state.session.userInfo.id;
+  let currentUser = state.entities.users[userId];
+  let posts = [];
+  currentUser.saved.forEach(id => posts.push(state.entities.posts[id]))
+  return {
+    userId,
+    posts
+  }
+}
 
 const mDtP = dispatch => ({
-  fetchPosts: () => dispatch(fetchPosts())
+  fetchSavedPosts: userId => dispatch(fetchSavedPosts(userId))
 })
 
 export default connect(mStP, mDtP)(SavedIndex);

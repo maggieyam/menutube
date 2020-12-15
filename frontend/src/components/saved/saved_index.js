@@ -5,7 +5,8 @@ import SavedIndexItem from './saved_index_item';
 class SavedIndex extends React.Component {
 
   componentDidMount(){
-    this.props.fetchPosts();
+    // fetch posts
+    // fetch current user
   }
 
   render(){

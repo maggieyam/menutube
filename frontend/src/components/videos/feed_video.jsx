@@ -3,6 +3,9 @@ import ReactPlayer from "react-player/file";
 import "./feed_video.css";
 import { withRouter, Link } from "react-router-dom";
 import DraggableVideo from "../calendar/draggablevideo";
+import {savePost} from '../../actions/post_actions';
+import {connect} from 'react-redux';
+
 class VideoPlayer extends React.Component {
   constructor(props) {
     super(props);
@@ -51,7 +54,10 @@ class VideoPlayer extends React.Component {
     });
   }
 
-  saveVid() {}
+  saveVid() {
+   const body = {userId: this.props.userId}
+   this.props.savePost(this.props._id, body).then(user => console.log(user))
+  }
 
   unsaveVid() {}
 
@@ -108,7 +114,7 @@ class VideoPlayer extends React.Component {
           </Link>
           <button
             className="save-btn"
-            // onClick={this.state.saved ? this.unsaveVid : this.saveVid}
+            onClick={this.saveVid}
           >
             save{/* {this.state.saved ? "u" : "s"} */}
           </button>
@@ -119,4 +125,14 @@ class VideoPlayer extends React.Component {
   }
 }
 
-export default withRouter(VideoPlayer);
+const mStP = state => ({
+  userId: state.session.userInfo.id
+})
+
+const mDtP = dispatch => ({
+  savePost: (postId, body) => dispatch(savePost(postId, body))
+})
+
+
+
+export default withRouter(connect(mStP, mDtP)(VideoPlayer));

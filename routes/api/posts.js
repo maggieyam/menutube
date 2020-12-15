@@ -9,6 +9,7 @@ const Diet = require("../../models/Diet");
 const Ingredient = require("../../models/Ingredient");
 const User = require("../../models/User");
 
+
 router.get("/", (req, res) => {
     Post
     .find()
@@ -70,11 +71,16 @@ router.get("/search/diet", (req, res) => {
 })
 
 // routes for saved
-router.get("/save/:id/", (req, res) => { 
-    const user = User.find({ _id: req.params.user_id });
-    user.saved.push(req.params.id);
-    user.save()
-    .then(user=> res.json(user))
+router.post("/save/:id/", (req, res) => {
+    console.log(req.user.id) 
+    User.findById(req.body.userId)
+    .then(user => {
+        if (!user.saved.includes(req.params.id)){
+            user.saved.push(req.params.id);
+            user.save();
+        }
+        return res.json(user);        
+    })
     .catch(err => res.status(400).json(err))
 })
 
@@ -82,6 +88,9 @@ router.get("/save/:id/", (req, res) => {
 // router.get("/username/:id", (req, res) => {
 //     const post = User.findById()
 // })
+
+
+
 
 
 router.post("/create",
@@ -121,6 +130,17 @@ router.delete('/delete', (req, res) => {
     .catch(err => res.status(400).json(err))
 
 })
+
+router.get('/saved/:user_id', (req, res) => {
+    User.findById(req.params.user_id).then(
+        user => {
+        Post.find({_id: {$in: user.saved }})
+            .then(posts => res.json(posts))
+        })
+        .catch(err => res.status(400).json(err))
+})
+
+
 
 
 // router.patch("/update/:post_id", 

@@ -1,4 +1,5 @@
 import * as APIUtil from '../util/post_api_util';
+import { receiveUser } from './user_actions';
 
 export const RECEIVE_POST = 'RECEIVE_POST';
 export const RECEIVE_POSTS = 'RECEIVE_POSTS';
@@ -42,7 +43,13 @@ export const fetchPosts = () => dispatch => {
   return APIUtil.fetchPosts().then(
     posts => dispatch(receivePosts(posts.data))
   )
-  }
+}
+
+export const fetchSavedPosts = userId => dispatch => {
+  return APIUtil.fetchSavedPosts(userId).then(
+    posts => dispatch(receivePosts(posts.data))
+  )
+}
 
 export const fetchUserPosts = userId => dispatch => {
   return APIUtil.fetchUserPosts(userId).then(
@@ -55,4 +62,12 @@ export const fetchPost = postId => dispatch => (
     post => dispatch(receivePost(post.data))
   )
 )
+
+export const savePost = (postId, body) => dispatch => {
+  return APIUtil.savePost(postId, body).then(
+    user => {
+      dispatch(receiveUser(user))
+    }
+  )
+}
     
