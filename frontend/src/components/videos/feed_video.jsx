@@ -56,7 +56,7 @@ class VideoPlayer extends React.Component {
 
   saveVid() {
    const body = {userId: this.props.userId}
-   this.props.savePost(this.props._id, body).then(user => console.log(user))
+   this.props.savePost(this.props._id, body)
   }
 
   unsaveVid() {}
