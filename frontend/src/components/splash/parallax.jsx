@@ -2,14 +2,12 @@ import React from "react";
 import ReactDOM from "react-dom";
 import { Parallax, ParallaxLayer } from "react-spring/renderprops-addons";
 import "./splash_page.css";
-import { withRouter } from "react-router-dom";
 import dessert from "../../images/cooking.gif";
 import dinner from "../../images/cooking2.gif";
-import { Navbar, Nav } from "react-bootstrap";
 import { connect } from "react-redux";
 import { openModal } from "../../actions/modal_actions";
 import { logout } from "../../actions/session_actions";
-import SplashPage from "./splash_page";
+
 
 const url = (name, wrap = false) =>
   `${
