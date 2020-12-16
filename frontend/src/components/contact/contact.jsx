@@ -6,6 +6,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 const Contacts = () => {
   return (
+      <div>
+
     <div className="contact-pg">
       <h4 className="contact-header">Contact Us</h4>
 
@@ -14,10 +16,11 @@ const Contacts = () => {
           <div
             className="contact"
             style={{ borderColor: "rgb(244,115,34)" }}
-          ></div>
+            ></div>
         </div>
       </div>
     </div>
+            </div>
   );
 };
 
