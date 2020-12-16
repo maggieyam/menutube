@@ -35,12 +35,33 @@ class PostShow extends Component {
     // this.props.history.push(`/search/${tag}`);
   }
 
+  goToFeed() {
+    this.props.history.push(`/feed`)
+  }
+
   render() {
-    const { post } = this.props;
+    const { post, deletePost, currentUser } = this.props;
+    const showDelete = () => {
+      if (post.user === currentUser) {
+        return (
+          
+            <button onClick={() => deletePost(post._id).then(this.goToFeed())}>
+              Delete
+            </button>
+          
+        );
+      }
+    };
     if (!post) return null;
 
     const timestamps = [1, 3, 10];
-    const tags = ["sugar 16g", "protein 20g", "vegetarian", "broccoli 1/2 lb.", "tofu 1 block"];
+    const tags = [
+      "sugar 16g",
+      "protein 20g",
+      "vegetarian",
+      "broccoli 1/2 lb.",
+      "tofu 1 block",
+    ];
     const timestampList = timestamps.map((ts, idx) => (
       <li key={idx}>
         <div className="timestamps">
@@ -91,6 +112,7 @@ class PostShow extends Component {
             <p>Tags</p>
             <ul className="tags-list">{tagsList}</ul>
           </div>
+          {showDelete()}
         </div>
       </div>
     );
