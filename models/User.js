@@ -1,4 +1,5 @@
 const mongoose = require ('mongoose');
+const Calendar = require('./Calendar');
 const Schema = mongoose.Schema;
 
 const UserSchema = new Schema ({
@@ -20,7 +21,8 @@ const UserSchema = new Schema ({
   },
   saved: [{
     type: Schema.Types.ObjectId,
-  }]
+  }],
+  calendar: Calendar,
 });
 
 module.exports = User = mongoose.model ('User', UserSchema);

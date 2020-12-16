@@ -127,7 +127,6 @@ router.delete('/delete', (req, res) => {
     .deleteMany(res.query)
     .then(posts => res.json(posts))
     .catch(err => res.status(400).json(err))
-
 })
 
 // router.get('/saved/:user_id', (req, res) => {
