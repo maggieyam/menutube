@@ -1,4 +1,7 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
+
 
 
 class Slot extends React.Component {
@@ -17,6 +20,10 @@ class Slot extends React.Component {
 
     const videoId = e.dataTransfer.getData('videoId');
     const video = document.getElementById(videoId).cloneNode(true);
+    
+    const [day, num] = this.props.className.split("-");
+    // send post to backend
+
     video.id = video.id+"a";
     video.draggable = false;
     video.style.height = "150px";
@@ -45,11 +52,15 @@ class Slot extends React.Component {
         onDrop={this.addVideo} 
         onDragOver={this.dragOver}
         ref={this.slotRef}>
-        
+        {this.videoElement}
       {this.state.video ? <button onClick={this.removeVideo}>{'\u00D7'}</button> : null}
       </div>
     )
   }
 }
 
-export default Slot;
+const mDtP = dispatch => ({
+  // submit calendar meal
+})
+
+export default connect(null, mDtP)(Slot);

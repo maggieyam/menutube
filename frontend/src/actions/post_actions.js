@@ -6,6 +6,8 @@ export const RECEIVE_POSTS = 'RECEIVE_POSTS';
 export const RECEIVE_POST_ERRORS = 'RECEIVE_POST_ERRORS';
 export const CLEAR_POST_ERRORS = 'CLEAR_POST_ERRORS';
 export const RECEIVE_NEW_POST = 'RECEIVE_NEW_POST';
+export const REMOVE_POST = 'REMOVE_POST';
+
 
 export const receivePost = post => ({
   type: RECEIVE_POST,
@@ -29,6 +31,11 @@ export const receivePostErrors = errors => ({
 
 export const clearPostErrors = () => ({
   type: CLEAR_POST_ERRORS,
+})
+
+export const removePost = postId => ({
+  type: REMOVE_POST,
+  postId
 })
 
 
@@ -61,6 +68,12 @@ export const fetchPost = postId => dispatch => (
 export const savePost = (postId, body) => dispatch => {
   return APIUtil.savePost(postId, body).then(
     user => {dispatch(receiveUser(user))}
+  )
+}
+    
+export const deletePost = (postId) => dispatch => {
+  return APIUtil.deletePost(postId).then(
+    postId => {dispatch(removePost(postId))}
   )
 }
     
