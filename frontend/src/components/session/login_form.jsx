@@ -6,9 +6,7 @@ import "./login_form.css";
 
 const LoginForm = () => {
   const errors = useSelector((state) => state.errors.session);
-
   const dispatch = useDispatch();
-
   const [username, setUser] = useState("");
   const [password, setPassword] = useState("");
 
@@ -34,9 +32,15 @@ const LoginForm = () => {
       </div>
     );
   };
+
+  const demoUser = () => {
+    setUser('maggie');
+    setPassword('123456');
+  }
+
   return (
     <div className="login-wrapper">
-      <form id="login-form" onSubmit={handleSubmit}>
+      <form id="login-form" className="animate__animated animate__rubberBand" onSubmit={handleSubmit}>
         <h2 className="menutube">Menutube</h2>
 
         <div className="username" data-error={errors.length ? errors : null}>
@@ -60,9 +64,8 @@ const LoginForm = () => {
           />
         </div>
         <div className="signin-errors">{showErrors()}</div>
-
         <input type="submit" value="Log In" className="session-btn" />
-
+        <input type="button" value="Demo User" className="session-btn" onClick={() => demoUser()}/><br/>
         <div>
           <span className="footer-login">
             Don't have an account?

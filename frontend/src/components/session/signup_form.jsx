@@ -37,7 +37,7 @@ const SignupForm = () => {
 
   return (
     <div className="signup-wrapper">
-      <form id="signup-form" onSubmit={handleSubmit}>
+      <form id="signup-form" className="animate__animated animate__rubberBand" onSubmit={handleSubmit}>
         <h2 className="menutube">MenuTube</h2>
 
         <div className="username" data-error={errors.length ? errors : null}>

@@ -7,7 +7,7 @@ import "./post_index_page.css";
 const PostIndex = () => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => Object.values(state.entities.posts));
-  const currentUser = useSelector((state) => state.entities.users[state.session.userInfo.id]);
+  const currentUser = useSelector((state) => state.session.userInfo);
   const [saved, setSaved] = useState(false);
 
   useEffect(() => {

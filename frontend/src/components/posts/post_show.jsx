@@ -10,6 +10,7 @@ class PostShow extends Component {
     this.vidRef = React.createRef();
 
     this.jumpToTime = this.jumpToTime.bind(this);
+    this.goToEditPage = this.goToEditPage.bind(this);
   }
 
   componentDidMount() {
@@ -35,23 +36,16 @@ class PostShow extends Component {
     // this.props.history.push(`/search/${tag}`);
   }
 
+  goToEditPage() {
+    this.props.history.push(`/edit/${this.props.match.params.id}`);
+  }
+
   goToFeed() {
     this.props.history.push(`/feed`)
   }
 
   render() {
     const { post, deletePost, currentUser } = this.props;
-    const showDelete = () => {
-      if (post.user === currentUser) {
-        return (
-          
-            <button onClick={() => deletePost(post._id).then(this.goToFeed())}>
-              Delete
-            </button>
-          
-        );
-      }
-    };
     if (!post) return null;
 
     const timestamps = [1, 3, 10];
@@ -79,11 +73,22 @@ class PostShow extends Component {
         </button>
       </li>
     ));
+    const postButtons = currentUser !== post.user ? null : (
+      <div className="post-buttons">
+        <button onClick={this.goToEditPage}>
+          Edit
+        </button>
+        <button onClick={() => deletePost(post._id).then(this.goToFeed())}>
+          Delete
+        </button>
+      </div>
+    );
 
     return (
       <div className="post-container">
         <div className="video-header">
           <p>{post.title}</p>
+          {postButtons}
           {/* <p>by {post.user}</p> */}
         </div>
         <div className="show-video-container">
@@ -112,7 +117,6 @@ class PostShow extends Component {
             <p>Tags</p>
             <ul className="tags-list">{tagsList}</ul>
           </div>
-          {showDelete()}
         </div>
       </div>
     );
