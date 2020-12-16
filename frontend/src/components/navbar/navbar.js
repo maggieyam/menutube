@@ -1,6 +1,9 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./navbar.css";
+import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { faUsers } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 class NavBar extends React.Component {
   constructor(props) {
@@ -14,9 +17,15 @@ class NavBar extends React.Component {
     // TO FIX... link will route to show page
     return (
       <div className="nav-right">
-        <Link to="/posts/saved" className="nav-username">Hello, {currentUser.userInfo.username}!</Link>
-        <Link className="add-post" to="/new_post"><i className="fas fa-plus-circle fa-2x"></i></Link>
-        <button onClick={() => logout()} className="navbar-btn" id="logout">Log Out</button>
+        <Link to="/posts/saved" className="nav-username">
+          Hello, {currentUser.userInfo.username}!
+        </Link>
+        <Link className="add-post" to="/new_post">
+          <i className="fas fa-plus-circle fa-2x"></i>
+        </Link>
+        <button onClick={() => logout()} className="navbar-btn" id="logout">
+          Log Out
+        </button>
       </div>
     );
   }
@@ -28,8 +37,20 @@ class NavBar extends React.Component {
       <div className="nav-right">
         {/* <img src={blueButton} onClick={() => openModal("signup") } id="btn-blue" />Sign Up */}
 
-        <button onClick={() => openModal("signup") } className="navbar-btn" id="signup">Sign Up</button>
-        <button onClick={() => openModal("login")} className="navbar-btn" id="login">Log In</button>
+        <button
+          onClick={() => openModal("signup")}
+          className="navbar-btn"
+          id="signup"
+        >
+          Sign Up
+        </button>
+        <button
+          onClick={() => openModal("login")}
+          className="navbar-btn"
+          id="login"
+        >
+          Log In
+        </button>
       </div>
     );
   }
@@ -38,13 +59,26 @@ class NavBar extends React.Component {
     const { currentUser } = this.props;
 
     return (
-      <nav className="navbar">
-        <div className="nav-left">
-          <Link to="/feed"><h1 id="brand">MenuTube</h1></Link>
+      <div className="navbar">
+        <div className='about'>
+          <a
+            href="https://github.com/maggieyam/menutube"
+            className="gh-link"
+            target="_blank"
+          >
+            <FontAwesomeIcon icon={faGithub} />
+          </a>
+          <Link className="gh-link" to={"/team"} target="_blank">
+            <FontAwesomeIcon icon={faUsers} />
+          </Link>
         </div>
 
+        <h1 id="brand">
+          <Link to="/feed">MenuTube</Link>
+        </h1>
+
         {currentUser.isAuthenticated ? this.loggedIn() : this.loggedOut()}
-      </nav>
+      </div>
     );
   }
 }
