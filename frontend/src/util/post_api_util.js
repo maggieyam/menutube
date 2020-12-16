@@ -24,3 +24,6 @@ export const savePost = (postId, body) => {
   return axios.post(`api/posts/save/${postId}`, body)
 }
 
+export const editPost = (postId, body) => {
+  return axios.post(`api/posts/edit/${postId}`, body)
+}

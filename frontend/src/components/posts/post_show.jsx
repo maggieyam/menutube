@@ -10,6 +10,7 @@ class PostShow extends Component {
     this.vidRef = React.createRef();
 
     this.jumpToTime = this.jumpToTime.bind(this);
+    this.goToEditPage = this.goToEditPage.bind(this);
   }
 
   componentDidMount() {
@@ -35,6 +36,10 @@ class PostShow extends Component {
     // this.props.history.push(`/search/${tag}`);
   }
 
+  goToEditPage() {
+    this.props.history.push(`/edit/${this.props.match.params.id}`);
+  }
+
   render() {
     const { post } = this.props;
     if (!post) return null;
@@ -58,11 +63,19 @@ class PostShow extends Component {
         </button>
       </li>
     ));
+    const postButtons = this.props.currentUser !== post.user ? null : (
+      <div className="post-buttons">
+        <button
+          onClick={this.goToEditPage}
+        >Edit</button>
+      </div>
+    );
 
     return (
       <div className="post-container">
         <div className="video-header">
           <p>{post.title}</p>
+          {postButtons}
           {/* <p>by {post.user}</p> */}
         </div>
         <div className="show-video-container">

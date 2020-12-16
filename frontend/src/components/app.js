@@ -8,6 +8,7 @@ import DraggableVideo from "./calendar/draggablevideo";
 import Calendar from './calendar/calendar';
 import PostIndexPage from "./posts/post_index_page";
 import PostShowContainer from "./posts/post_show_container";
+import PostEditContainer from "./posts/post_edit_form_container";
 import SplashPage from "./splash/splash_page";
 
 import "./reset.css";
@@ -22,6 +23,7 @@ export default () => (
     <Switch>
       <AuthRoute exact path="/" component={SplashPage} />
       <ProtectedRoute exact path="/show/:id" component={PostShowContainer} />
+      <ProtectedRoute exact path="/edit/:id" component={PostEditContainer} />
       <ProtectedRoute exact path="/feed" component={PostIndexPage} />
       <ProtectedRoute
         exact

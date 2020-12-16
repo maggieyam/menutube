@@ -63,4 +63,9 @@ export const savePost = (postId, body) => dispatch => {
     user => {dispatch(receiveUser(user))}
   )
 }
-    
+
+export const editPost = (postId, newData) => dispatch => {
+  return APIUtil.editPost(postId, newData).then(
+    post => {dispatch(receivePost(post))}
+  )
+}

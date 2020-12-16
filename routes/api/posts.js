@@ -122,6 +122,26 @@ passport.authenticate("jwt", { session: false }),
     .then((post) => res.json(post)).catch((err) => res.status(400).json(err));
 })
 
+router.patch('/edit/:id', (req, res) => {
+    const { body } = req;
+    Post
+    .findById(req.params.id)
+    .then(post => {
+        Object.keys(body).forEach(k => post[k] = body[k]);
+        post.save();
+        return res.json(post);
+    })
+    .catch(err => res.status(400).json(err))
+
+    // Post.findOneAndUpdate({_id: ObjectId(req.params.id)}, {req.body}, (err, result) => {
+    //     if (err) {
+    //         // console.log(err);
+    //     } else {
+    //         return res.json(result);
+    //     }
+    // })
+})
+
 router.delete('/delete', (req, res) => {
     Post
     .deleteMany(res.query)
