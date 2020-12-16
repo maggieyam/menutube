@@ -39,24 +39,13 @@ class PostShow extends Component {
   goToEditPage() {
     this.props.history.push(`/edit/${this.props.match.params.id}`);
   }
-  
+
   goToFeed() {
     this.props.history.push(`/feed`)
   }
 
   render() {
     const { post, deletePost, currentUser } = this.props;
-    const showDelete = () => {
-      if (post.user === currentUser) {
-        return (
-          
-            <button onClick={() => deletePost(post._id).then(this.goToFeed())}>
-              Delete
-            </button>
-          
-        );
-      }
-    };
     if (!post) return null;
 
     const timestamps = [1, 3, 10];
@@ -84,11 +73,14 @@ class PostShow extends Component {
         </button>
       </li>
     ));
-    const postButtons = this.props.currentUser !== post.user ? null : (
+    const postButtons = currentUser !== post.user ? null : (
       <div className="post-buttons">
-        <button
-          onClick={this.goToEditPage}
-        >Edit</button>
+        <button onClick={this.goToEditPage}>
+          Edit
+        </button>
+        <button onClick={() => deletePost(post._id).then(this.goToFeed())}>
+          Delete
+        </button>
       </div>
     );
 
@@ -125,7 +117,6 @@ class PostShow extends Component {
             <p>Tags</p>
             <ul className="tags-list">{tagsList}</ul>
           </div>
-          {showDelete()}
         </div>
       </div>
     );
