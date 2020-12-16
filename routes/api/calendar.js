@@ -9,7 +9,7 @@ router.get("/", (req, res) => {
     .catch(err => res.status(400).json(err));
 })
 
-router.post("/edit/:id", (req, res) => {
-    const index
-})
+// router.post("/edit/:id", (req, res) => {
+//     const index
+// })
 module.exports = router;
