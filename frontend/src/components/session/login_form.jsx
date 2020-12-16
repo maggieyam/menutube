@@ -16,7 +16,8 @@ const LoginForm = () => {
     dispatch(clearSessionErrors());
   }, [clearSessionErrors]);
 
-  const handleSubmit = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const userInfo = { username, password };
     dispatch(loginUser(userInfo)).then(() => dispatch(closeModal()));
   };
