@@ -37,7 +37,7 @@ const SignupForm = () => {
 
   return (
     <div className="signup-wrapper">
-      <form onSubmit={handleSubmit}>
+      <form id="signup-form" onSubmit={handleSubmit}>
         <h2 className="menutube">MenuTube</h2>
 
         <div className="username" data-error={errors.length ? errors : null}>
