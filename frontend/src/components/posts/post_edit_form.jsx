@@ -19,7 +19,9 @@ class EditPostForm extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { title: props.post.title }
+    this.state = {
+      title: ""
+    }
     this.changeTitle = this.changeTitle.bind(this);
     this.errors = this.errors.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -29,9 +31,11 @@ class EditPostForm extends React.Component {
   }
 
   componentDidMount() {
-    this.props.fetchTags()
+    this.props.fetchTags();
+    this.props.fetchPost(this.props.match.params.id).then(({post}) => {
+      this.setState({...post})
+    });
   }
-
 
   changeTitle(e) {
     e.preventDefault();
@@ -51,32 +55,17 @@ class EditPostForm extends React.Component {
     this.setState({ [data.placeholder.toLowerCase()]: bools })
   }
 
-
   handleSubmit(e) {
     e.preventDefault();
 
-    const video = this.fileLoader.current.files[0]
     this.props.loadingOn();
-    uploadFile(video, config).then(
-      data => {
-
-        const post = {
-          title: this.state.title,
-          url: data.location,
-          nutrition: this.state.nutrition,
-          diet: this.state.diet,
-          ingredients: this.state.ingredients
-        }
-        this.props.createPost(post).then(() => {
-          this.props.loadingOff();
-          this.props.clearPostErrors();
-          this.props.history.push('/feed')
-        })
-      }
-
-    ).catch(err => {
-      this.props.loadingOff()
-      console.log(err)
+    const editedPost = {
+      title: this.state.title
+    }
+    this.props.editPost(this.props.post._id, editedPost).then(() => {
+      this.props.loadingOff();
+      this.props.clearPostErrors();
+      this.props.history.push(`/show/${this.props.post._id}`);
     })
   }
 
@@ -97,16 +86,15 @@ class EditPostForm extends React.Component {
     return options
   }
 
-
   render() {
-
     if (!this.props.diet) return null;
+    
     return (
       <form className="post-form" onSubmit={this.handleSubmit}>
         {this.loaderSpinner()}
 
         <div className="title-input-div">
-          <label htmlFor="post-title">Enter a title:</label>
+          <label htmlFor="post-title">New title:</label>
           <input
             id="post-title"
             type="text"
@@ -114,52 +102,7 @@ class EditPostForm extends React.Component {
             onChange={this.changeTitle} />
           {this.errors("title")}
         </div>
-
-        <div className="vid-input-div">
-          <input
-            id="video-input"
-            type="file"
-            ref={this.fileLoader}
-            accept="video/*" />
-
-        </div>
-
-        <label> Diet/Restrictions:
-          <Dropdown
-            placeholder='Diet'
-            fluid
-            multiple
-            search
-            selection
-            options={this.optionify(this.props.diet)}
-            onChange={this.handleTag}
-          />
-        </label>
-
-        <label> Nutrition:
-        <Dropdown
-            placeholder='Nutrition'
-            fluid
-            multiple
-            search
-            selection
-            options={this.optionify(this.props.nutrition)}
-            onChange={this.handleTag}
-          />
-        </label>
-
-        <label>Ingredients:
-        <Dropdown
-            placeholder='Ingredients'
-            fluid
-            multiple
-            search
-            selection
-            options={this.optionify(this.props.ingredients)}
-            onChange={this.handleTag}
-          />
-        </label>
-        <input id="submit-post" type="submit" value="Submit Post" />
+        <input id="submit-post" type="submit" value="Apply Changes" />
       </form>
     )
   }

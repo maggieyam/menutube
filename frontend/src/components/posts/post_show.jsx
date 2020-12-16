@@ -36,13 +36,12 @@ class PostShow extends Component {
     // this.props.history.push(`/search/${tag}`);
   }
 
-<<<<<<< HEAD
   goToEditPage() {
     this.props.history.push(`/edit/${this.props.match.params.id}`);
-=======
+  }
+  
   goToFeed() {
     this.props.history.push(`/feed`)
->>>>>>> main
   }
 
   render() {

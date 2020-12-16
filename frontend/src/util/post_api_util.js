@@ -24,12 +24,9 @@ export const savePost = (postId, body) => {
   return axios.post(`api/posts/save/${postId}`, body)
 }
 
-<<<<<<< HEAD
 export const editPost = (postId, body) => {
-  return axios.post(`api/posts/edit/${postId}`, body)
+  return axios.patch(`api/posts/edit/${postId}`, body)
 }
-=======
 export const deletePost = (postId) => {
   return axios.delete(`api/posts/delete/${postId}`);
 };
->>>>>>> main
