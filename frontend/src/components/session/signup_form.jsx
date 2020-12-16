@@ -10,7 +10,9 @@ const SignupForm = () => {
   const [username, setUser] = useState("");
   const [password, setPassword] = useState("");
   const [password2, setPassword2] = useState("");
-  const handleSubmit = () => {
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
     const userInfo = { email, username, password, password2 };
     dispatch(signupUser(userInfo)).then(() => dispatch(closeModal()));
   };

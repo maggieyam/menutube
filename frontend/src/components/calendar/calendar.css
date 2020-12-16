@@ -40,6 +40,7 @@ ul.calendar > li {
   justify-content: space-between;
   align-items: center;
   margin-bottom: 15px;
+  padding-right: 5px;
 
 }
 
@@ -58,6 +59,7 @@ div.slots{
   position: fixed;
   background: url('./fridge.png');
   background-size: auto;
+  animation: slide 2s 1;
   
   background-repeat: no-repeat;
   background-position-x: -5em;
@@ -72,6 +74,16 @@ div.slots{
   overflow-y: auto;
   height: 90vh;
 }
+
+@keyframes slide {
+  0% {transform: translateX(500px);}
+  100% {transform: translateX(0px);}
+}
+
+
+
+
+
 
 div.slot > figure:first-child{
   object-fit: cover;
