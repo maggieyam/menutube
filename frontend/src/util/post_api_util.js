@@ -24,6 +24,6 @@ export const savePost = (postId, body) => {
   return axios.post(`api/posts/save/${postId}`, body)
 }
 
-export const deletePost = (postId, body) => {
-  return axios.post(`api/posts/delete/${postId}`, body);
+export const deletePost = (postId) => {
+  return axios.delete(`api/posts/delete/${postId}`);
 };

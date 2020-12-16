@@ -71,8 +71,8 @@ export const savePost = (postId, body) => dispatch => {
   )
 }
     
-export const deletePost = (postId, body) => dispatch => {
-  return APIUtil.deletePost(postId, body).then(
+export const deletePost = (postId) => dispatch => {
+  return APIUtil.deletePost(postId).then(
     postId => {dispatch(removePost(postId))}
   )
 }

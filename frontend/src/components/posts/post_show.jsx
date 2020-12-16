@@ -35,15 +35,17 @@ class PostShow extends Component {
     // this.props.history.push(`/search/${tag}`);
   }
 
+  goToFeed() {
+    this.props.history.push(`/feed`)
+  }
+
   render() {
-    debugger;
     const { post, deletePost, currentUser } = this.props;
-    debugger;
     const showDelete = () => {
       if (post.user === currentUser) {
         return (
           
-            <button onClick={() => deletePost(post.id)}>
+            <button onClick={() => deletePost(post._id).then(this.goToFeed())}>
               Delete
             </button>
           
