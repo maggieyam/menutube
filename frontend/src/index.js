@@ -15,10 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
   let store;
 
   if (localStorage.jwtToken) {
-    debugger
     setAuthToken(localStorage.jwtToken);
     const userInfo = jwt_decode(localStorage.jwtToken);
-    debugger
     const preloadedState = { session: { isAuthenticated: true, userInfo}};
     store = configureStore(preloadedState);
     const now = Date.now() / 1000;
