@@ -1,7 +1,5 @@
 const express = require("express");
-const Tag = require("../../models/Tag");
 const Nutrition = require("../../models/Nutrition");
-const Ingredients = require("../../models/Ingredient");
 const Diet = require("../../models/Diet");
 const Ingredient = require("../../models/Ingredient");
 const router = express.Router();
