@@ -1,13 +1,11 @@
 import { connect } from "react-redux";
 import { fetchPost, deletePost } from "../../actions/post_actions";
 import PostShow from "./post_show";
-import { receiveCurrentUser } from "../../actions/session_actions";
-const mSTP = (state, ownProps) => {
-  return {
-    post: state.entities.posts[ownProps.match.params.id],
-    currentUser: state.session.userInfo.id,
-  };
-};
+
+const mSTP = (state, ownProps) => ({
+  post: state.entities.posts[ownProps.match.params.id],
+  currentUser: state.session.userInfo.id
+});
 
 const mDTP = (dispatch) => ({
   fetchPost: (postId) => dispatch(fetchPost(postId)),

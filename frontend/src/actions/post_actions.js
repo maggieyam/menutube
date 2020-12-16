@@ -70,6 +70,12 @@ export const savePost = (postId, body) => dispatch => {
     user => {dispatch(receiveUser(user))}
   )
 }
+
+export const editPost = (postId, newData) => dispatch => {
+  return APIUtil.editPost(postId, newData).then(
+    post => {dispatch(receivePost(post))}
+  )
+}
     
 export const deletePost = (postId) => dispatch => {
   return APIUtil.deletePost(postId).then(
