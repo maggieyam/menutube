@@ -15,7 +15,7 @@ const mStP = (state, ownProps) => ({
 })
 
 const mDtP = dispatch => ({
-  editPost: post => dispatch(editPost(post)),
+  editPost: (postId, newData) => dispatch(editPost(postId, newData)),
   loadingOn: () => dispatch(loadingOn()),
   loadingOff: () => dispatch(loadingOff()),
   clearPostErrors: () => dispatch(clearPostErrors()),
