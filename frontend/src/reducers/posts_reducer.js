@@ -8,7 +8,7 @@ export default (state = {}, action) => {
     case RECEIVE_NEW_POST:
       return {...state, [action.post.data._id]: action.post.data}
     case RECEIVE_POSTS:
-      return action.posts.posts;
+      return action.posts;
     case RECEIVE_POST:
       return {...state, [action.post._id]: action.post}
     default:

@@ -22,7 +22,9 @@ const UserSchema = new Schema ({
   saved: [{
     type: Schema.Types.ObjectId,
   }],
-  calendar: Calendar,
+  // calendar: {
+  //   type: Calendar
+  // },
 });
 
 module.exports = User = mongoose.model ('User', UserSchema);

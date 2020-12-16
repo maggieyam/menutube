@@ -27,7 +27,7 @@ class Calendar extends React.Component{
   }
   
   render() {
-    debugger
+    
     return (
       <>
       <button id="cal-checkbox" onClick={() => this.setState({checked: !this.state.checked})}>{this.calText()} Calendar</button>

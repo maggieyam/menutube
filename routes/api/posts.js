@@ -13,35 +13,31 @@ const User = require("../../models/User");
 router.get("/", (req, res) => {
     Post
     .find()
+    .populate("user", "username")
     .sort({date: -1})
-    .then( posts => {
-        User.find().then((users) => {
-            const postResponse = {};
-            const userResponse = {};
-            posts.forEach( post => {
-                postResponse[post._id] = post;
-            });
-
-            users.forEach( user => {
-                userResponse[user._id] = user;
-            });
-            res.json({posts: postResponse, users: userResponse}); 
-        })
-    })     
+    .then(posts => {
+        const normPosts = {};
+        posts.forEach(post => normPosts[post._id] = post)
+        return res.json(normPosts);
+    })  
     .catch(err => res.status(400).json(err));
-    })
-
-router.get("/user/:user_id", (req, res) => {
-    Post
-    .find({ user: req.params.user_id })
-    .then(posts => res.json(posts))
-    .catch(err => res.status(400).json(err))
 })
 
+//routes for show page
 router.get("/:id", (req, res) => {
+    // const commentsRes = {};
     Post
     .findById(req.params.id)
-    .then(post => res.json(post))
+    .populate({path: 'comments', populate: { path: 'user', select: 'username'}})
+    .then(post => {
+        // post.populate('comment').populate('user',)
+        // post.comments.forEach(commentId => {
+        //     commentsRes[commentId] = Comment.findby(commentId);
+        // }).then(comment => {                
+        //     comment.populate('user', username);
+        // })
+        res.json(post);
+    })
     .catch(err => res.status(400).json(err))
 })
 
