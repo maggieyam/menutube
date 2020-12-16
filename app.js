@@ -10,6 +10,7 @@ const users = require ('./routes/api/users');
 const passport = require ('passport');
 const posts = require('./routes/api/posts');
 const tags = require('./routes/api/tags');
+const comments = require('./routes/api/comments');
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build'));
@@ -29,6 +30,7 @@ app.use (bodyParser.json ());
 app.use ('/api/users', users);
 app.use ('/api/posts', posts);
 app.use('/api/tags', tags);
+app.use('/api/comments', comments);
 
 app.use (passport.initialize ());
 require ('./config/passport') (passport);

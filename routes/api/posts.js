@@ -10,24 +10,17 @@ const Ingredient = require("../../models/Ingredient");
 const User = require("../../models/User");
 
 router.get("/", (req, res) => {
-  Post.find()
-    .sort({ date: -1 })
-    .then((posts) => {
-      User.find().then((users) => {
-        const postResponse = {};
-        const userResponse = {};
-        posts.forEach((post) => {
-          postResponse[post._id] = post;
-        });
-
-        users.forEach((user) => {
-          userResponse[user._id] = user;
-        });
-        res.json({ posts: postResponse, users: userResponse });
-      });
-    })
-    .catch((err) => res.status(400).json(err));
-});
+    Post
+    .find()
+    .populate("user", "username")
+    .sort({date: -1})
+    .then(posts => {
+        const normPosts = {};
+        posts.forEach(post => normPosts[post._id] = post)
+        return res.json(normPosts);
+    })  
+    .catch(err => res.status(400).json(err));
+})
 
 router.get("/user/:user_id", (req, res) => {
   Post.find({ user: req.params.user_id })
@@ -35,11 +28,14 @@ router.get("/user/:user_id", (req, res) => {
     .catch((err) => res.status(400).json(err));
 });
 
+//routes for show page
 router.get("/:id", (req, res) => {
-  Post.findById(req.params.id)
-    .then((post) => res.json(post))
-    .catch((err) => res.status(400).json(err));
-});
+    Post
+    .findById(req.params.id)
+    .populate({path: 'comments', populate: { path: 'user', select: 'username'}})
+    .then(post => {res.json(post)})
+    .catch(err => res.status(400).json(err))
+})
 
 // routes for search
 router.get("/search/nutrition", (req, res) => {
@@ -76,15 +72,9 @@ router.post("/save/:id/", (req, res) => {
     .catch((err) => res.status(400).json(err));
 });
 
-// routes for
-// router.get("/username/:id", (req, res) => {
-//     const post = User.findById()
-// })
-
-router.post(
-  "/create",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
+router.post("/create",
+passport.authenticate("jwt", { session: false }),
+(req, res) => {
     const { isValid, errors } = validatePostInput(req.body);
 
     if (!isValid) {
@@ -127,11 +117,12 @@ passport.authenticate("jwt", { session: false }),
     .catch(err => res.status(400).json(err))
 });
 
-// router.delete("/delete", (req, res) => {
-//   Post.deleteMany(res.query)
-//     .then((posts) => res.json(posts))
-//     .catch((err) => res.status(400).json(err));
-// });
+router.delete('/delete', (req, res) => {
+    Post
+    .deleteMany(res.query)
+    .then(posts => res.json(posts))
+    .catch(err => res.status(400).json(err))
+});
 
 router.delete("/delete/:postId", (req, res) => {
   Post.findByIdAndDelete(req.params.postId, (err) => {
