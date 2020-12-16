@@ -21,7 +21,6 @@ export default (state = defaultState, action) => {
           userInfo: action.currentUser
         }
     case RECEIVE_USER:
-      debugger
       if (action.user.data._id === state.userInfo.id){
         let newState = {...state};
         newState.userInfo.saved = action.user.data.saved;
