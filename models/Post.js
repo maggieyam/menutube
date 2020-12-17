@@ -12,7 +12,7 @@ const PostSchema = new Schema({
     },
     ingredients: {
         type: Schema.Types.Mixed,
-        ref: 'Ingridients',
+        ref: 'Ingridients', 
     },
     diet: {
         type: Schema.Types.Mixed,

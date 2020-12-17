@@ -12,12 +12,12 @@ class Comments extends React.Component {
     this.deleteComment = this.deleteComment.bind(this);
   }
 
-  deleteButton(commentId){
-    return <button className="comment-delete" onClick={() => this.deleteComment()}>Delete</button>
+  deleteButton(postId, commentId){
+    return <button className="comment-delete" onClick={() => this.deleteComment(postId, commentId)}>Delete</button>
   }
 
-  deleteComment(){
-    // to do with delete route
+  deleteComment(postId, commentId){
+    this.props.deleteComment(postId, commentId);
   }
 
   submitComment(e){
@@ -44,7 +44,7 @@ class Comments extends React.Component {
               <li className="comment-info" key={i}>
                 <p className="comment-body">{comment.body}</p> 
                 <div className="comment-col-right">
-                  {currentUser !== comment.user._id ? null : this.deleteButton(comment.id)}
+                  {currentUser !== comment.user._id ? null : this.deleteButton(post._id, comment._id)}
                   <p className="comment-author">by {comment.user.username}</p>
                 </div>
               </li>

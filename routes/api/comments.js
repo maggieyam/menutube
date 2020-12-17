@@ -19,18 +19,25 @@ router.post("/create",
                 Post.findById(req.body.postId)
                 .then( post => {
                     post.comments.push(comment.id);
-                    post.save().then(res.json(comment))
+                    post.save().then(() => res.json(comment))
                 })
             }) 
         })
     }
 )
 
-router.delete("/delete", 
+router.delete("/delete/:id", 
     (req, res) => {
-     Comment.deleteOne({_id: req.body.commentId})
-    .then(comment => res.json(comment))
-    .catch(err => res.status(400).json(err))       
+     Comment.deleteOne({_id: req.params.id})
+    .then(() => {
+        Post.findById(req.query.postId)
+        .then(post => {
+            const idx = post.comments.indexOf(req.params.id);
+            if (idx !== -1) post.comments.splice(idx, 1) 
+            post.save().then(() => res.json(post))
+        })
+    })
+    .catch(err => res.status(400).json(err))
     }
 )
 
