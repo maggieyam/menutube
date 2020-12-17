@@ -1,0 +1,61 @@
+h2.comments-header{
+  font-size: 30px;
+  color: purple;
+}
+
+div.comments-section{
+  margin-top: 40px;
+}
+ul.comment-list{
+  width: 50%;
+}
+
+li.comment-info {
+  display: flex;
+  position: relative;
+  justify-content: space-between;
+  margin: 20px 0;
+  min-height: 60px;
+  padding: 5px;
+  background: whitesmoke;
+  border: 1px solid purple;
+  border-radius: 15px;
+}
+
+div.comment-col-right{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+
+button.comment-delete{
+  border: 1px solid purple;
+  background: white;
+  font-size: 12px;
+  position: absolute;
+  top: 5px;
+  right: -60px;
+}
+
+
+textarea.comment-bod{
+  display: block;
+  width: 50%;
+  height: 50px;
+  font-family: inherit;
+  outline: none;
+}
+
+.add-comment > input[type="submit"] {
+  margin-top: 15px;
+  font-family: inherit;
+  color: white;
+  background-color: purple;
+  border-radius: 15px;
+  border: none;
+  height: 30px;
+  width: 80px;
+}
+
+
+

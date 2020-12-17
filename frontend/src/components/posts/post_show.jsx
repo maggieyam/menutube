@@ -2,14 +2,17 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import ReactPlayer from "react-player/file";
 import "./post_show.css";
+import Comments from '../comments/comments';
 
 class PostShow extends Component {
   constructor(props) {
     super(props);
 
     this.vidRef = React.createRef();
+    this.state = {commentBody: ""}
 
     this.jumpToTime = this.jumpToTime.bind(this);
+    this.goToEditPage = this.goToEditPage.bind(this);
   }
 
   componentDidMount() {
@@ -35,12 +38,17 @@ class PostShow extends Component {
     // this.props.history.push(`/search/${tag}`);
   }
 
+  goToEditPage() {
+    this.props.history.push(`/edit/${this.props.match.params.id}`);
+  }
+
   goToFeed() {
     this.props.history.push(`/feed`)
   }
 
+
   render() {
-    const { post, deletePost, currentUser } = this.props;
+    const { post, deletePost, currentUser, createComment } = this.props;
     const showDelete = () => {
       if (post.user === currentUser) {
         return (
@@ -79,11 +87,22 @@ class PostShow extends Component {
         </button>
       </li>
     ));
+    const postButtons = currentUser !== post.user ? null : (
+      <div className="post-buttons">
+        <button onClick={this.goToEditPage}>
+          Edit
+        </button>
+        <button onClick={() => deletePost(post._id).then(this.goToFeed())}>
+          Delete
+        </button>
+      </div>
+    );
 
     return (
       <div className="post-container">
         <div className="video-header">
           <p>{post.title}</p>
+          {postButtons}
           {/* <p>by {post.user}</p> */}
         </div>
         <div className="show-video-container">
@@ -112,8 +131,12 @@ class PostShow extends Component {
             <p>Tags</p>
             <ul className="tags-list">{tagsList}</ul>
           </div>
-          {showDelete()}
         </div>
+        
+        <Comments post={post} 
+                  createComment={createComment}
+                  currentUser={currentUser}
+        />
       </div>
     );
   }

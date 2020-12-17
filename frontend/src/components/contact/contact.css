@@ -1,15 +1,79 @@
 .contact-pg {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  margin-top: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .contact-header {
-    font-size:36px;
-    font-weight: 100;
-    text-align: center;
-    margin: 30px auto 20px auto;
-    border-bottom: 10px solid;
-    padding-bottom: 5px;
+  font-size: 36px;
+  font-weight: 100;
+  text-align: center;
+  margin: 30px auto 20px auto;
+
+  padding-bottom: 5px;
+}
+
+.contact-container {
+  display: flex;
+
+  justify-content: space-between;
+  font-size: 30px;
+}
+
+.contact {
+  width: 100%;
+  margin: 0 auto;
+  padding: 40px;
+  border-radius: 30px;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 30px;
+  border-left: 40px solid;
+  border-bottom: 40px solid;
+  box-shadow: 0px 0px 10px 1px grey;
+  overflow: hidden;
+}
+
+.contact img {
+  width: 200px;
+  height: 200px;
+  margin-top: 20px;
+}
+
+.contact .contact-info {
+  margin-left: 10px;
+  width: 175px;
+  flex-direction: column;
+}
+
+.contact-label {
+  font-weight: 500;
+  font-size: 25px;
+}
+.contact-position {
+  font-size: 25px;
+}
+
+.contact-links {
+  margin-top: 5px;
+  width: 100px;
+  display: flex;
+  justify-content: space-evenly;
+  height: 20px;
+}
+
+.contact-git:hover {
+  transition: 0.5s;
+  transform: scale(1.5);
+  color: grey;
+}
+
+.contact-linkedin:hover {
+  transition: 0.5s;
+  transform: scale(1.5);
+  color: blue;
 }

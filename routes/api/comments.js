@@ -13,13 +13,16 @@ router.post("/create",
             body: req.body.body,
             user: req.user.id,
         });
-        comment.save().then(comment => {
-            Post.findById(req.body.postId)
-            .then( post => {
-                post.comments.push(comment.id);
-                post.save().then(res.json(comment))
-            })
-        }) 
+        comment.save().then(comment => 
+        { comment.populate("user", "username").execPopulate().then(
+            comment => {
+                Post.findById(req.body.postId)
+                .then( post => {
+                    post.comments.push(comment.id);
+                    post.save().then(res.json(comment))
+                })
+            }) 
+        })
     }
 )
 
@@ -35,7 +38,6 @@ router.delete("/delete/:id",
         })
     })
     .catch(err => res.status(400).json(err))
-    }
 )
 
 module.exports = router;
