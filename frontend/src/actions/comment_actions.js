@@ -15,4 +15,3 @@ export const receiveComment = (postId, comment) => ({
   comment: comment.data
 })
 
-window.createComment = createComment;
