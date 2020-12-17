@@ -26,7 +26,7 @@ router.post("/create",
 router.delete("/delete", 
     (req, res) => {
      Comment.deleteOne({_id: req.body.commentId})
-    .then(console.log(`deleted ${req.body.commentId}`))
+    .then(comment => res.json(comment))
     .catch(err => res.status(400).json(err))       
     }
 )
