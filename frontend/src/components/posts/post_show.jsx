@@ -48,7 +48,7 @@ class PostShow extends Component {
 
 
   render() {
-    const { post, deletePost, currentUser, createComment } = this.props;
+    const { post, deletePost, currentUser, createComment, deleteComment } = this.props;
     const showDelete = () => {
       if (post.user === currentUser) {
         return (
@@ -136,6 +136,7 @@ class PostShow extends Component {
         <Comments post={post} 
                   createComment={createComment}
                   currentUser={currentUser}
+                  deleteComment={deleteComment}
         />
       </div>
     );
