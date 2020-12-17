@@ -48,7 +48,7 @@ class PostShow extends Component {
 
 
   render() {
-    const { post, deletePost, currentUser, createComment } = this.props;
+    const { post, deletePost, currentUser, createComment, deleteComment } = this.props;
     const showDelete = () => {
       if (post.user === currentUser) {
         return (
@@ -99,44 +99,47 @@ class PostShow extends Component {
     );
 
     return (
-      <div className="post-container">
-        <div className="video-header">
-          <p>{post.title}</p>
-          {postButtons}
-          {/* <p>by {post.user}</p> */}
-        </div>
-        <div className="show-video-container">
-          <ReactPlayer
-            ref={this.vidRef}
-            url={post.url}
-            controls
-            height={"inherit"}
-            width={"inherit"}
-            config={{
-              file: {
-                attributes: {
-                  controlsList: ["nodownload"],
-                  disablePictureInPicture: true,
+      <div className="post-show-wrapper">
+        <div className="post-container">
+          <div className="video-header">
+            <p>{post.title}</p>
+            {postButtons}
+            {/* <p>by {post.user}</p> */}
+          </div>
+          <div className="show-video-container">
+            <ReactPlayer
+              ref={this.vidRef}
+              url={post.url}
+              controls
+              height={"inherit"}
+              width={"inherit"}
+              config={{
+                file: {
+                  attributes: {
+                    controlsList: ["nodownload"],
+                    disablePictureInPicture: true,
+                  },
                 },
-              },
-            }}
+              }}
+            />
+          </div>
+          <div className="video-info">
+            <div className="timestamps-section">
+              <p>Instructions</p>
+              <ul>{timestampList}</ul>
+            </div>
+            <div className="tags-section">
+              <p>Tags</p>
+              <ul className="tags-list">{tagsList}</ul>
+            </div>
+          </div>
+          
+          <Comments post={post} 
+                    createComment={createComment}
+                    currentUser={currentUser}
+                    deleteComment={deleteComment}
           />
         </div>
-        <div className="video-info">
-          <div className="timestamps-section">
-            <p>Instructions</p>
-            <ul>{timestampList}</ul>
-          </div>
-          <div className="tags-section">
-            <p>Tags</p>
-            <ul className="tags-list">{tagsList}</ul>
-          </div>
-        </div>
-        
-        <Comments post={post} 
-                  createComment={createComment}
-                  currentUser={currentUser}
-        />
       </div>
     );
   }
