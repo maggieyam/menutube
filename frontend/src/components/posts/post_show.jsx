@@ -48,7 +48,7 @@ class PostShow extends Component {
 
 
   render() {
-    const { post, deletePost, currentUser, createComment } = this.props;
+    const { post, deletePost, currentUser, createComment, deleteComment } = this.props;
     if (!post) return null;
 
     const tags = [
