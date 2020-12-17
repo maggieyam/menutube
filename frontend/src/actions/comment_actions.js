@@ -14,4 +14,3 @@ export const receiveComment = (postId, comment) => ({
   postId,
   comment: comment.data
 })
-
