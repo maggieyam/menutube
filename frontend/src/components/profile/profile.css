@@ -1,6 +1,6 @@
 .profile-test-img {
-  width: "160px";
-  height: "160px";
+  width: "100px";
+  height: "100px";
   border-radius: "80px";
   border-bottom: "1px solid grey";
 }
@@ -20,6 +20,8 @@
 .profile-container {
   max-width: "550px";
   margin: "0px";
+  margin-top: 200px;
+  align-content: center;
 }
 
 .item {

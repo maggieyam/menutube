@@ -1,7 +1,15 @@
-import React from "react";
+import React,{useEffect} from "react";
+import { useRouteMatch, useHistory } from 'react-router-dom'; 
+import { fetchUserPosts } from "../../actions/post_actions";
 import "./profile.css";
-class Profile extends React.Component {
-  render() {
+const Profile = () => {
+  const match = useRouteMatch();
+
+  useEffect(() => {
+    fetchUserPosts(match.params.userId)
+  },[fetchUserPosts])
+
+ 
     return (
       <div className="profile-container">
         <div>
@@ -20,42 +28,13 @@ class Profile extends React.Component {
             <div className="user-post-container">
               {" "}
               {/** This will contain videos for Users need route */}
-              <img
-                className="item"
-                src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8cGl6emF8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                alt="test-img"
-              ></img>
-              <img
-                className="item"
-                src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8cGl6emF8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                alt="test-img"
-              ></img>
-              <img
-                className="item"
-                src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8cGl6emF8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                alt="test-img"
-              ></img>
-              <img
-                className="item"
-                src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8cGl6emF8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                alt="test-img"
-              ></img>
-              <img
-                className="item"
-                src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8cGl6emF8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                alt="test-img"
-              ></img>
-              <img
-                className="item"
-                src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8cGl6emF8ZW58MHx8MHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=60"
-                alt="test-img"
-              ></img>
+              
             </div>
           </div>
         </div>
       </div>
     );
-  }
+  
 }
 
 export default Profile;

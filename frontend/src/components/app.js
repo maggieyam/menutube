@@ -10,6 +10,7 @@ import PostIndexPage from "./posts/post_index_page";
 import PostShowContainer from "./posts/post_show_container";
 import SplashPage from "./splash/splash_page";
 import Contacts from "./contact/contact.jsx";
+import Profile from "./profile/profile_container";
 import "./reset.css";
 
 export default () => (
@@ -21,7 +22,7 @@ export default () => (
     <Route  path="/team" component={Contacts} />
     <Switch>
       <AuthRoute exact path="/" component={SplashPage} />
-
+      {/* <Route path="/:username" component={Profile} /> */}
       <ProtectedRoute exact path="/show/:id" component={PostShowContainer} />
       <ProtectedRoute exact path="/feed" component={PostIndexPage} />
       <ProtectedRoute
