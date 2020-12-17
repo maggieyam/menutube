@@ -99,8 +99,23 @@ passport.authenticate("jwt", { session: false }),
 
     newPost
     .save()
-    .then((post) => res.json(post)).catch((err) => res.status(400).json(err));
+    .then((post) => res.json(post))
+    .catch((err) => res.status(400).json(err));
 })
+
+router.patch('/edit/:id',
+passport.authenticate("jwt", { session: false }),
+(req, res) => {
+    const { body } = req;
+    Post
+    .findById(req.params.id)
+    .then(post => {
+        Object.keys(body).forEach(k => post[k] = body[k]);
+        post.save()
+        .then((post) => res.json(post))
+    })
+    .catch(err => res.status(400).json(err))
+});
 
 router.delete('/delete', (req, res) => {
     Post

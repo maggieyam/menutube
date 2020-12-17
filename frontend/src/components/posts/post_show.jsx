@@ -12,6 +12,7 @@ class PostShow extends Component {
     this.state = {commentBody: ""}
 
     this.jumpToTime = this.jumpToTime.bind(this);
+    this.goToEditPage = this.goToEditPage.bind(this);
   }
 
   componentDidMount() {
@@ -35,6 +36,10 @@ class PostShow extends Component {
 
   goToSearchTag(tag) {
     // this.props.history.push(`/search/${tag}`);
+  }
+
+  goToEditPage() {
+    this.props.history.push(`/edit/${this.props.match.params.id}`);
   }
 
   goToFeed() {
@@ -82,11 +87,22 @@ class PostShow extends Component {
         </button>
       </li>
     ));
+    const postButtons = currentUser !== post.user ? null : (
+      <div className="post-buttons">
+        <button onClick={this.goToEditPage}>
+          Edit
+        </button>
+        <button onClick={() => deletePost(post._id).then(this.goToFeed())}>
+          Delete
+        </button>
+      </div>
+    );
 
     return (
       <div className="post-container">
         <div className="video-header">
           <p>{post.title}</p>
+          {postButtons}
           {/* <p>by {post.user}</p> */}
         </div>
         <div className="show-video-container">
@@ -115,7 +131,6 @@ class PostShow extends Component {
             <p>Tags</p>
             <ul className="tags-list">{tagsList}</ul>
           </div>
-          {showDelete()}
         </div>
         
         <Comments post={post} 

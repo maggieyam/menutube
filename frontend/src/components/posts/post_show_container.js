@@ -2,7 +2,7 @@ import { connect } from "react-redux";
 import { fetchPost, deletePost } from "../../actions/post_actions";
 import PostShow from "./post_show";
 import { createComment } from '../../actions/comment_actions';
-import { receiveCurrentUser } from "../../actions/session_actions";
+
 const mSTP = (state, ownProps) => {
   return {
     post: state.entities.posts[ownProps.match.params.id],
