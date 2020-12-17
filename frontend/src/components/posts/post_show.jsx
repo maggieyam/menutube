@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import ReactPlayer from "react-player/file";
 import "./post_show.css";
+import Comments from '../comments/comments';
 
 class PostShow extends Component {
   constructor(props) {
     super(props);
 
     this.vidRef = React.createRef();
+    this.state = {commentBody: ""}
 
     this.jumpToTime = this.jumpToTime.bind(this);
     this.goToEditPage = this.goToEditPage.bind(this);
@@ -44,8 +46,20 @@ class PostShow extends Component {
     this.props.history.push(`/feed`)
   }
 
+
   render() {
-    const { post, deletePost, currentUser } = this.props;
+    const { post, deletePost, currentUser, createComment } = this.props;
+    const showDelete = () => {
+      if (post.user === currentUser) {
+        return (
+          
+            <button onClick={() => deletePost(post._id).then(this.goToFeed())}>
+              Delete
+            </button>
+          
+        );
+      }
+    };
     if (!post) return null;
 
     const timestamps = [1, 3, 10];
@@ -118,6 +132,11 @@ class PostShow extends Component {
             <ul className="tags-list">{tagsList}</ul>
           </div>
         </div>
+        
+        <Comments post={post} 
+                  createComment={createComment}
+                  currentUser={currentUser}
+        />
       </div>
     );
   }
