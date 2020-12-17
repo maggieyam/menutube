@@ -37,27 +37,27 @@ router.get("/:id", (req, res) => {
     .catch(err => res.status(400).json(err))
 })
 
-// routes for search
-router.get("/search/nutrition", (req, res) => {
-  Nutrition.find(req.query)
-    .then((nutrition) => {
-      res.json(nutrition);
-    })
-    .catch((err) => res.status(400).json(err));
-});
+// // routes for search
+// router.get("/search/nutrition", (req, res) => {
+//   Nutrition.find(req.query)
+//     .then((nutrition) => {
+//       res.json(nutrition);
+//     })
+//     .catch((err) => res.status(400).json(err));
+// });
 
-// routes for search
-router.get("/search/ingredient", (req, res) => {
-  Ingredient.find(req.query) // {Nutrition: {protein: 1}}
-    .then((ingredients) => res.json(ingredients))
-    .catch((err) => res.status(400).json(err));
-});
-// routes for search
-router.get("/search/diet", (req, res) => {
-  Diet.find(req.query) // {Nutrition: {protein: 1}}
-    .then((diet) => res.json(diet))
-    .catch((err) => res.status(400).json(err));
-});
+// // routes for search
+// router.get("/search/ingredient", (req, res) => {
+//   Ingredient.find(req.query) // {Nutrition: {protein: 1}}
+//     .then((ingredients) => res.json(ingredients))
+//     .catch((err) => res.status(400).json(err));
+// });
+// // routes for search
+// router.get("/search/diet", (req, res) => {
+//   Diet.find(req.query) // {Nutrition: {protein: 1}}
+//     .then((diet) => res.json(diet))
+//     .catch((err) => res.status(400).json(err));
+// });
 
 // routes for saved
 router.post("/save/:id/", (req, res) => {
@@ -71,6 +71,17 @@ router.post("/save/:id/", (req, res) => {
     })
     .catch((err) => res.status(400).json(err));
 });
+
+//routes for unsave
+router.delete("/unsave/:id"), (req, res) => {
+  User.findById(req.body.userId)
+  .then(user => {
+    const idx = user.saved.indexOf(req.params.id);
+    if (idx !== -1) user.saved.splice(idx, 1);
+    user.save().then(() => res.json(user));
+  })
+  .catch((err) => res.status(400).json(err));
+}
 
 router.post("/create",
 passport.authenticate("jwt", { session: false }),
@@ -102,13 +113,6 @@ passport.authenticate("jwt", { session: false }),
     .then((post) => res.json(post)).catch((err) => res.status(400).json(err));
 })
 
-router.delete('/delete', (req, res) => {
-    Post
-    .deleteMany(res.query)
-    .then(posts => res.json(posts))
-    .catch(err => res.status(400).json(err))
-});
-
 router.delete("/delete/:postId", (req, res) => {
   Post.findByIdAndDelete(req.params.postId, (err) => {
     if (err) {
@@ -119,14 +123,6 @@ router.delete("/delete/:postId", (req, res) => {
   });
 });
 
-// router.get('/saved/:user_id', (req, res) => {
-//     User.findById(req.params.user_id).then(
-//         user => {
-//         Post.find({_id: {$in: user.saved }})
-//             .then(posts => res.json(posts))
-//         })
-//         .catch(err => res.status(400).json(err))
-// })
 
 // router.patch("/update/:post_id",
 // passport.authenticate("jwt"), {session: false}),
