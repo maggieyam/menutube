@@ -2,12 +2,14 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import ReactPlayer from "react-player/file";
 import "./post_show.css";
+import Comments from '../comments/comments';
 
 class PostShow extends Component {
   constructor(props) {
     super(props);
 
     this.vidRef = React.createRef();
+    this.state = {commentBody: ""}
 
     this.jumpToTime = this.jumpToTime.bind(this);
   }
@@ -39,8 +41,9 @@ class PostShow extends Component {
     this.props.history.push(`/feed`)
   }
 
+
   render() {
-    const { post, deletePost, currentUser } = this.props;
+    const { post, deletePost, currentUser, createComment } = this.props;
     const showDelete = () => {
       if (post.user === currentUser) {
         return (
@@ -114,6 +117,11 @@ class PostShow extends Component {
           </div>
           {showDelete()}
         </div>
+        
+        <Comments post={post} 
+                  createComment={createComment}
+                  currentUser={currentUser}
+        />
       </div>
     );
   }
