@@ -3,10 +3,11 @@ import { fetchPost, deletePost } from "../../actions/post_actions";
 import PostShow from "./post_show";
 import { createComment, deleteComment } from '../../actions/comment_actions';
 
-const mSTP = (state, ownProps) => {
+const mSTP = (state, ownProps) => { 
   return {
     post: state.entities.posts[ownProps.match.params.id],
     currentUser: state.session.userInfo.id,
+    username: state.entities.users
   };
 };
 
