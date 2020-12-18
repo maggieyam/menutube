@@ -95,6 +95,7 @@ passport.authenticate("jwt", { session: false }),
     let nutrition = new Nutrition(req.body.nutrition) || {};
     let diet = new Diet(req.body.diet) || {};
     let ingredients = new Ingredient(req.body.ingredients) || {};
+    let steps = req.body.steps || [];
     nutrition.save();
     diet.save();
     ingredients.save();
@@ -106,6 +107,7 @@ passport.authenticate("jwt", { session: false }),
       nutrition: nutrition,
       ingredients: ingredients,
       diet: diet,
+      steps: steps
     });
 
     newPost
