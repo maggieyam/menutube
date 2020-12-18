@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 
 
 
@@ -30,6 +30,13 @@ class Slot extends React.Component {
     video.style.width = "150px";
     
     e.target.appendChild(video);
+
+    let player = video.querySelector('video');
+    player.muted = true;
+
+    video.addEventListener("click", () => {
+      this.props.history.push(`/show/${videoId}`);
+    })
 
     this.setState({video: true})
   }
@@ -63,4 +70,4 @@ const mDtP = dispatch => ({
   // submit calendar meal
 })
 
-export default connect(null, mDtP)(Slot);
+export default withRouter(connect(null, mDtP)(Slot));
