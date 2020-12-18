@@ -17,20 +17,16 @@ const LoginForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const userInfo = { username, password };
-    dispatch(loginUser(userInfo)).then(() => dispatch(closeModal()));
+    dispatch(loginUser(userInfo));
   };
 
   const showErrors = () => {
-    if (!errors.length) return null;
-    return (
-      <div className="errors">
-        {errors.map((error, i) => (
+    if (!Object.values(errors).length) return null;
+    return Object.keys(errors).map((error, i) => (
           <p className="errors-body" key={`error-${i}`}>
-            {error}
+            {errors[error]}
           </p>
-        ))}
-      </div>
-    );
+        ))
   };
 
   const demoUser = () => {
@@ -52,6 +48,7 @@ const LoginForm = () => {
             onChange={(e) => setUser(e.target.value)}
             required
           />
+
         </div>
         <div className="password" data-error={errors.length ? errors : null}>
           <label htmlFor="login-password">Password</label>
