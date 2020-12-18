@@ -66,10 +66,13 @@ class VideoPlayer extends React.Component {
   }
 
   toggleSave(){
-    this.props.saved ? this.unsaveVid() : this.saveVid();
+    this.props.isSaved ? this.unsaveVid() : this.saveVid();
   }
 
   render() {
+
+    const {isSaved} = this.props;
+
     const overlay = this.state.playing ? (
       // <div className="playing-container">
         <div className="playing-overlay">
@@ -121,7 +124,7 @@ class VideoPlayer extends React.Component {
             <h1 id="title">{this.props.title}</h1>
           </Link>
           <button className="save-btn" onClick={this.toggleSave}>
-            {this.props.saved ? "Unsave" : "Save"}
+            {isSaved ? "Unsave" : "Save"}
           </button>
           {/* <p id="username">{this.props.user.username}</p> */}
         </div>
@@ -130,9 +133,11 @@ class VideoPlayer extends React.Component {
   }
 }
 
-const mStP = state => ({
-  userId: state.session.userInfo.id
-})
+const mStP = (state, ownProps) => {
+  return {
+  userId: state.session.userInfo.id,
+  isSaved: state.session.userInfo.saved.includes(ownProps._id)
+}}
 
 const mDtP = dispatch => ({
   savePost: (postId, body) => dispatch(savePost(postId, body)),
