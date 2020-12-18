@@ -34,7 +34,10 @@ const PostSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'Comment',
     }],
-
+    steps: [{
+        timestamp: Number,
+        description: String
+    }]
 });
 
 const Post = mongoose.model('Post', PostSchema);

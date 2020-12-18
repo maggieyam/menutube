@@ -49,20 +49,8 @@ class PostShow extends Component {
 
   render() {
     const { post, deletePost, currentUser, createComment, deleteComment } = this.props;
-    const showDelete = () => {
-      if (post.user === currentUser) {
-        return (
-          
-            <button onClick={() => deletePost(post._id).then(this.goToFeed())}>
-              Delete
-            </button>
-          
-        );
-      }
-    };
     if (!post) return null;
 
-    const timestamps = [1, 3, 10];
     const tags = [
       "sugar 16g",
       "protein 20g",
@@ -70,13 +58,13 @@ class PostShow extends Component {
       "broccoli 1/2 lb.",
       "tofu 1 block",
     ];
-    const timestampList = timestamps.map((ts, idx) => (
+    const timestampList = post.steps.map(({timestamp, description}, idx) => (
       <li key={idx}>
         <div className="timestamps">
-          <button onClick={() => this.jumpToTime(ts)}>
-            {this.formatSeconds(ts)}
+          <button onClick={() => this.jumpToTime(timestamp)}>
+            {this.formatSeconds(timestamp)}
           </button>
-          <p>This is a step</p>
+          <p>{description}</p>
         </div>
       </li>
     ));
