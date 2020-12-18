@@ -79,7 +79,6 @@ router.delete("/unsave/:id", (req, res) => {
     const idx = user.saved.indexOf(req.params.id);
     if (idx !== -1) user.saved.splice(idx, 1);
     user.save().then(user => {
-      console.log(user.saved);
       res.json(user)
     });
   })
