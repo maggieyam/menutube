@@ -19,10 +19,10 @@ export default () => (
     <ModalContainer />
     <NavBarContainer />
     <ProtectedRoute path="/" component={Calendar} />
-    <Route  path="/team" component={Contacts} />
+    <Route path="/team" component={Contacts} />
     <Switch>
       <AuthRoute exact path="/" component={SplashPage} />
-      {/* <Route path="/:username" component={Profile} /> */}
+      <Route path="/profile/:username" component={Profile} />
       <ProtectedRoute exact path="/show/:id" component={PostShowContainer} />
       <ProtectedRoute exact path="/feed" component={PostIndexPage} />
       <ProtectedRoute
