@@ -77,10 +77,10 @@ class PostShow extends Component {
     const postButtons = currentUser !== post.user._id ? null : (
       <div className="post-buttons">
         <button onClick={this.goToEditPage}>
-          Edit
+          <p>Edit</p>
         </button>
         <button onClick={() => deletePost(post._id).then(this.goToFeed())}>
-          Delete
+          <p>Delete</p>
         </button>
       </div>
     );

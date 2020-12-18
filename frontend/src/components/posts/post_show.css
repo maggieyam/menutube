@@ -42,10 +42,11 @@ div.post-show-wrapper{
   border-radius: 10px;
   height: 30px;
   font-size: 20px;
+  color: white;
   padding: 2px;
   margin: 2px;
   border: none;
-  background-image: linear-gradient(to right, rgb(250, 156, 127), rgb(244, 160, 252))
+  background-image: linear-gradient(to right, rgb(245, 126, 90), rgb(231, 97, 243))
 }
 
 .show-video-container {
