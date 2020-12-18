@@ -15,11 +15,7 @@ router.get (
   '/current',
   passport.authenticate ('jwt', {session: false}),
   (req, res) => {
-    res.json ({
-      id: req.user.id,
-      username: req.user.username,
-      email: req.user.email,
-    });
+      User.findById(req.user._id).then(user => res.json(user))
   }
 );
 
@@ -48,7 +44,7 @@ router.post ('/signup', (req, res) => {
           newUser
             .save ()
             .then (user => {
-              const payload = {id: user.id, username: user.username, saved: user.saved, calendar: user.calendar};
+              const payload = {id: user.id, username: user.username};
 
               jwt.sign (
                 payload,
@@ -58,7 +54,6 @@ router.post ('/signup', (req, res) => {
                   res.json ({
                     success: true,
                     token: 'Bearer ' + token,
-                    user
                   });
                 }
               );
@@ -88,7 +83,7 @@ router.post ('/login', (req, res) => {
 
     bcrypt.compare (password, user.password).then (isMatch => {
       if (isMatch) {
-        const payload = {id: user.id, username: user.username, saved: user.saved, calendar: user.calendar};
+        const payload = {id: user.id, username: user.username, saved: user.saved};
 
         jwt.sign (
           payload,

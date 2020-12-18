@@ -3,7 +3,7 @@ import ReactPlayer from "react-player/file";
 import "./feed_video.css";
 import { withRouter, Link } from "react-router-dom";
 import DraggableVideo from "../calendar/draggablevideo";
-import {savePost} from '../../actions/post_actions';
+import {unsavePost, savePost} from '../../actions/post_actions';
 import {connect} from 'react-redux';
 
 class VideoPlayer extends React.Component {
@@ -13,15 +13,17 @@ class VideoPlayer extends React.Component {
     this.state = {
       playing: false,
       muted: true,
-      // saved: this.props.saved,
     };
 
     this.vidRef = React.createRef();
 
     this.jumpToTime = this.jumpToTime.bind(this);
     this.saveVid = this.saveVid.bind(this);
+    this.unsaveVid = this.unsaveVid.bind(this);
+    this.toggleSave = this.toggleSave.bind(this);
     this.playVid = this.playVid.bind(this);
     this.pauseVid = this.pauseVid.bind(this);
+
   }
 
 
@@ -57,6 +59,14 @@ class VideoPlayer extends React.Component {
   saveVid() {
    const body = {userId: this.props.userId}
    this.props.savePost(this.props._id, body)
+  }
+
+  unsaveVid(){
+    this.props.unsavePost(this.props._id, this.props.userId);
+  }
+
+  toggleSave(){
+    this.props.saved ? this.unsaveVid() : this.saveVid();
   }
 
   render() {
@@ -110,11 +120,8 @@ class VideoPlayer extends React.Component {
           <Link to={`/show/${this.props._id}`}>
             <h1 id="title">{this.props.title}</h1>
           </Link>
-          <button
-            className="save-btn"
-            onClick={this.saveVid}
-          >
-            save{/* {this.state.saved ? "u" : "s"} */}
+          <button className="save-btn" onClick={this.toggleSave}>
+            {this.props.saved ? "Unsave" : "Save"}
           </button>
           {/* <p id="username">{this.props.user.username}</p> */}
         </div>
@@ -128,7 +135,8 @@ const mStP = state => ({
 })
 
 const mDtP = dispatch => ({
-  savePost: (postId, body) => dispatch(savePost(postId, body))
+  savePost: (postId, body) => dispatch(savePost(postId, body)),
+  unsavePost: (postId, userId) => dispatch(unsavePost(postId, userId))
 })
 
 

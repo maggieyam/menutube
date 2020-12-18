@@ -38,7 +38,7 @@ const PostIndex = () => {
       <button onClick={filterSaved}>Saved Posts</button>
       <ul className="posts-list">
         {display().map((post) => {
-          return <PostIndexItem post={post} key={post.id} />
+          return <PostIndexItem post={post} saved={saved} key={post.id} />
         })}
       </ul>
     </div>
