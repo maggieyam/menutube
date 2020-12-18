@@ -11,57 +11,58 @@ const User = require("../../models/User");
 
 router.get("/", (req, res) => {
   Post.find()
+    .populate("user", "username")
     .sort({ date: -1 })
     .then((posts) => {
-      User.find().then((users) => {
-        const postResponse = {};
-        const userResponse = {};
-        posts.forEach((post) => {
-          postResponse[post._id] = post;
-        });
-
-        users.forEach((user) => {
-          userResponse[user._id] = user;
-        });
-        res.json({ posts: postResponse, users: userResponse });
-      });
+      const normPosts = {};
+      posts.forEach((post) => (normPosts[post._id] = post));
+      return res.json(normPosts);
     })
     .catch((err) => res.status(400).json(err));
 });
 
 router.get("/user/:user_id", (req, res) => {
   Post.find({ user: req.params.user_id })
+    .populate("posts")
     .then((posts) => res.json(posts))
     .catch((err) => res.status(400).json(err));
 });
 
+//routes for show page
 router.get("/:id", (req, res) => {
   Post.findById(req.params.id)
-    .then((post) => res.json(post))
-    .catch((err) => res.status(400).json(err));
-});
-
-// routes for search
-router.get("/search/nutrition", (req, res) => {
-  Nutrition.find(req.query)
-    .then((nutrition) => {
-      res.json(nutrition);
+    .populate({
+      path: "comments",
+      populate: { path: "user", select: "username" },
+    })
+    .populate("user", "username")
+    .then((post) => {
+      res.json(post);
     })
     .catch((err) => res.status(400).json(err));
 });
 
-// routes for search
-router.get("/search/ingredient", (req, res) => {
-  Ingredient.find(req.query) // {Nutrition: {protein: 1}}
-    .then((ingredients) => res.json(ingredients))
-    .catch((err) => res.status(400).json(err));
-});
-// routes for search
-router.get("/search/diet", (req, res) => {
-  Diet.find(req.query) // {Nutrition: {protein: 1}}
-    .then((diet) => res.json(diet))
-    .catch((err) => res.status(400).json(err));
-});
+// // routes for search
+// router.get("/search/nutrition", (req, res) => {
+//   Nutrition.find(req.query)
+//     .then((nutrition) => {
+//       res.json(nutrition);
+//     })
+//     .catch((err) => res.status(400).json(err));
+// });
+
+// // routes for search
+// router.get("/search/ingredient", (req, res) => {
+//   Ingredient.find(req.query) // {Nutrition: {protein: 1}}
+//     .then((ingredients) => res.json(ingredients))
+//     .catch((err) => res.status(400).json(err));
+// });
+// // routes for search
+// router.get("/search/diet", (req, res) => {
+//   Diet.find(req.query) // {Nutrition: {protein: 1}}
+//     .then((diet) => res.json(diet))
+//     .catch((err) => res.status(400).json(err));
+// });
 
 // routes for saved
 router.post("/save/:id/", (req, res) => {
@@ -76,10 +77,18 @@ router.post("/save/:id/", (req, res) => {
     .catch((err) => res.status(400).json(err));
 });
 
-// routes for
-// router.get("/username/:id", (req, res) => {
-//     const post = User.findById()
-// })
+//routes for unsave
+router.delete("/unsave/:id", (req, res) => {
+  User.findById(req.query.userId)
+    .then((user) => {
+      const idx = user.saved.indexOf(req.params.id);
+      if (idx !== -1) user.saved.splice(idx, 1);
+      user.save().then((user) => {
+        res.json(user);
+      });
+    })
+    .catch((err) => res.status(400).json(err));
+});
 
 router.post(
   "/create",
@@ -94,6 +103,7 @@ router.post(
     let nutrition = new Nutrition(req.body.nutrition) || {};
     let diet = new Diet(req.body.diet) || {};
     let ingredients = new Ingredient(req.body.ingredients) || {};
+    let steps = req.body.steps || [];
     nutrition.save();
     diet.save();
     ingredients.save();
@@ -105,6 +115,7 @@ router.post(
       nutrition: nutrition,
       ingredients: ingredients,
       diet: diet,
+      steps: steps,
     });
 
     newPost
@@ -114,11 +125,25 @@ router.post(
   }
 );
 
-// router.delete("/delete", (req, res) => {
-//   Post.deleteMany(res.query)
-//     .then((posts) => res.json(posts))
-//     .catch((err) => res.status(400).json(err));
-// });
+router.patch(
+  "/edit/:id",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => {
+    const { body } = req;
+    Post.findById(req.params.id)
+      .then((post) => {
+        Object.keys(body).forEach((k) => (post[k] = body[k]));
+        post.save().then((post) => res.json(post));
+      })
+      .catch((err) => res.status(400).json(err));
+  }
+);
+
+router.delete("/delete", (req, res) => {
+  Post.deleteMany(res.query)
+    .then((posts) => res.json(posts))
+    .catch((err) => res.status(400).json(err));
+});
 
 router.delete("/delete/:postId", (req, res) => {
   Post.findByIdAndDelete(req.params.postId, (err) => {
@@ -129,15 +154,6 @@ router.delete("/delete/:postId", (req, res) => {
     }
   });
 });
-
-// router.get('/saved/:user_id', (req, res) => {
-//     User.findById(req.params.user_id).then(
-//         user => {
-//         Post.find({_id: {$in: user.saved }})
-//             .then(posts => res.json(posts))
-//         })
-//         .catch(err => res.status(400).json(err))
-// })
 
 // router.patch("/update/:post_id",
 // passport.authenticate("jwt"), {session: false}),
