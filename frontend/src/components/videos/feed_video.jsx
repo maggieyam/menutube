@@ -134,7 +134,6 @@ class VideoPlayer extends React.Component {
 }
 
 const mStP = (state, ownProps) => {
-  debugger
   return {
   userId: state.session.userInfo.id,
   isSaved: state.session.userInfo.saved.includes(ownProps._id)
