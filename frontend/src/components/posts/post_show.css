@@ -1,13 +1,13 @@
 div.post-show-wrapper{
   display: flex;
   justify-content: center;
+  background-image: linear-gradient(to right,
+    rgb(240, 128, 146), rgb(178, 252, 118));
 }
 .post-container {
   margin-top: 150px;
   width: 1000px;
   padding: 50px;
-  background-image: linear-gradient(
-    rgb(240, 128, 146), rgb(178, 252, 118));
 }
 
 .video-header {
@@ -24,7 +24,6 @@ div.post-show-wrapper{
 .left-side-header {
   display: flex;
   flex-direction: row;
-  /* justify-items: center; */
 }
 
 .left-side-header p {
