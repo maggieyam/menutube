@@ -1,4 +1,5 @@
 import axios from 'axios';
+window.axios = axios;
 
 export const createPost = postData => {
   return axios.post('/api/posts/create', postData);
@@ -22,6 +23,10 @@ export const fetchUserPosts = userId => {
 
 export const savePost = (postId, body) => {
   return axios.post(`api/posts/save/${postId}`, body)
+}
+
+export const unsavePost = (postId, userId) => {
+  return axios.delete(`api/posts/unsave/${postId}?userId=${userId}`)
 }
 
 export const editPost = (postId, body) => {

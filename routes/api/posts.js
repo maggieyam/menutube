@@ -73,15 +73,19 @@ router.post("/save/:id/", (req, res) => {
 });
 
 //routes for unsave
-router.delete("/unsave/:id"), (req, res) => {
-  User.findById(req.body.userId)
+router.delete("/unsave/:id", (req, res) => {
+  User.findById(req.query.userId)
   .then(user => {
     const idx = user.saved.indexOf(req.params.id);
     if (idx !== -1) user.saved.splice(idx, 1);
-    user.save().then(() => res.json(user));
+    user.save().then(user => {
+      console.log(user.saved);
+      res.json(user)
+    });
   })
   .catch((err) => res.status(400).json(err));
-}
+  }
+)
 
 router.post("/create",
 passport.authenticate("jwt", { session: false }),
