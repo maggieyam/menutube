@@ -15,9 +15,37 @@ div.post-show-wrapper{
   flex-direction: row;
   justify-content: space-between;
   font-size: 30px;
+  padding: 10px;
   color: white;
   background-image: linear-gradient(to right,
    rgb(187, 99, 245), rgb(178, 252, 118), rgb(131, 105, 247));
+}
+
+.left-side-header {
+  display: flex;
+  flex-direction: row;
+  /* justify-items: center; */
+}
+
+.left-side-header p {
+  padding: 0px 5px;
+}
+
+.post-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.post-buttons button {
+  display: inline-block;
+  border-radius: 10px;
+  height: 30px;
+  font-size: 20px;
+  padding: 2px;
+  margin: 2px;
+  border: none;
+  background-image: linear-gradient(to right, rgb(250, 156, 127), rgb(244, 160, 252))
 }
 
 .show-video-container {
@@ -56,7 +84,6 @@ div.post-show-wrapper{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  
 }
 
 .tags-list li {
