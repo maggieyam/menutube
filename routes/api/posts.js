@@ -33,6 +33,7 @@ router.get("/:id", (req, res) => {
     Post
     .findById(req.params.id)
     .populate({path: 'comments', populate: { path: 'user', select: 'username'}})
+    .populate('user', 'username')
     .then(post => {res.json(post)})
     .catch(err => res.status(400).json(err))
 })

@@ -50,7 +50,6 @@ class PostShow extends Component {
   render() {
     const { post, deletePost, currentUser, createComment, deleteComment } = this.props;
     if (!post) return null;
-
     const tags = [
       "sugar 16g",
       "protein 20g",
@@ -86,11 +85,12 @@ class PostShow extends Component {
       </div>
     );
 
-    return (
+    return (   
       <div className="post-show-wrapper">
         <div className="post-container">
           <div className="video-header">
             <p>{post.title}</p>
+            <p>{post.user.username}</p>
             {postButtons}
             {/* <p>by {post.user}</p> */}
           </div>

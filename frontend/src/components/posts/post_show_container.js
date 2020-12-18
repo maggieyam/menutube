@@ -4,9 +4,12 @@ import PostShow from "./post_show";
 import { createComment, deleteComment } from '../../actions/comment_actions';
 
 const mSTP = (state, ownProps) => {
+  
+  const currentUser = state.session.userInfo.id;
   return {
     post: state.entities.posts[ownProps.match.params.id],
-    currentUser: state.session.userInfo.id,
+    currentUser: currentUser,
+    username: state.entities.users
   };
 };
 
