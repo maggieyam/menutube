@@ -35,45 +35,59 @@ export const clearPostErrors = () => ({
 
 export const removePost = (postId) => ({
   type: REMOVE_POST,
-  postId,
-});
-
-export const receiveUserPosts = (posts) => ({
-  type: RECEIVE_USER_POSTS,
-  posts,
-});
+  postId
+})
 
 
+export const createPost = post => dispatch => (
+    APIUtil.createPost(post).then(
+      post => dispatch(receiveNewPost(post)),
+      err => dispatch(receivePostErrors(err.response.data))
+    )
+)
 
-export const createPost = (post) => (dispatch) =>
-  APIUtil.createPost(post).then(
-    (post) => dispatch(receiveNewPost(post)),
-    (err) => dispatch(receivePostErrors(err.response.data))
-  );
+export const fetchPosts = () => dispatch => {
+  return APIUtil.fetchPosts().then(
+    posts => dispatch(receivePosts(posts.data))
+  )
+}
 
-export const fetchPosts = () => (dispatch) => {
-  return APIUtil.fetchPosts().then((posts) =>
-    dispatch(receivePosts(posts.data))
-  );
-};
 
-export const fetchUserPosts = (userId) => (dispatch) => {
-  return APIUtil.fetchUserPosts(userId).then((posts) =>
-    dispatch(receiveUserPosts(posts.data))
-  );
-};
+export const fetchUserPosts = userId => dispatch => {
+  return APIUtil.fetchUserPosts(userId).then(
+    posts => dispatch(receivePosts(posts.data))
+  )
+}
 
-export const fetchPost = (postId) => (dispatch) =>
-  APIUtil.fetchPost(postId).then((post) => dispatch(receivePost(post.data)));
+export const fetchPost = postId => dispatch => (
+  APIUtil.fetchPost(postId).then(
+    post => dispatch(receivePost(post.data))
+  )
+)
 
-export const savePost = (postId, body) => (dispatch) => {
-  return APIUtil.savePost(postId, body).then((user) => {
-    dispatch(receiveUser(user));
-  });
-};
+export const savePost = (postId, body) => dispatch => {
+  return APIUtil.savePost(postId, body).then(
+    user => {
+      dispatch(receiveUser(user))
+    }
+  )
+}
 
-export const deletePost = (postId) => (dispatch) => {
-  return APIUtil.deletePost(postId).then((postId) => {
-    dispatch(removePost(postId));
-  });
-};
+export const unsavePost = (postId, userId) => dispatch => {
+  return APIUtil.unsavePost(postId, userId).then(
+    user => dispatch(receiveUser(user))
+  )
+}
+
+export const editPost = (postId, newData) => dispatch => {
+  return APIUtil.editPost(postId, newData).then(
+    post => {dispatch(receivePost(post))}
+  )
+}
+    
+export const deletePost = (postId) => dispatch => {
+  return APIUtil.deletePost(postId).then(
+    postId => {dispatch(removePost(postId))}
+  )
+}
+    

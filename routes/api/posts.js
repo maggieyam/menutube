@@ -10,6 +10,7 @@ const Ingredient = require("../../models/Ingredient");
 const User = require("../../models/User");
 
 router.get("/", (req, res) => {
+<<<<<<< HEAD
   Post.find()
     .populate("user", "username")
     .sort({ date: -1 })
@@ -20,6 +21,19 @@ router.get("/", (req, res) => {
     })
     .catch((err) => res.status(400).json(err));
 });
+=======
+    Post
+    .find()
+    .populate("user", "username")
+    .sort({date: -1})
+    .then(posts => {
+        const normPosts = {};
+        posts.forEach(post => normPosts[post._id] = post)
+        return res.json(normPosts);
+    })  
+    .catch(err => res.status(400).json(err));
+})
+>>>>>>> main
 
 router.get("/user/:user_id", (req, res) => {
   Post.find({ user: req.params.user_id })
@@ -30,6 +44,7 @@ router.get("/user/:user_id", (req, res) => {
 
 //routes for show page
 router.get("/:id", (req, res) => {
+<<<<<<< HEAD
   Post.findById(req.params.id)
     .populate({
       path: "comments",
@@ -52,6 +67,26 @@ router.get("/:id", (req, res) => {
 // });
 
 // // routes for search
+=======
+    Post
+    .findById(req.params.id)
+    .populate({path: 'comments', populate: { path: 'user', select: 'username'}})
+    .populate('user', 'username')
+    .then(post => {res.json(post)})
+    .catch(err => res.status(400).json(err))
+})
+
+// // routes for search
+// router.get("/search/nutrition", (req, res) => {
+//   Nutrition.find(req.query)
+//     .then((nutrition) => {
+//       res.json(nutrition);
+//     })
+//     .catch((err) => res.status(400).json(err));
+// });
+
+// // routes for search
+>>>>>>> main
 // router.get("/search/ingredient", (req, res) => {
 //   Ingredient.find(req.query) // {Nutrition: {protein: 1}}
 //     .then((ingredients) => res.json(ingredients))
@@ -80,6 +115,7 @@ router.post("/save/:id/", (req, res) => {
 //routes for unsave
 router.delete("/unsave/:id", (req, res) => {
   User.findById(req.query.userId)
+<<<<<<< HEAD
     .then((user) => {
       const idx = user.saved.indexOf(req.params.id);
       if (idx !== -1) user.saved.splice(idx, 1);
@@ -89,11 +125,22 @@ router.delete("/unsave/:id", (req, res) => {
     })
     .catch((err) => res.status(400).json(err));
 });
+=======
+  .then(user => {
+    const idx = user.saved.indexOf(req.params.id);
+    if (idx !== -1) user.saved.splice(idx, 1);
+    user.save().then(user => {
+      res.json(user)
+    });
+  })
+  .catch((err) => res.status(400).json(err));
+  }
+)
+>>>>>>> main
 
-router.post(
-  "/create",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
+router.post("/create",
+passport.authenticate("jwt", { session: false }),
+(req, res) => {
     const { isValid, errors } = validatePostInput(req.body);
 
     if (!isValid) {
@@ -115,16 +162,34 @@ router.post(
       nutrition: nutrition,
       ingredients: ingredients,
       diet: diet,
+<<<<<<< HEAD
       steps: steps,
+=======
+      steps: steps
+>>>>>>> main
     });
 
     newPost
-      .save()
-      .then((post) => res.json(post))
-      .catch((err) => res.status(400).json(err));
-  }
-);
+    .save()
+    .then((post) => res.json(post))
+    .catch((err) => res.status(400).json(err));
+})
 
+router.patch('/edit/:id',
+passport.authenticate("jwt", { session: false }),
+(req, res) => {
+    const { body } = req;
+    Post
+    .findById(req.params.id)
+    .then(post => {
+        Object.keys(body).forEach(k => post[k] = body[k]);
+        post.save()
+        .then((post) => res.json(post))
+    })
+    .catch(err => res.status(400).json(err))
+});
+
+<<<<<<< HEAD
 router.patch(
   "/edit/:id",
   passport.authenticate("jwt", { session: false }),
@@ -143,6 +208,13 @@ router.delete("/delete", (req, res) => {
   Post.deleteMany(res.query)
     .then((posts) => res.json(posts))
     .catch((err) => res.status(400).json(err));
+=======
+router.delete('/delete', (req, res) => {
+    Post
+    .deleteMany(res.query)
+    .then(posts => res.json(posts))
+    .catch(err => res.status(400).json(err))
+>>>>>>> main
 });
 
 router.delete("/delete/:postId", (req, res) => {
@@ -155,6 +227,10 @@ router.delete("/delete/:postId", (req, res) => {
   });
 });
 
+<<<<<<< HEAD
+=======
+
+>>>>>>> main
 // router.patch("/update/:post_id",
 // passport.authenticate("jwt"), {session: false}),
 // (req, res) => {

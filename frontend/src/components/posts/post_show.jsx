@@ -2,14 +2,17 @@ import React, { Component } from "react";
 import { withRouter } from "react-router-dom";
 import ReactPlayer from "react-player/file";
 import "./post_show.css";
+import Comments from '../comments/comments';
 
 class PostShow extends Component {
   constructor(props) {
     super(props);
 
     this.vidRef = React.createRef();
+    this.state = {commentBody: ""}
 
     this.jumpToTime = this.jumpToTime.bind(this);
+    this.goToEditPage = this.goToEditPage.bind(this);
   }
 
   componentDidMount() {
@@ -35,26 +38,18 @@ class PostShow extends Component {
     // this.props.history.push(`/search/${tag}`);
   }
 
+  goToEditPage() {
+    this.props.history.push(`/edit/${this.props.match.params.id}`);
+  }
+
   goToFeed() {
     this.props.history.push(`/feed`)
   }
 
-  render() {
-    const { post, deletePost, currentUser } = this.props;
-    const showDelete = () => {
-      if (post.user === currentUser) {
-        return (
-          
-            <button onClick={() => deletePost(post._id).then(this.goToFeed())}>
-              Delete
-            </button>
-          
-        );
-      }
-    };
-    if (!post) return null;
 
-    const timestamps = [1, 3, 10];
+  render() {
+    const { post, deletePost, currentUser, createComment, deleteComment } = this.props;
+    if (!post) return null;
     const tags = [
       "sugar 16g",
       "protein 20g",
@@ -62,13 +57,13 @@ class PostShow extends Component {
       "broccoli 1/2 lb.",
       "tofu 1 block",
     ];
-    const timestampList = timestamps.map((ts, idx) => (
+    const timestampList = post.steps.map(({timestamp, description}, idx) => (
       <li key={idx}>
         <div className="timestamps">
-          <button onClick={() => this.jumpToTime(ts)}>
-            {this.formatSeconds(ts)}
+          <button onClick={() => this.jumpToTime(timestamp)}>
+            {this.formatSeconds(timestamp)}
           </button>
-          <p>This is a step</p>
+          <p>{description}</p>
         </div>
       </li>
     ));
@@ -79,40 +74,59 @@ class PostShow extends Component {
         </button>
       </li>
     ));
+    const postButtons = currentUser !== post.user ? null : (
+      <div className="post-buttons">
+        <button onClick={this.goToEditPage}>
+          Edit
+        </button>
+        <button onClick={() => deletePost(post._id).then(this.goToFeed())}>
+          Delete
+        </button>
+      </div>
+    );
 
-    return (
-      <div className="post-container">
-        <div className="video-header">
-          <p>{post.title}</p>
-          {/* <p>by {post.user}</p> */}
-        </div>
-        <div className="show-video-container">
-          <ReactPlayer
-            ref={this.vidRef}
-            url={post.url}
-            controls
-            height={"inherit"}
-            width={"inherit"}
-            config={{
-              file: {
-                attributes: {
-                  controlsList: ["nodownload"],
-                  disablePictureInPicture: true,
+    return (   
+      <div className="post-show-wrapper">
+        <div className="post-container">
+          <div className="video-header">
+            <p>{post.title}</p>
+            <p>{post.user.username}</p>
+            {postButtons}
+            {/* <p>by {post.user}</p> */}
+          </div>
+          <div className="show-video-container">
+            <ReactPlayer
+              ref={this.vidRef}
+              url={post.url}
+              controls
+              height={"inherit"}
+              width={"inherit"}
+              config={{
+                file: {
+                  attributes: {
+                    controlsList: ["nodownload"],
+                    disablePictureInPicture: true,
+                  },
                 },
-              },
-            }}
+              }}
+            />
+          </div>
+          <div className="video-info">
+            <div className="timestamps-section">
+              <p>Instructions</p>
+              <ul>{timestampList}</ul>
+            </div>
+            <div className="tags-section">
+              <p>Tags</p>
+              <ul className="tags-list">{tagsList}</ul>
+            </div>
+          </div>
+          
+          <Comments post={post} 
+                    createComment={createComment}
+                    currentUser={currentUser}
+                    deleteComment={deleteComment}
           />
-        </div>
-        <div className="video-info">
-          <div className="timestamps-section">
-            <p>Instructions</p>
-            <ul>{timestampList}</ul>
-          </div>
-          <div className="tags-section">
-            <p>Tags</p>
-            <ul className="tags-list">{tagsList}</ul>
-          </div>
-          {showDelete()}
         </div>
       </div>
     );

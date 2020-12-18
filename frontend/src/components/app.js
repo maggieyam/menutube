@@ -8,6 +8,7 @@ import DraggableVideo from "./calendar/draggablevideo";
 import Calendar from "./calendar/calendar";
 import PostIndexPage from "./posts/post_index_page";
 import PostShowContainer from "./posts/post_show_container";
+import PostEditContainer from "./posts/post_edit_form_container";
 import SplashPage from "./splash/splash_page";
 import Contacts from "./contact/contact.jsx";
 import Profile from "./profile/profile_container";
@@ -18,12 +19,20 @@ export default () => (
   <>
     <ModalContainer />
     <NavBarContainer />
+<<<<<<< HEAD
     <ProtectedRoute path="/" component={Calendar} />
     <Route path="/team" component={Contacts} />
     <Switch>
       <AuthRoute exact path="/" component={SplashPage} />
       <Route path="/profile/:username" component={Profile} />
+=======
+    <Route path="/:a([^t]\S+)" component={Calendar} />
+    <Route path="/team" component={Contacts} />
+    <Switch>
+      <AuthRoute exact path="/" component={SplashPage} />
+>>>>>>> main
       <ProtectedRoute exact path="/show/:id" component={PostShowContainer} />
+      <ProtectedRoute exact path="/edit/:id" component={PostEditContainer} />
       <ProtectedRoute exact path="/feed" component={PostIndexPage} />
       <ProtectedRoute
         exact

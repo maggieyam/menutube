@@ -7,7 +7,7 @@ import "./post_index_page.css";
 const PostIndex = () => {
   const dispatch = useDispatch();
   const posts = useSelector((state) => Object.values(state.entities.posts));
-  const currentUser = useSelector((state) => state.entities.users[state.session.userInfo.id]);
+  const currentUser = useSelector((state) => state.session.userInfo);
   const [saved, setSaved] = useState(false);
 
   useEffect(() => {
@@ -38,7 +38,7 @@ const PostIndex = () => {
       <button onClick={filterSaved}>Saved Posts</button>
       <ul className="posts-list">
         {display().map((post) => {
-          return <PostIndexItem post={post} key={post.id} />
+          return <PostIndexItem post={post} saved={saved} key={post.id} />
         })}
       </ul>
     </div>

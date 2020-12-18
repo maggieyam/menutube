@@ -6,9 +6,7 @@ import "./login_form.css";
 
 const LoginForm = () => {
   const errors = useSelector((state) => state.errors.session);
-
   const dispatch = useDispatch();
-
   const [username, setUser] = useState("");
   const [password, setPassword] = useState("");
 
@@ -19,24 +17,26 @@ const LoginForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const userInfo = { username, password };
-    dispatch(loginUser(userInfo)).then(() => dispatch(closeModal()));
+    dispatch(loginUser(userInfo));
   };
 
   const showErrors = () => {
-    if (!errors.length) return null;
-    return (
-      <div className="errors">
-        {errors.map((error, i) => (
+    if (!Object.values(errors).length) return null;
+    return Object.keys(errors).map((error, i) => (
           <p className="errors-body" key={`error-${i}`}>
-            {error}
+            {errors[error]}
           </p>
-        ))}
-      </div>
-    );
+        ))
   };
+
+  const demoUser = () => {
+    setUser('maggie');
+    setPassword('123456');
+  }
+
   return (
     <div className="login-wrapper">
-      <form id="login-form" onSubmit={handleSubmit}>
+      <form id="login-form" className="animate__animated animate__rubberBand" onSubmit={handleSubmit}>
         <h2 className="menutube">Menutube</h2>
 
         <div className="username" data-error={errors.length ? errors : null}>
@@ -48,6 +48,7 @@ const LoginForm = () => {
             onChange={(e) => setUser(e.target.value)}
             required
           />
+
         </div>
         <div className="password" data-error={errors.length ? errors : null}>
           <label htmlFor="login-password">Password</label>
@@ -60,9 +61,8 @@ const LoginForm = () => {
           />
         </div>
         <div className="signin-errors">{showErrors()}</div>
-
         <input type="submit" value="Log In" className="session-btn" />
-
+        <input type="button" value="Demo User" className="session-btn" onClick={() => demoUser()}/><br/>
         <div>
           <span className="footer-login">
             Don't have an account?

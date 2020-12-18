@@ -75,6 +75,10 @@
   background-image: linear-gradient(to left, rgb(177, 146, 218), violet);
 }
 
+p.errors-body{
+  color: yellow;
+}
+
 .nav-left {
   display: flex;
   flex-direction: column;

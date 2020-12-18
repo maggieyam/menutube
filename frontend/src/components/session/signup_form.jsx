@@ -14,7 +14,7 @@ const SignupForm = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const userInfo = { email, username, password, password2 };
-    dispatch(signupUser(userInfo)).then(() => dispatch(closeModal()));
+    dispatch(signupUser(userInfo));
   };
 
   useEffect(() => {
@@ -22,22 +22,17 @@ const SignupForm = () => {
   }, [clearSessionErrors]);
 
   const showErrors = () => {
-    if (!errors.length) return null;
-    else
-      return (
-        <div className="errors">
-          {errors.map((error, i) => (
-            <p className="errors-body" key={`error-${i}`}>
-              {error}
-            </p>
-          ))}
-        </div>
-      );
+    if (!Object.values(errors).length) return null;
+    return Object.keys(errors).map((error, i) => (
+          <p className="errors-body" key={`error-${i}`}>
+            {errors[error]}
+          </p>
+        ))
   };
 
   return (
     <div className="signup-wrapper">
-      <form id="signup-form" onSubmit={handleSubmit}>
+      <form id="signup-form" className="animate__animated animate__rubberBand" onSubmit={handleSubmit}>
         <h2 className="menutube">MenuTube</h2>
 
         <div className="username" data-error={errors.length ? errors : null}>
