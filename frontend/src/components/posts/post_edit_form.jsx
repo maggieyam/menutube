@@ -1,8 +1,9 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
-import 'semantic-ui-css/semantic.min.css'
-import './create_post_form.css'
+import 'semantic-ui-css/semantic.min.css';
+import './create_post_form.css';
+import './post_edit_form.css';
 import Loader from 'react-loader-spinner';
 import { uploadFile } from 'react-s3';
 import { Dropdown } from 'semantic-ui-react';
@@ -139,29 +140,33 @@ class EditPostForm extends React.Component {
     const { steps } = this.state;
     const stepsList = (
       <div className="steps-input-div">
-        {steps.map(({minutes, seconds, description}, idx) => (
-            <div key={idx} className="step">
-              <input
-                type="number" max="19" min="0" value={minutes}
-                onChange={e => this.changeStep(e, "minutes", idx)}/>
-              :
-              <input
-                type="number" max="59" min="0" value={seconds}
-                onChange={e => this.changeStep(e, "seconds", idx)}
-              />
-              <input
-                type="text" maxLength="100" value={description}
-                onChange={e => this.changeStep(e, "description", idx)}
-              />
-              <button type="button" onClick={e => this.removeStep(e, idx)}>
-                Remove
-              </button>
-            </div>
-          )
-        )}
-        <button type="button" onClick={this.addStep}>
-          {steps.length === 0 ? "Begin adding steps" : "Add another step"}
-        </button>
+          <label>Steps:
+          {steps.map(({minutes, seconds, description}, idx) => (
+              <div key={idx} className="step">
+                <input className="step-minutes-input"
+                  type="number" max="19" min="0"
+                  value={minutes > 9 ? minutes : `0${minutes}`}
+                  onChange={e => this.changeStep(e, "minutes", idx)}/>
+                :
+                <input className="step-seconds-input"
+                  type="number" max="59" min="0"
+                  value={seconds > 9 ? seconds : `0${seconds}`}
+                  onChange={e => this.changeStep(e, "seconds", idx)}
+                />
+                <input className="step-description-input"
+                  type="text" maxLength="100" value={description}
+                  onChange={e => this.changeStep(e, "description", idx)}
+                />
+                <button type="button" onClick={e => this.removeStep(e, idx)}>
+                  Remove
+                </button>
+              </div>
+            )
+          )}
+          <button type="button" onClick={this.addStep}>
+            {steps.length === 0 ? "Begin adding steps" : "Add another step"}
+          </button>
+        </label>
       </div>
     )
     
@@ -170,7 +175,7 @@ class EditPostForm extends React.Component {
         {this.loaderSpinner()}
 
         <div className="title-input-div">
-          <label htmlFor="post-title">New title:</label>
+          <label htmlFor="post-title">Title:</label>
           <input
             id="post-title"
             type="text"
@@ -178,10 +183,7 @@ class EditPostForm extends React.Component {
             onChange={this.changeTitle} />
           {this.errors("title")}
         </div>
-
-        <label>Steps:
-          {stepsList}
-        </label>
+        {stepsList}
         <input id="submit-post" type="submit" value="Apply Changes" />
       </form>
     )

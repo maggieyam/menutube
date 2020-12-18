@@ -1,0 +1,24 @@
+.steps-input-div {
+  width: 500px;
+}
+
+.step {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.step-description-input {
+  flex-grow: 2;
+}
+
+.step-minutes-input, .step-seconds-input {
+  width: 50px;
+}
+
+.add-post-button{
+  border-radius: 15px;
+  outline: none;
+  padding: 10px 15px;
+  background-image: linear-gradient(to right, rgb(177, 146, 218), violet)
+}
