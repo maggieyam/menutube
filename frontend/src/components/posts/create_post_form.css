@@ -44,6 +44,16 @@ input[type="file"] {
    text-overflow: ellipsis;
 }
 
+#test-video {
+  height: 0;
+  width: 0;
+}
+
+#file-size-error {
+  color: red;
+  font-size: 20px;
+}
+
 #post-title {
   width: 500px;
   height: 40px;
