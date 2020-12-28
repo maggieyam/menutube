@@ -11,6 +11,7 @@ import PostShowContainer from "./posts/post_show_container";
 import PostEditContainer from "./posts/post_edit_form_container";
 import SplashPage from "./splash/splash_page";
 import Contacts from "./contact/contact.jsx";
+import SavedPosts from "./saved/saved_posts";
 import "./reset.css";
 
 export default () => (
@@ -25,6 +26,7 @@ export default () => (
       <ProtectedRoute exact path="/show/:id" component={PostShowContainer} />
       <ProtectedRoute exact path="/edit/:id" component={PostEditContainer} />
       <ProtectedRoute exact path="/feed" component={PostIndexPage} />
+      <ProtectedRoute exact path="/posts/saved" component={SavedPosts} />
       <ProtectedRoute
         exact
         path="/new_post"
