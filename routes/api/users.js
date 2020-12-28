@@ -7,6 +7,7 @@ const passport = require ('passport');
 const keys = require ('../../config/keys');
 const validateLoginInput = require ('../../validations/login');
 const validateSignUpInput = require ('../../validations/signup');
+const Post = require('../../models/Post');
 
 router.get ('/', (req, res) => res.json ({msg: 'This is the users route'}));
 
@@ -16,8 +17,7 @@ router.get (
   passport.authenticate ('jwt', {session: false}),
   (req, res) => {
       User.findById(req.user._id).then(user => res.json(user))
-  }
-);
+      });
 
 router.post ('/signup', (req, res) => {
   const {errors, isValid} = validateSignUpInput (req.body);

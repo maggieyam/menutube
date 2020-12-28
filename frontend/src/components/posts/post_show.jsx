@@ -75,13 +75,13 @@ class PostShow extends Component {
         </button>
       </li>
     ));
-    const postButtons = currentUser !== post.user ? null : (
+    const postButtons = currentUser !== post.user._id ? null : (
       <div className="post-buttons">
         <button onClick={this.goToEditPage}>
-          Edit
+          <p>Edit</p>
         </button>
         <button onClick={() => deletePost(post._id).then(this.goToFeed())}>
-          Delete
+          <p>Delete</p>
         </button>
       </div>
     );
@@ -90,10 +90,11 @@ class PostShow extends Component {
       <div className="post-show-wrapper">
         <div className="post-container">
           <div className="video-header">
-            <p>{post.title}</p>
-            <p>{post.user.username}</p>
-            {postButtons}
-            {/* <p>by {post.user}</p> */}
+            <div className="left-side-header">
+              <p>{post.title}</p>
+              {postButtons}
+            </div>
+            <p>by {post.user.username}</p>
           </div>
           <div className="show-video-container">
             <ReactPlayer

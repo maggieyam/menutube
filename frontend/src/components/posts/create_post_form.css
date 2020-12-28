@@ -39,6 +39,19 @@ div.ui.multiple.search.dropdown {
 input[type="file"] {
    background-image: linear-gradient(to right, rgb(177, 146, 218), #ee82ee);
    padding: 10px 15px;
+   white-space: nowrap;
+   overflow: hidden;
+   text-overflow: ellipsis;
+}
+
+#test-video {
+  height: 0;
+  width: 0;
+}
+
+#file-size-error {
+  color: red;
+  font-size: 20px;
 }
 
 #post-title {
