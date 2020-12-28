@@ -20,7 +20,7 @@ class Calendar extends React.Component{
         <li key={dayName}>
           <h3 className="dayname">{dayName}</h3>
           <div className="slots">
-            <Slot className={`${dayName}-1`} postId="5fda90942d3df9586be71591" savedUrl="https://menu-tube-dev.s3.amazonaws.com/1280.mp4" />
+            <Slot className={`${dayName}-1`} />
             <Slot className={`${dayName}-2`} />
             <Slot className={`${dayName}-3`} />
           </div>
