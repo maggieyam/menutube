@@ -1,13 +1,18 @@
 import React from "react";
 import Slot from "./slot";
 import "./calendar.css";
+import { connect } from 'react-redux';
+import { fetchCalendar } from '../../actions/calendar_actions';
 
 class Calendar extends React.Component{
 
   constructor(props){
-    
     super(props)
     this.state = {checked: false};
+  }
+
+  componentDidMount(){
+    this.props.fetchCalendar(this.props.userId)
   }
 
   calText(){
@@ -56,4 +61,13 @@ class Calendar extends React.Component{
     };
   }
 
-  export default Calendar;
+  const mStP = state => ({
+    userId: state.session.userInfo.id,
+    calendar: state.entities.calendar
+  })
+
+  const mDtP = dispatch => ({
+    fetchCalendar: userId => dispatch(fetchCalendar(userId))
+  })
+
+  export default connect(mStP, mDtP)(Calendar);
