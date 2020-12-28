@@ -3,6 +3,7 @@ import React from 'react';
 import {fetchPosts} from '../../actions/post_actions';
 import {findSavedPosts} from '../../util/selectors';
 import PostIndexItem from '../posts/post_index_item';
+import './saved_posts.css';
 
 const mStP = state => ({
   posts: findSavedPosts(state.session.userInfo.saved, Object.values(state.entities.posts))
@@ -21,11 +22,13 @@ class SavedPosts extends React.Component {
 
   render() {
     return (
-      <ul className="posts-list">
-          {this.props.posts.map((post) => {
-            return <PostIndexItem post={post} saved={true} key={post.id} />
-          })}
-      </ul>
+      <div className="saved-content">
+        <ul className="posts-list">
+            {this.props.posts.map((post) => {
+              return <PostIndexItem post={post} saved={true} key={post.id} />
+            })}
+        </ul>
+      </div>
     )
   }
 }
