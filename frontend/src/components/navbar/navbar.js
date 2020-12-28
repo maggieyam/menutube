@@ -60,8 +60,12 @@ class NavBar extends React.Component {
 
     return (
       <div className="navbar">
+        <h1 id="brand">
+            <Link to="/feed">MenuTube</Link>
+          </h1>
         <div className='about'>
-          <a
+          
+        <a
             href="https://github.com/maggieyam/menutube"
             className="gh-link"
             target="_blank"
@@ -73,9 +77,7 @@ class NavBar extends React.Component {
           </Link>
         </div>
 
-        <h1 id="brand">
-          <Link to="/feed">MenuTube</Link>
-        </h1>
+        
 
         {currentUser.isAuthenticated ? this.loggedIn() : this.loggedOut()}
       </div>
