@@ -6,27 +6,41 @@ const CalendarSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'User',
     },
-    Mon: [{
-        type: Schema.Types.ObjectId,
-    }],
-    Tue: [{
-        type: Schema.Types.ObjectId,
-    }],
-    Wed: [{
-        type: Schema.Types.ObjectId,
-    }],
-    Thur: [{
-        type: Schema.Types.ObjectId,
-    }],
-    Fri: [{
-        type: Schema.Types.ObjectId,
-    }],
-    Sat: [{
-        type: Schema.Types.ObjectId,
-    }],
-    Sun: [{
-        type: Schema.Types.ObjectId,
-    }],
+    Mon: {
+        type: Array,
+        default: [undefined, undefined, undefined],
+        ref: 'Post',
+    },
+    Tue: {
+        type: Array,
+        default: [undefined, undefined, undefined],
+        ref: 'Post',
+    },
+    Wed: {
+        type: Array,
+        default: [undefined, undefined, undefined],
+        ref: 'Post',
+    },
+    Thur: {
+        type: Array,
+        default: [undefined, undefined, undefined],
+        ref: 'Post',
+    },
+    Fri: {
+        type: Array,
+        default: [undefined, undefined, undefined],
+        ref: 'post',
+    },
+    Sat: {
+        type: Array,
+        default: [undefined, undefined, undefined],
+        ref: 'post',
+    },
+    Sun: {
+        type: Array,
+        default: [undefined, undefined, undefined],
+        ref: 'post',
+    },
 });
 
 const Calendar = mongoose.model('Calendar', CalendarSchema);

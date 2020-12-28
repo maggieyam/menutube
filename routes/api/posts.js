@@ -24,6 +24,7 @@ router.get("/", (req, res) => {
 
 router.get("/user/:user_id", (req, res) => {
   Post.find({ user: req.params.user_id })
+    .populate("posts")
     .then((posts) => res.json(posts))
     .catch((err) => res.status(400).json(err));
 });
@@ -134,12 +135,12 @@ passport.authenticate("jwt", { session: false }),
     .catch(err => res.status(400).json(err))
 });
 
-router.delete('/delete', (req, res) => {
-    Post
-    .deleteMany(res.query)
-    .then(posts => res.json(posts))
-    .catch(err => res.status(400).json(err))
-});
+// router.delete('/delete', (req, res) => {
+//     Post
+//     .deleteMany(res.query)
+//     .then(posts => res.json(posts))
+//     .catch(err => res.status(400).json(err))
+// });
 
 router.delete("/delete/:postId", (req, res) => {
   Post.findByIdAndDelete(req.params.postId, (err) => {
@@ -150,7 +151,6 @@ router.delete("/delete/:postId", (req, res) => {
     }
   });
 });
-
 
 // router.patch("/update/:post_id",
 // passport.authenticate("jwt"), {session: false}),

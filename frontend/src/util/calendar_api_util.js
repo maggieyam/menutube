@@ -1,5 +1,5 @@
 import axios from 'axios';
 
 export const fetchCalendar = userId => {
-  return axios.get(`/api/calendar/${userId}`);
+  return axios.get(`api/calendar/user/${userId}`);
 }
