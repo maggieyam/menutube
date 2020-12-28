@@ -8,6 +8,7 @@ const keys = require ('../../config/keys');
 const validateLoginInput = require ('../../validations/login');
 const validateSignUpInput = require ('../../validations/signup');
 const Post = require('../../models/Post');
+const Calendar = require('../../models/Calendar');
 
 router.get ('/', (req, res) => res.json ({msg: 'This is the users route'}));
 
@@ -37,6 +38,8 @@ router.post ('/signup', (req, res) => {
         password: req.body.password,
       });
 
+      
+
       bcrypt.genSalt (10, (err, salt) => {
         bcrypt.hash (newUser.password, salt, (err, hash) => {
           if (err) throw err;
@@ -45,7 +48,9 @@ router.post ('/signup', (req, res) => {
             .save ()
             .then (user => {
               const payload = {id: user.id, username: user.username};
-
+              const calendar = new Calendar({user: user.id});
+              calendar.save().then(console.log('sucess'));
+              
               jwt.sign (
                 payload,
                 keys.secretOrKey,

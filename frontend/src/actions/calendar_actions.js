@@ -9,6 +9,6 @@ export const receiveCalendar = calendar => ({
 
 export const fetchCalendar = userId => dispatch => {
   return APIUtil.fetchCalendar(userId).then(
-    calendar => dispatch(receiveCalendar(calendar))
+    calendar => dispatch(receiveCalendar(calendar.data))
   )
 }
