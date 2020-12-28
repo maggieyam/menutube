@@ -152,7 +152,6 @@ router.delete("/delete/:postId", (req, res) => {
   });
 });
 
-
 // router.patch("/update/:post_id",
 // passport.authenticate("jwt"), {session: false}),
 // (req, res) => {

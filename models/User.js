@@ -26,6 +26,9 @@ const UserSchema = new Schema ({
     type: Schema.Types.ObjectId,
     ref:'Post'
   }],
+  // calendar: {
+  //   type: Calendar
+  // },
 });
 
 module.exports = User = mongoose.model ('User', UserSchema);

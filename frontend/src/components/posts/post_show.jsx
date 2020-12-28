@@ -3,7 +3,7 @@ import { withRouter } from "react-router-dom";
 import ReactPlayer from "react-player/file";
 import "./post_show.css";
 import Comments from '../comments/comments';
-
+import {Link} from 'react-router-dom';
 class PostShow extends Component {
   constructor(props) {
     super(props);
@@ -86,7 +86,7 @@ class PostShow extends Component {
       </div>
     );
 
-    return (   
+    return (
       <div className="post-show-wrapper">
         <div className="post-container">
           <div className="video-header">
@@ -94,7 +94,9 @@ class PostShow extends Component {
               <p>{post.title}</p>
               {postButtons}
             </div>
-            <p>by {post.user.username}</p>
+            <p>
+              by <Link className='profile-link' to={`/profile/${post.user.userId}`}>{post.user.username}</Link>
+            </p>
           </div>
           <div className="show-video-container">
             <ReactPlayer
@@ -123,11 +125,12 @@ class PostShow extends Component {
               <ul className="tags-list">{tagsList}</ul>
             </div>
           </div>
-          
-          <Comments post={post} 
-                    createComment={createComment}
-                    currentUser={currentUser}
-                    deleteComment={deleteComment}
+
+          <Comments
+            post={post}
+            createComment={createComment}
+            currentUser={currentUser}
+            deleteComment={deleteComment}
           />
         </div>
       </div>
