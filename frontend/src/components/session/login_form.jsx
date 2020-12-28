@@ -30,8 +30,8 @@ const LoginForm = () => {
   };
 
   const demoUser = () => {
-    setUser('maggie');
-    setPassword('123456');
+    setUser('demo_user');
+    setPassword('password');
   }
 
   return (
