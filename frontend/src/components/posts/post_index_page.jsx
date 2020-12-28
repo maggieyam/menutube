@@ -17,7 +17,6 @@ const PostIndex = () => {
   
   return (
     <div className="posts-content">
-      {/* <button onClick={setAllPosts}>Home</button> */}
       <button onClick={() => history.push('/posts/saved')}>Saved Posts</button>
       <ul className="posts-list">
         {posts.map((post) => {
