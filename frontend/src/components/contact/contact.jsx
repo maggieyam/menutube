@@ -39,7 +39,7 @@ const Contacts = () => {
           </div>
         </div>
         <br></br>
-        <div className="contact" style={{ borderColor: "grey" }}>
+        <div className="contact" style={{ borderColor: "red" }}>
           <img
             src="https://media-exp1.licdn.com/dms/image/C4E35AQHP1nu2XMBAzg/profile-framedphoto-shrink_200_200/0/1608068538630?e=1608246000&v=beta&t=v_d9qz-DoCA8rRBLFKJCigVWNLi_RqZ_MKbT_TI0n_g"
             alt="contact-tony"

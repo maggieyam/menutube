@@ -17,7 +17,7 @@ class NavBar extends React.Component {
     // TO FIX... link will route to show page
     return (
       <div className="nav-right">
-        <Link to="/posts/saved" className="nav-username">
+        <Link to={`/profile/${currentUser.userInfo.id}`} className="nav-username">
           Hello, {currentUser.userInfo.username}!
         </Link>
         <Link className="add-post" to="/new_post">
