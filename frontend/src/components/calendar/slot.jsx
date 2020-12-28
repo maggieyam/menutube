@@ -12,13 +12,13 @@ class Slot extends React.Component {
     this.addVideo = this.addVideo.bind(this);
     this.removeVideo = this.removeVideo.bind(this);
     this.slotRef = React.createRef();
-    this.state = { video: !!this.props.savedUrl };
+    this.state = { video: !!this.props.savedUrl};
     this.storedVideo = this.storedVideo.bind(this);
   }
 
   storedVideo() {
-  
-      return (<ReactPlayer
+
+         return (<ReactPlayer
           className="react-player"
           url={this.props.savedUrl}
           playing={true}
