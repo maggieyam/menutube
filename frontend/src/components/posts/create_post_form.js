@@ -18,13 +18,16 @@ class CreatePostForm extends React.Component {
 
   constructor(props) {
     super(props);
-    this.state = { title: "" }
+    this.state = { title: "", fileTooLarge: false }
     this.changeTitle = this.changeTitle.bind(this);
     this.errors = this.errors.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
     this.loaderSpinner = this.loaderSpinner.bind(this);
     this.fileLoader = React.createRef();
     this.handleTag = this.handleTag.bind(this);
+    this.testVideo = React.createRef();
+    this.setupVideo = this.setupVideo.bind(this);
+    this.checkVideoDuration = this.checkVideoDuration.bind(this);
   }
 
   componentDidMount(){
@@ -96,10 +99,28 @@ class CreatePostForm extends React.Component {
     return options
   }
 
+  setupVideo(e) {
+    if (e.currentTarget.files.length > 0) {
+      const url = URL.createObjectURL(e.currentTarget.files[0]);
+      this.testVideo.current.setAttribute('src', url);
+    }
+  }
+
+  checkVideoDuration(e) {
+    this.setState({
+      fileTooLarge: this.testVideo.current.duration > 1200
+    });
+  }
 
   render() {
-
     if (!this.props.diet) return null;
+
+    const fileSizeError = !this.state.fileTooLarge ? null : (
+      <div id="file-size-error">
+        <p>Videos can only be 20 minutes or less.</p>
+      </div>
+    );
+
     return (
       <form className="post-form" onSubmit={this.handleSubmit}>
         {this.loaderSpinner()}
@@ -119,10 +140,18 @@ class CreatePostForm extends React.Component {
           id="video-input"
           type="file" 
           ref={this.fileLoader}
+          onChange={this.setupVideo}
           accept="video/*"/>
-          
-       </div>
+      </div>
 
+      {fileSizeError}
+
+      <video
+        id="test-video"
+        ref={this.testVideo}
+        onCanPlayThrough={this.checkVideoDuration}
+      />
+      
         <label> Diet/Restrictions: 
           <Dropdown 
             placeholder='Diet'
@@ -158,7 +187,9 @@ class CreatePostForm extends React.Component {
           onChange={this.handleTag}
         /> 
         </label>
-        <input id="submit-post" type="submit" value="Submit Post" />
+        <input id="submit-post" type="submit" value="Submit Post"
+          disabled={this.state.fileTooLarge}
+        />
       </form>    
     )
   }
