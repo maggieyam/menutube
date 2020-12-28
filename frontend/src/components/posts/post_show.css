@@ -108,3 +108,7 @@ div.post-show-wrapper{
 .timestamps > button {
   margin-right: 15px;
 }
+
+.profile-link {
+  color: white;
+}
