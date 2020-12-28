@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-
+import PostIndexItem from "../posts/post_index_item";
+import { Link } from "react-router-dom";
 // import { fetchUserPosts } from "../../actions/post_actions";
 import "./profile.css";
 
@@ -9,11 +10,17 @@ class Profile extends Component {
   }
 
   componentDidMount() {
-    debugger;
     this.props.fetchUserPosts(this.props.match.params.userId);
   }
+
   render() {
-    debugger;
+    // if (!this.props.posts) return null;
+    const posts = !this.props.posts
+      ? null
+      : this.props.posts.map((post) => {
+          return <Link to={`/show/${post._id}`}>{post.title} </Link>;
+        });
+
     return (
       <div className="profile-container">
         <div>
@@ -25,14 +32,15 @@ class Profile extends Component {
             />
           </div>
           <div>
-            <h4>Username</h4>
+    {/* <h4>{this.props.user}</h4> */}
             <div className="user-saves">
-              <h6>50 Favorites</h6>
-              <h6>40 Posts</h6>
+              {/* <h6>50 Favorites</h6> for user saves */}
+              <h6>{posts.length} Posts</h6>
             </div>
             <div className="user-post-container">
               {" "}
               {/** This will contain videos for Users need route */}
+              <div className="user-posts">{posts}</div>
             </div>
           </div>
         </div>

@@ -22,9 +22,22 @@
   margin: "0px";
   margin-top: 200px;
   align-content: center;
+  background-image: linear-gradient(
+    to right,
+    rgb(187, 99, 245),
+    rgb(178, 252, 118),
+    rgb(131, 105, 247)
+  );
 }
 
 .item {
   width: 30%;
   margin: 10px;
+}
+
+
+.user-posts {
+  display: flex;
+  flex-direction: column;
+  
 }
