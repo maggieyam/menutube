@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
+import ReactPlayer from "react-player/file";
 
 
 
@@ -11,8 +12,34 @@ class Slot extends React.Component {
     this.addVideo = this.addVideo.bind(this);
     this.removeVideo = this.removeVideo.bind(this);
     this.slotRef = React.createRef();
-    this.state = { video: false };
+    this.state = { video: !!this.props.savedUrl};
+    this.storedVideo = this.storedVideo.bind(this);
   }
+
+  storedVideo() {
+
+         return (<ReactPlayer
+          className="react-player"
+          url={this.props.savedUrl}
+          playing={true}
+          muted={true}
+          height={"inherit"}
+          width={"inherit"}
+          style={{cursor: 'pointer'}}
+          onClick={() => this.props.history.push(`/show/${this.props.postId}`)}
+          config={{
+            file: {
+              attributes: {
+                controlsList: ["nodownload"],
+                disablePictureInPicture: true,
+              },
+            },
+          }}
+          />)
+      
+  }
+
+
   
   addVideo(e){
     e.preventDefault();
@@ -30,6 +57,13 @@ class Slot extends React.Component {
     video.style.width = "150px";
     
     e.target.appendChild(video);
+
+    let player = video.querySelector('video');
+    player.muted = true;
+
+    video.addEventListener("click", () => {
+      this.props.history.push(`/show/${videoId}`);
+    })
 
     this.setState({video: true})
   }
@@ -52,7 +86,7 @@ class Slot extends React.Component {
         onDrop={this.addVideo} 
         onDragOver={this.dragOver}
         ref={this.slotRef}>
-        {this.videoElement}
+        {(this.props.savedUrl) ? this.storedVideo() : null}
       {this.state.video ? <button onClick={this.removeVideo}>{'\u00D7'}</button> : null}
       </div>
     )
@@ -63,4 +97,4 @@ const mDtP = dispatch => ({
   // submit calendar meal
 })
 
-export default connect(null, mDtP)(Slot);
+export default withRouter(connect(null, mDtP)(Slot));

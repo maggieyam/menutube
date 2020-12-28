@@ -1,13 +1,13 @@
 div.post-show-wrapper{
   display: flex;
   justify-content: center;
+  background-image: linear-gradient(to right,
+    rgb(240, 128, 146), rgb(178, 252, 118));
 }
 .post-container {
   margin-top: 150px;
   width: 1000px;
   padding: 50px;
-  background-image: linear-gradient(
-    rgb(240, 128, 146), rgb(178, 252, 118));
 }
 
 .video-header {
@@ -15,9 +15,37 @@ div.post-show-wrapper{
   flex-direction: row;
   justify-content: space-between;
   font-size: 30px;
+  padding: 10px;
   color: white;
   background-image: linear-gradient(to right,
    rgb(187, 99, 245), rgb(178, 252, 118), rgb(131, 105, 247));
+}
+
+.left-side-header {
+  display: flex;
+  flex-direction: row;
+}
+
+.left-side-header p {
+  padding: 0px 5px;
+}
+
+.post-buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.post-buttons button {
+  display: inline-block;
+  border-radius: 10px;
+  height: 30px;
+  font-size: 20px;
+  color: white;
+  padding: 2px;
+  margin: 2px;
+  border: none;
+  background-image: linear-gradient(to right, rgb(245, 126, 90), rgb(231, 97, 243))
 }
 
 .show-video-container {
@@ -56,7 +84,6 @@ div.post-show-wrapper{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  
 }
 
 .tags-list li {
