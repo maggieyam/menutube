@@ -22,6 +22,10 @@ const UserSchema = new Schema ({
   saved: [{
     type: Schema.Types.ObjectId,
   }],
+  posts: [{
+    type: Schema.Types.ObjectId,
+    ref:'Post'
+  }],
   // calendar: {
   //   type: Calendar
   // },

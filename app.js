@@ -11,6 +11,7 @@ const passport = require ('passport');
 const posts = require('./routes/api/posts');
 const tags = require('./routes/api/tags');
 const comments = require('./routes/api/comments');
+const calendar = require('./routes/api/calendar');
 
 if (process.env.NODE_ENV === 'production') {
   app.use(express.static('frontend/build'));
@@ -31,6 +32,7 @@ app.use ('/api/users', users);
 app.use ('/api/posts', posts);
 app.use('/api/tags', tags);
 app.use('/api/comments', comments);
+app.use('/api/calendar', calendar);
 
 app.use (passport.initialize ());
 require ('./config/passport') (passport);

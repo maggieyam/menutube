@@ -12,6 +12,7 @@ import PostEditContainer from "./posts/post_edit_form_container";
 import SplashPage from "./splash/splash_page";
 import Contacts from "./contact/contact.jsx";
 import SavedPosts from "./saved/saved_posts";
+import Profile from "./profile/profile_container";
 import "./reset.css";
 
 export default () => (
@@ -25,6 +26,7 @@ export default () => (
       <AuthRoute exact path="/" component={SplashPage} />
       <ProtectedRoute exact path="/show/:id" component={PostShowContainer} />
       <ProtectedRoute exact path="/edit/:id" component={PostEditContainer} />
+      <Route exact path="/profile/:userId" component={Profile}/>
       <ProtectedRoute exact path="/feed" component={PostIndexPage} />
       <ProtectedRoute exact path="/posts/saved" component={SavedPosts} />
       <ProtectedRoute
