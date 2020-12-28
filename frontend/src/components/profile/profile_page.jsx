@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PostIndexItem from "../posts/post_index_item";
 import { Link } from "react-router-dom";
-// import { fetchUserPosts } from "../../actions/post_actions";
 import "./profile.css";
 
 class Profile extends Component {
@@ -14,7 +13,6 @@ class Profile extends Component {
   }
 
   render() {
-    // if (!this.props.posts) return null;
     const posts = !this.props.posts
       ? null
       : this.props.posts.map((post) => {

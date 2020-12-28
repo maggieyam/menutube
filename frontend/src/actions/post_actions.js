@@ -37,10 +37,6 @@ export const removePost = (postId) => ({
   type: REMOVE_POST,
   postId,
 });
-// export const receiveUserPosts = (posts) => ({
-//   type: RECEIVE_USER_POSTS,
-//   posts,
-// });
 
 export const createPost = (post) => (dispatch) =>
   APIUtil.createPost(post).then(
@@ -56,7 +52,6 @@ export const fetchPosts = () => (dispatch) => {
 
 export const fetchUserPosts = (userId) => (dispatch) => {
   return APIUtil.fetchUserPosts(userId).then((posts) => {
-   
     dispatch(receivePosts(posts.data));
   });
 };

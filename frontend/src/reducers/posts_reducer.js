@@ -17,8 +17,6 @@ export default (state = {}, action) => {
       return { ...state, [action.post.data._id]: action.post.data };
     case RECEIVE_POSTS:
       return action.posts;
-    // case RECEIVE_USER_POSTS:
-    //   return action.posts;
     case RECEIVE_POST:
       return { ...state, [action.post._id]: action.post };
     case RECEIVE_COMMENT:

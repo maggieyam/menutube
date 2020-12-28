@@ -15,7 +15,6 @@
   display: "flex";
   flex-wrap: "wrap";
   justify-content: "space-around";
-   
 }
 
 .profile-container {
@@ -29,8 +28,8 @@
     rgb(178, 252, 118),
     rgb(131, 105, 247)
   );
- margin-left: 5%;
- margin-right: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .item {
@@ -38,9 +37,7 @@
   margin: 10px;
 }
 
-
 .user-posts {
   display: flex;
   flex-direction: column;
-  
 }

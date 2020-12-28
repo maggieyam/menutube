@@ -4,8 +4,7 @@ import Profile from "./profile_page";
 
 const mSTP = (state, ownProps) => {
   return {
-    // posts: state.entities.posts[ownProps.match.params.userId],
-    posts: Object.values(state.entities.posts)
+    posts: Object.values(state.entities.posts),
   };
 };
 
