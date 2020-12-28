@@ -49,8 +49,8 @@ router.post ('/signup', (req, res) => {
             .then (user => {
               const payload = {id: user.id, username: user.username};
               const calendar = new Calendar({user: user.id});
-              calendar.save().then(console.log('sucess'));
-              
+              calendar.save();
+
               jwt.sign (
                 payload,
                 keys.secretOrKey,

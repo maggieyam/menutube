@@ -7,7 +7,6 @@ import { setAuthToken } from './util/session_api_util';
 import { logout } from './actions/session_actions';
 import { openModal, closeModal } from './actions/modal_actions';
 import { getSaved } from './actions/user_actions';
-import { fetchCalendar } from './util/calendar_api_util'
 import axios from 'axios';
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -31,8 +30,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const root = document.getElementById('root');
-  window.fetchCalendar = fetchCalendar;
-
 
   ReactDOM.render(<Root store={store} />, root);
 
