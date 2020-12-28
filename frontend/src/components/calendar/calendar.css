@@ -31,7 +31,11 @@ div.slot > button {
 
 ul.calendar {
   width: 500px;
-  padding-left: 55px
+  padding-left: 55px;
+  height: 95%;
+  max-height: 650px;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 ul.calendar > li {
@@ -70,8 +74,7 @@ div.slots{
   padding: 20px 0;
   z-index: 5;
   
-  overflow-x: hidden;
-  overflow-y: auto;
+ 
   height: 90vh;
 }
 
