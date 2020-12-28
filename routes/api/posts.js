@@ -135,12 +135,12 @@ passport.authenticate("jwt", { session: false }),
     .catch(err => res.status(400).json(err))
 });
 
-router.delete('/delete', (req, res) => {
-    Post
-    .deleteMany(res.query)
-    .then(posts => res.json(posts))
-    .catch(err => res.status(400).json(err))
-});
+// router.delete('/delete', (req, res) => {
+//     Post
+//     .deleteMany(res.query)
+//     .then(posts => res.json(posts))
+//     .catch(err => res.status(400).json(err))
+// });
 
 router.delete("/delete/:postId", (req, res) => {
   Post.findByIdAndDelete(req.params.postId, (err) => {
