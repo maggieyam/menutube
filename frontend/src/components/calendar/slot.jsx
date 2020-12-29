@@ -86,15 +86,13 @@ class Slot extends React.Component {
 
   removeVideo(e){
     e.preventDefault();
-    // const slot = this.slotRef.current;
-    // slot.removeChild(slot.firstChild);
+    
     let {date, idx} = this.props;
     let body = {
       date,
       idx: parseInt(idx),
     }
     this.props.deleteCalVideo(this.props.calId, body);
-    // this.setState({video: false})
   }
 
 
