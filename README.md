@@ -1,5 +1,5 @@
 # Menutube
 
-This is MERN Project ( Maggie, Tim, Jared, Tony)
+A webapp that allows user to post recipe/food tutorial videos to other Users.
 
-okay.
+![splash](../media/splash-gif.gif?raw=true)
