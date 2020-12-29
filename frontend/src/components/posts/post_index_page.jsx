@@ -9,6 +9,8 @@ const PostIndex = () => {
   const dispatch = useDispatch();
   const history = useHistory();
   const posts = useSelector((state) => Object.values(state.entities.posts));
+
+  
  
 
   useEffect(() => {
