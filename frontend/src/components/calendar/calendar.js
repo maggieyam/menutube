@@ -26,9 +26,9 @@ class Calendar extends React.Component{
         <li key={dayName}>
           <h3 className="dayname">{dayName}</h3>
           <div className="slots">
-            <Slot className={`${dayName}-1`} />
-            <Slot className={`${dayName}-2`} />
-            <Slot className={`${dayName}-3`} />
+            <Slot className={`${dayName}-0`} calId={this.props.calendar._id} />
+            <Slot className={`${dayName}-1`} calId={this.props.calendar._id}/>
+            <Slot className={`${dayName}-2`} calId={this.props.calendar._id}/>
           </div>
         </li>
       );
@@ -45,9 +45,9 @@ class Calendar extends React.Component{
               {[
                 "Sun",
                 "Mon",
-                "Tues",
+                "Tue",
                 "Wed",
-                "Thurs",
+                "Thur",
                 "Fri",
                 "Sat",
               ].map((dayName) => {

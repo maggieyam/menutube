@@ -11,14 +11,18 @@ router.get("/user/:user_id", (req, res) => {
 
 router.post("/:id", (req, res) => {
     const { date, idx, postId } = req.body;
-    
+    console.log(req.body)
+
     Calendar
     .findById(req.params.id)
     .then( 
         calendar => {
-            calendar[date][idx]= postId;
+            calendar[date][idx] = postId; 
+            calendar.markModified(date);        
             calendar.save()
-            .then(calendar => res.json(calendar));       
+            .then(
+                calendar => {res.json(calendar)}
+            );       
     })
     .catch(err => res.status(400).json(err));
 })
@@ -29,6 +33,7 @@ router.patch("/:id", (req, res) => {
     Calendar.findById(req.params.id)
     .then(calendar => {
         calendar[date][idx]= undefined;
+        calendar.markModified(date);
         calendar.save()
         .then(calendar => res.json(calendar));      
     })
