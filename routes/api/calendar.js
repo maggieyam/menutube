@@ -11,7 +11,6 @@ router.get("/user/:user_id", (req, res) => {
 
 router.post("/:id", (req, res) => {
     const { date, idx, postId } = req.body;
-    console.log(req.body)
 
     Calendar
     .findById(req.params.id)
