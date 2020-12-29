@@ -12,3 +12,15 @@ export const fetchCalendar = userId => dispatch => {
     calendar => dispatch(receiveCalendar(calendar.data))
   )
 }
+
+export const addCalVideo = (calId, body) => dispatch => {
+  return APIUtil.addCalVideo(calId, body).then(
+    calendar => dispatch(receiveCalendar(calendar.data))
+  )
+}
+
+export const deleteCalVideo = (calId, body) => dispatch => {
+  return APIUtil.deleteCalVideo(calId, body).then(
+    calendar => dispatch(receiveCalendar(calendar.data))
+  )
+}
