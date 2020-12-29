@@ -20,7 +20,7 @@ export default () => (
   <>
     <ModalContainer />
     <NavBarContainer />
-    <Route path="/:a([^t]\S+)" component={Calendar} />
+    <ProtectedRoute path="/:a([^t]\S+)" component={Calendar} />
     <Route path="/team" component={Contacts} />
     <Switch>
       <AuthRoute exact path="/" component={SplashPage} />
