@@ -17,6 +17,8 @@ class Slot extends React.Component {
     this.slotRef = React.createRef();
     this.state = { video: !!this.props.postId};
     this.storedVideo = this.storedVideo.bind(this);
+    this.videoPlayer = this.videoPlayer.bind(this);
+    
   }
 
   componentDidMount(){
@@ -25,9 +27,7 @@ class Slot extends React.Component {
     }
   }
 
-  
-
-  storedVideo() {
+  videoPlayer() {
 
          return (
          <ReactPlayer
@@ -51,40 +51,33 @@ class Slot extends React.Component {
       
   }
 
+  storedVideo(){
+    return (
+      <DraggableVideo id={this.props.postId} date={this.props.date} idx={this.props.idx} contents={this.videoPlayer()}/>
+    )
+  }
 
-  
+
   addVideo(e){
     e.preventDefault();
     if (this.props.post) return;
-
-    const videoId = e.dataTransfer.getData('videoId');
-    // const video = document.getElementById(videoId).cloneNode(true);
-    
     const {date, idx} = this.props;
+    const { postId, formerDate, formerIdx } = JSON.parse(e.dataTransfer.getData('videoInfo'));
+
     let body = {
       date,
       idx: parseInt(idx),
-      postId: videoId
+      postId
     }
 
-    this.props.addCalVideo(this.props.calId, body);
-    // send post to backend
+    this.props.addCalVideo(this.props.calId, body).then( () => {
 
-    // video.id = video.id+"a";
-    // video.draggable = false;
-    // video.style.height = "150px";
-    // video.style.width = "150px";
-    
-    // e.target.appendChild(video);
+      if ((formerDate && formerIdx) && (formerDate !== date || formerIdx !== idx)) {
+        this.props.deleteCalVideo(this.props.calId, {date: formerDate, idx: formerIdx})
+      }
 
-    // let player = video.querySelector('video');
-    // player.muted = true;
+    })
 
-    // video.addEventListener("click", () => {
-    //   this.props.history.push(`/show/${videoId}`);
-    // })
-
-    // this.setState({video: true})
   }
 
   dragOver(e){
@@ -93,15 +86,13 @@ class Slot extends React.Component {
 
   removeVideo(e){
     e.preventDefault();
-    // const slot = this.slotRef.current;
-    // slot.removeChild(slot.firstChild);
+    
     let {date, idx} = this.props;
     let body = {
       date,
       idx: parseInt(idx),
     }
     this.props.deleteCalVideo(this.props.calId, body);
-    // this.setState({video: false})
   }
 
 

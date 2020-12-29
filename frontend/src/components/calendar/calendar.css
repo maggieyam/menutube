@@ -89,8 +89,8 @@ div.slots{
 
 
 div.slot > figure:first-child{
-  object-fit: cover;
-  object-position: center;
+  height: 100%;
+  width: 100%;
 }
 
 figure {
