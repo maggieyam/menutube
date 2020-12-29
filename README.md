@@ -14,3 +14,6 @@ Videos have timestamps to skip to specific steps of tutorial video.
 ![Timestamps](https://github.com/maggieyam/menutube/blob/media/media/timestamp.gif)
 
 
+Some works are still in progress(tags and search feature)
+
+Project is developed by Maggie, Jared, Tim and Tony
