@@ -6,8 +6,9 @@ class DraggableVideo extends React.Component {
 
   dragStart(e){
     const video = e.target;
-    
-    e.dataTransfer.setData('videoId', video.id)
+    const data = {postId: video.id, formerDate: video.getAttribute("formerDate"), formerIdx: video.getAttribute("formerIdx")}
+    e.dataTransfer.setData('videoInfo', JSON.stringify(data))
+
   }
 
   dragOver(e){
@@ -16,8 +17,13 @@ class DraggableVideo extends React.Component {
 
   render(){
     return (
-      <figure id={this.props.id} draggable={true} onDragStart={this.dragStart} onDragOver={this.dragOver}>
-        {this.props.contents}
+      <figure id={this.props.id} 
+        draggable={true} 
+        onDragStart={this.dragStart} 
+        onDragOver={this.dragOver}
+        formerDate={this.props.date}
+        formerIdx={this.props.idx}>
+          {this.props.contents}
       </figure>
       
     )
