@@ -4,6 +4,8 @@ import ReactPlayer from "react-player/file";
 import "./post_show.css";
 import Comments from '../comments/comments';
 import {Link} from 'react-router-dom';
+import DraggableVideo from "../calendar/draggablevideo";
+
 class PostShow extends Component {
   constructor(props) {
     super(props);
@@ -99,20 +101,25 @@ class PostShow extends Component {
             </p>
           </div>
           <div className="show-video-container">
-            <ReactPlayer
-              ref={this.vidRef}
-              url={post.url}
-              controls
-              height={"inherit"}
-              width={"inherit"}
-              config={{
-                file: {
-                  attributes: {
-                    controlsList: ["nodownload"],
-                    disablePictureInPicture: true,
-                  },
-                },
-              }}
+            <DraggableVideo
+              id = {this.props.post._id}
+              contents = {
+                <ReactPlayer
+                  ref={this.vidRef}
+                  url={post.url}
+                  controls
+                  height={"inherit"}
+                  width={"inherit"}
+                  config={{
+                    file: {
+                      attributes: {
+                        controlsList: ["nodownload"],
+                        disablePictureInPicture: true,
+                      },
+                    },
+                  }}
+                />
+              }
             />
           </div>
           <div className="video-info">
