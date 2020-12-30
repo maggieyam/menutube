@@ -41,6 +41,10 @@ const PostIndex = () => {
   useEffect(() => {
     dispatch(fetchPosts())
     dispatch(fetchTags())
+
+    return () => {
+      dispatch(clearFilter())
+    }
   }, []);
   
   return (
