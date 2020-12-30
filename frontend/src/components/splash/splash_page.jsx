@@ -11,6 +11,11 @@ const SplashPage = () => {
       <span className="splash-welcome" style={{ fontSize: "35px" }}>
         Welcome to MenuTube
       </span>
+      {/* <div>
+        <footer>
+          Create recipe tutorials and post them.
+        </footer>
+      </div> */}
     </div>
   );
 };
