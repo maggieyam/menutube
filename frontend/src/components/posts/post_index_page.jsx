@@ -26,6 +26,7 @@ const PostIndex = () => {
     const options = Object.keys(category).map(tag => {
       return {key: tag, text: tag[0].toUpperCase() + tag.slice(1), value: tag}
     })
+    debugger
     options.pop();
     return options
   }
@@ -39,6 +40,7 @@ const PostIndex = () => {
   }
 
   useEffect(() => {
+    window.scrollTo(0, 0)
     dispatch(fetchPosts())
     dispatch(fetchTags())
 
@@ -60,6 +62,7 @@ const PostIndex = () => {
           multiple
           search
           selection
+          defaultValue={filter["diet"]}
           options={optionify(diet || {})}
           
         />
@@ -73,6 +76,7 @@ const PostIndex = () => {
           multiple
           search
           selection
+          defaultValue={filter["nutrition"]}
           options={optionify(nutrition || {})}
           onChange={handleFilter}
         />
@@ -86,6 +90,7 @@ const PostIndex = () => {
           multiple
           search
           selection
+          defaultValue={filter["ingredients"]}
           options={optionify(ingredients || {})}
           onChange={handleFilter}
         />

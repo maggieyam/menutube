@@ -15,6 +15,7 @@ class PostShow extends Component {
 
     this.jumpToTime = this.jumpToTime.bind(this);
     this.goToEditPage = this.goToEditPage.bind(this);
+    this.findTags = this.findTags.bind(this);
   }
 
   componentDidMount() {
@@ -36,8 +37,17 @@ class PostShow extends Component {
     }
   }
 
+  findTags(){
+    let {diet, nutrition, ingredients} = this.props.post;
+    diet = Object.keys(diet).filter(tag => tag !== "_id" && diet[tag]).map(tag => [tag, "diet"])
+    nutrition = Object.keys(nutrition).filter(tag => tag !== "_id" && nutrition[tag]).map(tag => [tag, "nutrition"])
+    ingredients = Object.keys(ingredients).filter(tag => tag !== "_id" && ingredients[tag]).map(tag => [tag, "ingredients"])
+    return [...diet, ...nutrition, ...ingredients];
+  }
+
   goToSearchTag(tag) {
-    // this.props.history.push(`/search/${tag}`);
+    this.props.updateFilter({[tag[1]]: [tag[0]]})
+    this.props.history.push('/feed')
   }
 
   goToEditPage() {
@@ -53,13 +63,9 @@ class PostShow extends Component {
     const { post, deletePost, currentUser, createComment, deleteComment } = this.props;
     
     if (!post) return null;
-    const tags = [
-      "sugar 16g",
-      "protein 20g",
-      "vegetarian",
-      "broccoli 1/2 lb.",
-      "tofu 1 block",
-    ];
+    
+    this.tags = this.tags || this.findTags();
+
     const timestampList = post.steps.map(({timestamp, description}, idx) => (
       <li key={idx}>
         <div className="timestamps">
@@ -70,10 +76,10 @@ class PostShow extends Component {
         </div>
       </li>
     ));
-    const tagsList = tags.map((tag, idx) => (
+    const tagsList = this.tags.map((tag, idx) => (
       <li key={idx}>
         <button className="tag-button" onClick={() => this.goToSearchTag(tag)}>
-          {`#${tag}`}
+          {`#${tag[0]}`}
         </button>
       </li>
     ));

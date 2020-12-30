@@ -2,6 +2,7 @@ import { connect } from "react-redux";
 import { fetchPost, deletePost } from "../../actions/post_actions";
 import PostShow from "./post_show";
 import { createComment, deleteComment } from '../../actions/comment_actions';
+import { updateFilter } from '../../actions/filter_actions';
 
 const mSTP = (state, ownProps) => { 
   return {
@@ -15,7 +16,8 @@ const mDTP = (dispatch) => ({
   fetchPost: (postId) => dispatch(fetchPost(postId)),
   deletePost: (postId) => dispatch(deletePost(postId)),
   createComment: (body, postId) => dispatch(createComment(body, postId)),
-  deleteComment: (postId, commentId) => dispatch(deleteComment(postId, commentId)) 
+  deleteComment: (postId, commentId) => dispatch(deleteComment(postId, commentId)),
+  updateFilter: filter => dispatch(updateFilter(filter))
 });
 
 export default connect(mSTP, mDTP)(PostShow);
