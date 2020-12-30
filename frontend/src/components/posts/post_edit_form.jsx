@@ -162,7 +162,7 @@ class EditPostForm extends React.Component {
                   type="number" max="19" min="0"
                   value={minutes > 9 ? minutes : `0${minutes}`}
                   onChange={e => this.changeStep(e, "minutes", idx)}/>
-                :
+                <p className="time-hyphen">:</p>
                 <input className="step-seconds-input"
                   type="number" max="59" min="0"
                   value={seconds > 9 ? seconds : `0${seconds}`}
@@ -172,14 +172,16 @@ class EditPostForm extends React.Component {
                   type="text" maxLength="100" value={description}
                   onChange={e => this.changeStep(e, "description", idx)}
                 />
-                <button type="button" onClick={e => this.removeStep(e, idx)}>
-                  Remove
-                </button>
+                <button
+                  type="button"
+                  className={`remove-step-button ${idx % 2 === 0 ? "even" : "odd"}-button`}
+                  onClick={e => this.removeStep(e, idx)}
+                ><p>Remove</p></button>
               </div>
             )
           )}
-          <button type="button" onClick={this.addStep}>
-            {steps.length === 0 ? "Begin adding steps" : "Add another step"}
+          <button id="add-step-button" type="button" onClick={this.addStep}>
+            <p>{steps.length === 0 ? "Begin adding steps" : "Add another step"}</p>
           </button>
       </div>
     )
@@ -240,7 +242,7 @@ class EditPostForm extends React.Component {
 
         {stepsList}
 
-        <input id="submit-post" type="submit" value="Apply Changes" />
+        <input id="edit-post" type="submit" value="Apply Changes" />
       </form>
     )
   }
