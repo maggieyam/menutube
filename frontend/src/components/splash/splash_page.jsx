@@ -7,10 +7,10 @@ import "./splash_page.css";
 const SplashPage = () => {
   return (
     <div className="splash-pg">
-      <img src={dessert} style={{ width: "20%" }} />
-      <h1 className="splash-welcome" style={{ fontSize: "25px" }}>
+      <img src={dessert} style={{ width: "30%" }} />
+      <span className="splash-welcome" style={{ fontSize: "35px" }}>
         Welcome to MenuTube
-      </h1>
+      </span>
     </div>
   );
 };
