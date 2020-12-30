@@ -2,23 +2,91 @@ import React, { useEffect, useState } from "react";
 import { useSelector, useDispatch} from "react-redux";
 import {useHistory} from 'react-router-dom';
 import { fetchPosts } from "../../actions/post_actions";
+import { fetchTags } from '../../actions/tag_actions';
+import { updateFilter, clearFilter } from '../../actions/filter_actions';
+import { selectPosts } from '../../util/selectors';
+import 'semantic-ui-css/semantic.min.css'
+import { Dropdown } from 'semantic-ui-react';
 import PostIndexItem from "./post_index_item";
 import "./post_index_page.css";
 
 const PostIndex = () => {
   const dispatch = useDispatch();
   const history = useHistory();
-  const posts = useSelector((state) => Object.values(state.entities.posts));
+  const filter = useSelector((state) => state.ui.filter);
 
+  const posts = useSelector((state) => selectPosts(filter, state.entities.posts));
   
- 
+  const diet = useSelector((state) => state.entities.tags[0]);
+  const ingredients = useSelector((state) => state.entities.tags[1]);
+  const nutrition = useSelector((state) => state.entities.tags[2]);
+  
+  
+  const optionify = (category) => {
+    const options = Object.keys(category).map(tag => {
+      return {key: tag, text: tag[0].toUpperCase() + tag.slice(1), value: tag}
+    })
+    options.pop();
+    return options
+  }
+
+  const handleFilter = (e, data) => {
+    e.preventDefault();
+    e.stopPropagation();
+    let category = data.placeholder.toLowerCase()
+    let filter = {[category]: data.value}
+    dispatch(updateFilter(filter))
+  }
 
   useEffect(() => {
     dispatch(fetchPosts())
+    dispatch(fetchTags())
   }, []);
   
   return (
     <div className="posts-content">
+      <div className="search-bars">
+      <label className="diet"> Diet/Restrictions: 
+        <Dropdown 
+          onChange={handleFilter}
+          placeholder='Diet'
+          closeOnChange
+          fluid
+          clearable
+          multiple
+          search
+          selection
+          options={optionify(diet || {})}
+          
+        />
+      </label>
+      <label className="nutrition"> Nutrition: 
+        <Dropdown 
+          placeholder='Nutrition'
+          closeOnChange
+          fluid
+          clearable
+          multiple
+          search
+          selection
+          options={optionify(nutrition || {})}
+          onChange={handleFilter}
+        />
+      </label>
+      <label className="ingredients"> Ingredients: 
+        <Dropdown 
+          placeholder='Ingredients'
+          closeOnChange
+          fluid
+          clearable
+          multiple
+          search
+          selection
+          options={optionify(ingredients || {})}
+          onChange={handleFilter}
+        />
+      </label>
+      </div>
       <button onClick={() => history.push('/posts/saved')}>Saved Posts</button>
       <ul className="posts-list">
         {posts.map((post) => {

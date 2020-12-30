@@ -48,6 +48,7 @@ class CreatePostForm extends React.Component {
   }
 
   handleTag(e, data){
+    e.stopPropagation();
     const bools = {};
     data.value.map(category => bools[category] = true);
     this.setState({[data.placeholder.toLowerCase()]: bools })
@@ -159,6 +160,7 @@ class CreatePostForm extends React.Component {
             multiple
             search
             selection
+            closeOnChange
             options={this.optionify(this.props.diet)}
             onChange={this.handleTag}
           />
