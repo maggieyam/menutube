@@ -26,7 +26,6 @@ const PostIndex = () => {
     const options = Object.keys(category).map(tag => {
       return {key: tag, text: tag[0].toUpperCase() + tag.slice(1), value: tag}
     })
-    debugger
     options.pop();
     return options
   }
