@@ -1,7 +1,6 @@
 const webpack = require("webpack");
 
 module.exports = function override(config, env) {
-  console.log("env is " + process.env.NODE_ENV);
   if (!config.plugins) {
     config.plugins = [];
   }
