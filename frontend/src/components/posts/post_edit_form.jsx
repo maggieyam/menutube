@@ -156,7 +156,6 @@ class EditPostForm extends React.Component {
     const { steps } = this.state;
     const stepsList = (
       <div className="steps-input-div">
-          <label>Steps:
           {steps.map(({minutes, seconds, description}, idx) => (
               <div key={idx} className="step">
                 <input className="step-minutes-input"
@@ -182,7 +181,6 @@ class EditPostForm extends React.Component {
           <button type="button" onClick={this.addStep}>
             {steps.length === 0 ? "Begin adding steps" : "Add another step"}
           </button>
-        </label>
       </div>
     )
     
