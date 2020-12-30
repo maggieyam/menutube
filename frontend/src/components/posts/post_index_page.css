@@ -7,3 +7,8 @@
 .posts-content {
   margin-top: 150px;
 }
+
+.search-bars {
+  width: 700px;
+  border: 1px solid black;
+}
