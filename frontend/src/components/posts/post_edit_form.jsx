@@ -5,7 +5,6 @@ import 'semantic-ui-css/semantic.min.css';
 import './create_post_form.css';
 import './post_edit_form.css';
 import Loader from 'react-loader-spinner';
-import { uploadFile } from 'react-s3';
 import { Dropdown } from 'semantic-ui-react';
 const aws = require('../../config/aws');
 
@@ -32,6 +31,17 @@ const convertStepTimeToMinutesAndSeconds = step => {
   return step;
 }
 
+const filterOutFalseTags = tags => {
+  if (!tags) return {};
+  let newTags = {};
+  Object.keys(tags).forEach(tag => {
+    // Save the tags with truthy values
+    if (!!tags[tag]) newTags[tag] = tags[tag];
+  })
+  delete newTags["_id"];
+  return newTags;
+}
+
 class EditPostForm extends React.Component {
 
   constructor(props) {
@@ -56,7 +66,10 @@ class EditPostForm extends React.Component {
     this.props.fetchPost(this.props.match.params.id).then(({post}) => {
       this.setState({
         title: post.title,
-        steps: post.steps.map(step => convertStepTimeToMinutesAndSeconds(step))
+        steps: post.steps.map(step => convertStepTimeToMinutesAndSeconds(step)),
+        diet: filterOutFalseTags(post.diet),
+        nutrition: filterOutFalseTags(post.nutrition),
+        ingredients: filterOutFalseTags(post.ingredients)
       })
     });
   }
@@ -91,7 +104,10 @@ class EditPostForm extends React.Component {
     this.props.loadingOn();
     const editedPost = {
       title: this.state.title,
-      steps: this.state.steps.map(step => convertStepTimeToSeconds(step))
+      steps: this.state.steps.map(step => convertStepTimeToSeconds(step)),
+      nutrition: this.state.nutrition,
+      diet: this.state.diet,
+      ingredients: this.state.ingredients
     }
     this.props.editPost(this.props.post._id, editedPost).then(() => {
       this.props.loadingOff();
@@ -135,7 +151,7 @@ class EditPostForm extends React.Component {
   }
 
   render() {
-    if (!this.props.diet) return null;
+    if (!this.state.diet) return null;
     
     const { steps } = this.state;
     const stepsList = (
@@ -183,7 +199,49 @@ class EditPostForm extends React.Component {
             onChange={this.changeTitle} />
           {this.errors("title")}
         </div>
+
+        <label> Diet/Restrictions:
+          <Dropdown
+            placeholder='Diet'
+            fluid
+            multiple
+            search
+            selection
+            closeOnChange
+            options={this.optionify(this.props.diet)}
+            value={Object.keys(this.state.diet)}
+            onChange={this.handleTag}
+          />
+        </label>
+
+        <label> Nutrition:
+          <Dropdown
+            placeholder='Nutrition'
+            fluid
+            multiple
+            search
+            selection
+            options={this.optionify(this.props.nutrition)}
+            value={Object.keys(this.state.nutrition)}
+            onChange={this.handleTag}
+          />
+        </label>
+
+        <label>Ingredients:
+          <Dropdown
+            placeholder='Ingredients'
+            fluid
+            multiple
+            search
+            selection
+            options={this.optionify(this.props.ingredients)}
+            value={Object.keys(this.state.ingredients)}
+            onChange={this.handleTag}
+          />
+        </label>
+
         {stepsList}
+
         <input id="submit-post" type="submit" value="Apply Changes" />
       </form>
     )
