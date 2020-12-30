@@ -60,7 +60,16 @@
 }
 
 .splash-session-btn {
-  height:85px;
+  height: 85px;
   font-size: 40px;
-  width:400px;
+  width: 400px;
+}
+
+.splash-pg {
+  margin-top: 20%;
+  margin-left: 40%;
+}
+
+body {
+  background-color: #f47323;
 }
