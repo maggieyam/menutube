@@ -84,7 +84,7 @@ video {
   padding: 0;
   border: 0;
   font-size: 100%;
-  font-family:  'Nerko One', cursive;
+  font-family: "Nerko One", cursive;
   vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
@@ -128,6 +128,7 @@ input {
   -webkit-appearance: none;
 }
 
-button:hover, input[type="submit"]{
+button:hover,
+input[type="submit"] {
   cursor: pointer;
 }

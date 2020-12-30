@@ -1,13 +1,23 @@
 import React from "react";
-
+import dessert from "../../images/cooking.gif";
 import "./splash_page.css";
 
-import ScrollPage from "./parallax";
-
+// import ScrollPage from "./parallax";
 
 const SplashPage = () => {
-
-  return <ScrollPage />;
+  return (
+    <div className="splash-pg">
+      <img src={dessert} style={{ width: "30%" }} />
+      <span className="splash-welcome" style={{ fontSize: "35px" }}>
+        Welcome to MenuTube
+      </span>
+      {/* <div>
+        <footer>
+          Create recipe tutorials and post them.
+        </footer>
+      </div> */}
+    </div>
+  );
 };
 
 export default SplashPage;
