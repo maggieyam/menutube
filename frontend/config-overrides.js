@@ -10,8 +10,8 @@ module.exports = function override(config, env) {
     config.plugins.push(
       new webpack.DefinePlugin({
         'process.env.BUCKET_NAME': JSON.stringify(process.env.BUCKET_NAME),
-        'process.env.ID': JSON.stringify(process.env.AWS_ID),
-        'process.env.SECRET': JSON.stringify(process.env.AWS_SECRET),
+        'process.env.AWS_ID': JSON.stringify(process.env.AWS_ID),
+        'process.env.AWS_SECRET': JSON.stringify(process.env.AWS_SECRET),
       })
     );
   }
