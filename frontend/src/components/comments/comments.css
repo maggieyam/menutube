@@ -1,6 +1,6 @@
 h2.comments-header{
   font-size: 30px;
-  color: purple;
+  color: white;
 }
 
 div.comments-section{
@@ -12,31 +12,30 @@ ul.comment-list{
 
 li.comment-info {
   display: flex;
+  flex-direction: column;
   position: relative;
   justify-content: space-between;
   margin: 20px 0;
   min-height: 60px;
   padding: 5px;
   background: whitesmoke;
-  border: 1px solid purple;
+  border: 1px solid white;
   border-radius: 15px;
 }
 
-div.comment-col-right{
+.comment-author-and-delete {
   display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 button.comment-delete{
-  border: 1px solid purple;
-  background: white;
+  border: black 1px solid;
+  border-radius: 15px;
+  background: black;
+  color: white;
   font-size: 12px;
-  position: absolute;
-  top: 5px;
-  right: -60px;
 }
-
 
 textarea.comment-bod{
   display: block;
@@ -46,11 +45,15 @@ textarea.comment-bod{
   outline: none;
 }
 
+.add-comment-label {
+  color: white;
+}
+
 .add-comment > input[type="submit"] {
   margin-top: 15px;
   font-family: inherit;
-  color: white;
-  background-color: purple;
+  color: black;
+  background-color: white;
   border-radius: 15px;
   border: none;
   height: 30px;
