@@ -4,6 +4,7 @@ div.post-show-wrapper{
   background-image: linear-gradient(to right,
     rgb(240, 128, 146), rgb(178, 252, 118));
 }
+
 .post-container {
   margin-top: 150px;
   width: 1000px;
@@ -17,13 +18,16 @@ div.post-show-wrapper{
   font-size: 30px;
   padding: 10px;
   color: white;
-  background-image: linear-gradient(to right,
-   rgb(187, 99, 245), rgb(178, 252, 118), rgb(131, 105, 247));
+}
+
+.show-title {
+  font-size: 40px;
 }
 
 .left-side-header {
   display: flex;
   flex-direction: row;
+  align-items: flex-end;
 }
 
 .left-side-header p {

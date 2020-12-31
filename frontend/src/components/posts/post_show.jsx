@@ -99,12 +99,14 @@ class PostShow extends Component {
         <div className="post-container">
           <div className="video-header">
             <div className="left-side-header">
-              <p>{post.title}</p>
-              {postButtons}
+              <p className="show-title">{post.title}</p>
+              <p>by <Link
+                className='profile-link'
+                to={`/profile/${post.user.userId}`}
+              >{post.user.username}</Link>
+              </p>
             </div>
-            <p>
-              by <Link className='profile-link' to={`/profile/${post.user.userId}`}>{post.user.username}</Link>
-            </p>
+            {postButtons}
           </div>
           <div className="show-video-container">
             <DraggableVideo
