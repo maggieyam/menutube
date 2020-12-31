@@ -68,14 +68,15 @@
 .splash-pg {
   margin-top: 20%;
   margin-left: 30%;
-  align-content: center;
-}
-
-body {
-  background-color: #f47323;
+  /* align-content: center; */
 }
 
 .splash-welcome {
-  position: absolute;
+  /* position: absolute; */
   margin-top: 8.5%;
+  display: flex;
+}
+
+.splash-img {
+  border-radius: 400px;
 }
