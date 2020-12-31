@@ -66,7 +66,13 @@ class PostShow extends Component {
     
     this.tags = this.tags || this.findTags();
 
-    const instructionList = post.steps.map(({timestamp, description}, idx) => (
+    const instructionList = post.steps.length === 0 ? (
+      <p id="no-instructions-message">
+        {currentUser === post.user._id ?
+        "Why not hit that edit button and give your viewers some instructions?" :
+        "The uploader hasn't uploaded any instructions yet."}
+      </p>
+    ) : post.steps.map(({timestamp, description}, idx) => (
       <li key={idx}>
         <div className="instructions">
           <button onClick={() => this.jumpToTime(timestamp)}>

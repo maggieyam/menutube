@@ -84,6 +84,10 @@ div.post-show-wrapper{
   padding: 10px;
 }
 
+#no-instructions-message {
+  text-align: center;
+}
+
 .tags-section {
   border: solid white 1px;
   border-top: none;
