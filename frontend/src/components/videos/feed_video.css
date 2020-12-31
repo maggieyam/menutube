@@ -11,20 +11,35 @@
 }
 
 .vedio-border{
-  /* height: 400px; */
-  /* width: 100vw; */
-  /* background-color: rgb(245, 245, 135); */
-  /* background-image: linear-gradient(to left, rgb(242, 242, 43),rgb(244, 72, 72),rgba(199, 3, 248, 0.5)); */
-  margin: 25px;
-  margin-left: 0px;
+  width: 50%;
+  margin: 25px 0 25px max(30%, 230px);
+  
   padding: 20px;
 
   border-radius: 16px;
   display: flex;
   align-items: center;
-  /* flex-direction: column; */
   justify-content: space-between;
 }
+
+.vedio-border.vertical{
+  flex-direction: column;
+  width: 35%;
+  margin-left: max(230px, 25%);
+}
+
+.vedio-border.vertical > .dragvideo-wrapper{
+  width: 100%;
+}
+
+.vedio-border.vertical #labels{
+  padding-top: 15px;
+}
+
+.vedio-border.vertical #username {
+  margin-bottom: 10px;
+}
+
 
 .playing-overlay {
   height: inherit;
@@ -119,8 +134,14 @@ div {
   flex-direction: column;  
   font-size: 40px;
   font-family: 'Nerko One', cursive;  font-weight: 900;
-  color :#fff;
-  margin-bottom: 50px;
+  color:#fff;
   letter-spacing: 3px;
+}
+
+#username {
+  margin-bottom: 50px;
+  margin-top: 15px;
+  font-size: 18px;
+  color: white;
 }
 

@@ -6,7 +6,8 @@ import PostIndexItem from '../posts/post_index_item';
 import './saved_posts.css';
 
 const mStP = state => ({
-  posts: findSavedPosts(state.session.userInfo.saved, Object.values(state.entities.posts))
+  posts: findSavedPosts(state.session.userInfo.saved, Object.values(state.entities.posts)),
+  openCalendar: state.ui.openCalendar
 })
 
 const mDtP = dispatch => ({
@@ -23,7 +24,7 @@ class SavedPosts extends React.Component {
   render() {
     return (
       <div className="saved-content">
-        <ul className="posts-list">
+        <ul className={`posts-list ${this.props.openCalendar ? "vertical" : ""}`} >
             {this.props.posts.map((post) => {
               return <PostIndexItem post={post} saved={true} key={post.id} />
             })}

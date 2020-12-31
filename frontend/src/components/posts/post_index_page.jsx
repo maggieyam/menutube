@@ -36,6 +36,7 @@ const PostIndex = () => {
     let category = data.placeholder.toLowerCase()
     let filter = {[category]: data.value}
     dispatch(updateFilter(filter))
+    window.scroll(0, 0);
   }
 
   useEffect(() => {

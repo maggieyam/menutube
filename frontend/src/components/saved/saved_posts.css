@@ -1,3 +1,24 @@
 .saved-content{
-  margin-top: 150px;
+  margin-top: 120px;
 }
+
+.saved-content ul.posts-list{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.saved-content div.vedio-border{
+  margin: 25px auto; 
+  width: 45%; 
+  background-color: #496F75;
+}
+
+.saved-content ul.posts-list.vertical{
+  flex-direction: column;
+}
+
+ul.posts-list.vertical > div.vedio-border{
+  margin-left: 10%;
+}
+

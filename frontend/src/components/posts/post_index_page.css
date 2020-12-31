@@ -1,25 +1,26 @@
 .posts-list {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 700px;;
-  margin: 0 auto;
+  width: 100%;
+  background: #bbb;
+  padding-top: 15px;
+  /* margin-left: max(27%, 250px); */
 }
 
 .posts-content {
-  margin-top: 150px;
+  margin-top: 120px;
 }
 
 .search-bars div.ui.multiple.search.dropdown {
   width: 100%;
-  margin-bottom: 20px;
-  
+  margin: 10px 0 20px 0;
+  border: 1px solid #ebebeb;
 }
 
 .search-bars {
-  width: 15%;
-  height: 400px;
-  background: #FF8243;
+  width: 20%;
+  min-width: 200px;
+  height: 450px;
+  background: #F68B38;
+  color:  #fff;
   max-height: 550px;
   border-radius: 15px;
   padding: 15px;
@@ -27,6 +28,15 @@
   top: 160px;
   left: 20px;
   overflow-y: auto;
+}
+
+div.search-bars > h2 {
+  font-size: 28px;
+  margin-bottom: 40px;
+}
+
+div.search-bars > label {
+  color: white;
 }
 
 
@@ -41,13 +51,17 @@
 
 #saved-post-btn {
   position: fixed;
-  width: 10%;
-  top: 128px;
-  left: 50px;
-  background: #efefef;
-  border: 1px solid black;
+  width: 120px;
+  height: 30px;
+  top: 125px;
+  left: 70px;
+  background: #004C59;
+  color: white;
+  border: none;
   border-radius: 15px;
 
 }
+
+
 
 
