@@ -49,7 +49,6 @@ div.post-show-wrapper{
   border: none;
   color: black;
   background-color: white;
-  /* background-image: linear-gradient(to right, rgb(245, 126, 90), rgb(231, 97, 243)) */
 }
 
 .middle-show-section {
@@ -111,7 +110,7 @@ div.post-show-wrapper{
   border: none;
   border-radius: 10px;
   margin: 5px;
-  background-color: white;
+  background-color: #E3E733;
 }
 
 .instructions {
