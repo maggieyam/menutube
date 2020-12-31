@@ -47,7 +47,7 @@ class Comments extends React.Component {
               <li className="comment-info" key={i}>
                 <p className="comment-body">{comment.body}</p> 
                 <div className="comment-author-and-delete">
-                  {currentUser !== comment.user._id ? null : this.deleteButton(post._id, comment._id)}
+                  {currentUser !== comment.user._id ? (<div />) : this.deleteButton(post._id, comment._id)}
                   <p className="comment-author">by {comment.user.username}</p>
                 </div>
               </li>
