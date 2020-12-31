@@ -59,6 +59,7 @@ input[type="file"] {
   height: 40px;
   border-radius: 15px;
   display: block;
+  font-family: 'Nerko One', cursive;
 }
 
 #submit-post{
