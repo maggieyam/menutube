@@ -14,19 +14,19 @@ div.post-show-wrapper{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-size: 30px;
+  font-size: 25px;
   padding: 10px;
   color: white;
 }
 
 .show-title {
-  font-size: 40px;
+  font-size: 50px;
 }
 
 .left-side-header {
   display: flex;
   flex-direction: row;
-  align-items: flex-end;
+  align-items: baseline;
 }
 
 .left-side-header p {
@@ -44,11 +44,12 @@ div.post-show-wrapper{
   border-radius: 10px;
   height: 30px;
   font-size: 20px;
-  color: white;
   padding: 2px;
   margin: 2px;
   border: none;
-  background-image: linear-gradient(to right, rgb(245, 126, 90), rgb(231, 97, 243))
+  color: black;
+  background-color: white;
+  /* background-image: linear-gradient(to right, rgb(245, 126, 90), rgb(231, 97, 243)) */
 }
 
 .middle-show-section {
@@ -62,6 +63,7 @@ div.post-show-wrapper{
   position: relative;
   height: inherit;
   background-color: black;
+  border: 1px solid white;
 } 
 
 .instructions-section {
@@ -69,21 +71,23 @@ div.post-show-wrapper{
   border-left: none;
   width: 50%;
   height: inherit;
-  color: white;
   overflow-y: scroll;
+  color: white;
 }
 
-.instructions-section p {
+.instructions-header {
   text-align: center;
+  font-size: 25px;
+}
+
+.instructions-body {
+  padding: 10px;
 }
 
 .tags-section {
-  width: 50%;
   border: solid white 1px;
-}
-
-.tags-section p {
-  text-align: center;
+  border-top: none;
+  padding: 10px;
 }
 
 .tags-list {
@@ -101,18 +105,22 @@ div.post-show-wrapper{
 
 .tag-button {
   border: none;
+  border-radius: 10px;
   margin: 5px;
+  background-color: white;
 }
 
-.timestamps{
+.instructions {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 15px;
 }
 
-.timestamps > button {
+.instructions > button {
   margin-right: 15px;
+  border-radius: 10px;
+  border: none;
 }
 
 .profile-link {

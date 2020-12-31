@@ -6,9 +6,6 @@ h2.comments-header{
 div.comments-section{
   margin-top: 40px;
 }
-ul.comment-list{
-  width: 50%;
-}
 
 li.comment-info {
   display: flex;
@@ -32,14 +29,19 @@ li.comment-info {
 button.comment-delete{
   border: black 1px solid;
   border-radius: 15px;
+  background: white;
+  color: black;
+  font-size: 12px;
+}
+
+button.comment-delete:hover{
   background: black;
   color: white;
-  font-size: 12px;
 }
 
 textarea.comment-bod{
   display: block;
-  width: 50%;
+  width: 100%;
   height: 50px;
   font-family: inherit;
   outline: none;
@@ -59,6 +61,3 @@ textarea.comment-bod{
   height: 30px;
   width: 80px;
 }
-
-
-

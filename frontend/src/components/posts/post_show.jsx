@@ -66,11 +66,11 @@ class PostShow extends Component {
     
     this.tags = this.tags || this.findTags();
 
-    const timestampList = post.steps.map(({timestamp, description}, idx) => (
+    const instructionList = post.steps.map(({timestamp, description}, idx) => (
       <li key={idx}>
-        <div className="timestamps">
+        <div className="instructions">
           <button onClick={() => this.jumpToTime(timestamp)}>
-            {this.formatSeconds(timestamp)}
+            <p>{this.formatSeconds(timestamp)}</p>
           </button>
           <p>{description}</p>
         </div>
@@ -79,7 +79,7 @@ class PostShow extends Component {
     const tagsList = this.tags.map((tag, idx) => (
       <li key={idx}>
         <button className="tag-button" onClick={() => this.goToSearchTag(tag)}>
-          {`#${tag[0]}`}
+          <p>{`#${tag[0]}`}</p>
         </button>
       </li>
     ));
@@ -132,8 +132,10 @@ class PostShow extends Component {
               />
             </div>
             <div className="instructions-section">
-              <p>Instructions</p>
-              <ul>{timestampList}</ul>
+              <p className="instructions-header">Instructions</p>
+              <div className="instructions-body">
+                <ul>{instructionList}</ul>
+              </div>
             </div>
           </div>
           <div className="tags-section">
