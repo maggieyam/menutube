@@ -1,8 +1,7 @@
 div.post-show-wrapper{
   display: flex;
   justify-content: center;
-  background-image: linear-gradient(to right,
-    rgb(240, 128, 146), rgb(178, 252, 118));
+  background-color: #496F75;
 }
 
 .post-container {
@@ -52,26 +51,29 @@ div.post-show-wrapper{
   background-image: linear-gradient(to right, rgb(245, 126, 90), rgb(231, 97, 243))
 }
 
+.middle-show-section {
+  display: flex;
+  flex-direction: row;
+  height: 400px;
+}
+
 .show-video-container {
   background: transparent;
   position: relative;
-  display: flex;
-  flex-direction: column;
-}
+  height: inherit;
+  background-color: black;
+} 
 
-.video-info {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-.timestamps-section {
+.instructions-section {
+  border: 1px solid white;
+  border-left: none;
   width: 50%;
-  border: solid white 1px;
-  border-right: none;
+  height: inherit;
+  color: white;
+  overflow-y: scroll;
 }
 
-.timestamps-section p {
+.instructions-section p {
   text-align: center;
 }
 

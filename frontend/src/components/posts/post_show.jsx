@@ -108,39 +108,37 @@ class PostShow extends Component {
             </div>
             {postButtons}
           </div>
-          <div className="show-video-container">
-            <DraggableVideo
-              id = {this.props.post._id}
-              contents = {
-                <ReactPlayer
-                  ref={this.vidRef}
-                  url={post.url}
-                  controls
-                  height={"inherit"}
-                  width={"inherit"}
-                  config={{
-                    file: {
-                      attributes: {
-                        controlsList: ["nodownload"],
-                        disablePictureInPicture: true,
+          <div className="middle-show-section">
+            <div className="show-video-container">
+              <DraggableVideo
+                id = {this.props.post._id}
+                contents = {
+                  <ReactPlayer
+                    ref={this.vidRef}
+                    url={post.url}
+                    controls
+                    height={"inherit"}
+                    width={"inherit"}
+                    config={{
+                      file: {
+                        attributes: {
+                          controlsList: ["nodownload"],
+                          disablePictureInPicture: true,
+                        },
                       },
-                    },
-                  }}
-                />
-              }
-            />
-          </div>
-          <div className="video-info">
-            <div className="timestamps-section">
+                    }}
+                  />
+                }
+              />
+            </div>
+            <div className="instructions-section">
               <p>Instructions</p>
               <ul>{timestampList}</ul>
             </div>
-            <div className="tags-section">
-              <p>Tags</p>
-              <ul className="tags-list">{tagsList}</ul>
-            </div>
           </div>
-
+          <div className="tags-section">
+            <ul className="tags-list">{tagsList}</ul>
+          </div>
           <Comments
             post={post}
             createComment={createComment}
