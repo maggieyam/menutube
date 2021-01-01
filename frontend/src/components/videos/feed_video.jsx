@@ -71,7 +71,7 @@ class VideoPlayer extends React.Component {
 
   render() {
 
-    const {isSaved} = this.props;
+    const {isSaved, openCalendar} = this.props;
 
     const overlay = this.state.playing ? (
       // <div className="playing-container">
@@ -85,7 +85,7 @@ class VideoPlayer extends React.Component {
     );
 
     return (
-      <div className="vedio-border">
+      <div className={`vedio-border ${openCalendar ? "vertical" : ""}`}>
       <div className="dragvideo-wrapper">
         <DraggableVideo id={this.props._id} 
         contents={
@@ -123,10 +123,10 @@ class VideoPlayer extends React.Component {
           <Link to={`/show/${this.props._id}`}>
             <h1 id="title">{this.props.title}</h1>
           </Link>
+          <p id="username">by {this.props.user.username}</p>
           <button className="save-btn" onClick={this.toggleSave}>
             {isSaved ? "Unsave" : "Save"}
           </button>
-          {/* <p id="username">{this.props.user.username}</p> */}
         </div>
       </div>
     );
@@ -136,7 +136,8 @@ class VideoPlayer extends React.Component {
 const mStP = (state, ownProps) => {
   return {
   userId: state.session.userInfo.id,
-  isSaved: state.session.userInfo.saved.includes(ownProps._id)
+  isSaved: state.session.userInfo.saved.includes(ownProps._id),
+  openCalendar: state.ui.openCalendar
 }}
 
 const mDtP = dispatch => ({

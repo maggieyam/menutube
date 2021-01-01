@@ -2,21 +2,16 @@ import React from "react";
 import Slot from "./slot";
 import "./calendar.css";
 import { connect } from 'react-redux';
-import { fetchCalendar } from '../../actions/calendar_actions';
+import { fetchCalendar, toggleCalendar } from '../../actions/calendar_actions';
 
 class Calendar extends React.Component{
-
-  constructor(props){
-    super(props)
-    this.state = {checked: false};
-  }
 
   componentDidMount(){
     this.props.fetchCalendar(this.props.userId)
   }
 
   calText(){
-    return this.state.checked ? "Close" : "Open"
+    return this.props.openCalendar ? "Close" : "Open"
   }
   
   render() {
@@ -37,9 +32,14 @@ class Calendar extends React.Component{
 
     return (
       <>
-      <button id="cal-checkbox" onClick={() => this.setState({checked: !this.state.checked})}>{this.calText()} Calendar</button>
+      <button id="cal-checkbox" 
+              onClick={() => this.props.toggleCalendar()}
+              className={`${this.props.openCalendar ? "other" : ""}`}
+      >
+          {this.calText()} Calendar
+      </button>
       
-      {(!this.state.checked) ? null : ( 
+      {(!this.props.openCalendar) ? null : ( 
           <div className="calendar-wrapper">
             <ul className="calendar">
               {[
@@ -63,11 +63,13 @@ class Calendar extends React.Component{
 
   const mStP = state => ({
     userId: state.session.userInfo.id,
-    calendar: state.entities.calendar
+    calendar: state.entities.calendar,
+    openCalendar: state.ui.openCalendar
   })
 
   const mDtP = dispatch => ({
-    fetchCalendar: userId => dispatch(fetchCalendar(userId))
+    fetchCalendar: userId => dispatch(fetchCalendar(userId)),
+    toggleCalendar: () => dispatch(toggleCalendar())
   })
 
   export default connect(mStP, mDtP)(Calendar);

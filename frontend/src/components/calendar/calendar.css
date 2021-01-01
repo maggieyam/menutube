@@ -15,7 +15,12 @@ div.slot > button {
   top: 0;
   left: 0;
   z-index:20;
+  background-color: #004C59;
+  border-radius: 5px;
+  color: white;
+  border: none;
 }
+
 
 #cal-checkbox{
   position: fixed;
@@ -24,9 +29,14 @@ div.slot > button {
   z-index: 120;
   outline: none;
   border: 0;
-  background: red;
-  color: yellow;
-  border-radius: 15px;
+  background-color: #004C59;
+  color: white;
+  border-radius: 5px;
+  height: 30px;
+}
+
+#cal-checkbox.other {
+  background-color: #669197;
 }
 
 ul.calendar {
@@ -72,7 +82,7 @@ div.slots{
   top: 120px;
   width: 500px;
   padding: 20px 0;
-  z-index: 5;
+  z-index: 200;
   
  
   height: 90vh;

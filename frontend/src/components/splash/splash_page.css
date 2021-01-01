@@ -63,6 +63,8 @@
   /* background-color: #f1d5bb; */
   /* background-color: #f15f2e; */
 
+
+body {
   background-color: #004c59;
   /* background-color: #f79050; */
   height: calc(100vh - 120px);

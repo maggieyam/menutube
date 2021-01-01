@@ -1,6 +1,11 @@
 import * as APIUtil from '../util/calendar_api_util';
 
 export const RECEIVE_CALENDAR = 'RECEIVE_CALENDAR';
+export const TOGGLE_CALENDAR = 'TOGGLE_CALENDAR';
+
+export const toggleCalendar = () => ({
+  type: TOGGLE_CALENDAR
+})
 
 export const receiveCalendar = calendar => ({
   type: RECEIVE_CALENDAR,
@@ -24,3 +29,4 @@ export const deleteCalVideo = (calId, body) => dispatch => {
     calendar => dispatch(receiveCalendar(calendar.data))
   )
 }
+

@@ -4,28 +4,43 @@
 }
 
 .dragvideo-wrapper {
-  width: 600px;
-  height: 450px;
+  width: 470px;
+  height: 350px;
   background: transparent;
-  margin: 1%;
-  margin-left: 20px;
   position: relative;
 }
 
 .vedio-border{
-  height: 600px;
-  width: 100vw;
-  /* background-color: rgb(245, 245, 135); */
-  background-image: linear-gradient(to left, rgb(242, 242, 43),rgb(244, 72, 72),rgba(199, 3, 248, 0.5));
-  margin: 25px;
-  margin-left: 0px;
-  padding-left:0px;
+  width: 50%;
+  margin: 25px 0 25px max(30%, 230px);
+  
+  padding: 20px;
 
   border-radius: 16px;
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-evenly;
 }
+
+.vedio-border.vertical{
+  flex-direction: column;
+  width: 35%;
+  margin-left: max(230px, 25%);
+}
+
+.vedio-border.vertical > .dragvideo-wrapper{
+  width: 100%;
+}
+
+.vedio-border.vertical #labels{
+  padding-top: 15px;
+  margin: 0;
+}
+
+.vedio-border.vertical #username {
+  margin-bottom: 10px;
+}
+
 
 .playing-overlay {
   height: inherit;
@@ -49,15 +64,14 @@
   
 }
 .save-btn {
-    background-color: rgb(125, 19, 223);
-    width: 200px;
+    background-color: #37c743;
+    width: 125px;
     height: 10px;
     padding: 20px;
-    margin: 35px;
     border: none;
-    font-size: 28px;
+    font-size: 22px;
     font-weight: 400;
-    color: #fff;
+    color: black;
     font-family: 'Nerko One', cursive;
     border-radius: 16px;
     display: flex;
@@ -104,26 +118,35 @@ div {
 }
 
 #labels {
-  width: 300px;
-  height: 400px;
+  width: 200px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   text-align: center;
-  margin-right: 35px;
+  margin-left: 20px;
+  
   /* background-image: linear-gradient(rgba(243, 165, 165, 0),rgb(96, 65, 236), rgba(236, 27, 97, 0) ); */
 }
 
 #title {
   display: flex;
   flex-direction: column;  
-  width: 300px;
-  height: 100px;
-  font-size: 48px;
-  font-family: 'Nerko One', cursive;
-  font-weight: 900;
-  color :#fff;
+  font-size: 40px;
+  font-family: 'Nerko One', cursive;  font-weight: 900;
+  color:#fff;
   letter-spacing: 3px;
+}
+
+#title:hover{
+  color: #ddeb63;
+}
+
+#username {
+  margin-bottom: 50px;
+  margin-top: 15px;
+  font-size: 18px;
+  color: white;
 }
 
