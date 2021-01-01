@@ -24,6 +24,7 @@ class SavedPosts extends React.Component {
   render() {
     return (
       <div className="saved-content">
+        <h1>Your Saved Recipes:</h1>
         <ul className={`posts-list ${this.props.openCalendar ? "vertical" : ""}`} >
             {this.props.posts.map((post) => {
               return <PostIndexItem post={post} saved={true} key={post.id} />

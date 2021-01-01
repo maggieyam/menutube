@@ -19,7 +19,7 @@
   border-radius: 16px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 .vedio-border.vertical{
@@ -34,6 +34,7 @@
 
 .vedio-border.vertical #labels{
   padding-top: 15px;
+  margin: 0;
 }
 
 .vedio-border.vertical #username {
@@ -63,7 +64,7 @@
   
 }
 .save-btn {
-    background-color: #85F22B;
+    background-color: #37c743;
     width: 125px;
     height: 10px;
     padding: 20px;
@@ -136,6 +137,10 @@ div {
   font-family: 'Nerko One', cursive;  font-weight: 900;
   color:#fff;
   letter-spacing: 3px;
+}
+
+#title:hover{
+  color: #ddeb63;
 }
 
 #username {

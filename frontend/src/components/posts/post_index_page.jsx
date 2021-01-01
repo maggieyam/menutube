@@ -51,8 +51,9 @@ const PostIndex = () => {
   
   return (
     <div className="posts-content">
+      <button id='saved-post-btn' onClick={() => history.push('/posts/saved')}>Saved Posts</button>
       <div className="search-bars">
-      <h2>Search By Tag:</h2>
+      <h2>Filter By Tag:</h2>
       <label className="diet"> Diet/Restrictions: 
         <Dropdown 
           onChange={handleFilter}
@@ -97,7 +98,6 @@ const PostIndex = () => {
         />
       </label>
       </div>
-      <button id='saved-post-btn' onClick={() => history.push('/posts/saved')}>Saved Posts</button>
       <ul className="posts-list">
         {posts.map((post) => {
           return <PostIndexItem post={post} key={post.id} />

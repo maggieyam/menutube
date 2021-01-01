@@ -1,12 +1,15 @@
 .posts-list {
   width: 100%;
-  background: #bbb;
   padding-top: 15px;
   /* margin-left: max(27%, 250px); */
 }
 
 .posts-content {
   margin-top: 120px;
+  background-image: url('./cuttingboard.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
 }
 
 .search-bars div.ui.multiple.search.dropdown {
@@ -15,13 +18,16 @@
   border: 1px solid #ebebeb;
 }
 
+.ui.selection.dropdown .menu>.item{
+  width: 90%;
+}
+
 .search-bars {
   width: 20%;
   min-width: 200px;
-  height: 450px;
   background: #F68B38;
   color:  #fff;
-  max-height: 550px;
+  max-height: 80vh;
   border-radius: 15px;
   padding: 15px;
   position: fixed;
@@ -46,19 +52,20 @@ div.search-bars > label {
 
 
 .posts-list > :nth-child(even) {
-  background-color: #496F75
+  background-color: #669197
 }
 
 #saved-post-btn {
   position: fixed;
+  font-family: inherit;
   width: 120px;
   height: 30px;
   top: 125px;
-  left: 70px;
+  left: max(7%, 55px);
   background: #004C59;
   color: white;
   border: none;
-  border-radius: 15px;
+  border-radius: 10px;
 
 }
 

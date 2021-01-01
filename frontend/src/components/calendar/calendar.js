@@ -32,7 +32,12 @@ class Calendar extends React.Component{
 
     return (
       <>
-      <button id="cal-checkbox" onClick={() => this.props.toggleCalendar()}>{this.calText()} Calendar</button>
+      <button id="cal-checkbox" 
+              onClick={() => this.props.toggleCalendar()}
+              className={`${this.props.openCalendar ? "other" : ""}`}
+      >
+          {this.calText()} Calendar
+      </button>
       
       {(!this.props.openCalendar) ? null : ( 
           <div className="calendar-wrapper">
