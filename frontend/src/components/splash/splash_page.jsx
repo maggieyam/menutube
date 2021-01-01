@@ -16,25 +16,31 @@ class SplashPage extends React.Component {
     return (
       <div className="splash-pg">
         <div className="splash-welcome">
-          <img className="splash-img" src={dessert} />
+          <div className="splash-img-bg">
+            <img className="splash-img" src={dessert} />
+          </div>
           <div className="splash-intro">
             <h1>MenuTube</h1>
             <div className="splash-desc">
               <span className="splash-text">
                 Create recipe tutorials and post them.
               </span>
+
               <span className="splash-text">
-                Create recipe tutorials and post them.
+                Not sure what to eat or what to make?
+              </span>
+
+              <span className="splash-text">
+                Check out what others are making!
               </span>
             </div>
             <div
-              className="signup-now"
+              className="splash-span-signup"
               style={{ backgroundColor: "transparent" }}
             >
               <button
                 onClick={() => this.props.openModal("signup")}
-                className="session-btn splash-session-btn"
-                id="signup"
+                className="splash-signup-btn"
               >
                 Join Us
               </button>

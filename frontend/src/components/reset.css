@@ -128,6 +128,11 @@ input {
   -webkit-appearance: none;
 }
 
+button {
+  padding: 10px 15px;
+  font-family: "Nerko One", cursive;
+}
+
 button:hover,
 input[type="submit"] {
   cursor: pointer;

@@ -60,13 +60,17 @@
   top: 120px;
   display: flex;
   justify-content: center;
-  background-color: #f1d5bb;
+  /* background-color: #f1d5bb; */
+  /* background-color: #f15f2e; */
+
+  background-color: #004c59;
+  /* background-color: #f79050; */
   height: calc(100vh - 120px);
 }
 
 .splash-welcome {
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
   flex-direction: row;
   font-size: 35px;
@@ -77,18 +81,46 @@
   width: 360px;
   height: 360px;
   background-color: #f47322;
+
   border-radius: 300px;
 }
 
+.splash-img-bg {
+  /* background-image: radial-gradient(red 70%, yellow 30%); */
+  /* padding: 100px; */
+  border-radius: 50%;
+  /* width: 500px;
+  height: 500px; */
+}
 .splash-intro {
   margin-left: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 400px;
 }
 
 .splash-intro h1 {
   font-size: 2em;
+  color: #e3e733;
+  letter-spacing: 10px;
 }
 
 .splash-desc {
   display: flex;
   flex-direction: column;
+  line-height: 1.7;
+}
+
+.splash-text {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 35px;
+  font-weight: bold;
+  letter-spacing: 1px;
+  color: white;
+}
+.splash-signup-btn {
+  background-color: #85f22b;
+  border-radius: 55px;
+  color: black;
 }
