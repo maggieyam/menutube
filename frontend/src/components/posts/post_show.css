@@ -1,9 +1,9 @@
 div.post-show-wrapper{
   display: flex;
   justify-content: center;
-  background-image: linear-gradient(to right,
-    rgb(240, 128, 146), rgb(178, 252, 118));
+  background-color: #496F75;
 }
+
 .post-container {
   margin-top: 150px;
   width: 1000px;
@@ -14,16 +14,19 @@ div.post-show-wrapper{
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  font-size: 30px;
+  font-size: 25px;
   padding: 10px;
   color: white;
-  background-image: linear-gradient(to right,
-   rgb(187, 99, 245), rgb(178, 252, 118), rgb(131, 105, 247));
+}
+
+.show-title {
+  font-size: 50px;
 }
 
 .left-side-header {
   display: flex;
   flex-direction: row;
+  align-items: baseline;
 }
 
 .left-side-header p {
@@ -41,43 +44,53 @@ div.post-show-wrapper{
   border-radius: 10px;
   height: 30px;
   font-size: 20px;
-  color: white;
   padding: 2px;
   margin: 2px;
   border: none;
-  background-image: linear-gradient(to right, rgb(245, 126, 90), rgb(231, 97, 243))
+  color: black;
+  background-color: white;
+}
+
+.middle-show-section {
+  display: flex;
+  flex-direction: row;
+  height: 400px;
 }
 
 .show-video-container {
   background: transparent;
   position: relative;
-  display: flex;
-  flex-direction: column;
-}
+  height: inherit;
+  background-color: black;
+  border: 1px solid white;
+} 
 
-.video-info {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-.timestamps-section {
+.instructions-section {
+  border: 1px solid white;
+  border-left: none;
   width: 50%;
-  border: solid white 1px;
-  border-right: none;
+  height: inherit;
+  overflow-y: scroll;
+  color: white;
 }
 
-.timestamps-section p {
+.instructions-header {
+  text-align: center;
+  font-size: 25px;
+}
+
+.instructions-body {
+  padding: 10px;
+}
+
+#no-instructions-message {
   text-align: center;
 }
 
 .tags-section {
-  width: 50%;
   border: solid white 1px;
-}
-
-.tags-section p {
-  text-align: center;
+  border-top: none;
+  padding: 10px;
 }
 
 .tags-list {
@@ -95,18 +108,22 @@ div.post-show-wrapper{
 
 .tag-button {
   border: none;
+  border-radius: 10px;
   margin: 5px;
+  background-color: #E3E733;
 }
 
-.timestamps{
+.instructions {
   display: flex;
   justify-content: flex-start;
   align-items: center;
   margin-bottom: 15px;
 }
 
-.timestamps > button {
+.instructions > button {
   margin-right: 15px;
+  border-radius: 10px;
+  border: none;
 }
 
 .profile-link {

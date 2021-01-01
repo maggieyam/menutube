@@ -66,11 +66,17 @@ class PostShow extends Component {
     
     this.tags = this.tags || this.findTags();
 
-    const timestampList = post.steps.map(({timestamp, description}, idx) => (
+    const instructionList = post.steps.length === 0 ? (
+      <p id="no-instructions-message">
+        {currentUser === post.user._id ?
+        "Why not hit that edit button and give your viewers some instructions?" :
+        "The uploader hasn't uploaded any instructions yet."}
+      </p>
+    ) : post.steps.map(({timestamp, description}, idx) => (
       <li key={idx}>
-        <div className="timestamps">
+        <div className="instructions">
           <button onClick={() => this.jumpToTime(timestamp)}>
-            {this.formatSeconds(timestamp)}
+            <p>{this.formatSeconds(timestamp)}</p>
           </button>
           <p>{description}</p>
         </div>
@@ -79,7 +85,7 @@ class PostShow extends Component {
     const tagsList = this.tags.map((tag, idx) => (
       <li key={idx}>
         <button className="tag-button" onClick={() => this.goToSearchTag(tag)}>
-          {`#${tag[0]}`}
+          <p>{`#${tag[0]}`}</p>
         </button>
       </li>
     ));
@@ -99,46 +105,49 @@ class PostShow extends Component {
         <div className="post-container">
           <div className="video-header">
             <div className="left-side-header">
-              <p>{post.title}</p>
-              {postButtons}
+              <p className="show-title">{post.title}</p>
+              {/* <p>by <Link
+                className='profile-link'
+                to={`/profile/${post.user._id}`}
+              >{post.user.username}</Link>
+              </p> */}
+              <p>by {post.user.username}</p>
             </div>
-            <p>
-              by <Link className='profile-link' to={`/profile/${post.user.userId}`}>{post.user.username}</Link>
-            </p>
+            {postButtons}
           </div>
-          <div className="show-video-container">
-            <DraggableVideo
-              id = {this.props.post._id}
-              contents = {
-                <ReactPlayer
-                  ref={this.vidRef}
-                  url={post.url}
-                  controls
-                  height={"inherit"}
-                  width={"inherit"}
-                  config={{
-                    file: {
-                      attributes: {
-                        controlsList: ["nodownload"],
-                        disablePictureInPicture: true,
+          <div className="middle-show-section">
+            <div className="show-video-container">
+              <DraggableVideo
+                id = {this.props.post._id}
+                contents = {
+                  <ReactPlayer
+                    ref={this.vidRef}
+                    url={post.url}
+                    controls
+                    height={"inherit"}
+                    width={"inherit"}
+                    config={{
+                      file: {
+                        attributes: {
+                          controlsList: ["nodownload"],
+                          disablePictureInPicture: true,
+                        },
                       },
-                    },
-                  }}
-                />
-              }
-            />
-          </div>
-          <div className="video-info">
-            <div className="timestamps-section">
-              <p>Instructions</p>
-              <ul>{timestampList}</ul>
+                    }}
+                  />
+                }
+              />
             </div>
-            <div className="tags-section">
-              <p>Tags</p>
-              <ul className="tags-list">{tagsList}</ul>
+            <div className="instructions-section">
+              <p className="instructions-header">Instructions</p>
+              <div className="instructions-body">
+                <ul>{instructionList}</ul>
+              </div>
             </div>
           </div>
-
+          <div className="tags-section">
+            <ul className="tags-list">{tagsList}</ul>
+          </div>
           <Comments
             post={post}
             createComment={createComment}
