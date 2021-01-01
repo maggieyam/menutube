@@ -13,7 +13,10 @@ class Comments extends React.Component {
   }
 
   deleteButton(postId, commentId){
-    return <button className="comment-delete" onClick={() => this.deleteComment(postId, commentId)}>Delete</button>
+    return <button
+      className="comment-delete"
+      onClick={() => this.deleteComment(postId, commentId)}
+    ><p>Delete</p></button>
   }
 
   deleteComment(postId, commentId){
@@ -43,8 +46,8 @@ class Comments extends React.Component {
             return (
               <li className="comment-info" key={i}>
                 <p className="comment-body">{comment.body}</p> 
-                <div className="comment-col-right">
-                  {currentUser !== comment.user._id ? null : this.deleteButton(post._id, comment._id)}
+                <div className="comment-author-and-delete">
+                  {currentUser !== comment.user._id ? (<div />) : this.deleteButton(post._id, comment._id)}
                   <p className="comment-author">by {comment.user.username}</p>
                 </div>
               </li>
@@ -53,7 +56,7 @@ class Comments extends React.Component {
         </ul>
         
         <form className="add-comment" onSubmit={this.submitComment}>
-        <label> Add Comment
+        <label><p className="add-comment-label">Add Comment</p>
           <textarea className="comment-bod" value={this.state.commentBody} onChange={this.updateBody}></textarea>
         </label>
         <input type="submit" value="Submit"/>
