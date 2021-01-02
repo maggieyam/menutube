@@ -8,19 +8,14 @@
   position: fixed;
   top: 0;
   z-index: 100;
-  /* background-color: rgb(51, 128, 70); */
-  /* padding: 1%; */
-  /* background-image: url(''); */
   background-color: #004C59;
 }
 
 .navbar h1 {
   font-size: 40px;
   text-align: center;
-  /* position:absolute; */
   left: calc(50% - 70px);
   letter-spacing: 0.5px;
-  /* margin-top: 30px; */
 }
 
 .left {
@@ -69,15 +64,7 @@
   color: #496F75;
   font-size: 20px;
   width: 90px;
-  /* background-image: linear-gradient(to right, rgb(177, 146, 218), violet); */
 }
-
-
-
-
-/* #login {
-  background-color: #E3E733;
-} */
 
 p.errors-body{
   color: yellow;

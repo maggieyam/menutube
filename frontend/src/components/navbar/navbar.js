@@ -37,7 +37,6 @@ class NavBar extends React.Component {
             <FontAwesomeIcon icon={faUsers} className="icon" size="sm"/>
           </Link>
           <Link className="add-post" to="/new_post">
-            {/* <i className="fas fa-plus-circle fa-2x" ></i> */}
             <FontAwesomeIcon icon={faPlus} className="icon" size="lg"/>
           </Link>
           <button id="cal-checkbox" 
@@ -54,30 +53,7 @@ class NavBar extends React.Component {
     );
   }
 
-  // loggedOut() {
-  //   const { openModal } = this.props;
-
-  //   return (
-  //     <div className="nav-right">
-  //       {/* <img src={blueButton} onClick={() => openModal("signup") } id="btn-blue" />Sign Up */}
-
-  //       <button
-  //         onClick={() => openModal("signup")}
-  //         className="navbar-btn"
-  //         id="signup"
-  //       >
-  //         Sign Up
-  //       </button>
-  //       <button
-  //         onClick={() => openModal("login")}
-  //         className="navbar-btn"
-  //         id="login"
-  //       >
-  //         Log In
-  //       </button>
-  //     </div>
-  //   );
-  // }
+  
 
   navBar() {
     return(
@@ -85,11 +61,8 @@ class NavBar extends React.Component {
         <h1 id="brand">
             <Link to="/feed">MenuTube</Link>
           </h1>
-        {/* <div className='about'> */}
-        {this.loggedIn()}
-        
-        </div>
-        // </div>
+        {this.loggedIn()}       
+      </div>
     )
     
 
@@ -97,31 +70,10 @@ class NavBar extends React.Component {
 
   render() {
     const { currentUser } = this.props;
-
     return (
-      // <div className="navbar">
-      //   <h1 id="brand">
-      //       <Link to="/feed">MenuTube</Link>
-      //     </h1>
-      //   <div className='about'>
-          
-      //   <a
-      //       href="https://github.com/maggieyam/menutube"
-      //       className="gh-link"
-      //       target="_blank"
-      //     >
-      //       <FontAwesomeIcon icon={faGithub} />
-      //     </a>
-      //     <Link className="gh-link" to={"/team"} target="_blank">
-      //       <FontAwesomeIcon icon={faUsers} />
-      //     </Link>
-      //   </div>
-
-        <>
-          {currentUser.isAuthenticated ? this.navBar() : null}
-        </>
-
-      // </div>
+      <>
+        {currentUser.isAuthenticated ? this.navBar() : null}
+      </>
     );
   }
 }

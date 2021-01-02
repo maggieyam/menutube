@@ -32,6 +32,7 @@ const LoginForm = () => {
   const demoUser = () => {
     setUser('demo_user');
     setPassword('password');
+    this.handleSubmit();
   }
 
   return (
