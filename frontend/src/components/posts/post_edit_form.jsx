@@ -119,7 +119,7 @@ class EditPostForm extends React.Component {
   loaderSpinner() {
     if (this.props.loading) {
       return (
-        <Loader type="Grid" color="#ee82ee" height={100} width={100} />
+        <Loader type="Grid" color="#E3E733" height={100} width={100} />
       )
     }
     return
@@ -187,63 +187,65 @@ class EditPostForm extends React.Component {
     )
     
     return (
-      <form className="post-form" onSubmit={this.handleSubmit}>
-        {this.loaderSpinner()}
+      <div className="edit-post-contents">
+        <form className="post-form" onSubmit={this.handleSubmit}>
+          {this.loaderSpinner()}
+          <h1 id="post-form-title">{`Make Changes to "${this.props.post.title}" `}</h1>
+          <div className="title-input-div">
+            <label htmlFor="post-title">Title:</label>
+            <input
+              id="post-title"
+              type="text"
+              value={this.state.title}
+              onChange={this.changeTitle} />
+            {this.errors("title")}
+          </div>
 
-        <div className="title-input-div">
-          <label htmlFor="post-title">Title:</label>
-          <input
-            id="post-title"
-            type="text"
-            value={this.state.title}
-            onChange={this.changeTitle} />
-          {this.errors("title")}
-        </div>
+          <label> Diet/Restrictions:
+            <Dropdown
+              placeholder='Diet'
+              fluid
+              multiple
+              search
+              selection
+              closeOnChange
+              options={this.optionify(this.props.diet)}
+              value={Object.keys(this.state.diet)}
+              onChange={this.handleTag}
+            />
+          </label>
 
-        <label> Diet/Restrictions:
-          <Dropdown
-            placeholder='Diet'
-            fluid
-            multiple
-            search
-            selection
-            closeOnChange
-            options={this.optionify(this.props.diet)}
-            value={Object.keys(this.state.diet)}
-            onChange={this.handleTag}
-          />
-        </label>
+          <label> Nutrition:
+            <Dropdown
+              placeholder='Nutrition'
+              fluid
+              multiple
+              search
+              selection
+              options={this.optionify(this.props.nutrition)}
+              value={Object.keys(this.state.nutrition)}
+              onChange={this.handleTag}
+            />
+          </label>
 
-        <label> Nutrition:
-          <Dropdown
-            placeholder='Nutrition'
-            fluid
-            multiple
-            search
-            selection
-            options={this.optionify(this.props.nutrition)}
-            value={Object.keys(this.state.nutrition)}
-            onChange={this.handleTag}
-          />
-        </label>
+          <label>Ingredients:
+            <Dropdown
+              placeholder='Ingredients'
+              fluid
+              multiple
+              search
+              selection
+              options={this.optionify(this.props.ingredients)}
+              value={Object.keys(this.state.ingredients)}
+              onChange={this.handleTag}
+            />
+          </label>
 
-        <label>Ingredients:
-          <Dropdown
-            placeholder='Ingredients'
-            fluid
-            multiple
-            search
-            selection
-            options={this.optionify(this.props.ingredients)}
-            value={Object.keys(this.state.ingredients)}
-            onChange={this.handleTag}
-          />
-        </label>
+          {stepsList}
 
-        {stepsList}
-
-        <input id="edit-post" type="submit" value="Apply Changes" />
-      </form>
+          <input id="edit-post" type="submit" value="Apply Changes" />
+        </form>
+      </div>
     )
   }
 

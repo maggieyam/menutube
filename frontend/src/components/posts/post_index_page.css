@@ -6,10 +6,11 @@
 
 .posts-content {
   margin-top: 120px;
-  background-image: url('./cuttingboard.png');
+  background-image: url('./marble.png');
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
+  /* background: white; */
 }
 
 .search-bars div.ui.multiple.search.dropdown {

@@ -1,22 +1,45 @@
+div.create-post-contents{
+  background-image: url('./marble.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: calc(100vh - 120px);
+  margin-top: 120px;
+  padding: 20px 0;
+}
+
+#post-form-title{
+  width: 100%;
+  text-align: center;
+  color: #004C59;
+  padding: 10px 0;
+  font-size: 28px;
+  position: relative;
+  justify-self: start;
+}
+
+
+
 .post-form{
-  height: 600px;
-  width: 900px;
+  width: 600px;
   border-radius: 15px;
-  margin-top: 200px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
-  padding: 50px 0;
-  margin-left: 10%;
-  background-image: url('./form_background.jpg');
-  padding-left: 320px;
+  margin: 0 auto;
+  background-image: url('./cuttingboard.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  padding-bottom: 20px;
 }
 
 div > svg {
   position: absolute;
   top: 50%;
-  left: 33%;
+  left: 50%;
   transform: translate(-50%, -50%);
   z-index: 50;
 }
@@ -24,24 +47,31 @@ div > svg {
 div.ui.multiple.search.dropdown {
   width: 500px;
   border-radius: 15px;
+  margin-top: 10px;
 }
 
 .title-input-div{
   position: relative;
+  margin-top: 10px;
 }
 
 
 .post-form label {
-  color: white;
+  color: #004C59;
   font-size: 18px;
+  margin-top: 10px;
 }
 
 input[type="file"] {
-   background-image: linear-gradient(to right, rgb(177, 146, 218), #ee82ee);
+   background-color: #004C59;
+   color: white;
    padding: 10px 15px;
    white-space: nowrap;
    overflow: hidden;
    text-overflow: ellipsis;
+   font-family: inherit;
+   border-radius: 15px;
+   margin-top: 10px;
 }
 
 #test-video {
@@ -58,15 +88,23 @@ input[type="file"] {
   width: 500px;
   height: 40px;
   border-radius: 15px;
+  border: 1px solid #ebebeb;
   display: block;
   font-family: 'Nerko One', cursive;
+  margin-top: 10px;
+}
+
+#post-title:focus{
+  outline: none;
 }
 
 #submit-post{
   border-radius: 15px;
-  outline: none;
+  border: none;
   padding: 10px 15px;
-  background-image: linear-gradient(to right, rgb(177, 146, 218), violet)
+  background-color: #F68B38;
+  font-family: inherit;
+  margin-top: 15px;
 }
 
 .posting-error{
