@@ -46,23 +46,24 @@ div.search-bars > label {
 }
 
 
-.posts-list > :nth-child(odd) {
+.posts-list > :nth-child(even) {
   background-color: #004C59
 }
 
 
-.posts-list > :nth-child(even) {
+.posts-list > :nth-child(odd) {
   background-color: #669197
 }
 
 #saved-post-btn {
   position: fixed;
   font-family: inherit;
+  font-size: 20px;
   width: 120px;
   height: 30px;
   top: 125px;
   left: max(7%, 55px);
-  background: #004C59;
+  background: #496F75;
   color: white;
   border: none;
   border-radius: 10px;

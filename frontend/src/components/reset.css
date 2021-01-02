@@ -131,11 +131,16 @@ input {
 button {
   border: none;
   outline: none;
-  padding: 10px 15px;
   font-family: "Nerko One", cursive;
 }
 
 button:hover,
 input[type="submit"] {
   cursor: pointer;
+}
+
+.icon {
+  color: #efefef;
+  width: 48px;
+  height:48px;
 }

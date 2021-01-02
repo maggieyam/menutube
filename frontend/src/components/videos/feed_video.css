@@ -64,21 +64,21 @@
   
 }
 .save-btn {
-    background-color: #37c743;
+    background-color: #ddeb63;
     width: 125px;
     height: 10px;
     padding: 20px;
     border: none;
     font-size: 22px;
     font-weight: 400;
-    color: black;
-    font-family: 'Nerko One', cursive;
+    color: #111111;
     border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
     letter-spacing: 3px;
 }
+
 .save-btn:focus{
   outline: none;
 }

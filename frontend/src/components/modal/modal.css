@@ -6,6 +6,8 @@
   left: 0;
   z-index: 500;
   overflow-y: hidden;
+  background-color: rgba(0, 0, 0, 0.5);
+  /* transition: opacity .2s ease; */
 }
 
 .modal-contents {
@@ -13,7 +15,7 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow: 1px 3px 12px 7px rgba(190, 190, 190, 0.3);
+  box-shadow: 1px 3px 12px 7px rgba(0, 0, 0, 0.8);
 
 }
 
@@ -37,7 +39,7 @@
   display: flex;
   flex-direction: column;
   width: 250px;
-  color: #efefef;
+  color: #004c59;
   font-size: 24px;
   font-family: "Nerko One", cursive;
   letter-spacing: 3px;
@@ -65,7 +67,7 @@
   height: 500px;
   width: 500px;
   border-radius: 16px;
-  background-image: linear-gradient(
+  /* background-image: linear-gradient(
     to bottom right,
     rgb(156, 156, 226),
     rgb(107, 107, 198),
@@ -73,7 +75,7 @@
     rgb(177, 146, 218),
     rgb(214, 21, 214),
     violet
-  );
+  ); */
 }
 
 .signup-wrapper {
@@ -89,8 +91,8 @@
   height: 40px;
 
   border-radius: 12px;
-  border: 2px solid ivory;
-  color: rgb(28, 138, 201);
+  border: 2px solid #496F75;
+  /* color: rgb(28, 138, 201); */
   font-family: "Nerko One", cursive;
 }
 
@@ -118,8 +120,8 @@ label {
   font-weight: 700;
   font-size: 24px;
   letter-spacing: 3px;
-  color: rgb(102, 27, 223);
-  background-image: linear-gradient(to bottom right, yellow, red);
+  color: white;
+  background-color:#F06241;
 }
 
 .session-btn:focus {
@@ -131,5 +133,5 @@ label {
   font-weight: 700;
   font-size: 42px;
   letter-spacing: 3px;
-  color: rgb(6, 180, 243);
+  color: #F06241;
 }
