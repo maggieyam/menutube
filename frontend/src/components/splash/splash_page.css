@@ -133,10 +133,13 @@ body {
 
 .splash-signup-btn {
   background-color: #85f22b;
-  border-radius: 55px;
+  border-radius: 8px;
   color: black;
-  margin: 0 25px;
+  margin: 0 15px;
   border-color: none;
+  padding: 6px;
+  font-size: 24px;
+  width: 120px;
 }
 
 .splash-span-signup {

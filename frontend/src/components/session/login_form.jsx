@@ -32,14 +32,13 @@ const LoginForm = () => {
   const demoUser = () => {
     setUser('demo_user');
     setPassword('password');
-    this.handleSubmit();
   }
 
   return (
     <div className="login-wrapper">
       <form id="login-form" className="animate__animated animate__rubberBand" onSubmit={handleSubmit}>
         {/* <h2 className="menutube">Menutube</h2> */}
-
+        <h1>Find ideas for your next meal</h1>
         <div className="username" data-error={errors.length ? errors : null}>
           <label htmlFor="login-username">Username</label>
           <input
@@ -62,7 +61,7 @@ const LoginForm = () => {
           />
         </div>
         <div className="signin-errors">{showErrors()}</div>
-        <input type="submit" value="Log In" className="session-btn" />
+        <input type="submit" value="Log In" className="session-btn2" />
         <input type="button" value="Demo User" className="session-btn" onClick={() => demoUser()}/><br/>
         <div>
           <span className="footer-login">
