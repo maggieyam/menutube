@@ -79,7 +79,7 @@ const SignupForm = () => {
         </div>
         {showErrors()}
         <br />
-        <input type="submit" value="Sign Up" className="session-btn" />
+        <input type="submit" value="Sign Up" className="session-btn2 session-btn3" />
 
         <div>
           <span className="footer-login">
