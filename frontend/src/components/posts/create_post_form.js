@@ -86,7 +86,7 @@ class CreatePostForm extends React.Component {
   loaderSpinner(){
     if (this.props.loading){
       return (
-        <Loader type="Grid" color="#ee82ee" height={100} width={100} />          
+        <Loader type="Grid" color="#E3E733" height={100} width={100} />          
       )
     }
     return
@@ -123,76 +123,79 @@ class CreatePostForm extends React.Component {
     );
 
     return (
-      <form className="post-form" onSubmit={this.handleSubmit}>
-        {this.loaderSpinner()}
+      <div className="create-post-contents">
+        <form className="post-form" onSubmit={this.handleSubmit}>
+          {this.loaderSpinner()}
+        <h1 id="post-form-title">Create a Post!</h1>
 
-      <div className="title-input-div">
-      <label htmlFor="post-title">Enter a title:</label>
-       <input
-        id="post-title" 
-        type="text" 
-        value={this.state.title}
-        onChange={this.changeTitle}/>  
-        {this.errors("title")}
-      </div>
+        <div className="title-input-div">
+        <label htmlFor="post-title">Enter a title:</label>
+        <input
+          id="post-title" 
+          type="text" 
+          value={this.state.title}
+          onChange={this.changeTitle}/>  
+          {this.errors("title")}
+        </div>
 
-      <div className="vid-input-div">
-          <input 
-          id="video-input"
-          type="file" 
-          ref={this.fileLoader}
-          onChange={this.setupVideo}
-          accept="video/*"/>
-      </div>
+        <div className="vid-input-div">
+            <input 
+            id="video-input"
+            type="file" 
+            ref={this.fileLoader}
+            onChange={this.setupVideo}
+            accept="video/*"/>
+        </div>
 
-      {fileSizeError}
+        {fileSizeError}
 
-      <video
-        id="test-video"
-        ref={this.testVideo}
-        onCanPlayThrough={this.checkVideoDuration}
-      />
-      
-        <label> Diet/Restrictions: 
+        <video
+          id="test-video"
+          ref={this.testVideo}
+          onCanPlayThrough={this.checkVideoDuration}
+        />
+        
+          <label> Diet/Restrictions: 
+            <Dropdown 
+              placeholder='Diet'
+              fluid
+              multiple
+              search
+              selection
+              closeOnChange
+              options={this.optionify(this.props.diet)}
+              onChange={this.handleTag}
+            />
+          </label>
+
+          <label> Nutrition: 
           <Dropdown 
-            placeholder='Diet'
+            placeholder='Nutrition'
             fluid
             multiple
             search
             selection
-            closeOnChange
-            options={this.optionify(this.props.diet)}
+            options={this.optionify(this.props.nutrition)}
             onChange={this.handleTag}
           />
-        </label>
+          </label>
 
-         <label> Nutrition: 
-        <Dropdown 
-          placeholder='Nutrition'
-          fluid
-          multiple
-          search
-          selection
-          options={this.optionify(this.props.nutrition)}
-          onChange={this.handleTag}
-        />
-        </label>
-
-        <label>Ingredients:
-        <Dropdown 
-          placeholder='Ingredients'
-          fluid
-          multiple
-          search
-          selection
-          options={this.optionify(this.props.ingredients)}
-          onChange={this.handleTag}
-        /> 
-        </label>
-        <input id="submit-post" type="submit" value="Submit Post"
-          disabled={this.state.fileTooLarge}
-        />
-      </form>    
+          <label>Ingredients:
+          <Dropdown 
+            placeholder='Ingredients'
+            fluid
+            multiple
+            search
+            selection
+            options={this.optionify(this.props.ingredients)}
+            onChange={this.handleTag}
+          /> 
+          </label>
+          <input id="submit-post" type="submit" value="Submit Post"
+            disabled={this.state.fileTooLarge}
+          />
+        </form>    
+      </div>
     )
   }
 

@@ -1,3 +1,12 @@
+div.edit-post-contents{
+  background-image: url('./marble.png');
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  margin-top: 120px;
+  padding: 20px 0 60px 0;
+}
+
 .steps-input-div {
   width: 500px;
 }
@@ -12,6 +21,7 @@
   font-family: 'Nerko One', cursive;
   border: none;
   margin: 5px;
+  margin-top: 15px;
   border-radius: 5px;
 }
 
@@ -35,20 +45,24 @@
 
 .remove-step-button, #add-step-button {
   border-radius: 5px;
-  border: 1px solid #a8a8a8;
-  border-style: solid;
-  color: #5d5d5d;
-  background-color: #e7e7e7;
+  /* border: 1px solid #a8a8a8; */
+  /* border-style: solid; */
+  color: white;
+  margin-top: 15px;
+  background-color: #004C59;
 }
 
 .remove-step-button:hover, #add-step-button:hover {
   color: black;
-  background-color: #e0e0e0;
+  background-color: #bbb;
 }
 
 #edit-post {
   border-radius: 15px;
   outline: none;
+  font: inherit;
+  border: none;
   padding: 10px 15px;
-  background-image: linear-gradient(to right, rgb(177, 146, 218), violet)
+  background-color: #F68B38;
+  color: white;
 }
