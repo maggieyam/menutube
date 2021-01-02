@@ -3,28 +3,19 @@
   flex-direction: row;
   width: 100%;
   justify-content: space-between;
+  align-items: center;
   height: 120px;
   position: fixed;
   top: 0;
   z-index: 100;
-  /* background-color: rgb(51, 128, 70); */
-  /* padding: 1%; */
-  /* background-image: url(''); */
-  background-image: linear-gradient(
-    to left,
-    rgb(242, 242, 43),
-    rgb(244, 72, 72),
-    rgba(199, 3, 248, 0.5)
-  );
+  background-color: #004C59;
 }
 
 .navbar h1 {
   font-size: 40px;
   text-align: center;
-  /* position:absolute; */
   left: calc(50% - 70px);
   letter-spacing: 0.5px;
-  margin-top: 30px;
 }
 
 .left {
@@ -44,9 +35,11 @@
   padding-right: 25px;
   font-weight: 800;
   font-size: 48px;
-  color: rgb(206, 4, 247);
   letter-spacing: 3px;
-  font-family: "Nerko One", cursive;
+}
+
+#brand > a {
+  color: #E3E733;
 }
 
 .navbar-btn {
@@ -56,7 +49,6 @@
   border: 0px;
   margin: 25px;
   color: #ffffff;
-  font-family: "Nerko One", cursive;
   font-weight: 700;
   font-size: 24px;
   letter-spacing: 3px;
@@ -68,11 +60,10 @@
 
 #signup,
 #logout {
-  background-image: linear-gradient(to right, rgb(177, 146, 218), violet);
-}
-
-#login {
-  background-color: #E3E733;
+  background-color: #efefef;
+  color: #496F75;
+  font-size: 20px;
+  width: 90px;
 }
 
 p.errors-body{
@@ -87,12 +78,11 @@ p.errors-body{
 }
 
 .nav-username {
-  font-family: "Nerko One", cursive;
   font-weight: 700;
   font-size: 42px;
   letter-spacing: 3px;
   text-transform: capitalize;
-  color: #7508f2;
+  color: #fff;
 }
 
 .add-post {
@@ -109,8 +99,7 @@ p.errors-body{
 
 .gh-link {
   font-size: 30px;
-  margin-left: 15px;
-  margin-top: 30px;
+  margin-left: 25px;
 }
 
 .about {

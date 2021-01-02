@@ -9,10 +9,6 @@ class Calendar extends React.Component{
   componentDidMount(){
     this.props.fetchCalendar(this.props.userId)
   }
-
-  calText(){
-    return this.props.openCalendar ? "Close" : "Open"
-  }
   
   render() {
 
@@ -31,14 +27,7 @@ class Calendar extends React.Component{
 
 
     return (
-      <>
-      <button id="cal-checkbox" 
-              onClick={() => this.props.toggleCalendar()}
-              className={`${this.props.openCalendar ? "other" : ""}`}
-      >
-          {this.calText()} Calendar
-      </button>
-      
+      <>      
       {(!this.props.openCalendar) ? null : ( 
           <div className="calendar-wrapper">
             <ul className="calendar">
@@ -69,7 +58,7 @@ class Calendar extends React.Component{
 
   const mDtP = dispatch => ({
     fetchCalendar: userId => dispatch(fetchCalendar(userId)),
-    toggleCalendar: () => dispatch(toggleCalendar())
+    
   })
 
   export default connect(mStP, mDtP)(Calendar);
