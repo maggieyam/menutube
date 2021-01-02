@@ -1,6 +1,7 @@
 import React from "react";
 import "./contact.css";
-
+import tim from "../../images/tim.jpeg";
+import jared from "../../images/jared.png";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -12,10 +13,7 @@ const Contacts = () => {
 
         <div className="contact-container">
           <div className="contact" style={{ borderColor: "yellow" }}>
-            <img
-              src="https://media-exp1.licdn.com/dms/image/C4E35AQHL1X2ger4r4w/profile-framedphoto-shrink_200_200/0/1608068205428?e=1609365600&v=beta&t=fwy5E9K3p1t0ASJ_bgPowlerSy0efQ2qOFnCx0bbQqE"
-              alt="contact-tim"
-            />
+            <img src={tim} alt="contact-tim" />
             <div className="contact-info">
               <label className="contact-label">Tim Bedford</label>
               <p className="contact-position">Team Leader</p>
@@ -32,7 +30,7 @@ const Contacts = () => {
                   className="contact-linkedin"
                   target="_blank"
                 >
-                  <FontAwesomeIcon icon={faLinkedin}/>
+                  <FontAwesomeIcon icon={faLinkedin} />
                 </a>
               </div>
             </div>
@@ -65,10 +63,7 @@ const Contacts = () => {
             </div>
           </div>
           <div className="contact" style={{ borderColor: "orange" }}>
-            <img
-              src="https://media-exp1.licdn.com/dms/image/C4D35AQG3IPUfQbq9-A/profile-framedphoto-shrink_200_200/0/1608094919451?e=1609365600&v=beta&t=zx_OhdUhHrGlI3IYI_phxrBwRy5c0PUP7p5Q0WuXtKw"
-              alt="contact-jared"
-            />
+            <img src={jared} alt="contact-jared" />
             <div className="contact-info">
               <label className="contact-label">Jared GreenBerg</label>
               <p className="contact-position">Head Frontend</p>
