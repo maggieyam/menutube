@@ -7,7 +7,6 @@
   z-index: 500;
   overflow-y: hidden;
   background-color: rgba(0, 0, 0, 0.5);
-  /* transition: opacity .2s ease; */
 }
 
 .modal-contents {
@@ -15,8 +14,6 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  /* box-shadow: 1px 3px 12px 7px rgba(0, 0, 0, 0.8); */
-
 }
 
 .session-error {
@@ -78,7 +75,6 @@
 
 .signup-wrapper,
 .login-wrapper {
-  /* background: white; */
   height: 700px;
   width: 500px;
   border-radius: 16px;
@@ -90,7 +86,6 @@
 
 .login-wrapper {
   height: 600px;
-
 }
 
 #signup-email,
@@ -105,7 +100,6 @@
   border: 2px solid #d3d3d3;
   background-color: #efefef;
   text-indent: 8px;
-  /* margin-top: 3px; */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   
 }
