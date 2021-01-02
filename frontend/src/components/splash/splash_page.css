@@ -60,9 +60,9 @@
   top: 120px;
   display: flex;
   justify-content: center;
-  /* background-color: #f1d5bb; */
-  /* background-color: #f15f2e; */
-
+  align-items: center;
+  height: calc(70vh - 20px);
+}
 
 body {
   background-color: #004c59;
@@ -80,8 +80,8 @@ body {
 
 .splash-img {
   object-fit: scale-down;
-  width: 360px;
-  height: 360px;
+  width: 250px;
+  height: 250px;
   background-color: #f47322;
 
   border-radius: 300px;
@@ -91,6 +91,7 @@ body {
   /* background-image: radial-gradient(red 70%, yellow 30%); */
   /* padding: 100px; */
   border-radius: 50%;
+
   /* width: 500px;
   height: 500px; */
 }
@@ -99,7 +100,8 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  height: 400px;
+  align-items: center;
+  height: 600px;
 }
 
 .splash-intro h1 {
@@ -111,18 +113,42 @@ body {
 .splash-desc {
   display: flex;
   flex-direction: column;
+  /* justify-content: center;
+  align-items: center; */
   line-height: 1.7;
 }
 
-.splash-text {
+.splash-text, .splash-text2 {
   font-family: Arial, Helvetica, sans-serif;
-  font-size: 35px;
-  font-weight: bold;
+  font-size: 40px;
+  font-weight: 700;
+  text-align: center;
   letter-spacing: 1px;
   color: white;
 }
+
+.splash-text2 {
+  font-size: 20px;
+}
+
 .splash-signup-btn {
   background-color: #85f22b;
   border-radius: 55px;
   color: black;
+  margin: 0 25px;
+  border-color: none;
 }
+
+.splash-span-signup {
+  background-color: "transparent";
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#menutube {
+  text-align: center;
+}
+
+
+

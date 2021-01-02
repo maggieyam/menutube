@@ -55,16 +55,13 @@ class NavBar extends React.Component {
     );
   }
 
-  render() {
-    const { currentUser } = this.props;
-
-    return (
-      <div className="navbar">
+  NavBar() {
+    <div className="navbar">
         <h1 id="brand">
             <Link to="/feed">MenuTube</Link>
           </h1>
         <div className='about'>
-          
+        {this.loggedIn()}
         <a
             href="https://github.com/maggieyam/menutube"
             className="gh-link"
@@ -76,11 +73,37 @@ class NavBar extends React.Component {
             <FontAwesomeIcon icon={faUsers} />
           </Link>
         </div>
+        </div>
 
-        
+  }
 
-        {currentUser.isAuthenticated ? this.loggedIn() : this.loggedOut()}
-      </div>
+  render() {
+    const { currentUser } = this.props;
+
+    return (
+      // <div className="navbar">
+      //   <h1 id="brand">
+      //       <Link to="/feed">MenuTube</Link>
+      //     </h1>
+      //   <div className='about'>
+          
+      //   <a
+      //       href="https://github.com/maggieyam/menutube"
+      //       className="gh-link"
+      //       target="_blank"
+      //     >
+      //       <FontAwesomeIcon icon={faGithub} />
+      //     </a>
+      //     <Link className="gh-link" to={"/team"} target="_blank">
+      //       <FontAwesomeIcon icon={faUsers} />
+      //     </Link>
+      //   </div>
+
+        <>
+        {currentUser.isAuthenticated ? this.NavBar() : null}
+        </>
+
+      // </div>
     );
   }
 }

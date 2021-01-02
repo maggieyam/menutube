@@ -16,23 +16,22 @@ class SplashPage extends React.Component {
     return (
       <div className="splash-pg">
         <div className="splash-welcome">
-          <div className="splash-img-bg">
-            <img className="splash-img" src={dessert} />
-          </div>
           <div className="splash-intro">
-            <h1>MenuTube</h1>
+            <h1 id="menutube">MenuTube</h1>
+            <div className="splash-img-bg">
+              <img className="splash-img" src={dessert} />
+            </div>
             <div className="splash-desc">
               <span className="splash-text">
-                Create recipe tutorials and post them.
+                Not sure what to eat?
+              </span>
+              <span className="splash-text2">
+                Create recipe tutorials!
               </span>
 
-              <span className="splash-text">
-                Not sure what to eat or what to make?
-              </span>
-
-              <span className="splash-text">
+              {/* <span className="splash-text">
                 Check out what others are making!
-              </span>
+              </span> */}
             </div>
             <div
               className="splash-span-signup"
@@ -43,6 +42,13 @@ class SplashPage extends React.Component {
                 className="splash-signup-btn"
               >
                 Join Us
+              </button>
+              <button
+                onClick={() => this.props.openModal("login")}
+                className="splash-signup-btn"
+                id="login"
+              >
+                Log In
               </button>
             </div>
           </div>

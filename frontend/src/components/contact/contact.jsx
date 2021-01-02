@@ -32,7 +32,7 @@ const Contacts = () => {
                   className="contact-linkedin"
                   target="_blank"
                 >
-                  <FontAwesomeIcon icon={faLinkedin} />
+                  <FontAwesomeIcon icon={faLinkedin}/>
                 </a>
               </div>
             </div>
