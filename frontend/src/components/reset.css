@@ -129,6 +129,8 @@ input {
 }
 
 button {
+  border: none;
+  outline: none;
   padding: 10px 15px;
   font-family: "Nerko One", cursive;
 }

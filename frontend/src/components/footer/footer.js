@@ -13,7 +13,7 @@ const Footer = () => {
           className="footer-icons"
           target="_blank"
         >
-          <FontAwesomeIcon icon={faLinkedin} />
+          <FontAwesomeIcon icon={faLinkedin} className="linkedIn"/>
         </a>
         <a
           href="https://github.com/tbeddy"
