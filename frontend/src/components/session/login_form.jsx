@@ -37,7 +37,7 @@ const LoginForm = () => {
   return (
     <div className="login-wrapper">
       <form id="login-form" className="animate__animated animate__rubberBand" onSubmit={handleSubmit}>
-        <h2 className="menutube">Menutube</h2>
+        {/* <h2 className="menutube">Menutube</h2> */}
 
         <div className="username" data-error={errors.length ? errors : null}>
           <label htmlFor="login-username">Username</label>

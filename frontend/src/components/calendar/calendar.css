@@ -23,20 +23,19 @@ div.slot > button {
 
 
 #cal-checkbox{
-  position: fixed;
-  right: 180px;
-  top: 85px;
-  z-index: 120;
   outline: none;
-  border: 0;
-  background-color: #004C59;
-  color: white;
-  border-radius: 5px;
-  height: 30px;
+  background-color: #E3E733;
+  color: #004C59;
+  font-size: 20px;
+  border-radius: 34px;
+  height: 40px;
+  width: 140px;
+  margin-left: 25px;
 }
 
 #cal-checkbox.other {
   background-color: #669197;
+  color: #fff;
 }
 
 ul.calendar {
