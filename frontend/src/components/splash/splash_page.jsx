@@ -28,10 +28,6 @@ class SplashPage extends React.Component {
               <span className="splash-text2">
                 Create recipe tutorials!
               </span>
-
-              {/* <span className="splash-text">
-                Check out what others are making!
-              </span> */}
             </div>
             <div
               className="splash-span-signup"
