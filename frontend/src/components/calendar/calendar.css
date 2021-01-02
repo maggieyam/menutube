@@ -104,6 +104,12 @@ figure {
   width: 100%;
   height: 100%;
   padding: 0;
+  background: black;
+  border-radius: 16px;
+}
+
+.calendar-wrapper figure {
+  border-radius: 12px;
 }
 
 
