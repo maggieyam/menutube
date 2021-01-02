@@ -44,7 +44,7 @@ class SplashPage extends React.Component {
                 Join Us
               </button>
               <button
-                onClick={() => this.props.gopenModal("login")}
+                onClick={() => this.props.openModal("login")}
                 className="splash-signup-btn"
                 id="login"
               >
