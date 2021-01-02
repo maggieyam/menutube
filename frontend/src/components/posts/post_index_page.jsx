@@ -51,7 +51,7 @@ const PostIndex = () => {
   
   return (
     <div className="posts-content">
-      <button id='saved-post-btn' onClick={() => history.push('/posts/saved')}>Saved Posts</button>
+      <button id='saved-post-btn' onClick={() => history.push('/posts/saved')}>See Your Saved Posts</button>
       <div className="search-bars">
       <h2>Filter By Tag:</h2>
       <label className="diet"> Diet/Restrictions: 

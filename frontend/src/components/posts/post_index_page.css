@@ -1,6 +1,7 @@
 .posts-list {
   width: 100%;
   padding-top: 15px;
+  padding-bottom: 30px;
   /* margin-left: max(27%, 250px); */
 }
 
@@ -60,10 +61,11 @@ div.search-bars > label {
   position: fixed;
   font-family: inherit;
   font-size: 20px;
-  width: 120px;
+  width: 20%;
+  min-width: 200px;
   height: 30px;
   top: 125px;
-  left: max(7%, 55px);
+  left: 20px;
   background: #496F75;
   color: white;
   border: none;
@@ -71,6 +73,10 @@ div.search-bars > label {
 
 }
 
+#saved-post-btn:hover{
+  color: black;
+  background-color: #bbb;
+}
 
 
 

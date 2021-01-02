@@ -55,7 +55,7 @@ div.edit-post-contents{
 
 .remove-step-button:hover, #add-step-button:hover {
   color: black;
-  background-color: #e0e0e0;
+  background-color: #bbb;
 }
 
 #edit-post {

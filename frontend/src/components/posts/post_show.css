@@ -2,10 +2,10 @@ div.post-show-wrapper{
   display: flex;
   justify-content: center;
   background-color: #496F75;
+  margin-top: 80px;
 }
 
 .post-container {
-  margin-top: 150px;
   width: 1000px;
   padding: 50px;
 }
