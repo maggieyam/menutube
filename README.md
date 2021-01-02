@@ -9,10 +9,13 @@ For future uses
 ![Fridge](https://github.com/maggieyam/menutube/blob/media/media/calendar-gif.gif)
 
 
-Videos have timestamps to skip to specific steps of tutorial video.
+Upload  your videos to other users for your tutorial!
 
-![Timestamps](https://github.com/maggieyam/menutube/blob/media/media/timestamp.gif)
+![Upload](https://github.com/maggieyam/menutube/blob/media/media/upload.gif)
 
+Filter out your feedpage with videos you want to see or learn from
+
+![Filter](https://github.com/maggieyam/menutube/blob/media/media/filter.gif)
 
 Some works are still in progress(tags and search feature)
 
