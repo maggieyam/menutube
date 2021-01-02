@@ -2,6 +2,8 @@ import React from "react";
 import "./contact.css";
 import tim from "../../images/tim.jpeg";
 import jared from "../../images/jared.png";
+import tony from "../../images/tony.jpeg";
+import maggie from "../../images/maggie.jpeg";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
@@ -37,10 +39,7 @@ const Contacts = () => {
           </div>
           <br></br>
           <div className="contact" style={{ borderColor: "red" }}>
-            <img
-              src="https://media-exp1.licdn.com/dms/image/C4E03AQHeJ4VolOreGQ/profile-displayphoto-shrink_200_200/0/1609278121374?e=1614816000&v=beta&t=6cEckYZdd-csXDtqBiUk8Ty247sjWW_ArSMc1ZzY960"
-              alt="contact-tony"
-            />
+            <img src={tony} alt="contact-tony" />
             <div className="contact-info">
               <label className="contact-label">Tony Chen</label>
               <p className="contact-position">Flex Developer</p>
@@ -86,10 +85,7 @@ const Contacts = () => {
             </div>
           </div>
           <div className="contact" style={{ borderColor: "purple" }}>
-            <img
-              src="https://media-exp1.licdn.com/dms/image/C4E35AQHCTX-L8zJKvA/profile-framedphoto-shrink_200_200/0/1608095077372?e=1609365600&v=beta&t=0pn6OAWsC-2kzsdWJyISKJ9rlW2lD47YFNe1SYKbcXM"
-              alt="contact-maggie"
-            />
+            <img src={maggie} alt="contact-maggie" />
             <div className="contact-info">
               <label className="contact-label">Maggie Yan</label>
               <p className="contact-position">Head Backend</p>
