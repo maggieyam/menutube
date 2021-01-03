@@ -54,7 +54,7 @@ class NavBar extends React.Component {
           <h1 id="brand">
               <Link to="/feed">MenuTube</Link>
           </h1>
-          <div class="source-link">
+          <div className="source-link">
           <a
               href="https://github.com/maggieyam/menutube"
               className="gh-link"
@@ -64,7 +64,7 @@ class NavBar extends React.Component {
             </a>
             <p>Site Github</p>
           </div>
-          <div class="contact-link">
+          <div className="contact-link">
             <Link className="gh-link" to={"/team"} target="_blank">
               <FontAwesomeIcon icon={faUsers} className="icon" size="sm"/>
             </Link>
