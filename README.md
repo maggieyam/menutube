@@ -5,28 +5,14 @@ MenuTube is a social media app for sharing how-to food videos, built by Maggie Y
 # Features
 ![Splash Page](https://github.com/maggieyam/menutube/blob/media/media/splash-gif.gif)
 
-
-
-Allows User to save/favorite videos from Feed to their calendar.
-For future uses
-![Fridge](https://github.com/maggieyam/menutube/blob/media/media/calendar-gif.gif)
-
-
-Upload  your videos to other users for your tutorial!
-
+Upload your videos to the platform.
 ![Upload](https://github.com/maggieyam/menutube/blob/media/media/upload.gif)
 
-
-Comment some love on your favorite videos!
-
-![Comment](https://github.com/maggieyam/menutube/blob/media/media/comment.gif)
-
-
-
-Filter out your feedpage with videos you want to see or learn from
-
+Find new recipes in the main feed or narrow their results with a set of curated tags related to diet, nutrition, and common ingredients.
 ![Filter](https://github.com/maggieyam/menutube/blob/media/media/filter.gif)
 
-Some works are still in progress(tags and search feature)
+Schedule your meals with a personal calendar.
+![Fridge](https://github.com/maggieyam/menutube/blob/media/media/calendar-gif.gif)
 
-Project is developed by Maggie, Jared, Tim and Tony
+Comment some love on your favorite videos!
+![Comment](https://github.com/maggieyam/menutube/blob/media/media/comment.gif)
