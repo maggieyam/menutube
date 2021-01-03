@@ -27,7 +27,7 @@ li.comment-info {
 }
 
 button.comment-delete{
-  border: black 1px #ebebeb;
+  border: solid 1px #ebebeb;
   border-radius: 15px;
   background: #10AB89;
   color: white;

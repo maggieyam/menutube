@@ -106,6 +106,11 @@ class PostShow extends Component {
           <div className="video-header">
             <div className="left-side-header">
               <p className="show-title">{post.title}</p>
+              {/* <p>by <Link
+                className='profile-link'
+                to={`/profile/${post.user._id}`}
+              >{post.user.username}</Link>
+              </p> */}
               <p className="author">by {post.user.username}</p>
             </div>
             {postButtons}
