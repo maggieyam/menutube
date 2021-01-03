@@ -1,7 +1,8 @@
 # Menutube
+MenuTube is a social media app for sharing how-to food videos, built by Maggie Yan, Jared Greenberg, Tony Chen, and Tim Bedford. We developed the site with the MERN stack (MongoDB, Express.js, React, Node.js) as part of our coursework at App Academy in the winter of 2020.
 
-A webapp that allows user to post recipe/food tutorial videos to other Users.
-Log in Auth with Demo User
+
+# Features
 ![Splash Page](https://github.com/maggieyam/menutube/blob/media/media/splash-gif.gif)
 
 
