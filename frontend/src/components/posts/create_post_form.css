@@ -3,9 +3,9 @@ div.create-post-contents{
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  height: calc(100vh - 120px);
   margin-top: 120px;
-  padding: 20px 0;
+  padding-top: 20px;
+  padding-bottom: 60px;
 }
 
 #post-form-title{
@@ -13,11 +13,10 @@ div.create-post-contents{
   text-align: center;
   color: #004C59;
   padding: 10px 0;
-  font-size: 28px;
+  font-size: 32px;
   position: relative;
   justify-self: start;
 }
-
 
 
 .post-form{
@@ -48,6 +47,7 @@ div.ui.multiple.search.dropdown {
   width: 500px;
   border-radius: 15px;
   margin-top: 10px;
+  font-size: 18px;
 }
 
 .title-input-div{
@@ -55,11 +55,16 @@ div.ui.multiple.search.dropdown {
   margin-top: 10px;
 }
 
+.ui.label>.icon {
+  color: black;
+}
+
 
 .post-form label {
   color: #004C59;
-  font-size: 18px;
-  margin-top: 10px;
+  font-size: 16px;
+  font-weight: 600;
+  margin-top: 15px;
 }
 
 input[type="file"] {
@@ -71,7 +76,7 @@ input[type="file"] {
    text-overflow: ellipsis;
    font-family: inherit;
    border-radius: 15px;
-   margin-top: 10px;
+   margin-top: 15px;
 }
 
 #test-video {
@@ -90,7 +95,6 @@ input[type="file"] {
   border-radius: 15px;
   border: 1px solid #ebebeb;
   display: block;
-  font-family: 'Nerko One', cursive;
   margin-top: 10px;
 }
 
@@ -102,7 +106,7 @@ input[type="file"] {
   border-radius: 15px;
   border: none;
   padding: 10px 15px;
-  background-color: #F68B38;
+  background-color: #E3E733;
   font-family: inherit;
   margin-top: 15px;
 }

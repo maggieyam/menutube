@@ -100,7 +100,7 @@ const PostIndex = () => {
       </div>
       <ul className="posts-list">
         {posts.map((post) => {
-          return <PostIndexItem post={post} key={post.id} />
+          return <PostIndexItem post={post} key={post._id} />
         })}
       </ul>
     </div>

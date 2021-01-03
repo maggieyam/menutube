@@ -62,7 +62,7 @@ class Slot extends React.Component {
     e.preventDefault();
     if (this.props.post) return;
     const {date, idx} = this.props;
-    const { postId, formerDate, formerIdx } = JSON.parse(e.dataTransfer.getData('videoInfo'));
+    const { postId, formerdate, formeridx } = JSON.parse(e.dataTransfer.getData('videoInfo'));
 
     let body = {
       date,
@@ -72,8 +72,8 @@ class Slot extends React.Component {
 
     this.props.addCalVideo(this.props.calId, body).then( () => {
 
-      if ((formerDate && formerIdx) && (formerDate !== date || formerIdx !== idx)) {
-        this.props.deleteCalVideo(this.props.calId, {date: formerDate, idx: formerIdx})
+      if ((formerdate && formeridx) && (formerdate !== date || formeridx !== idx)) {
+        this.props.deleteCalVideo(this.props.calId, {date: formerdate, idx: formeridx})
       }
 
     })

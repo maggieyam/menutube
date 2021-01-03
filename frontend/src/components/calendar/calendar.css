@@ -12,12 +12,12 @@ div.slot {
 
 div.slot > button {
   position: absolute;
-  top: 0;
-  left: 0;
+  top: 0px;
+  left: 0px;
   z-index:20;
-  background-color: #004C59;
-  border-radius: 5px;
-  color: white;
+  background-color: #E3E733;
+  border-radius: 20px;
+  color: black;
   border: none;
   font-family: Arial, Helvetica, sans-serif;
 }
@@ -25,18 +25,16 @@ div.slot > button {
 
 #cal-checkbox{
   outline: none;
-  background-color: #E3E733;
-  color: #004C59;
-  font-size: 20px;
+  background-color: #669197;
+  color: #fff;
+  font-size: 16px;
   border-radius: 34px;
   height: 40px;
-  width: 140px;
-  margin-left: 25px;
 }
 
 #cal-checkbox.other {
-  background-color: #669197;
-  color: #fff;
+  background-color: #E3E733;
+  color: #004C59;
 }
 
 ul.calendar {
@@ -62,6 +60,7 @@ ul.calendar > li {
   width: 100px;
   font-size: 30px;
   padding-left: 15px;
+  font-family: "Nerko One", cursive;
 }
 
 div.slots{

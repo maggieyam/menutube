@@ -111,7 +111,7 @@ class PostShow extends Component {
                 to={`/profile/${post.user._id}`}
               >{post.user.username}</Link>
               </p> */}
-              <p>by {post.user.username}</p>
+              <p className="author">by {post.user.username}</p>
             </div>
             {postButtons}
           </div>
