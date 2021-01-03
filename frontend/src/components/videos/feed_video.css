@@ -63,19 +63,24 @@
   opacity: 1;
   
 }
-.save-btn {
-    background-color: #ddeb63;
+.save-btn, .unsave-btn {
+    background-color: #E3E733;
     width: 125px;
     padding: 10px;
     border: none;
-    font-size: 22px;
+    font-size: 16px;
     font-weight: 400;
-    color: #111111;
+    color: black;
     border-radius: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
-    letter-spacing: 3px;
+    letter-spacing: 1px;
+}
+
+.unsave-btn {
+  background-color: white;
+  color: #111111;
 }
 
 .save-btn:focus{

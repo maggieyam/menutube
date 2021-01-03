@@ -124,7 +124,7 @@ class VideoPlayer extends React.Component {
             <h1 id="title">{this.props.title}</h1>
           </Link>
           <p id="username">by {this.props.user ? this.props.user.username : ""}</p>
-          <button className="save-btn" onClick={this.toggleSave}>
+          <button className={`${isSaved ? "un" : ""}save-btn`} onClick={this.toggleSave}>
             {isSaved ? "Unsave" : "Save"}
           </button>
         </div>

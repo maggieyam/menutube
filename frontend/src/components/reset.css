@@ -80,9 +80,9 @@ video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
-  font-family: "Nerko One", cursive;
+  /* font-size: 100%; */
   vertical-align: baseline;
+  font-family: Helvetica, sans-serif;
 }
 /* HTML5 display-role reset for older browsers */
 article,
@@ -128,7 +128,10 @@ input {
 button {
   border: none;
   outline: none;
-  font-family: "Nerko One", cursive;
+}
+
+h1, h2 {
+   font-family: "Nerko One", cursive;
 }
 
 button:hover,
@@ -138,6 +141,13 @@ input[type="submit"] {
 
 .icon {
   color: #efefef;
-  width: 48px;
-  height:48px;
+}
+
+.ui.multiple.dropdown > .label, .ui.multiple.search.dropdown > .text{
+  font-size: 14px;
+  vertical-align: middle;
+}
+
+.ui.multiple.search.dropdown > .text{
+  padding-top: 10px;
 }

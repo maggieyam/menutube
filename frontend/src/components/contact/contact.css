@@ -1,31 +1,33 @@
 .contact-pg {
-  margin-top: 200px;
+  margin-top: 120px;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  background: #496F75;
+  padding-bottom: 60px;
 }
 
 .contact-header {
   font-size: 36px;
   font-weight: 100;
   text-align: center;
-  margin: 30px auto 20px auto;
-
-  padding-bottom: 5px;
+  margin: 30px auto 0 auto;
+  color: white;
+  padding: 5px 0;
 }
 
 .contact-container {
   display: flex;
-
   justify-content: space-between;
   font-size: 30px;
+  margin-top: -10px;
 }
 
 .contact {
   width: 100%;
   margin: 0 auto;
-  padding: 40px;
+  padding: 30px;
   border-radius: 30px;
   display: flex;
   flex-direction: column-reverse;
@@ -51,11 +53,12 @@
 }
 
 .contact-label {
-  font-weight: 500;
-  font-size: 25px;
+  font-weight: 700;
+  font-size: 21px;
 }
+
 .contact-position {
-  font-size: 25px;
+  font-size: 21px;
 }
 
 .contact-links {

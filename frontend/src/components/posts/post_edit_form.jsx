@@ -181,7 +181,7 @@ class EditPostForm extends React.Component {
             )
           )}
           <button id="add-step-button" type="button" onClick={this.addStep}>
-            <p>{steps.length === 0 ? "Begin adding steps" : "Add another step"}</p>
+            <p>{steps.length === 0 ? "Begin adding time steps" : "Add another step"}</p>
           </button>
       </div>
     )

@@ -18,52 +18,55 @@
   letter-spacing: 0.5px;
 }
 
-.left {
-  display: flex;
-}
 
 .nav-right {
+  text-align: center;
+  height: 100%;
   display: flex;
-  justify-content: center;
-  float: right;
-  padding: 1%;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: max(310px, 33.333%);
+  position: relative;
+}
+
+.right-buttons {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 #brand {
   padding-left: 25px;
   padding-right: 25px;
   font-weight: 800;
-  font-size: 48px;
+  font-size: 52px;
   letter-spacing: 3px;
 }
 
 #brand > a {
   color: #E3E733;
+  font-family: "Nerko One", cursive;
 }
 
 .navbar-btn {
-  width: 150px;
+  padding: 0 10px;
   height: 40px;
   border-radius: 34px;
   border: 0px;
-  margin: 25px;
+ 
   color: #ffffff;
-  font-weight: 700;
-  font-size: 24px;
-  letter-spacing: 3px;
+  font-size: 18px;
 }
 
 .navbar-btn:focus {
   outline: none;
 }
 
-#signup,
+
 #logout {
   background-color: #efefef;
   color: #496F75;
-  font-size: 20px;
-  width: 90px;
+  font-size: 16px;
+  width: 100px;
 }
 
 p.errors-body{
@@ -72,40 +75,69 @@ p.errors-body{
 
 .nav-left {
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
 }
 
 .nav-username {
   font-weight: 700;
-  font-size: 42px;
-  letter-spacing: 3px;
+  font-size: 20px;
   text-transform: capitalize;
   color: #fff;
+
 }
 
 .add-post {
-  color: purple;
-  margin-left: 25px;
+  background-color: #10AB89;
+  color: white;
+  border-radius: 20px;
+  padding: 9px 10px 0 10px;
+  font-size: 16px;
+}
+
+.add-post > svg {
+  margin-left: 8px;
+}
+
+.add-post:hover{
+  color: white;
 }
 
 .other-btn {
   cursor: pointer;
   text-decoration: underline;
-  font-weight: 200;
-  font-size: 40px;
-  color: #F68B38;
-  /* background-image: linear-gradient(to bottom right, yellow, red); */
-  /* border-radius: 50px; */
+  font-weight: 500;
+  font-size: 22px;
+  color: #10AB89;
+  border-radius: 15px;
+  
   text-align: center;
 }
 
 .gh-link {
   font-size: 30px;
-  margin-left: 25px;
 }
 
 .about {
   margin-top: 40px;
 }
+
+.source-link, .contact-link {
+  text-align: center;
+  width: 100px;
+  color: white;
+}
+
+.source-link > p, .contact-link > p {
+  padding-top: 5px;
+}
+
+.source-link:hover, .source-link:hover svg {
+  cursor: pointer;
+  color: #10AB89;
+}
+
+.contact-link:hover, .contact-link:hover svg{
+  cursor: pointer;
+  color: #10AB89;
+}
+

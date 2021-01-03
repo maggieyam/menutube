@@ -22,32 +22,24 @@ class NavBar extends React.Component {
     // TO FIX... link will route to show page
     return (
       <>
-        <h1 className="nav-username">
-          Hello, {currentUser.userInfo.username}!
-        </h1>
         <div className="nav-right">
-          <a
-            href="https://github.com/maggieyam/menutube"
-            className="gh-link"
-            target="_blank"
-          >
-            <FontAwesomeIcon icon={faGithub} className="icon github" size="sm"/>
-          </a>
-          <Link className="gh-link" to={"/team"} target="_blank">
-            <FontAwesomeIcon icon={faUsers} className="icon" size="sm"/>
-          </Link>
-          <Link className="add-post" to="/new_post">
-            <FontAwesomeIcon icon={faPlus} className="icon" size="lg"/>
-          </Link>
-          <button id="cal-checkbox" 
-              onClick={() => this.props.toggleCalendar()}
-              className={`${this.props.openCalendar ? "other" : ""}`}
-          >
-            {this.calText()} Calendar
-          </button>
-          <button onClick={() => logout()} className="navbar-btn" id="logout">
-            LogOut
-          </button>
+          <h3 className="nav-username">
+          Hello, {currentUser.userInfo.username}!
+          </h3>
+          <div className="right-buttons">
+            <Link className="add-post" to="/new_post">
+              New Post<FontAwesomeIcon icon={faPlus} className="icon" size="lg"/>
+            </Link>
+            <button id="cal-checkbox" 
+                onClick={() => this.props.toggleCalendar()}
+                className={`${this.props.openCalendar ? "other" : ""}`}
+            >
+              {this.calText()} Calendar
+            </button>
+            <button onClick={() => logout()} className="navbar-btn" id="logout">
+              Logout
+            </button>
+          </div>
         </div>
       </>
     );
@@ -58,9 +50,27 @@ class NavBar extends React.Component {
   navBar() {
     return(
       <div className="navbar">
-        <h1 id="brand">
-            <Link to="/feed">MenuTube</Link>
+        <div className="nav-left">
+          <h1 id="brand">
+              <Link to="/feed">MenuTube</Link>
           </h1>
+          <div class="source-link">
+          <a
+              href="https://github.com/maggieyam/menutube"
+              className="gh-link"
+              target="_blank"
+            >
+              <FontAwesomeIcon icon={faGithub} className="icon github" size="sm"/>
+            </a>
+            <p>Site Github</p>
+          </div>
+          <div class="contact-link">
+            <Link className="gh-link" to={"/team"} target="_blank">
+              <FontAwesomeIcon icon={faUsers} className="icon" size="sm"/>
+            </Link>
+            <p>The Creators</p>
+          </div>
+        </div>
         {this.loggedIn()}       
       </div>
     )

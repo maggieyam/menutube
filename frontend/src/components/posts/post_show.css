@@ -19,8 +19,15 @@ div.post-show-wrapper{
   color: white;
 }
 
+p.author {
+  font-size: 22px;
+}
+
 .show-title {
   font-size: 50px;
+  font-family: "Nerko One", cursive;
+  margin-bottom: 0;
+
 }
 
 .left-side-header {
@@ -42,13 +49,18 @@ div.post-show-wrapper{
 .post-buttons button {
   display: inline-block;
   border-radius: 10px;
-  height: 30px;
-  font-size: 20px;
-  padding: 2px;
-  margin: 2px;
+  font-size: 18px;
+  padding: 2px 10px;
+  margin-left: 10px;
+  margin-top: 15px;
   border: none;
+  color: white;
+  background-color: #10AB89;
+}
+
+.post-buttons button:hover{
+  background: white;
   color: black;
-  background-color: white;
 }
 
 .middle-show-section {

@@ -22,16 +22,16 @@ const Footer = () => {
         >
           <FontAwesomeIcon icon={faGithub} />
         </a>
-        <span id="footer-names">Maggie Yan</span>
+        <span id="footer-names">Tony Chen</span>
         <a
-          href="https://www.linkedin.com/in/maggie-yan-0a32056a/"
+          href="https://www.linkedin.com/in/tony-chen-830850201/"
           className="footer-icons"
           target="_blank"
         >
           <FontAwesomeIcon icon={faLinkedin} />
         </a>
         <a
-          href="https://github.com/maggieyam/"
+          href="https://github.com/tabemono"
           className="footer-icons"
           target="_blank"
         >
@@ -52,16 +52,16 @@ const Footer = () => {
         >
           <FontAwesomeIcon icon={faGithub} />
         </a>
-        <span id="footer-names">Tony Chen</span>
+         <span id="footer-names">Maggie Yan</span>
         <a
-          href="https://www.linkedin.com/in/tony-chen-830850201/"
+          href="https://www.linkedin.com/in/maggie-yan-0a32056a/"
           className="footer-icons"
           target="_blank"
         >
           <FontAwesomeIcon icon={faLinkedin} />
         </a>
         <a
-          href="https://github.com/tabemono"
+          href="https://github.com/maggieyam/"
           className="footer-icons"
           target="_blank"
         >

@@ -11,10 +11,10 @@ const Contacts = () => {
   return (
     <div>
       <div className="contact-pg">
-        <h4 className="contact-header">Contact Us</h4>
+        <h1 className="contact-header">Contact Us</h1>
 
         <div className="contact-container">
-          <div className="contact" style={{ borderColor: "yellow" }}>
+          <div className="contact" style={{ borderColor: "#E3E733" }}>
             <img src={tim} alt="contact-tim" />
             <div className="contact-info">
               <label className="contact-label">Tim Bedford</label>
@@ -38,7 +38,7 @@ const Contacts = () => {
             </div>
           </div>
           <br></br>
-          <div className="contact" style={{ borderColor: "red" }}>
+          <div className="contact" style={{ borderColor: "#85F22B" }}>
             <img src={tony} alt="contact-tony" />
             <div className="contact-info">
               <label className="contact-label">Tony Chen</label>
@@ -61,10 +61,10 @@ const Contacts = () => {
               </div>
             </div>
           </div>
-          <div className="contact" style={{ borderColor: "orange" }}>
+          <div className="contact" style={{ borderColor: "#004C59" }}>
             <img src={jared} alt="contact-jared" />
             <div className="contact-info">
-              <label className="contact-label">Jared GreenBerg</label>
+              <label className="contact-label">Jared Greenberg</label>
               <p className="contact-position">Head Frontend</p>
               <div className="contact-links">
                 <a
@@ -84,7 +84,7 @@ const Contacts = () => {
               </div>
             </div>
           </div>
-          <div className="contact" style={{ borderColor: "purple" }}>
+          <div className="contact" style={{ borderColor: "#10AB89" }}>
             <img src={maggie} alt="contact-maggie" />
             <div className="contact-info">
               <label className="contact-label">Maggie Yan</label>
