@@ -3,7 +3,7 @@ import "./contact.css";
 import tim from "../../images/tim.jpeg";
 import jared from "../../images/jared.png";
 import tony from "../../images/tony.jpeg";
-import maggie from "../../images/maggie.jpeg";
+import maggie from "../../images/maggie.png";
 import { faGithub, faLinkedin } from "@fortawesome/free-brands-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 

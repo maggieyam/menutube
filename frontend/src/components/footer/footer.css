@@ -29,4 +29,11 @@
   font-size: 35px;
   color: white;
   padding-top: 3px;
+  margin-right: 10px;
+}
+
+.footer-icons:hover {
+  color: rgb(190, 185, 185);
+  transition: 0.5s;
+  transform: scale(1.2);
 }
