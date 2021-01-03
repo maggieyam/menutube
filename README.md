@@ -29,4 +29,4 @@ Filter out your feedpage with videos you want to see or learn from
 
 Some works are still in progress(tags and search feature)
 
-Project is developed by Maggie, Jared, Tim and Tony
+
