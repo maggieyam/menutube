@@ -67,7 +67,7 @@
 }
 
 p.errors-body{
-  color: yellow;
+  color: rgb(248, 6, 6);
 }
 
 .nav-left {
@@ -95,7 +95,7 @@ p.errors-body{
   text-decoration: underline;
   font-weight: 200;
   font-size: 40px;
-  color: rgb(248, 6, 6);
+  color: #F68B38;
   /* background-image: linear-gradient(to bottom right, yellow, red); */
   /* border-radius: 50px; */
   text-align: center;
