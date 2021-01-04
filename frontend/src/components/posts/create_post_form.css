@@ -33,6 +33,7 @@ div.create-post-contents{
   background-repeat: no-repeat;
   overflow: hidden;
   padding-bottom: 20px;
+  overflow: visible;
 }
 
 div > svg {
