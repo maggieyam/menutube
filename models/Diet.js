@@ -1,28 +1,19 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const DietSchema = new Schema({
-    vegetarian: {
-        type: Boolean,
-        default: false,
-    },
-    vegan: {
-        type: Boolean,
-        default: false,
-    },
-    kosher: {
-        type: Boolean,
-        default: false,
-    },
-    halal: {
-        type: Boolean,
-        default: false,
-    },
-    glutenFree: {
-        type: Boolean,
-        default: false,
-    }
-})
+const init = {
+    type: Boolean,
+    default: false
+}
 
-const Diet = mongoose.model('Diet', DietSchema);
+const obj = {};
+
+const dietTags = ["vegetarian", "vegan", "paleo", "keto", "kosher", "halal", "gluten-free", 
+    "lactose-free", "nut-free", "sugar-free"]
+
+dietTags.forEach(tag => obj[tag] = init)
+
+const dietSchema = new Schema(obj)
+
+const Diet = mongoose.model('Diet', dietSchema);
 module.exports = Diet;
