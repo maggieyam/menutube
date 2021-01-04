@@ -1,18 +1,16 @@
 .posts-list {
   width: 100%;
-  padding-top: 15px;
   padding-bottom: 30px;
-  /* margin-left: max(27%, 250px); */
 }
 
 .posts-content {
-  margin-top: 120px;
+  padding-top: 120px;
   background-image: url('./marble.png');
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  height: 100%;
-  /* background: white; */
+  min-height: 100vh;
+
 }
 
 .search-bars div.ui.multiple.search.dropdown {
