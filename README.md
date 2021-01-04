@@ -15,9 +15,10 @@ Schedule your meals with a personal calendar.
 ![Fridge](https://github.com/maggieyam/menutube/blob/media/media/calendar-gif.gif)
 
 Comment some love on your favorite videos!  
-![Comment](https://github.com/maggieyam/menutube/blob/media/media/comment.gif)
-
-# Closeup on the Calendar
+![Comment](https://github.com/maggieyam/menutube/blob/media/media/comment.gif)  
+  
+  
+## Closeup on the Calendar
 Since day one, we envisioned a calendar to help the user with "meal planning" where they can drag recipe tutorial videos into the desired day of the week for quick access. To achieve this effect, we created a wrapper component called **DraggableVideo** that uses the Javascript Drag & Drop API to allow all videos on our site to be used in the calender interface.
 
 ```
