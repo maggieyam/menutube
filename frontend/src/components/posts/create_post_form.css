@@ -5,6 +5,7 @@ div.create-post-contents{
   background-repeat: no-repeat;
   margin-top: 120px;
   padding-top: 20px;
+  height: 100vh;
   padding-bottom: 60px;
 }
 
