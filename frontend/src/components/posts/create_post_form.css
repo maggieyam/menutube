@@ -31,7 +31,6 @@ div.create-post-contents{
   background-size: cover;
   background-attachment: fixed;
   background-repeat: no-repeat;
-  overflow: hidden;
   padding-bottom: 20px;
   overflow: visible;
 }
