@@ -1,5 +1,6 @@
 .saved-content{
-  margin-top: 120px;
+  padding-top: 120px;
+  min-height: 100vh;
   background-image: url('./marble.png');
   background-size: cover;
   background-attachment: fixed;
@@ -30,7 +31,8 @@ ul.posts-list.vertical > div.vedio-border{
   padding-left: 5%;
   font-size: 40px;
   background: #496F75;
-  border-top: 7px solid white;
+  border-top: 2px solid white;
+  text-align: center;
   color: white;
   height: 60px;
 }
