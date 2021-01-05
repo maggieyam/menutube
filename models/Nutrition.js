@@ -1,64 +1,21 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const nutritionchema = new Schema({
-    protein: {
-        type: Number,
-        default: 0,
-    },
-    sodium: {
-        type: Number,
-    },
-    saturatedFat: {
-        type: Number,
-        default: 0,
-    },
-    transFat: {
-        type: Number,
-        default: 0,
-    },
-    carbs: {
-        type: Number,
-        default: 0,
-    },
-    vitaminC: {
-        type: Number,
-        default: 0,
-    },
-    vitaminA: {
-        type: Number,
-        default: 0,
-    },
-    vitaminD: {
-        type: Number,
-        default: 0,
-    },
-    vitaminB: {
-        type: Number,
-        default: 0,
-    },
-    calcium: {
-        type: Number,
-        default: 0,
-    },
-    cholestro: {
-        type: Number,
-        default: 0,
-    },
-    iron: {
-        type: Number,
-        default: 0,
-    },
-    potassium: {
-        type: Number,
-        default: 0,
-    },
-    calories: {
-        type: Number,
-        default: 0,
-    },
-})
+const init = {
+    type: Number,
+    default: 0
+}
 
-const Nutrition = mongoose.model('Nutrition', nutritionchema);
+const obj = {};
+
+const nutritionTags = ["high-protein", "low-sodium", "low-fat", "low-carb", "low-calorie",
+    "low-cholesterol", "high-fiber", "vitamin A", "vitamin B", "vitamin C", "vitamin D",
+    "low-sugar", "calcium", "iron", "potassium", "magnesium"]
+
+nutritionTags.forEach(tag => obj[tag] = init)
+
+const nutritionSchema = new Schema(obj);
+
+const Nutrition = mongoose.model('Nutrition', nutritionSchema);
 
 module.exports = Nutrition;
