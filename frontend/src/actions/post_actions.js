@@ -73,7 +73,7 @@ export const unsavePost = (postId, userId) => (dispatch) => {
 
 export const editPost = (postId, newData) => (dispatch) => {
   return APIUtil.editPost(postId, newData).then((post) => {
-    dispatch(receivePost(post));
+    dispatch(receivePost(post.data));
   });
 };
 
