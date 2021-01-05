@@ -41,7 +41,9 @@ div.edit-post-contents{
 }
 
 .time-hyphen {
-  color: white;
+  color: black;
+  font-weight: 600;
+  margin-top: 20px;
 }
 
 .remove-step-button, #add-step-button {
