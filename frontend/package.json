@@ -37,7 +37,7 @@
     "web-vitals": "^0.2.4"
   },
   "devDependencies": {
-    "redux-logger": "^3.0.6",
+    "redux-logger": "^3.0.6"
   },
   "scripts": {
     "start": "react-app-rewired start",
