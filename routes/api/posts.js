@@ -128,9 +128,19 @@ passport.authenticate("jwt", { session: false }),
     Post
     .findById(req.params.id)
     .then(post => {
-        Object.keys(body).forEach(k => post[k] = body[k]);
+        let nutrition = new Nutrition(body.nutrition) || {};
+        let diet = new Diet(body.diet) || {};
+        let ingredients = new Ingredient(body.ingredients) || {};
+        nutrition.save();
+        diet.save();
+        ingredients.save();  
+        post.nutrition = nutrition;
+        post.diet = diet;
+        post.ingredients = ingredients;
+        post.steps = body.steps;
         post.save()
-        .then((post) => res.json(post))
+        .then((post) => {
+          return res.json(post)})
     })
     .catch(err => res.status(400).json(err))
 });
