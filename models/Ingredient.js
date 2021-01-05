@@ -46,7 +46,7 @@ const ingredientTags = ['bay leaves', 'cayenne pepper', 'crushed red pepper', 'c
   'red currant', 'starfruit', 'strawberry', 'tamarind', 'tangelo', 'tangarine', 'white currant', 'white sapote', 
   'yuzu', 'pizza dough', 'barbeque sauce', 'ketchup', 'mustard', 'sriracha']
 
-ingredientTags.forEach(tag => obj[tag] = init)
+ingredientTags.sort().forEach(tag => obj[tag] = init)
 
 const ingredientSchema = new Schema(obj)
 

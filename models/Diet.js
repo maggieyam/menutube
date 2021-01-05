@@ -8,8 +8,8 @@ const init = {
 
 const obj = {};
 
-const dietTags = ["vegetarian", "vegan", "paleo", "keto", "kosher", "halal", "gluten-free", 
-    "lactose-free", "nut-free", "sugar-free"]
+const dietTags = [  "gluten-free", "halal", "keto", "kosher", "lactose-free", 
+    "nut-free", "paleo", "sugar-free", "vegan", "vegetarian"]
 
 dietTags.forEach(tag => obj[tag] = init)
 

@@ -8,9 +8,9 @@ const init = {
 
 const obj = {};
 
-const nutritionTags = ["high-protein", "low-sodium", "low-fat", "low-carb", "low-calorie",
-    "low-cholesterol", "high-fiber", "vitamin A", "vitamin B", "vitamin C", "vitamin D",
-    "low-sugar", "calcium", "iron", "potassium", "magnesium"]
+const nutritionTags = ["calcium", "high-fiber", "high-protein", "iron", "low-calorie", "low-carb", 
+    "low-cholesterol", "low-fat", "low-sodium", "low-sugar", "magnesium", "potassium", "vitamin A", 
+    "vitamin B", "vitamin C", "vitamin D"]
 
 nutritionTags.forEach(tag => obj[tag] = init)
 
