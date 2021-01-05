@@ -44,7 +44,7 @@ const ingredientTags = ['bay leaves', 'cayenne pepper', 'crushed red pepper', 'c
   'clementine', 'mandarine', 'tangerine', 'papaya', 'passionfruit', 'peach', 'pear', 'persimmon', 'plantain', 
   'plum', 'prune,', 'pineapple', 'pluot', 'pomegranate', 'pomelo', 'quince', 'raspberry', 'rambutan', 
   'red currant', 'starfruit', 'strawberry', 'tamarind', 'tangelo', 'tangarine', 'white currant', 'white sapote', 
-  'yuzu']
+  'yuzu', 'pizza dough', 'barbeque sauce', 'ketchup', 'mustard', 'sriracha']
 
 ingredientTags.forEach(tag => obj[tag] = init)
 
