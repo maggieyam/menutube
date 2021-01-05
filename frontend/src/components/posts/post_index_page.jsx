@@ -24,7 +24,7 @@ const PostIndex = () => {
   
   const optionify = (category) => {
     const options = Object.keys(category).map(tag => {
-      return {key: tag, text: tag[0].toUpperCase() + tag.slice(1), value: tag}
+      return {key: tag, text: tag[0] + tag.slice(1), value: tag}
     })
     options.pop();
     return options
