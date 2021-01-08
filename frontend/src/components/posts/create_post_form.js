@@ -63,17 +63,17 @@ class CreatePostForm extends React.Component {
     uploadFile(video, config).then(
       data => {
 
-        const post = {
+        const postData = {
           title: this.state.title,
           url: data.location,
           nutrition: this.state.nutrition,
           diet: this.state.diet,
           ingredients: this.state.ingredients
         }
-        this.props.createPost(post).then(() => {
+        this.props.createPost(postData).then(({ post }) => {
            this.props.loadingOff();
            this.props.clearPostErrors();
-           this.props.history.push('/feed')
+           this.props.history.push(`/show/${post.data._id}`)
         })
       }
 
