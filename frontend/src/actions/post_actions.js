@@ -57,7 +57,9 @@ export const fetchUserPosts = (userId) => (dispatch) => {
 };
 
 export const fetchPost = (postId) => (dispatch) =>
-  APIUtil.fetchPost(postId).then((post) => dispatch(receivePost(post.data)));
+  APIUtil.fetchPost(postId).then((post) => {
+    dispatch(receivePost(post.data))
+  });
 
 export const savePost = (postId, body) => (dispatch) => {
   return APIUtil.savePost(postId, body).then((user) => {

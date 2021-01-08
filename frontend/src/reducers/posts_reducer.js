@@ -18,6 +18,7 @@ export default (state = {}, action) => {
     case RECEIVE_POSTS:
       return action.posts;
     case RECEIVE_POST:
+      if (!action.post) return state;
       return { ...state, [action.post._id]: action.post };
     case RECEIVE_COMMENT:
       nextState = Object.assign({}, state);
