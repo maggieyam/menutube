@@ -52,6 +52,7 @@ class Slot extends React.Component {
   }
 
   storedVideo(){
+
     return (
       <DraggableVideo id={this.props.postId} date={this.props.date} idx={this.props.idx} contents={this.videoPlayer()}/>
     )
@@ -102,8 +103,12 @@ class Slot extends React.Component {
         onDrop={this.addVideo} 
         onDragOver={this.dragOver}
         ref={this.slotRef}>
+
+        {(!this.props.post && this.props.postId) ? <p>Oops! Video no longer exists.</p> : "" }
+
         {(this.props.post) ? this.storedVideo() : null}
-      {this.props.post ? <button onClick={this.removeVideo}>{'\u00D7'}</button> : null}
+
+      {this.props.postId ? <button onClick={this.removeVideo}>{'\u00D7'}</button> : null}
       </div>
     )
   }
