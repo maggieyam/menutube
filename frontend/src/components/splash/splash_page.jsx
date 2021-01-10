@@ -26,7 +26,15 @@ class SplashPage extends React.Component {
                 Not sure what to eat?
               </span>
               <span className="splash-text2">
-                Create recipe tutorials!
+                Find inspiration for your next meal.
+              </span>
+            </div>
+             <div className="splash-desc version-b">
+              <span className="splash-text">
+                Made something delicious?
+              </span>
+              <span className="splash-text2">
+                Create and share a recipe tutorial.
               </span>
             </div>
             <div
